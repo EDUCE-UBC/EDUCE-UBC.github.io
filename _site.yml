@@ -3,9 +3,9 @@ navbar:
   title: "EDUCE"
   left:
   - text: Home
-    href: Index.html
+    href: https://educe-ubc.github.io/index.html
   - text: About
-    href: About.html
+    href: https://educe-ubc.github.io/about.html
   - text: Course Information
     menu:
     - text: Page A
