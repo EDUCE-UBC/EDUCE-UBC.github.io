@@ -7,6 +7,8 @@ navbar:
     href: index.html
   - text: About
     href: about.html
+  - text: Course Compiler
+    href: https://istrykeri.shinyapps.io/course_knitter/
 output:
   html_document:
     lib_dir: site_libs
