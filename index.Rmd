@@ -1,5 +1,6 @@
 ---
 title: "EDUCE"
+output: html_document
 ---
 
 <style type="text/css">
@@ -28,3 +29,5 @@ R Markdown has many available output formats including [HTML](http://rmarkdown.r
 
 </div>
 <div class="col-sm-6">
+
+![](Images/Pic1.jpg)
