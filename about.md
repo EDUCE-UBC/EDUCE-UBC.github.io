@@ -2,6 +2,7 @@
 title: "EDUCE Frequently Asked Questions"
 output: 
   html_document:
+    keep_md: TRUE
     toc: true
     toc_depth: 4
     toc_float:
