@@ -1,1 +1,4 @@
-# EDUCE-UBC.github.io Test 123
+README
+====================
+
+The website for EDUCE
