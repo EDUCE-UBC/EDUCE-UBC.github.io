@@ -3,23 +3,9 @@ navbar:
   title: "EDUCE"
   left:
   - text: Home
-    href: https://educe-ubc.github.io/index.html
+    href: index.html
   - text: About
-    href: https://educe-ubc.github.io/about.html
-  - text: Course Information
-    menu:
-    - text: Page A
-      href: page_a.html
-    - text: Page B
-      href: page_b.html
-    - text: Page C
-      href: page_c.html
-    - text: Page D
-      href: page_d.html
-  - text: Course Compiler
-    href: http://127.0.0.1:7125/
-  - text: Data Normalization
-    href: http://127.0.0.1:6620/
+    href: about.html
   - text: Test Link
     href: https://www.google.com/?gws_rd=ssl
 output_dir: _site
