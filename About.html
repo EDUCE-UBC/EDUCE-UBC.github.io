@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>EDUCE Frequently Asked Questions</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">EDUCE</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="Index.html">Home</a>
+</li>
+<li>
+  <a href="About.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Course Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="page_a.html">Page A</a>
+    </li>
+    <li>
+      <a href="page_b.html">Page B</a>
+    </li>
+    <li>
+      <a href="page_c.html">Page C</a>
+    </li>
+    <li>
+      <a href="page_d.html">Page D</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="http://127.0.0.1:7125/">Course Compiler</a>
+</li>
+<li>
+  <a href="http://127.0.0.1:6620/">Data Normalization</a>
+</li>
+<li>
+  <a href="https://www.google.com/?gws_rd=ssl">Test Link</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">EDUCE Frequently Asked Questions</h1>
+
+</div>
+
+
+<div id="what-is-educe" class="section level1">
+<h1>What is EDUCE?</h1>
+<p>Experiential Data Science for Undergraduate Cross-disciplinary Education (EDUCE)</p>
+<p>EDUCE seeks to develop a uniform experiential learning framework that is cross-disciplinary and collaborative to equip undergraduate students in the life sciences with basic competency and literacy in data science as it pertains to microbiome sequence information. To achieve this, EDUCE will develop and implement a mechanism to augment undergraduate training in the Department of Microbiology &amp; Immunology (MICB) with basic analyses and statistical principles and microbiome data processing and interpretation – skills that transcend any one course in the department.</p>
+</div>
+<div id="what-is-course-compiler" class="section level1">
+<h1>What is Course Compiler?</h1>
+<p>Here you can select and compile all the data science modules for either teaching purposes and/or self-learning purposes. Select the courses that best fit your interests/curriculum and have the Course Compiler Shiny App knit it for you. We will also provide the source code for generating the arbitrary knitted files and enable you to customize courses with your own files. More experienced data science instructors will have access to more benefits, so we encourage you to learn the basics of RStudio to maximize your benefits!</p>
+<div id="what-course-compiler-offers" class="section level4">
+<h4>What Course Compiler Offers:</h4>
+<ul>
+<li>Ability to select and knit courses that interest you and/or fit your teaching plans</li>
+<li>Ability to select the HTML format for novice data science instructors or the ZIP format for more experienced data science instructors (Source code will be provided in the ZIP format for you to use and personalize your own courses)</li>
+<li>More experienced data science instructors will have access to knitted files that contain a table of content for easier browsing</li>
+</ul>
+</div>
+<div id="provided-files-in-zip-format" class="section level4">
+<h4>Provided Files in ZIP Format:</h4>
+<ul>
+<li>Rmd_Output = All the courses that you selected</li>
+<li>Rmd_Master_File = Master file containing R children for all the knitted courses</li>
+<li>User_File = Source code used to generate all the courses that you want</li>
+</ul>
+</div>
+<div id="instructions-for-knitting-your-own-personalized-courses" class="section level4">
+<h4>Instructions for knitting your own personalized courses:</h4>
+<p>To knit your own courses, select the courses that you want and then select the ZIP format in Course Compiler. To personalize the knitted files with your own Rmd files, put all the files that you want to knit into the folder “Rmd_Output” and knit the “User_File.Rmd”. Both of which are provided from the ZIP format. This will generate a “Rmd_Master_File.Rmd”, which contains all the R children of the files that you want knitted. This makes it easier if you wanted to knit multiple Rmd files together.</p>
+</div>
+</div>
+<div id="what-is-data-normalization" class="section level1">
+<h1>What is Data Normalization?</h1>
+<p>The Data Normalization Shiny App provides an interactive way to learn the various methods of normalization in a tabular and graphical way. Novice data science instructors will be provided some basic files to experiment with and more experienced data science instructors will have the ability to use their own files to do some more in-depth experimentation and manipulation of data via the graph inputs (Number of OTU/ASV to Display, Number of Columns to Display, and Random Generator Seed).</p>
+<div id="file-inputs-for-data-normalization" class="section level4">
+<h4>File Inputs For Data Normalization:</h4>
+<ul>
+<li>Text/CSV</li>
+<li>Text/Plain</li>
+<li>CSV</li>
+</ul>
+</div>
+<div id="what-are-the-validate-data-and-test-app-version-buttons" class="section level4">
+<h4>What are the “Validate Data” and “Test App Version” Buttons?</h4>
+<p>More experienced data science instructors may help us test the Data Normalization Shiny app version by providing us with their OTU/ASV files for integration testing. To submit your file(s), upload your file and press the “Validate Data” button. This will save a copy of your file on our server and we may use it for future tests. To determine if the current version of the app is working as intended, click the “Test App Version” button and you will receive a notification indicating whether the current version of the app is working as intended or not.</p>
+</div>
+<div id="advantagesdisadvantages-of-methods-of-normalization" class="section level4">
+<h4>Advantages/Disadvantages of Methods of Normalization:</h4>
+<p>Percent Relative Abundance (PRA) Desc</p>
+<p>Advantages:</p>
+<ul>
+<li>Can easily conceptualize data without overthinking</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Difficult to comprehend complex data sets</li>
+</ul>
+<p><a href="https://sciencing.com/advantages-disadvantages-frequency-table-12000027.html" class="uri">https://sciencing.com/advantages-disadvantages-frequency-table-12000027.html</a></p>
+<p>Random Subsampling (RS) Desc</p>
+<p>Advantages:</p>
+<ul>
+<li>Can be repeated an indefinite number of times</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Test sets are not independently drawn with respect to underlying distribution (Can lead to increased chance of Type I error)
+<ul>
+<li>Rarefied counts remain overdispersed relaitve to Poisson model (Increase in Type I error)</li>
+</ul></li>
+<li><p>Rarefied counts represent only a small fraction of original data (Can lead to increased chance of Type II error)</p></li>
+<li><p>Requires arbitrary selection of library size minimum threshold that affects downstream inference</p></li>
+<li><p>Random step in rarefying is unnecessary and adds artificial uncertainty</p></li>
+</ul>
+<p><a href="https://www.coursehero.com/file/pvuecg/Random-subsampling-and-k-fold-cross-validation-are-two-common-methods-of-resam/" class="uri">https://www.coursehero.com/file/pvuecg/Random-subsampling-and-k-fold-cross-validation-are-two-common-methods-of-resam/</a></p>
+<p><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531#s4" class="uri">http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003531#s4</a></p>
+<p>Multiple Imputation (MI) Desc</p>
+<p>Advantages:</p>
+<ul>
+<li><p>Reduced bias</p></li>
+<li><p>Improve validity</p></li>
+<li><p>Increase precision</p></li>
+<li><p>Result in robust statistics (Resistant to outliers)</p></li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Must make a few required statistical assumptions:
+<ul>
+<li>Data is missing at random?</li>
+<li>Multivariate normal distribution? (For some of the modeling methods)</li>
+</ul></li>
+<li><p>Need to transform variables to approximate normal distribution before running imputation procedure (If data isn’t normally distributed)</p></li>
+<li><p>Incorrect model choices or exclusion of vital data points may lead to more bias</p></li>
+</ul>
+<p><a href="http://www.statisticshowto.com/multiple-imputation/" class="uri">http://www.statisticshowto.com/multiple-imputation/</a></p>
+<p><a href="https://www.quora.com/How-do-you-handle-missing-data-statistics-What-imputation-techniques-do-you-recommend-or-follow" class="uri">https://www.quora.com/How-do-you-handle-missing-data-statistics-What-imputation-techniques-do-you-recommend-or-follow</a></p>
+<p>Other <a href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0237-y#Sec4" class="uri">https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0237-y#Sec4</a></p>
+<p><a href="https://www-jstor-org.ezproxy.library.ubc.ca/stable/pdf/2400321.pdf?refreqid=excelsior%3A48f959307c1ea51f5620e54d748be01c">https://www-jstor-org.ezproxy.library.ubc.ca/stable/pdf/2400321.pdf?refreqid=excelsior%3A48f959307c1ea51f5620e54d748be01c</a></p>
+<p><a href="https://books.google.ca/books?id=LAO7N_0YlQsC&amp;pg=PA292&amp;lpg=PA292&amp;dq=advantage+and+disadvantage+of+rarefaction&amp;source=bl&amp;ots=wov5AC1C0q&amp;sig=DTH2PDSLVarrT81h7Th2wSCTEdI&amp;hl=en&amp;sa=X&amp;ved=0ahUKEwjB8-LIw5fcAhUhCjQIHWITBQUQ6AEIMTAB#v=onepage&amp;q=advantage%20and%20disadvantage%20of%20rarefaction&amp;f=false">https://books.google.ca/books?id=LAO7N_0YlQsC&amp;pg=PA292&amp;lpg=PA292&amp;dq=advantage+and+disadvantage+of+rarefaction&amp;source=bl&amp;ots=wov5AC1C0q&amp;sig=DTH2PDSLVarrT81h7Th2wSCTEdI&amp;hl=en&amp;sa=X&amp;ved=0ahUKEwjB8-LIw5fcAhUhCjQIHWITBQUQ6AEIMTAB#v=onepage&amp;q=advantage%20and%20disadvantage%20of%20rarefaction&amp;f=false</a></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
