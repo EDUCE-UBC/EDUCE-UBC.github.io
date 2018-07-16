@@ -1,9 +1,14 @@
-name: "EDUCE"
-output_dir: "."
+name: EDUCE
+output_dir: "_site"
 navbar:
-  title: "EDUCE"
+  title: EDUCE
   left:
-    - text: "Home"
-      href: index.html
-    - text: "About"
-      href: about.html
+  - text: Home
+    href: index.html
+  - text: About
+    href: about.html
+output:
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
+
