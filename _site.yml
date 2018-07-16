@@ -1,16 +1,9 @@
-name: EDUCE
-output_dir: _site
+name: "EDUCE"
+output_dir: "."
 navbar:
   title: "EDUCE"
   left:
-  - text: Home
-    href: index.html
-  - text: About
-    href: about.html
-  - text: Test Link
-    href: https://www.google.com/?gws_rd=ssl
-output:
-  html_document:
-    lib_dir: site_libs
-    self_contained: no
-
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
