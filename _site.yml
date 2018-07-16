@@ -1,4 +1,5 @@
 name: EDUCE
+output_dir: _site
 navbar:
   title: "EDUCE"
   left:
@@ -8,7 +9,6 @@ navbar:
     href: about.html
   - text: Test Link
     href: https://www.google.com/?gws_rd=ssl
-output_dir: _site
 output:
   html_document:
     lib_dir: site_libs
