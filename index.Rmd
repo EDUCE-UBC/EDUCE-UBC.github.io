@@ -1,33 +1,79 @@
 ---
-title: "EDUCE"
 output: html_document
 ---
 
-<style type="text/css">
-.title {
-  display: none;
+<style>
+.center-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
 
-#getting-started img {
-  margin-right: 10px;
+.center-txt {
+    text-align: center;
+    margin: auto;
+    width: 100%;
 }
 
+.box {
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 20px;
+    color: white;
+    height:25px;
+    background-color: #000000;
+}
+
+.column {
+    color: white;
+    float: left;
+    width: 50%;
+    background-color: #1E392A;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 </style>
 
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
+<img src="Images/EDUCE_Logo.png" alt="EDUCE Logo MIA D:" class="center-logo"> 
 
-# **R Markdown**
-
-### *Dynamic Documents for R* {style="padding-top: 0px;"}
-
-R Markdown is an authoring format that enables easy creation of dynamic documents, presentations, and reports from R. It combines the core syntax of [markdown](https://daringfireball.net/projects/markdown/) (an easy to write plain text format) with embedded R code chunks that are run so their output can be included in the final document. 
-
-R Markdown documents are fully reproducible (they can be automatically regenerated whenever underlying R code or data changes).
-
-R Markdown has many available output formats including [HTML](http://rmarkdown.rstudio.com/html_document_format.html), [PDF](http://rmarkdown.rstudio.com/pdf_document_format.html), [MS Word](http://rmarkdown.rstudio.com/word_document_format.html), [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html), [HTML5 slides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html), [Tufte handouts](http://rmarkdown.rstudio.com/tufte_handout_format.html), [books](https://bookdown.org), [dashboards](http://rmarkdown.rstudio.com/flexdashboard/), and [websites](http://rmarkdown.rstudio.com/rmarkdown_websites.html).
-
+<div class="center-txt">
+  <p>Experiential Data science for Undergraduate Cross-disciplinary Education </p>
+  <p>Part of ECOSCOPE at the University of British Columbia</p>
+  <p>Vancouver, BC, Canada</p>
 </div>
-<div class="col-sm-6">
 
-![](Images/Pic1.jpg)
+<div class="box">
+  <div class="contact-title">
+  <b>Contact<b/>
+  </div>
+</div>
+<div class="center-txt">
+  <div class="column">
+  <p>EDUCE Program</p>
+  <p>GitHub: https://github.com/EDUCE-UBC</p>
+  <p>Website: https://educe-ubc.github.io</p>
+  <p>Email: info.ecoscope@ubc.ca</p>
+  </div>
+  <div class="column">
+  <p>ECOSCOPE Program</p>
+  <p>Twitter: https://twitter.com/ecoscope_ubc</p>
+  <p>Website: http://ecoscope.ubc.ca/</p>
+  <p>Email: info.ecoscope@ubc.ca</p>
+  </div>
+</div>
+      
+
+
+
+
+
+
+
