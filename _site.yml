@@ -9,6 +9,8 @@ navbar:
     href: about.html
   - text: Course Compiler
     href: https://istrykeri.shinyapps.io/course_knitter/
+  - text: Contact Us
+    href: contact.html
 output:
   html_document:
     lib_dir: site_libs
