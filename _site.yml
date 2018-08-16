@@ -8,9 +8,9 @@ navbar:
   - text: About
     href: about.html
   - text: Course Compiler
-    href: https://educe-ubc.shinyapps.io/course_knitter/
+    href: https://ubc-educe.shinyapps.io/course_knitter/
   - text: Data Manipulator
-    href: https://educe-ubc.shinyapps.io/data_manipulator/ 
+    href: https://ubc-educe.shinyapps.io/data_manipulator/ 
   - text: Contact Us
     href: contact.html
 output:
