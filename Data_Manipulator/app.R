@@ -33,8 +33,6 @@ ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"),
                               # Return to EDUCE Button ----
                               actionButton("return", label = "Return to EDUCE", icon = icon("home"), 
                                            onclick ="location.href='https://educe-ubc.github.io/';"),
-                              #actionButton("validate", label = "Validation Data", icon = icon("archive")),
-                              #actionButton("testrun", label = "Test App Version", icon = icon("archive")),
                               
                               # Horizontal Line ----
                               tags$hr(),
@@ -84,8 +82,6 @@ ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"),
                               # Return to EDUCE Button ----
                               actionButton("return", label = "Return to EDUCE", icon = icon("home"), 
                                            onclick ="location.href='https://educe-ubc.github.io/';"),
-                              actionButton("validate", label = "Validation Data", icon = icon("archive")),
-                              actionButton("testrun", label = "Test App Version", icon = icon("archive")),
                               
                               # Horizontal Line ----
                               tags$hr(),
@@ -215,48 +211,6 @@ server <- function(input, output, session) {
     req(input$plotData)
     summary(inData())
   })
-  
-  # When the Validation button is clicked, save the form data ----
-  observeEvent(input$validate, {
-    storageFull <- storageCheck()
-    if (storageFull) {
-      shinyalert(title = 'Thank you for offering your data for our validation testing! Unfortunately we do not have the capacity to store these files.', animation = FALSE)
-    }
-    req(input$normData, !storageFull)
-    tryCatch({
-      if (input$rng != 0) {
-        # Save validation data ----
-        saveData(sData(), "Validation_Norm_Data", input$rng)
-        saveData(dfData(), "Validation_Data", input$rng)
-        
-        shinyalert(title = "Data saved for validation!", animation = FALSE)
-      }
-    },
-    error = function(cond) {
-      shinyalert(title = paste("Invalid Validation Data Format or Content Error. Please check the contents of the file or whether the correct settings were selected.", 
-                               "-----Original Error Message-----", cond, sep = "\n"), animation = FALSE)
-      # Choose a return value in case of error
-      return(NA)
-    },
-    warning = function(cond) {
-      shinyalert(title = paste("Invalid Validation Data Format or Content Error. Please check the contents of the file or whether the correct settings were selected.", 
-                               "-----Original Error Message-----", cond, sep = "\n"), animation = FALSE)
-      # Choose a return value in case of warning
-      return(NULL)
-    })
-  })
-  
-  # When test button is clicked, check whether files are the same for current app version ----
-  observeEvent(input$testrun, {
-    tests <- loadData()
-    if (isTRUE(tests)) {
-      shinyalert(title = "Current App Version Passes Validation!", animation = FALSE)
-    }
-    else {
-      files <- paste(tests, collapse = ", ")
-      shinyalert(title = paste("Current App Version Failed Validation. Please Check Test Files or App Code.", "Tests failed:", files, sep = "\n"), animation = FALSE)
-    }
-  })  
   
   # Reactive Table Variable ----
   dfData <- reactive({
