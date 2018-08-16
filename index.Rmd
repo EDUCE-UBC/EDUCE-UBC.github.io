@@ -1,0 +1,22 @@
+---
+output: html_document
+---
+
+<style>
+.center-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+</style>
+
+<img src="Images/EDUCE_Logo.png" alt="EDUCE Logo MIA D:" class="center-logo"> 
+      
+
+
+
+
+
+
+
