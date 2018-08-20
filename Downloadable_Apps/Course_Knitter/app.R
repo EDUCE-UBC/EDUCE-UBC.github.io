@@ -109,6 +109,11 @@ server <- function(input, output, session) {
       do.call(file.remove, list(list.files("Rmd_Output", full.names = TRUE)))
       unlink("Download_Files", recursive = TRUE)
       
+      # Create Rmd_Output folder if it doesn't exist ----
+      if (!dir.exists("./Rmd_Output")) {
+        dir.create("./Rmd_Output")
+      }
+      
       # Input courses based on user ----
       input_list = list()
       input_list <- append(input$courses, input_list)
