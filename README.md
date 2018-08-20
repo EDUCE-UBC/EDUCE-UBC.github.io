@@ -1,8 +1,8 @@
 # Welcome to the EDUCE website!
 Here are the static files for the website. 
 
-The Shiny Apps for Course Compiler and Data Normalization are located in the private repo on Github.
+The live Shiny Apps for Course Compiler and Data Normalization are located in the private repo on Github.
 
-The local user version is available to the public.
+Sample files for novice users can be found under the folder "Sample_Files".
 
-Demo version is currently limited in usage (25 Hrs/Month and 2 GB storage max for storing test files)
+The downloadable version of the apps are available here in the public repo under the folder "Downloadable_Apps".
