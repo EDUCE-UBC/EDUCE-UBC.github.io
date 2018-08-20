@@ -21,11 +21,13 @@ Here you can select and compile all the data science modules for either teaching
 
 For better performance, it is better to download the app and run it locally on your machine: 
 
-1) Download the ["Course Compiler"](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder from our public repo on Github.
+1) Go to the [Course Compiler](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
-2) Open the app.R file in RStudio.
+2) Copy the link and paste it at [Gitzip](https://kinolien.github.io/gitzip/) (Top right corner beside the key icon) to download.
 
-3) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
+3) Open the app.R file in RStudio.
+
+4) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
 
 ### What Course Compiler Offers
 - Ability to select and knit courses that interest you and/or fit your teaching plans.
@@ -61,11 +63,13 @@ Novice data science instructors will be provided some basic files from Github to
 
 For better performance, it is better to download the app and run it locally on your machine: 
 
-1) Download the ["Data Manipulator"](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder from our public repo on Github.
+1) Go to the [Data Manipulator](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
-2) Open the app.R file in RStudio.
+2) Copy the link and paste it at [Gitzip](https://kinolien.github.io/gitzip/) (Top right corner beside the key icon) to download.
 
-3) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
+3) Open the app.R file in RStudio.
+
+4) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
 
 ### File Inputs For Data Manipulator
 - Data Plotter:
