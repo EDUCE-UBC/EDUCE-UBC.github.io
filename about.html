@@ -321,7 +321,7 @@ div.tocify {
 <div id="what-is-course-compiler" class="section level1">
 <h1>What is Course Compiler?</h1>
 <p>Here you can select and compile all the data science modules for either teaching purposes and/or self-learning purposes. Select the courses that best fit your interests/curriculum and have the Course Compiler Shiny App knit it for you. We will also provide the source code for generating the arbitrary knitted files and enable you to customize courses with your own files. More experienced data science instructors will have access to more functions, so we encourage you to learn the basics of RStudio.</p>
-<p>For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio):</p>
+<p>For better performance, veteran instructors can download the app and run it locally on their machine (Requires RStudio):</p>
 <ol style="list-style-type: decimal">
 <li><p>Go to the <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps">Course Compiler</a> app folder in our public repo on Github.</p></li>
 <li><p>Copy the link and paste it at <a href="https://kinolien.github.io/gitzip/">Gitzip</a> (Top right corner beside the key icon) to download.</p></li>
@@ -344,15 +344,15 @@ div.tocify {
 <li>User_File = Source code used to generate all the courses that you want.</li>
 </ul>
 </div>
-<div id="how-do-i-knit-my-own-courses" class="section level3">
-<h3>How do I knit my own courses?</h3>
-<p>To knit your own courses with your own files:</p>
+<div id="how-do-i-create-courses-with-my-own-rmd-files" class="section level3">
+<h3>How do I create courses with my own Rmd files?</h3>
+<p>To create courses with your own Rmd files:</p>
 <ol style="list-style-type: decimal">
 <li>Select the courses offered by EDUCE in Course Compiler.</li>
 <li>Select the ZIP format for download.</li>
 <li>After downloading, extract the files/folders.</li>
 <li>Put all the files that you want to knit into the folder “Rmd_Output”.</li>
-<li>Knit the “User_File.Rmd”, which will generate a “Rmd_Master_File.Rmd” that contains all the R children of the files that you want knitted.</li>
+<li>Knit the “User_File.Rmd”, which will generate a “Rmd_Master_File.Rmd” that contains all the R children of the files.</li>
 </ol>
 </div>
 </div>
@@ -368,7 +368,7 @@ div.tocify {
 </ul></li>
 </ul>
 <p>Novice data science instructors will be provided some basic files from Github to experiment with and more experienced data science instructors will have the ability to use their own files to do some more in-depth experimentation and manipulation of data via the graph inputs (Number of OTU/ASV to Display, Number of Columns to Display, and Random Generator Seed). The Shiny app will also allow users to download the normalized data as text files (Note: Only Percent Relative Abundance and Random Subsampling are in the app due to computation limitations).</p>
-<p>For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio):</p>
+<p>For better performance, veteran instructors can download the app and run it locally on their machine (Requires RStudio):</p>
 <ol style="list-style-type: decimal">
 <li><p>Go to the <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps">Data Manipulator</a> app folder in our public repo on Github.</p></li>
 <li><p>Copy the link and paste it at <a href="https://kinolien.github.io/gitzip/">Gitzip</a> (Top right corner beside the key icon) to download.</p></li>
@@ -404,10 +404,7 @@ div.tocify {
 <div id="potential-benefits" class="section level4">
 <h4>Potential Benefits:</h4>
 <ul>
-<li>Can easily conceptualize data without overthinking [8]:
-<ul>
-<li>It is easier dealing with percentages than dealing with actual numbers without context.</li>
-</ul></li>
+<li>Can easily conceptualize data without overthinking [8]: Dealing with percentages vs. actual numbers without context.</li>
 <li>Easy to transform data:
 <ul>
 <li>[Number of observations for each data point] / [Total number of observations for each group of data points]</li>
@@ -504,7 +501,7 @@ div.tocify {
 <p>[2] Anonymous. Big Bang Integration Testing. <a href="http://www.professionalqa.com/big-bang-integration-testing" class="uri">http://www.professionalqa.com/big-bang-integration-testing</a> (2018).</p>
 <p>[3] Easterbrook S. Testing Strategies. <a href="http://www.cs.toronto.edu/~sme/CSC302/notes/17-Testing2.pdf" class="uri">http://www.cs.toronto.edu/~sme/CSC302/notes/17-Testing2.pdf</a> (2018).</p>
 <p>[4] Borgatti S. <a href="http://www.analytictech.com/ba762/handouts/normalization.htm" class="uri">http://www.analytictech.com/ba762/handouts/normalization.htm</a> (2018).</p>
-<p>[5] Daniel Aguirre de Cárcer, Denman SE, McSweeney C, Morrison M. Evaluation of Subsampling-Based Normalization Strategies for Tagged High-Throughput Sequencing Data Sets from Gut Microbiomes. Applied and Environmental Microbiology. 2011; 77: 8795-8798.</p>
+<p>[5] Daniel Aguirre de CÃ¡rcer, Denman SE, McSweeney C, Morrison M. Evaluation of Subsampling-Based Normalization Strategies for Tagged High-Throughput Sequencing Data Sets from Gut Microbiomes. Applied and Environmental Microbiology. 2011; 77: 8795-8798.</p>
 <p>[6] Socratic. How do species richness and relative abundance of species affect species diversity? <a href="https://socratic.org/questions/how-do-species-richness-and-relative-abundance-of-species-affect-species-diversi" class="uri">https://socratic.org/questions/how-do-species-richness-and-relative-abundance-of-species-affect-species-diversi</a> (2018).</p>
 <p>[7] Percentage Frequency Distribution. Encyclopedia of Survey Research Methods. 2008.</p>
 <p>[8] Reid A. Advantages &amp; Disadvantages of a Frequency Table. <a href="https://sciencing.com/advantages-disadvantages-frequency-table-12000027.html" class="uri">https://sciencing.com/advantages-disadvantages-frequency-table-12000027.html</a> (2018).</p>

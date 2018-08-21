@@ -19,7 +19,7 @@ EDUCE seeks to develop a uniform experiential learning framework that is cross-d
 
 Here you can select and compile all the data science modules for either teaching purposes and/or self-learning purposes. Select the courses that best fit your interests/curriculum and have the Course Compiler Shiny App knit it for you. We will also provide the source code for generating the arbitrary knitted files and enable you to customize courses with your own files. More experienced data science instructors will have access to more functions, so we encourage you to learn the basics of RStudio.
 
-For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio): 
+For better performance, veteran instructors can download the app and run it locally on their machine (Requires RStudio): 
 
 1) Go to the [Course Compiler](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
@@ -40,15 +40,15 @@ For better performance, veteran data science instructors can download the app an
   - Rmd_Master_File = Master file containing R children for all the knitted courses.
   - User_File = Source code used to generate all the courses that you want.
 
-### How do I knit my own courses?
+### How do I create courses with my own Rmd files?
 
-To knit your own courses with your own files:
+To create courses with your own Rmd files:
 
 1) Select the courses offered by EDUCE in Course Compiler.
 2) Select the ZIP format for download. 
 3) After downloading, extract the files/folders.
 4) Put all the files that you want to knit into the folder "Rmd_Output".
-5) Knit the "User_File.Rmd", which will generate a "Rmd_Master_File.Rmd" that contains all the R children of the files that you want knitted.
+5) Knit the "User_File.Rmd", which will generate a "Rmd_Master_File.Rmd" that contains all the R children of the files.
 
 # What is Data Manipulator?
 
@@ -61,7 +61,7 @@ The Data Manipulator Shiny App has two functionalities:
 
 Novice data science instructors will be provided some basic files from Github to experiment with and more experienced data science instructors will have the ability to use their own files to do some more in-depth experimentation and manipulation of data via the graph inputs (Number of OTU/ASV to Display, Number of Columns to Display, and Random Generator Seed). The Shiny app will also allow users to download the normalized data as text files (Note: Only Percent Relative Abundance and Random Subsampling are in the app due to computation limitations).
 
-For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio): 
+For better performance, veteran instructors can download the app and run it locally on their machine (Requires RStudio): 
 
 1) Go to the [Data Manipulator](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
@@ -93,8 +93,7 @@ Percent Relative Abundance is a technique that transforms the data into percenta
 This technique first identifies the total number of observations represented in each group, then each data point is divided by the total number of observations calculated earlier. The sum of all the percentages in each group should equal 100% [7].
 
 #### Potential Benefits:
-- Can easily conceptualize data without overthinking [8]: 
-    - It is easier dealing with percentages than dealing with actual numbers without context.
+- Can easily conceptualize data without overthinking [8]: Dealing with percentages vs. actual numbers without context.
 - Easy to transform data:
     - [Number of observations for each data point] / [Total number of observations for each group of data points]
 
