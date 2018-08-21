@@ -231,11 +231,15 @@ server <- function(input, output, session) {
       shinyalert(title = 'Thank you for offering your data for our validation testing! Unfortunately we do not have the capacity to store these files.', animation = FALSE)
     }
     
-    if (input$email == "") {
-      shinyalert(title = 'When submitting your data, please input your email.', animation = FALSE)
+    if (input$email == "" || !grepl("\\S+@\\S+\\.\\S+", input$email)) {
+      validEmail <- FALSE
+      shinyalert(title = 'When submitting your data, please input a valid email as this data will be stored.', animation = FALSE)
+    }
+    else {
+      validEmail <- TRUE
     }
     
-    req(input$normData, input$email != "", !storageFull)
+    req(input$normData, validEmail, !storageFull)
     
     # Error catching for valid file contents ----
     tryCatch({

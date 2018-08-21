@@ -130,12 +130,12 @@ loadData <- function() {
   errorFiles <- c()
   # Compare each file to determine if current app version does the same thing ----
   for (i in 1:length(Origin_Names)) {
-    df <- drop_read_csv(file.path("Validation_Data", Origin_Names[1]), header = TRUE, sep = "\t")
-    rng <- gsub("_\\d*_\\S*.txt", "", Origin_Names[1])
+    df <- drop_read_csv(file.path("Validation_Data", Origin_Names[i]), header = TRUE, sep = "\t")
+    rng <- gsub("_\\d*_\\S*.txt", "", Origin_Names[i])
     rng <- gsub("Test\\d*_RNG", "", rng)
     rng <- as.numeric(gsub("_\\S*", "", rng))
     data <- sampler(df, rng)
-    test_data <- as.matrix(drop_read_csv(file.path("Validation_Norm_Data", Norm_Names[1]), header = TRUE, sep = "\t"))
+    test_data <- as.matrix(drop_read_csv(file.path("Validation_Norm_Data", Norm_Names[i]), header = TRUE, sep = "\t"))
     if (all(data == test_data)) {
       testResult <- c(testResult, TRUE)
     }
