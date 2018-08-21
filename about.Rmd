@@ -49,6 +49,7 @@ To create courses with your own Rmd files:
 3) After downloading, extract the files/folders.
 4) Put all the files that you want to knit into the folder "Rmd_Output".
 5) Knit the "User_File.Rmd", which will generate a "Rmd_Master_File.Rmd" that contains all the R children of the files.
+6) Finally, knit the "Rmd_Master_File.Rmd" into HTML or PDF.
 
 # What is Data Manipulator?
 

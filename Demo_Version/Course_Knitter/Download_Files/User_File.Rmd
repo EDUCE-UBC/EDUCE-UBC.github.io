@@ -1,0 +1,25 @@
+---
+title: "Test Doc Generated"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+
+Code for constructing Master File for user
+
+```{r, echo = TRUE, comment = NA}
+title <- paste0("---\n", "title: 'Course Files'\n", "output:\n", "  html_document:\n", "    toc: true\n", "    toc_depth: 4\n", "    toc_float:\n", "      collapsed: false\n", "      smooth_scroll: true\n", "  pdf_document:\n", "    toc: yes\n", "    toc_depth: 4\n", "    number_sections: yes\n", "    df_print: kable\n", "---\n")
+rmd <- list.files(path = "Rmd_Output", pattern = '*.Rmd', recursive = TRUE, include.dirs = FALSE)
+if (length(rmd) != 0) {
+  chunks <- paste0("```{r child = 'Rmd_Output/", rmd, "'}\n```\n")
+  cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+}
+if (length(rmd) == 0) {
+  chunks <- paste0("No Files Selected. Please select some files.")
+  cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+}
+```
