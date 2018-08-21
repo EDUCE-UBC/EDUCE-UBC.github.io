@@ -19,7 +19,7 @@ EDUCE seeks to develop a uniform experiential learning framework that is cross-d
 
 Here you can select and compile all the data science modules for either teaching purposes and/or self-learning purposes. Select the courses that best fit your interests/curriculum and have the Course Compiler Shiny App knit it for you. We will also provide the source code for generating the arbitrary knitted files and enable you to customize courses with your own files. More experienced data science instructors will have access to more functions, so we encourage you to learn the basics of RStudio.
 
-For better performance, it is better to download the app and run it locally on your machine: 
+For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio): 
 
 1) Go to the [Course Compiler](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
@@ -61,7 +61,7 @@ The Data Manipulator Shiny App has two functionalities:
 
 Novice data science instructors will be provided some basic files from Github to experiment with and more experienced data science instructors will have the ability to use their own files to do some more in-depth experimentation and manipulation of data via the graph inputs (Number of OTU/ASV to Display, Number of Columns to Display, and Random Generator Seed). The Shiny app will also allow users to download the normalized data as text files (Note: Only Percent Relative Abundance and Random Subsampling are in the app due to computation limitations).
 
-For better performance, it is better to download the app and run it locally on your machine: 
+For better performance, veteran data science instructors can download the app and run it locally on their machine (Requires RStudio): 
 
 1) Go to the [Data Manipulator](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public repo on Github.
 
