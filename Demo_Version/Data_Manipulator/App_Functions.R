@@ -90,7 +90,7 @@ token <- readRDS("droptoken.rds")
 drop_acc(dtoken = token)
 
 # Function for saving validation data ----
-saveData <- function(data, folder, rng) {
+saveData <- function(data, folder, rng, email) {
   # Set Test Number ----
   Origin_Folder <- drop_dir("Validation_Data")
   if (nrow(Origin_Folder) == 0) {
@@ -100,14 +100,17 @@ saveData <- function(data, folder, rng) {
     # Obtains last test file name ----
     lastTest <- Origin_Folder$name[nrow(Origin_Folder)]
     # Obtains last test file number ----
-    lastNumber <- gsub("_\\d*_\\S*.txt", "", lastTest)
-    lastNumber <- gsub("_RNG\\d*", "", lastNumber)
+    lastNumber <- gsub("_\\S*_\\d*_\\S*.txt", "", lastTest)
     lastNumber <- as.numeric(gsub("Test", "", lastNumber))
     # Set test number for next test file ----
     testNumber <- lastNumber + 1
   }
+  # Edit email for storage, can reverse this process by swapping the first and second variables around to obtain email ----
+  newMail <- gsub("@", "AT", email)
+  newMail <- gsub("\\.", "DOT", newMail)
+  
   # Create a unique file name with user inputs: Test #, Rng, system time, and data ----
-  fileName <- sprintf("Test%s_RNG%s_%s_%s.txt", testNumber, rng, as.integer(Sys.time()), digest::digest(data))
+  fileName <- sprintf("Test%s_RNG%s_%s_%s_%s.txt", testNumber, rng, newMail, as.integer(Sys.time()), digest::digest(data))
   filePath <- file.path(tempdir(), fileName)
   # Write the file to the local system
   write.table(data, filePath, sep = "\t", row.names = TRUE, quote = TRUE)
@@ -127,11 +130,12 @@ loadData <- function() {
   errorFiles <- c()
   # Compare each file to determine if current app version does the same thing ----
   for (i in 1:length(Origin_Names)) {
-    df <- drop_read_csv(file.path("Validation_Data", Origin_Names[i]), header = TRUE, sep = "\t")
-    rng <- gsub("_\\d*_\\S*.txt", "", Origin_Names[i])
-    rng <- as.numeric(gsub("Test\\d*_RNG", "", rng))
+    df <- drop_read_csv(file.path("Validation_Data", Origin_Names[1]), header = TRUE, sep = "\t")
+    rng <- gsub("_\\d*_\\S*.txt", "", Origin_Names[1])
+    rng <- gsub("Test\\d*_RNG", "", rng)
+    rng <- as.numeric(gsub("_\\S*", "", rng))
     data <- sampler(df, rng)
-    test_data <- as.matrix(drop_read_csv(file.path("Validation_Norm_Data", Norm_Names[i]), header = TRUE, sep = "\t"))
+    test_data <- as.matrix(drop_read_csv(file.path("Validation_Norm_Data", Norm_Names[1]), header = TRUE, sep = "\t"))
     if (all(data == test_data)) {
       testResult <- c(testResult, TRUE)
     }

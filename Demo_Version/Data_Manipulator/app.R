@@ -105,9 +105,6 @@ ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"),
                                                    "text/comma-separated-values,text/plain",
                                                    ".csv")),
                               
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
                               # Input: Select file type ----
                               selectInput("type", "Select File Type",
                                           choices = c("OTU TXT" = "OTUTxt",
@@ -130,9 +127,6 @@ ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"),
                                                        selected = '"'))
                               ),
                               
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
                               # Axes Legend ----
                               "Barplot Information: X-Axis = OTU/ASV, Y-Axis = Abundance",
                               
@@ -144,8 +138,11 @@ ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"),
                               numericInput("dataNum", "Number of Columns of Data (Max 100)", 
                                            1, min = 1, max = 100),
                               
-                              # Use random generator for Random Subsampling? ----
+                              # Use random generator for Random Subsampling ----
                               numericInput("rng", "Random Generator Seed (Set to 0 for no fixed seed)", 123),
+                              
+                              # Optional email input for Validation Data ----
+                              textInput("email", "Email (Required for submitting Validation Data only)", value = ""),
                               
                               # Download normalized table ----
                               selectizeInput("downloadType", "Type of Normalization", choices = c("Percent Relative Abundance" = "PRA", "Random Subsampling" = "RS")),
@@ -234,20 +231,32 @@ server <- function(input, output, session) {
       shinyalert(title = 'Thank you for offering your data for our validation testing! Unfortunately we do not have the capacity to store these files.', animation = FALSE)
     }
     
-    req(input$normData, !storageFull)
+    if (input$email == "") {
+      shinyalert(title = 'When submitting your data, please input your email.', animation = FALSE)
+    }
+    
+    req(input$normData, input$email != "", !storageFull)
     
     # Error catching for valid file contents ----
     tryCatch({
-      if (input$rng != 0) {
-        # Save validation data ----
-        saveData(sData(), "Validation_Norm_Data", input$rng)
-        saveData(dfData(), "Validation_Data", input$rng)
-        
-        shinyalert(title = "Data saved for validation!", animation = FALSE)
-      }
-      else {
-        shinyalert(title = "Please choose another RNG for validation data.", animation = FALSE)
-      }
+      shinyalert(
+        title = paste("By submitting this data for validation testing, you agree that the information contained here is non-confidential and can be shared with the public.", "Please type 'I Agree' to continue.", sep = "\n") , type = "input",
+        callbackR = function(value) {
+          if (input$rng != 0 && value == "I Agree") {
+            # Save validation data ----
+            saveData(sData(), "Validation_Norm_Data", input$rng, input$email)
+            saveData(dfData(), "Validation_Data", input$rng, input$email)
+            
+            shinyalert(title = "Thank you. Your data has been saved for validation!", animation = FALSE)
+          }
+          else if (input$rng == 0) {
+            shinyalert(title = "Please choose another RNG for validation data.", animation = FALSE)
+          }
+          else {
+            shinyalert(title = "Data not saved for validation.", animation = FALSE)
+          }
+        }
+      )
     },
     error = function(cond) {
       shinyalert(title = paste("Invalid Validation Data Format or Content Error. Please check the contents of the file or whether the correct settings were selected.", 
