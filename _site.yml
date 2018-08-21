@@ -1,5 +1,5 @@
 name: EDUCE
-output_dir: "."
+output_dir: '.'
 navbar:
   title: EDUCE
   left:
@@ -7,12 +7,16 @@ navbar:
     href: index.html
   - text: About
     href: about.html
+  - text: Course Info
+    menu:
+    - text: Course 1 (Add HTML version of Rmd in href)
+      href: https://www.google.com/?gws_rd=ssl
+    - text: Course 2 (Add HTML version of Rmd in href)
+      href: https://www.google.com/?gws_rd=ssl
   - text: Course Compiler
     href: https://ubc-educe.shinyapps.io/course_knitter/
   - text: Data Manipulator
-    href: https://ubc-educe.shinyapps.io/data_manipulator/ 
-  - text: Contact Us
-    href: contact.html
+    href: https://ubc-educe.shinyapps.io/data_manipulator/
 output:
   html_document:
     lib_dir: site_libs

@@ -7,16 +7,80 @@ output: html_document
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 100%;
+}
+
+.center-title {
+    font-size: 75px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.center-subtitle {
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.center-txt {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.box {
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 20px;
+    height:25px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 </style>
 
-<img src="Images/EDUCE_Logo.png" alt="EDUCE Logo MIA D:" class="center-logo"> 
-      
+<div class="center-title">
+  <p><b>Welcome To EDUCE</b></p>
+</div>
 
+<div class="center-subtitle">
+  <p><b>Experiential Data science for Undergraduate Cross-disciplinary Education</b></p>
+</div>
 
+<img src="Images/EDUCE_Globe.png" alt="EDUCE Logo MIA D:" class="center-logo"> 
 
+<div class="box">
+  <div class="contact-title">
+  <b>For more information refer to these links:<b/>
+  </div>
+</div>
+<div class="center-txt">
+  <div class="column">
+  <p> </p>
+  <p>EDUCE Program: https://github.com/EDUCE-UBC</p>
+  </div>
+  <div class="column">
+  <p> </p>
+  <p>ECOSCOPE Program: http://ecoscope.ubc.ca/</p>
+  </div>
+</div>
 
-
-
-
+<div class="box">
+  <div class="contact-title">
+  <b>Contact Us:<b/>
+  <p>info.educe@ubc.ca</p>
+  </div>
+</div>
