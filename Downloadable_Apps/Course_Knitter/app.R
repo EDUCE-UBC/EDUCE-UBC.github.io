@@ -110,8 +110,10 @@ server <- function(input, output, session) {
       }
       
       # Copy all files in Rmd_Input to Rmd_Output ----
-      for (i in input_list) {
-        file.copy(i, "Rmd_Output")
+      if (input$format == 'ZIP') {
+        for (i in input_list) {
+          file.copy(i, "Rmd_Output")
+        }
       }
       
       # Create title of Rmd ----
