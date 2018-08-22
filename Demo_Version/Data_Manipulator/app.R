@@ -231,6 +231,7 @@ server <- function(input, output, session) {
       shinyalert(title = 'Thank you for offering your data for our validation testing! Unfortunately we do not have the capacity to store these files.', animation = FALSE)
     }
     
+    # Determines if email is valid before saving for validation ----
     if (input$email == "" || !grepl("\\S+@\\S+\\.\\S+", input$email)) {
       validEmail <- FALSE
       shinyalert(title = 'When submitting your data, please input a valid email as this data will be stored.', animation = FALSE)
@@ -239,7 +240,27 @@ server <- function(input, output, session) {
       validEmail <- TRUE
     }
     
-    req(input$normData, validEmail, !storageFull)
+    validData <- FALSE
+    
+    # Determine if data is valid before saving for validation ----
+    tryCatch({
+      sData()
+      validData <- TRUE
+    },
+    error = function(cond) {
+      shinyalert(title = paste("Invalid Validation Data Format or Content Error. Please check the contents of the file or whether the correct settings were selected.", 
+                               "-----Original Error Message-----", cond, sep = "\n"), animation = FALSE)
+      # Choose a return value in case of error ----
+      return(NA)
+    },
+    warning = function(cond) {
+      shinyalert(title = paste("Invalid Validation Data Format or Content Error. Please check the contents of the file or whether the correct settings were selected.", 
+                               "-----Original Error Message-----", cond, sep = "\n"), animation = FALSE)
+      # Choose a return value in case of warning ----
+      return(NULL)
+    })
+    
+    req(input$normData, validEmail, validData, !storageFull)
     
     # Error catching for valid file contents ----
     tryCatch({
