@@ -36,20 +36,18 @@ For better performance, veteran instructors can download the app and run it loca
 
 ### Provided Files in ZIP Format
 
-  - Rmd_Output = All the courses that you selected.
+  - Rmd_Input = All the courses that you selected.
   - Rmd_Master_File = Master file containing R children for all the knitted courses.
-  - User_File = Source code used to generate all the courses that you want.
 
 ### How do I create courses with my own Rmd files?
 
 To create courses with your own Rmd files:
 
-1) Select the courses offered by EDUCE in Course Compiler.
-2) Select the ZIP format for download. 
-3) After downloading, extract the files/folders.
-4) Put all the files that you want to knit into the folder "Rmd_Output".
-5) Knit the "User_File.Rmd", which will generate a "Rmd_Master_File.Rmd" that contains all the R children of the files.
-6) Finally, knit the "Rmd_Master_File.Rmd" into HTML or PDF.
+1) Follow the instructions above to obtain the downloadable version of Course Compiler.
+2) Put your own Rmd files into the folder called "Rmd_Input".
+3) Run the app and select the courses that you want to knit (Order of selection matters).
+
+Alternatively, if you would like to manually add courses or customize your Rmd, you can select the ZIP format in the app, add your own Rmd files to Rmd_Input, and edit the Rmd_Master_File.
 
 # What is Data Manipulator?
 

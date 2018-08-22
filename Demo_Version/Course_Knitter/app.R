@@ -114,12 +114,26 @@ server <- function(input, output, session) {
       for (i in input_list) {
         file.copy(i, "Rmd_Output")
       }
+
+      # Create title of Rmd ----
+      title <- paste0("---\n", "title: 'Course Files'\n", "output:\n", "  html_document:\n", "    toc: true\n", 
+                      "    toc_depth: 4\n", "    toc_float:\n", "      collapsed: false\n", "      smooth_scroll: true\n", 
+                      "  pdf_document:\n", "    toc: yes\n", "    toc_depth: 4\n", "    number_sections: yes\n", "    df_print: kable\n", "---\n")
       
-      # Run script for generating files ---- 
-      out <- render("User_File.Rmd", switch(
-        input$format,
-        PDF = pdf_document(), HTML = html_document(), ZIP = html_document()
-      ))
+      # Set list of Rmd file inputs ----
+      rmd <- input_list
+      
+      # Generate R children ----
+      if (length(rmd) != 0) {
+        chunks <- paste0("```{r child = '", rmd, "'}\n```\n")
+        cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+      }
+      
+      # Print message for user to select some files ----
+      else if (length(rmd) == 0) {
+        chunks <- paste0("No Files Selected. Please select some files.")
+        cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+      }
       
       # Display file to user for download ----
       out <- render("Rmd_Master_File.Rmd", switch(
@@ -127,14 +141,14 @@ server <- function(input, output, session) {
         PDF = pdf_document(), HTML = html_document(), ZIP = html_document()
       ))
       
-      if (input$format == "ZIP") {
+      if (input$format == 'ZIP') {
         dir.create("Download_Files")
         
         file.copy("Rmd_Master_File.Rmd", "Download_Files")
         
-        file.copy("User_File.Rmd", "Download_Files")
-        
         file.copy("Rmd_Output", "Download_Files", recursive = TRUE)
+        
+        file.rename("Download_Files/Rmd_Output", "Download_Files/Rmd_Input")
         
         OutputZip <- dir("Download_Files", full.names = TRUE)
         

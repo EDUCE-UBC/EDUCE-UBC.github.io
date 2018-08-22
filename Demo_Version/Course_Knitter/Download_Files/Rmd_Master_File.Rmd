@@ -1,0 +1,25 @@
+---
+title: 'Course Files'
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf_document:
+    toc: yes
+    toc_depth: 4
+    number_sections: yes
+    df_print: kable
+---
+
+```{r child = 'Rmd_Input/Input1.Rmd'}
+```
+
+```{r child = 'Rmd_Input/Input3.Rmd'}
+```
+
+```{r child = 'Rmd_Input/Input2.Rmd'}
+```
+

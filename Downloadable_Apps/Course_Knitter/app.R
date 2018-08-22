@@ -48,14 +48,6 @@ ui <- fluidPage("", id = "navibar", theme = shinytheme("darkly"), useShinyjs(), 
                     # Horizontal Line ----
                     tags$hr(),
                     
-                    # Reference: https://stackoverflow.com/questions/22769940/linked-selectinput-controls-in-r-shiny-is-it-possible
-                    # CHOICES: 1 Folder ALL FILES, Multiple PROGRAM Folders each containing COURSE FILES
-                    
-                    #selectInput(multiple = TRUE, "programs", "Programs:",
-                    #             list("ProgramA - Intro" = c( "CourseA0 - Intro Command Line", "CourseA1 - Intro Data Science"),
-                    #                  "ProgramB - Intermed" = c( "CourseB0 - R", "CourseB1 - Tidyverse"), 
-                    #                  "ProgramC - Advanced" = c( "CourseC0 - Phyloseq", "CourseC1 - Microbe Community"))),
-                    
                     # Download Button with file types ----
                     radioButtons('format', 'Document format', 
                                  c('PDF', 'HTML', 'ZIP'),
@@ -65,11 +57,6 @@ ui <- fluidPage("", id = "navibar", theme = shinytheme("darkly"), useShinyjs(), 
                   
                   # Main panel for displaying outputs ----
                   mainPanel(
-                    # App Background ----
-                    # Soure: https://dribbble.com/shots/2405982-Data-Grid-2
-                    #setBackgroundImage(src = "https://cdn.dribbble.com/users/605032/screenshots/2405982/datagrid2.gif")
-                    #setBackgroundImage(src = "https://i.gifer.com/Dv9E.gif")
-                    #setBackgroundImage(src = "https://i.pinimg.com/originals/20/ee/00/20ee00448f56d10ac7297bf4b62a7f22.gif")
                     setBackgroundImage(src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/Futuristic_City.jpg")
                   )
                 )
@@ -121,17 +108,31 @@ server <- function(input, output, session) {
       if (length(input_list) == 0) {
         shinyalert(title = "Please select a course.", animation = FALSE)
       }
-
+      
       # Copy all files in Rmd_Input to Rmd_Output ----
       for (i in input_list) {
         file.copy(i, "Rmd_Output")
       }
       
-      # Run script for generating files ---- 
-      out <- render("User_File.Rmd", switch(
-        input$format,
-        PDF = pdf_document(), HTML = html_document(), ZIP = html_document()
-      ))
+      # Create title of Rmd ----
+      title <- paste0("---\n", "title: 'Course Files'\n", "output:\n", "  html_document:\n", "    toc: true\n", 
+                      "    toc_depth: 4\n", "    toc_float:\n", "      collapsed: false\n", "      smooth_scroll: true\n", 
+                      "  pdf_document:\n", "    toc: yes\n", "    toc_depth: 4\n", "    number_sections: yes\n", "    df_print: kable\n", "---\n")
+      
+      # Set list of Rmd file inputs ----
+      rmd <- input_list
+      
+      # Generate R children ----
+      if (length(rmd) != 0) {
+        chunks <- paste0("```{r child = '", rmd, "'}\n```\n")
+        cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+      }
+      
+      # Print message for user to select some files ----
+      else if (length(rmd) == 0) {
+        chunks <- paste0("No Files Selected. Please select some files.")
+        cat(title, chunks, file = "Rmd_Master_File.Rmd", sep = '\n')
+      }
       
       # Display file to user for download ----
       out <- render("Rmd_Master_File.Rmd", switch(
@@ -139,15 +140,14 @@ server <- function(input, output, session) {
         PDF = pdf_document(), HTML = html_document(), ZIP = html_document()
       ))
       
-      if (input$format == "ZIP") {
-        fs <- c()
+      if (input$format == 'ZIP') {
         dir.create("Download_Files")
         
         file.copy("Rmd_Master_File.Rmd", "Download_Files")
         
-        file.copy("User_File.Rmd", "Download_Files")
-        
         file.copy("Rmd_Output", "Download_Files", recursive = TRUE)
+        
+        file.rename("Download_Files/Rmd_Output", "Download_Files/Rmd_Input")
         
         OutputZip <- dir("Download_Files", full.names = TRUE)
         
