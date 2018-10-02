@@ -57,7 +57,7 @@ ui <- fluidPage("", id = "navibar", theme = shinytheme("darkly"), useShinyjs(), 
                   
                   # Main panel for displaying outputs ----
                   mainPanel(
-                    setBackgroundImage(src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/Futuristic_City.jpg")
+                    setBackgroundImage(src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/EDUCE_Globe.png")
                   )
                 )
 )
