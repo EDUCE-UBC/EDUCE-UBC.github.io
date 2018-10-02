@@ -13,6 +13,12 @@ navbar:
       href: https://www.google.com/?gws_rd=ssl
     - text: Course 2 (Add HTML version of Rmd in href)
       href: https://www.google.com/?gws_rd=ssl
+  - text: Videos
+    menu:
+    - text: Setup
+      href: setup_video.html
+    - text: Intro to command line
+      href: cmd_line_video.html
   - text: Course Compiler
     href: https://ubc-educe.shinyapps.io/course_knitter/
   - text: Data Manipulator
