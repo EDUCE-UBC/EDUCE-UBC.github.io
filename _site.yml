@@ -9,10 +9,8 @@ navbar:
     href: about.html
   - text: Course Info
     menu:
-    - text: Course 1 (Add HTML version of Rmd in href)
-      href: https://www.google.com/?gws_rd=ssl
-    - text: Course 2 (Add HTML version of Rmd in href)
-      href: https://www.google.com/?gws_rd=ssl
+    - text: Outline
+      href: modules/outline.html
   - text: Videos
     menu:
     - text: Setup
