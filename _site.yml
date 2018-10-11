@@ -16,9 +16,9 @@ navbar:
   - text: Videos
     menu:
     - text: Setup
-      href: setup_video.html
+      href: videos/setup_video.html
     - text: Intro to command line
-      href: cmd_line_video.html
+      href: videos/cmd_line_video.html
   - text: Course Compiler
     href: https://ubc-educe.shinyapps.io/course_knitter/
   - text: Data Manipulator

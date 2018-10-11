@@ -4,7 +4,7 @@ output: html_document
 # Installation instructions
 EDUCE data science modules use a variety of computational tools. Most of these tools need to be downloaded and installed in order to follow along with our tutorials and complete practice assignments.
 
-Here, you will find guided video tutorials for all of the tools needed in EDUCE modules including:
+Here, you will find guided installation video tutorials for all of the tools needed in EDUCE modules including:
 
 * Command line / Terminal
 * BLAST
