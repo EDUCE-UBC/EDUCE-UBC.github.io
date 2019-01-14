@@ -1,7 +1,13 @@
 ---
-output: html_document
+title: "Introduction to command line"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
 ---
-# Introduction to command line
 The command line / terminal / shell allows you to access a computer using only a text-based window. It is a foundational tool in data science and is used throughout many EDUCE modules.
 
 Here, you will find guided video tutorials covering some basic command line functions and application of these functions using the Basic Local Alignment Search Tool ([BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi)).
