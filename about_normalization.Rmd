@@ -1,0 +1,114 @@
+---
+title: "Data normalization methods"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+Data normalization is the process of transforming/standardizing data to a common scale for comparison [1]. This is especially useful for microbial ecology as data often come from diverse samples processed in different ways, both physically and computationally [2]. Thus, here we cover several common normalization methods that can be applied in our Data Manipulator app.
+
+## Percent Relative Abundance
+Percent Relative Abundance (PRA) is a technique that transforms the data into percentages within each sample. Also known as Relative Species Abundance in microbial ecology, it is a measure of how common a species is relative to other species in a defined sample [3].
+
+**Strengths:**
+
+- Easily conceptualized; percentages inherently make sense in comparisons
+- Simple mathematical data transformation
+
+**Weaknesses:**
+
+- Abundances within a sample are not independent making it difficult to infer causality
+- Due to rounding error, samples often do not normalize to the exact same level
+
+## Random Subsampling
+Random Subsampling, or rarefaction, is technique that splits the data into subsets [4]. Also known as rarefaction, it is a technique used to determine species richness of samples that differ in area, volume, or sampling efforts [5].
+
+**Strengths:**
+
+- Can be repeated an indefinite number of times.
+- Allows for normalization to an exact depth across all sampels
+- Compares observed richness among samples for a given level of sampling effort and does not attempt to estimate true richness of community [6]
+
+**Weaknesses:**
+
+- Counts remain over-dispersed relative to Poisson model (increased Type I error) [7]
+- Counts represent only a small fraction of original data (increased Type II error) [7]
+- Random step in rarefying adds artificial uncertainty [7]
+- Many assumptions must be met to be valid: Sufficient sampling, comparable sampling methods, taxonomic similarity, closed communities of discrete individuals, random placement, and independent random sampling [8, 9]
+
+## Multiple Imputation 
+Multiple Imputation is a statistical technique that is useful for analyzing incomplete or missing data via a 3 step process [10, 11]: 
+
+1. *Imputation*: Missing entries are independently filled in m times, resulting in m complete datasets. 
+2. *Analysis*: The m completed datasets are then independently analyzed. 
+3. *Pooling*: The m analysis results are then pooled together into a final result.
+
+**Strengths:**
+
+- Reduced bias due to the use of "complete" datasets [12-16]
+- Increases precision due to retention of all samples and all data [12-16]
+- Values imputated based on mean, median, or other statistic are robust in statistical analyses (*e.g.* resistant to outliers) [12-16]
+
+**Weaknesses:**
+
+- Assumes the missing data are random statistical assumptions [17]
+- Some methods assume that the data follow a multivariate normal distribution [17], thus requireing data transformation prior to analyses [12]
+- Incorrect model choices or exclusion of vital data points may lead to more bias [12]
+
+## Variance Stabilizing Transformation 
+Variance Stabilizing Transformation (VST) uses a function f to apply values to x in a dataset to create y = f(x) such that the variability of values y is not related to their mean value (or has a constant variance) [18]. 
+
+**Strengths:**
+
+- Robust to large variances, small sample sizes, and missing data, particularly in logarithmic fold change (LFC) estimates (see `DESeq2` package) [19]
+- Reduces Type I error by removing samples and/or estimating outlier values with samples without sufficient replicates to explain variance [19]
+- Can consistently perform over large range of data types and is applicable for small studies with few replicates or large observational studies [19]
+
+**Weaknesses:**
+
+- Rare species are ignored due to log-like transformations [20]
+- Assumes that differential abundance is rare and therefore may not be appropriate with data sets with high beta-diversity [20]
+
+## References
+[1] Borgatti S. http://www.analytictech.com/ba762/handouts/normalization.htm (2018).
+
+[2] Daniel Aguirre de Cárcer, Denman SE, McSweeney C, Morrison M. Evaluation of Subsampling-Based Normalization Strategies for Tagged High-Throughput Sequencing Data Sets from Gut Microbiomes. Applied and Environmental Microbiology. 2011; 77: 8795-8798.
+
+[3] Socratic. How do species richness and relative abundance of species affect species diversity? https://socratic.org/questions/how-do-species-richness-and-relative-abundance-of-species-affect-species-diversi (2018).
+
+[4] Dieterle F. Random Subsampling. http://www.frank-dieterle.com/phd/2_4_3.html (2018).
+
+[5] Chiarucci A, Bacaro G, Rocchini D, Ricotta C, Palmer MW, Scheiner SM. Spatially constrained rarefaction: incorporating the autocorrelated structure of biological communities into sample-based rarefaction. Community Ecology. 2009; 10: 209-214.
+
+[6] Hughes JB, Hellmann JJ. The application of rarefaction techniques to molecular inventories of microbial diversity. In: Vol 397. United States: Elsevier Science & Technology; 2005: 292-308.
+
+[7] McMurdie PJ, Holmes S. Waste not, want not: why rarefying microbiome data is inadmissible. PLoS Computational Biology. 2014; 2013; 10: e1003531.
+
+[8] Gotelli, NJ, Colwell RK. Estimating species richness. Frontiers in Measuring Biodiversity. 2011; 12: 39-54.
+
+[9] Tipper JC. Rarefaction and Rarefiction; The Use and Abuse of a Method in Paleoecology. Paleobiology. 1979; 5: 423-434.
+
+[10] van Buuren S. Multiple Imputation. http://www.stefvanbuuren.nl/mi/mi.html (2018).
+
+[11] Maldonado, A. D.; Aguilera, P. A.; and Salmeron, A. An Experimental Comparison of Methods to Handle Missing Values in Environmental Datasets. International Congress on Environmental Modelling and Software. 2016: 3.
+
+[12] Anonymous. Statistics How To. http://www.statisticshowto.com/multiple-imputation/ (2018).
+
+[13] Sterne JAC, White IR, Carlin JB, et al. Multiple imputation for missing data in epidemiological and clinical research: potential and pitfalls. BMJ. 2009; 338: 157-160.
+
+[14] Kanwar N, Scott HM, Norby B, et al. Impact of treatment strategies on cephalosporin and tetracycline resistance gene quantities in the bovine fecal metagenome. Scientific Reports. 2014; 2015; 4: 5100.
+
+[15] Xu L, Paterson AD, Turpin W, Xu W. Assessment and Selection of Competing Models for Zero-Inflated Microbiome Data. PLoS One. 2015; 10: e0129606.
+
+[16] Kaul A, Mandal S, Davidov O, Peddada SD. Analysis of Microbiome Data in the Presence of Excess Zeros. Frontiers in Microbiology. 2017; 8: 2114.
+
+[17] Quora. How do you handle missing data (statistics)? What imputation techniques do you recommend or follow? https://www.quora.com/How-do-you-handle-missing-data-statistics-What-imputation-techniques-do-you-recommend-or-follow (2018).
+
+[18] NC State University. Nonlinear Statistical Models for Univariate and Multivariate Response. https://www.stat.ncsu.edu/people/bloomfield/courses/ST762/slides/MD-02-2.pdf (2018).
+
+[19] Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome biology. 2014; 15: 550-550.
+
+[20] Weiss S, Xu ZZ, Peddada S, et al. Normalization and microbial differential abundance strategies depend upon data characteristics. Microbiome. 2017; 5: 27.

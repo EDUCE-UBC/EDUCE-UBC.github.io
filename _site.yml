@@ -7,20 +7,32 @@ navbar:
     href: index.html
   - text: About
     href: about.html
-  - text: Course Info
+  - text: Courses
     menu:
     - text: Outline
-      href: modules/outline.html
-  - text: Videos
-    menu:
-    - text: Setup
-      href: videos/setup_video.html
-    - text: Intro to command line
-      href: videos/cmd_line_video.html
+      href: course_outline.html
+    - text: Videos
+      menu:
+      - text: Setup
+        href: videos/setup_video.html
+      - text: Intro to command line
+        href: videos/cmd_line_video.html
   - text: Course Compiler
-    href: https://ubc-educe.shinyapps.io/course_knitter/
+    menu: 
+    - text: About
+      href: about_compiler.html
+    - text: Example data
+      href: about_data.html
+    - text: Shiny app
+      href: https://ubc-educe.shinyapps.io/course_knitter/
   - text: Data Manipulator
-    href: https://ubc-educe.shinyapps.io/data_manipulator/
+    menu: 
+    - text: About
+      href: about_manipulator.html
+    - text: Normalization methods
+      href: about_normalization.html
+    - text: Shiny app
+      href: https://ubc-educe.shinyapps.io/data_manipulator/
 output:
   html_document:
     lib_dir: site_libs

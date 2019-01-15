@@ -52,35 +52,23 @@ output: html_document
 }
 </style>
 
-<div class="center-title">
-  <p><b>Welcome To EDUCE</b></p>
+<div class="center-title" style="color:teal">
+  <p><b>Welcome to EDUCE</b></p>
 </div>
 
 <div class="center-subtitle">
   <p><b>Experiential Data science for Undergraduate Cross-disciplinary Education</b></p>
 </div>
 
-<img src="Images/EDUCE_Globe.png" alt="EDUCE Logo MIA D:" class="center-logo"> 
+<p style="text-align:center;"><img src="Images/EDUCE_Globe.png" width="500"></p>
 
 <div class="box">
   <div class="contact-title">
-  <b>For more information refer to these links:<b/>
-  </div>
-</div>
-<div class="center-txt">
-  <div class="column">
-  <p> </p>
-  <p>EDUCE Program: https://github.com/EDUCE-UBC</p>
-  </div>
-  <div class="column">
-  <p> </p>
-  <p>ECOSCOPE Program: http://ecoscope.ubc.ca/</p>
-  </div>
-</div>
-
-<div class="box">
-  <div class="contact-title">
-  <b>Contact Us:<b/>
+  <b><p>For more information:</p></b>
+  <p><a href="http://ecoscope.ubc.ca/program-structure/educe/">EDUCE</a>
+  and
+  <a href="http://ecoscope.ubc.ca/">ECOSCOPE</a></p>
+  <p><a href="https://github.com/EDUCE-UBC">EDUCE GitHub</a></p>
   <p>info.educe@ubc.ca</p>
   </div>
 </div>

@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>About Data Manipulator</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -355,16 +355,59 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">About Data Manipulator</h1>
 
 </div>
 
 
-<div id="welcome-to-the-educe-website" class="section level1">
-<h1>Welcome to the EDUCE website!</h1>
-<p>Here are the static files for the website.</p>
-<p>The live Shiny Apps for Course Compiler and Data Normalization are located in the private repo on Github.</p>
-<p>Sample files for novice users can be found under the folder “Sample_Files”.</p>
-<p>The downloadable version of the apps are available here in the public repo under the folder “Downloadable_Apps”.</p>
+<p>Data Manipulator allows you to explore complex data sets without the need to install software or write code. While their are many possible functionalities, the main motivation for our Data Manipulator is to allow you to explore microbiome data that you wish to incorporate into your own customized EDUCE module(s).</p>
+<p>Working backwards from the OTU/ASV count files used as inputs for our modules, the Data Manipulator explores common:</p>
+<ul>
+<li><a href="about_normalization.html">data normalization methods</a>
+<ul>
+<li>Percent relative abundance</li>
+<li>Random subsampling</li>
+<li>Multiple imputation (under development)s</li>
+<li>Variance stabilizing transformation (under development)</li>
+</ul></li>
+<li>sample selection (under development)</li>
+<li>quality cutoffs (under development)</li>
+</ul>
+<p>Once you have finalized the methods you would like to use, the tool allows you to download a copy of the cleaned data that you can then input directly in our <a href="about_compiler.html">Course Compiler</a>.</p>
+<div id="online" class="section level2">
+<h2>Online</h2>
+<p>To use the Data Manipulator online, simply deploy the Shiny app from this site, upload your data file, and begin exploring your data! We have some <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Sample_Files">practice data sets</a> obtained from the EDUCE <a href="about_data.html">example data</a>.</p>
+</div>
+<div id="locally" class="section level2">
+<h2>Locally</h2>
+<p>More experienced R users can download the Data Manipulator app and run it locally on their machine. To obtain the app:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps">Data Manipulator</a> app folder in our public Github repo.</li>
+<li>Copy the link and paste it at <a href="https://kinolien.github.io/gitzip/">Gitzip</a> (Top right corner beside the key icon) to download.</li>
+<li>Open the app.R file in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</li>
+<li>Click the “Run App” button or type “shiny::runApp()” in the console to launch the app.
+<ul>
+<li>You may need to install the <code>shiny</code> package.</li>
+</ul></li>
+</ol>
+</div>
+<div id="file-inputs" class="section level2">
+<h2>File inputs</h2>
+<ul>
+<li>Data Plotter:
+<ul>
+<li>Metadata (Txt File)</li>
+</ul></li>
+<li>Data Normalization:
+<ul>
+<li>OTU Count (Txt File)</li>
+<li>ASV Count (Txt File)</li>
+</ul></li>
+</ul>
+</div>
+<div id="validate-data" class="section level2">
+<h2>Validate Data</h2>
+<p>More experienced data science instructors may help us test the Data Normalization section of the Shiny app version (Random Subsampling Section) by providing us with their OTU/ASV files for integration testing. To submit your file(s), upload your file and press the “Validate Data” button. Assuming the files are valid and in the correct format, this will save a copy of your file on our server and we may use it for future tests.</p>
 </div>
 
 

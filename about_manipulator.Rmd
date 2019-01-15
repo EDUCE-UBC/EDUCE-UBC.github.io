@@ -1,0 +1,39 @@
+---
+title: "About Data Manipulator"
+output: html_document
+---
+Data Manipulator allows you to explore complex data sets without the need to install software or write code. While their are many possible functionalities, the main motivation for our Data Manipulator is to allow you to explore microbiome data that you wish to incorporate into your own customized EDUCE module(s). 
+
+Working backwards from the OTU/ASV count files used as inputs for our modules, the Data Manipulator explores common:
+
+- [data normalization methods](about_normalization.html)
+    - Percent relative abundance
+    - Random subsampling
+    - Multiple imputation (under development)s
+    - Variance stabilizing transformation (under development)
+- sample selection (under development)
+- quality cutoffs (under development)
+
+Once you have finalized the methods you would like to use, the tool allows you to download a copy of the cleaned data that you can then input directly in our [Course Compiler](about_compiler.html).
+
+## Online
+To use the Data Manipulator online, simply deploy the Shiny app from this site, upload your data file, and begin exploring your data! We have some [practice data sets](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Sample_Files) obtained from the EDUCE [example data](about_data.html).
+
+## Locally
+More experienced R users can download the Data Manipulator app and run it locally on their machine. To obtain the app:
+
+1) Go to the [Data Manipulator](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public Github repo.
+2) Copy the link and paste it at [Gitzip](https://kinolien.github.io/gitzip/) (Top right corner beside the key icon) to download.
+3) Open the app.R file in [RStudio](https://www.rstudio.com/products/rstudio/download/).
+4) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
+    - You may need to install the `shiny` package.
+
+## File inputs
+- Data Plotter:
+    - Metadata (Txt File)
+- Data Normalization:
+    - OTU Count (Txt File)
+    - ASV Count (Txt File)
+
+## Validate Data
+More experienced data science instructors may help us test the Data Normalization section of the Shiny app version (Random Subsampling Section) by providing us with their OTU/ASV files for integration testing. To submit your file(s), upload your file and press the "Validate Data" button. Assuming the files are valid and in the correct format, this will save a copy of your file on our server and we may use it for future tests.

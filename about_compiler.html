@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>About Course Compiler</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -286,36 +286,62 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Course Info
+    Courses
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="modules/outline.html">Outline</a>
+      <a href="course_outline.html">Outline</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Videos</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="videos/setup_video.html">Setup</a>
+        </li>
+        <li>
+          <a href="videos/cmd_line_video.html">Intro to command line</a>
+        </li>
+      </ul>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Videos
+    Course Compiler
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="videos/setup_video.html">Setup</a>
+      <a href="about_compiler.html">About</a>
     </li>
     <li>
-      <a href="videos/cmd_line_video.html">Intro to command line</a>
+      <a href="about_data.html">Example data</a>
+    </li>
+    <li>
+      <a href="https://ubc-educe.shinyapps.io/course_knitter/">Shiny app</a>
     </li>
   </ul>
 </li>
-<li>
-  <a href="https://ubc-educe.shinyapps.io/course_knitter/">Course Compiler</a>
-</li>
-<li>
-  <a href="https://ubc-educe.shinyapps.io/data_manipulator/">Data Manipulator</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Manipulator
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about_manipulator.html">About</a>
+    </li>
+    <li>
+      <a href="about_normalization.html">Normalization methods</a>
+    </li>
+    <li>
+      <a href="https://ubc-educe.shinyapps.io/data_manipulator/">Shiny app</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -329,87 +355,33 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">About Course Compiler</h1>
 
 </div>
 
 
-<style>
-.center-txt {
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-
-.box {
-    text-align: center;
-}
-
-.contact-title {
-    font-size: 20px;
-    color: white;
-    height:25px;
-    background-color: #000000;
-}
-
-.column {
-    color: white;
-    float: left;
-    width: 50%;
-    background-color: #1E392A;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-</style>
-<div class="center-txt">
-<p>
-<b>Experiential Data science for Undergraduate Cross-disciplinary Education</b>
-</p>
-<p>
-Part of ECOSCOPE at the University of British Columbia
-</p>
-<p>
-Vancouver, BC, Canada
-</p>
+<p>Course Compiler allows you to access all of EDUCE’s data science modules for teaching or self-learning purposes. Simply select the course(s) that fit your interests and have the Course Compiler Shiny App create all the materials that you will need including slides, notes, exercises, and source code.</p>
+<div id="online" class="section level2">
+<h2>Online</h2>
+<p>For novice R users or those wishing to use our <a href="about_data.html">example data set</a>, deploy the Course Compiler from this site, select your courses, and download the resulting materials. The PDF and HTML formats provide you with all of the final files while the ZIP format also provides the source code in Rmarkdown.</p>
 </div>
-<div class="box">
-<div class="contact-title">
-<b>Contact<b/>
+<div id="locally" class="section level2">
+<h2>Locally</h2>
+<p>More experienced R users can download the Course Compiler app and run it locally on their machine. To obtain the app:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps">Course Compiler</a> app folder in our public Github repo.</li>
+<li>Copy the link and paste it at <a href="https://kinolien.github.io/gitzip/">Gitzip</a> (Top right corner beside the key icon) to download.</li>
+<li>Open the app.R file in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</li>
+<li>Click the “Run App” button or type “shiny::runApp()” in the console to launch the app.
+<ul>
+<li>You may need to install the <code>shiny</code> package.</li>
+</ul></li>
+</ol>
 </div>
-</div>
-<div class="center-txt">
-<div class="column">
-<p>
-EDUCE Program
-</p>
-<p>
-GitHub: <a href="https://github.com/EDUCE-UBC" class="uri">https://github.com/EDUCE-UBC</a>
-</p>
-<p>
-Website: <a href="https://educe-ubc.github.io" class="uri">https://educe-ubc.github.io</a>
-</p>
-<p>
-Email: <a href="mailto:info.ecoscope@ubc.ca">info.ecoscope@ubc.ca</a>
-</p>
-</div>
-<div class="column">
-<p>
-ECOSCOPE Program
-</p>
-<p>
-Twitter: <a href="https://twitter.com/ecoscope_ubc" class="uri">https://twitter.com/ecoscope_ubc</a>
-</p>
-<p>
-Website: <a href="http://ecoscope.ubc.ca/" class="uri">http://ecoscope.ubc.ca/</a>
-</p>
-<p>
-Email: <a href="mailto:info.ecoscope@ubc.ca">info.ecoscope@ubc.ca</a>
-</p>
-</div>
+<div id="customization" class="section level2">
+<h2>Customization</h2>
+<p>Running the app locally will also allow you to customize the materials with your data or content. You can modify the existing Rmarkdown files or add your own by placing them in the “Rmd_Input” directory.</p>
+<p>Alternatively, if you would like to manually add courses or customize your Rmd, you can select the ZIP format in the app, add your own Rmd files to “Rmd_Input”“, and edit the Rmd_Master_File.</p>
 </div>
 
 
