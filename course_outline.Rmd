@@ -8,24 +8,42 @@ output:
       collapsed: false
       smooth_scroll: true
 ---
-# Introduction to data science
-- Defines data science
-- Describes several uses and motivations for data science in the life sciences
+# Data science
+### Introduction to data science
+- Introduction
+    - Defines data science
+    - Describes several uses and motivations for data science in the life sciences
 
 ***
 
 # Command line
-### Introduction to the Unix environment
-- Introduces the Unix command line and basic functions like pwd, cd, ls, cp, mv...
-- Applies skills to BLAST and Git
+### Introduction to Unix
+- Introduction
+    - Describes parts of the terminal / command prompt / shell
+- Download instructions
+    - Provides instructions for the download and install terminals for Mac, Linux, and Windows
+- Unix tutorial and practice
+    - Demonstrates basic functions like pwd, cd, ls, cp, mv...
+
+### Applications of command line
+- BLAST tutorial and practice
+    - Complete BLAST of a large amplicon sequencing dataset via command line
+- Git tutorial and practice
+    - Enact version control on a text file
+- Cloud computing tutorial and practice
+    - Transfer files to and from the Google Cloud Platform (GCP)
 
 ***
 
 # R/RStudio
 ### Introduction to R
-- Introduces the R/RStudio program
-- Covers tabular data import and basic exploration
-- Includes creation of base R plots
+- Introduction
+    - Introduces the R/RStudio program and community 
+- Download instructions
+    - Provides instructions for the download and install of R and RStudio
+- Base R tutorial and practice
+    - Covers tabular data import and basic exploration
+    - Includes creation of base R plots
 
 ### Data manipulation and visualization in R
 - Employs the tidyverse packages to manipulate, clean, and create figures from tabular data
@@ -37,7 +55,7 @@ output:
 *** 
 
 # Statistics
-### Introduction to statistics
+### Statistics basics
 - Introduces the Central Limit Theorem, p-hacking, and statistical tests relevant to the course material
 - Builds from t-tests to ANOVA to linear regression
 
