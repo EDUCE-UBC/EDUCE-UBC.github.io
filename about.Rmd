@@ -1,7 +1,7 @@
 ---
 output: html_document
 ---
-<img src="Images/EDUCE_Globe.png" width="330" ALIGN="left" />
+<img src="Images/EDUCE_Globe.png" width="350" ALIGN="left" />
 <font size="18"><span style="color:teal">**E**</span>xperiential  
 <span style="color:teal">**D**</span>ata science for  
 <span style="color:teal">**U**</span>ndergraduate  
