@@ -36,3 +36,9 @@ More experienced R users can download the Data Manipulator app and run it locall
 Users can help us test the Data Manipulator App by providing their own data files for integration testing. Please upload your file in the tool and press the "Validate Data" button. This will save a copy of your file on our server so that we may use it in future tests.
 
 *Please do not upload any proprietary or confidential data.*
+
+***
+
+Original build: Jonah Lin  
+Updates: Kim Dill-McFarland  
+Contact: info.educe@ubc.ca
