@@ -57,10 +57,14 @@ output: html_document
 </div>
 
 <div class="center-subtitle">
-  <p><b>Experiential Data science for Undergraduate Cross-disciplinary Education</b></p>
+  <p><b>Now hiring a Postdoctoral Fellow. Find out more <a href="http://ecoscope.ubc.ca/program-structure/educe/educe-postdoctoral-application/">here</a></b></p>
 </div>
 
 <p style="text-align:center;"><img src="Images/EDUCE_Globe.png" width="500"></p>
+
+<div class="center-subtitle">
+  <p><b>Experiential Data science for Undergraduate Cross-disciplinary Education</b></p>
+</div>
 
 <div class="box">
   <div class="contact-title">
