@@ -23,7 +23,13 @@ output:
     - Describe several advantages to using command line
 - Download instructions
     - Provides instructions for download and install of Unix terminals for Mac, Linux, and Windows
-- Unix tutorial and practice *Under development*
+- Unix navigation tutorial and practice
+    - Define parts of the terminal
+    - Use Unix commands to navigate your computer including pwd, ls, man/help, and cd
+- Unix manipulation tutorial and practice
+    - Use Unix commands to manipulate files including mkdir, cp, mv, and rm
+    - Apply equivalent file paths in Unix commands
+    - Define best practices for directory and file names
 
 ### Applications of command line *Under development*
 - BLAST tutorial and practice
