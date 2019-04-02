@@ -39,7 +39,7 @@ output:
 - Git tutorial
     - Enact version control on a text file using Git command line tools
     - Share a version controlled file using GitHub
-
+    
 ***
 
 # R/RStudio
