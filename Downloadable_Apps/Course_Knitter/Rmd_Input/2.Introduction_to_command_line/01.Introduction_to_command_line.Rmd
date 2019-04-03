@@ -1,0 +1,37 @@
+---
+title: "Introduction to command line"
+author: "Dr. Kim Dill-McFarland, U. of British Columbia"
+subtitle: "Experiential Data science for Undergraduate Cross-disciplinary Education"
+output:
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+  pdf_document:
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+urlcolor: blue
+---
+# Introduction to command line
+## Learning objectives
+
+* Define command line
+* Describe several advantages to using command line
+
+## What is command line?
+Today, we generally interact with computers through what are called graphical user interfaces (GUI). These GUIs allow us to point and click to access files, open software, and accomplish most (if not all) of the tasks we wish to complete. However, there is another way to talk to your computer: command line.
+
+Command line, also called the command prompt, shell, or terminal, allows you to interact with any computer through text-based commands. In essence, you move from using your mouse to using your keyboard. There are several different "languages" in use, the most common of which is Unix (or its free twin, **Linux**).
+
+## Advantages of command line
+
+**1. Speed and efficieny.** While it may not seem so when you are first learning, command line is faster than using a GUI. Since you are only using your keyboard, you have two hands to work with and don't need to switch back and forth between the mouse and keyboard.
+
+**2. Reproducible methods.** Since everything is accomplished with text-based commands, you can easily provide exact documentation of your methods and workflow.
+
+**3. Access to remote resources.** Cloud resource like [Amazon Web Services](https://cloud.google.com/) and [Google Cloud Platform](https://cloud.google.com/) as well as local super computers at various universities and private companies can *only* be accessed via command line. You cannot go physically sit at and work on these computers; so, you remotely log-in through the terminal. These resources allow you to process bigger data faster than is possible with a personal computer.
+
+**4. Access to more software.** There are many software programs available in command line forms. These are often run on servers (see #3) and only available through the command line. We explore several such programs in other modules.
+
+***

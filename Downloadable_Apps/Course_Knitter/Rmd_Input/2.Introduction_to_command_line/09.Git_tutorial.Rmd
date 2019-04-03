@@ -1,0 +1,401 @@
+---
+title: "Version control with Git tutorial"
+author: "Dr. Kim Dill-McFarland, U. of British Columbia"
+subtitle: "Experiential Data science for Undergraduate Cross-disciplinary Education"
+output:
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+  pdf_document:
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+urlcolor: blue
+---
+```{r echo=FALSE}
+#Reset wd to home
+knitr::opts_knit$set(root.dir = '/Users/kim')
+```
+
+# Version control with Git tutorial
+## Learning objectives
+
+* Practice Unix command line
+* Enact version control on a text file using Git command line tools
+
+## Setup
+If you would like to follow along:
+
+1. Download the [Git](https://git-scm.com/downloads) installer for your operating system
+    - If you are using the GitBash terminal, you already have git installed
+2. Run the installer and follow prompts
+3. Check that git is installed by opening your terminal and inputting `git`[Enter]
+    - You should see a help page starting with
+    ```
+    usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+    ```
+    - You may need to restart your computer to fully install
+    - If you do not have a Unix terminal, see the 'Download_Unix_terminal' instructions.
+
+## Version control
+Version control is any means of recording changes to file(s) over time so that you can recall or revert back to specific versions later.
+
+One method of version control you may have employed in the past is dated or versioned file names like `myFile_2018.06.25.txt` or `myFile_v1.2.txt`. While these systems can get the job done, you end up will a long list of files that take up storage space and have little information on how they differ. It remains up to you to remember what date or version to go back to for whatever purpose is needed. 
+
+### Why Git?
+There is a better way to version control with distributed systems, and [Git](https://git-scm.com/) is one such language/program. While Git can be used to track changes for any file type, it is most useful with text-based files like `.txt`, `.Rmd`, `.R`, etc. because these are *source files* with the appearance directions clearly noted and not hidden behind a GUI. Think of Git like the "track changes" feature of MS Word, except there is a record of the changes after you "accept" them.
+
+The advantages of distributed version control over naming methods are that:
+
+- it is easy to see what changed when (time-stamped), why (commented), and by whom (author identified)
+- you can jump back to any point in time since the file's creation, not just versions you deemed important enough to save at the time
+- you have the freedom to experiment, try something crazy even, because you can always go back to the last known good version
+- you can work on 2+ different versions in parallel
+- you are able manage contributions from multiple people (see later section on GitHub)
+
+Specifically, we are using Git, as opposed to another program, because it:
+
+- is very fast, even for projects with hundreds of files and years of history
+- doesn't require access to a server
+- is already extremely popular
+
+## Using Git
+All Git functions are accessed from the command line with `git` followed by the function name like `git init`. You do not need to open a specific program other than your terminal. The commands used in this section are summarized in the following infographic. Please refer to it as we progress through the examples.
+
+![](images/Git_basic.png)
+\ 
+
+### Initialize a repo (`git init`)
+Git will not implement version control on your files until you tell it to do so. This is accomplished by initializing a repository with `init`.
+
+First, create a directory on your desktop named `TestRepo`. Then, open your terminal and navigate to the `TestRepo` directory.
+
+```{bash results=FALSE}
+mkdir Desktop/TestRepo
+cd Desktop/TestRepo
+```
+
+```{r echo=FALSE}
+#Reset wd to repo
+knitr::opts_knit$set(root.dir = '/Users/kim/Desktop/TestRepo')
+```
+
+Initialize the TestRepo directory with 
+
+```{bash}
+git init
+```
+
+If you now list all the files in the `TestRepo` directory with `ls -a`, you will see a `.git` file that designates that this directory is a Git repo. Nothing about the directory itself has changed; Git just now knows to track it for version control.
+
+```{bash}
+ls -a
+```
+
+### Add files (`git add`)
+Create a `README.md` using a text editor of your choice and type some text into the file. In this example, I will use the command line to create this file but feel free to use another program if you wish.
+
+```{bash}
+echo 'Hello!' > README.md
+```
+
+We see the new file in the TestRepo
+
+```{bash}
+ls -a
+```
+
+Now that we've added a file, we can query if there are any differences between our local `TestRepo` directory and the version controlled repo with 
+
+```{bash}
+git status
+```
+
+We see that `README.md` simply being in a repo does not automatically tell Git to track this file; it remains "untracked". So, we must add the file to Git tracking. We can either add just this file specifically with
+
+```{bash}
+git add README.md
+```
+
+Or if we had more than 1 file to add at once, we could add all with
+
+```{bash}
+git add .
+```
+
+Now we see that our README is tracked but not committed.
+
+```{bash}
+git status
+```
+
+### Git staging area (index)
+If the file is tracked but not committed (*i.e.* version saved), where is it? Well, Git has a staging area (also called the index) where a version of a file is stored prior to it being more permanently saved as a committed version. 
+
+This is useful because sometimes you may want to:
+
+* save a version as a back-up in the short-term but do not want to permanently save that version in the long-term
+* complete many small changes separately but save them all together as 1 new version
+* compare your current version with the last committed version without causing any conflicts in your repo
+
+### Commit changes (`git commit`)
+Once you have a version you want to save for all time, you need to `commit` it from the index to the repo. It is best practices to include a message with each commit using `git commit -m "Your message here"`. You wouldn't believe the number of commits with a message simply of "typo"! We will use the following to commit our first version of `TestRepo` with the README.
+
+```{bash}
+git commit -m "Initialize README"
+```
+
+You receive a summary of how many files were changed and what those changes where (though exact ID numbers will be specific to your repo).
+
+*Also, note the message that your name and email were automatically set based on your computer's information. In the GitHub tutorial, we will go over how to setup your computer to link to your GitHub account instead.*
+
+Now, we see that our local directory, index, and repo are all identical.
+
+```{bash}
+git status
+```
+
+## Compare versions (`git status` and `diff`)
+Since we are working with a single, small file in a small repo, it is easy to remember what versions are where. However, as you make larger files and repos, sometimes you will not know this. So, Git has functions for comparing versions.
+
+![](images/Git_compare.png)
+\ 
+
+Your `git status` should be up-to-date after the previous section. Now, let's create some differing versions in our local, index, and repo.
+
+Add your birthday to `README.md` and `git add .` this change *but do not commit*. 
+
+```{bash}
+echo 'My birthday is November 29.' >> README.md
+git add . 
+```
+
+Then add your favorite color and *do not add or commit* this change. 
+
+```{bash}
+echo 'My favorite color is purple.' >> README.md
+```
+
+So, now we have versions the following versions.
+
+* local: hello, birthday, color
+* index: hello, birthday
+* repo: hello
+
+We can determine what version is where with various parameters in `git diff`. Added lines are indicated by +, deleted lines by -, and changed lines by showing both versions inline.
+
+To compare the local and index
+
+```{bash}
+git diff
+```
+
+To compare the index and repo
+
+```{bash}
+git diff --cached HEAD
+```
+
+To compare the local and repo
+
+```{bash}
+git diff HEAD
+```
+
+And so if you are unsure which version you are using (local) or which one you want to revert to, `diff` can show you.
+
+## Past commits (`git log` and `show`)
+You'll notice in the `diff` commands that reference the repo, it is referred to as HEAD. This is the most recent commit version in the repo and you can go back farther with `HEAD~##`.
+
+Let's `add and commit` our current changes so that we have multiple commits to look at. Since we never committed the version with only the birthday added, this version is lost with a new `git add`.
+
+```{bash}
+git add .
+git commit -m "Add birthday and color"
+```
+
+We can see all past commits in this repo with
+
+```{bash}
+git log
+```
+
+Or view a specific past version using `HEAD~##`. For example, we can view our first commit which is `HEAD~1`
+
+```{bash}
+git show HEAD~1
+```
+
+## Branches (`git checkout -b`)
+
+![](images/Git_branch.png)
+\ 
+
+One of the best ways to avoid the need to undo anything in Git is to use branches. These are copies of your repo that you can work on independently of the "master" without impacting the master but still version control changes as you go. You can then choose to merge the branch with the master if you want to keep those changes or abandon the branch and go back the to the master if you do not want to keep those changes.
+
+You may have noticed that many of our previous Git outputs start with `On branch master`. This is because by default, we were working on the master branch of the project (the only branch up to this point).
+
+Branches are particularly useful to:
+
+* test new features without breaking the current working code
+* collaborate in parallel
+* follow a risky idea that has the potential to break your working code
+* develop the same base code into 2+ other applications
+
+To start a new branch, first make sure that everything is up-to-date with `git status`. Then, `checkout` (*i.e.* create) and move into a new branch using the branch `-b` parameter.
+
+```{bash}
+git status
+```
+
+```{bash}
+git checkout -b new_branch master
+```
+
+We see that we are in the new branch.
+
+```{bash}
+git status
+```
+
+Now, we can make changes in this branch without impacting the master branch. Go ahead and edit `README.md` by adding another piece of information. Then `add and commit` this change in your new_branch.
+
+```{bash}
+echo 'I like cats.' >> README.md
+
+git add .
+git commit -m 'Add cats'
+```
+
+The two branches no longer match so we must merge them and decide which version(s) to keep. To do so, we must first move back into the master branch
+
+```{bash}
+git checkout master
+```
+
+Then merge the branches, which overwrites the older master branch with our new changes in the new_branch
+
+```{bash}
+git merge new_branch
+```
+
+So, the README file now contains all the changes that were made in new_branch.
+
+```{bash}
+head README.md
+```
+
+## Merge conflicts (`git merge`)
+Merging works simply if only 1 of the branches being merged has be altered since it branched off. If both branches contain non-synonymous changes, there will be a conflict.
+
+You resolve a conflicts by merging, opening the file(s) with conflict(s), editing until you have the version you want, and saving the new, correct merged version with `add and commit`.
+
+For example, we can make a new_branch2
+
+```{bash}
+git checkout -b new_branch2 master
+```
+
+Modify the README; add and commit those changes to **this branch**
+
+```{bash}
+echo 'I like dogs too!' >> README.md
+git add .
+git commit -m "Add dogs"
+```
+
+Also modify the README in our master branch.
+
+```{bash}
+git checkout master
+
+echo 'I do not like dogs.' >> README.md
+git add .
+git commit -m "Add dogs again"
+```
+
+And now the version in the master has non-mergable changes compared to the new_branch2 version *e.g.* I can't both like and not like dogs. Thus, when we try to merge these branches, there is a conflict.
+
+```{bash error=TRUE}
+git merge new_branch2
+```
+
+If we open the README, Git has marked the conflict(s) like so
+
+```
+<<<<<< HEAD
+master version
+=======
+branch version
+>>>>>> name_of_branch
+```
+
+```{bash}
+head README.md
+```
+
+To resolve this, we must open the README and correct the conflict, being sure to remove the `>`, `=`, and `<` markers. Once we have the corrected version like so
+
+```{bash echo=FALSE}
+echo -e 'Hello!\nMy birthday is November 29.\nMy favorite color is purple.\nI like cats.\nI like dogs too!' > README.md
+```
+
+```{bash}
+head README.md
+```
+
+we can try adding and committing again. If we've fully resolved the conflict, there will be no errors!
+
+```{bash}
+git add .
+git commit -m "Resolve dog conflict"
+```
+
+And we can see our entire history, including the branches, in the log.
+
+```{bash}
+git log
+```
+
+## Summary of Git
+Thus far, we have covered the main Git terms and functions that you will need to enact version control on your own computer (summarized below).
+
+### Terms
+
+- **Repository**: the contents (directory/folder) of a project including all history and versions for all files in that project
+- **Commit**: a snapshot of the state of the repository at a given point in time including the author, time, and a comment
+- **Staging/Index**: files marked for inclusion in the next commit as whatever version that they were *at the time they were staged*, not necessarily the most up-to-date version on your computer
+- **Branch**: a named sequence of commits kept separate from the original "master" sequence
+- **Merge**: including changes from one branch into another
+- **Conflict**: parallel changes to the same section(s) of a file that can't be automatically merged
+
+### Commands
+* `status`: query for differences in versions in local, index, or repo
+* `init`: initialize a repo
+* `add`: add files to the index (staging) prior to committing
+* `commit -m`: save changes in the index as a time-stamped version with comment (message)
+* `diff (HEAD) (--cached HEAD)`: compare file versions in the local vs. index (local vs. repo) (index vs. repo)
+* `log`: show list of previous commits in the current repo
+* `show`: show a detail account of a previous commit
+* `checkout`: create and move between branches or the local, index, and repo
+    - Not shown here but `checkout HEAD` can be used to move to a past commit and re-instate file versions from that commit
+* `merge`: combine changes from a branch into the master repo (may result in conflicts)
+
+To checkout more functionalities in Git, see a [list of all Git commands](https://git-scm.com/docs).
+
+```{r echo=FALSE}
+#Reset wd to home
+knitr::opts_knit$set(root.dir = '/Users/kim')
+```
+
+```{bash echo=FALSE}
+#Remove repo
+rm -rf Desktop/TestRepo
+```
+
+***
