@@ -34,11 +34,12 @@ output:
 
 ### Applications of command line
 
-- BLAST tutorial
+- BLAST tutorial and practice
     - Complete nucleotide BLAST of a large sequencing dataset using command line tools
-- Git tutorial
+- Git tutorial and practice
     - Enact version control on a text file using Git command line tools
-    - Share a version controlled file using GitHub
+- GitHub tutorial and practice
+    - Share and modify a version controlled file using GitHub
     
 ***
 
