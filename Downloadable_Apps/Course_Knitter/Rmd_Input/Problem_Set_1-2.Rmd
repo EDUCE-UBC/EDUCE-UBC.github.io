@@ -1,0 +1,74 @@
+---
+title: "Problem_Set_1-2"
+author: "Jonah Lin (30616130)"
+date: "March 18, 2018"
+output: html_document
+---
+
+#### Learning Objectives:
+Discuss the role of microbial diversity and formation of coupled metabolism in driving global biogeochemical cycles.
+
+#### Specific Questions:
+* What are the primary geophysical and biogeochemical processes that create and sustain conditions for life on Earth? How do abiotic versus biotic processes vary with respect to matter and energy transformation and how are they interconnected?
+    
+    
+    Primary Geophysical Processes = Tectonics and atmospheric photocehmical processes
+    Primary Biogeochemical Processes = Microbially catalyzed, thermodynamically constrained redox reactions
+    Abiotic vs. Biotic Processes vary with respect to matter/energy transformation and how are they interconnected:
+    Abiotic processes usually supplies biotic processes with substrates (Biotic processes uses up energy to sustain life and uses up matter to produce "waste products" whereas abiotic processes creates energy via transformation of "waste products" to substrates usable by microbes)
+
+
+* Why is Earth's redox state considered an emergent property?
+    
+    
+    Earth's Redox State = Emergent Property of Microbial Life on Planetary Scale
+    - First 5 elements (C/H/N/O/S) driven largely by microbially catalyzed, thermodynamically constrained redox reactions
+    - C/S/P dependent on tectonics (Volcanism/Rock Weathering)
+    - Biogeochemical cycles evolved on planetary scale to form set of nested abiotically driven acid-base and biologically driven redox reactions (Sets lower limits on external energy required to sustain cycles)
+    - Feedbacks between evolution of microbial metabolic geochemical processes create average redox conditions of oceans/atmosphere
+    - Biological Oxidation = Driven by photosynthesis
+
+
+* How do reversible electron transfer reactions give rise to element and nutrient cycles at different ecological scales? What strategies do microbes use to overcome thermodynamic barriers to reversible electron flow?  
+    
+    
+    Reversible electron transfer reactions --> Element + Nutrient Cycles at different ecological scales?
+    Steps:
+    1) Energy of light from photosynthesis oxidizes electron donor
+    2) The electrons + protons generated in the process are used to reduce inorganic C to organic matter with higher energy bonds
+    3) Resulting oxidizing metabolites may serve as electron acceptors in aerobic or anaerobic respiration for photosynthetic organisms that use these "waste products" as oxidants
+    4) Nutrients may be buried in sediments and returned to biosphere via mountain building and subsequent erosion/geothermal activity
+    Strategies used by microbes to overcome thermodynamic barriers to reversible electron flow:
+    - Reduction of CO~2~ with H~2~ (If H tension is sufficiently low, the reversible process becomes thermodynamically favorable). This may require the help of multispecies assemblages (H-Consuming sulfate reducers). Uses differences in concentration of substrates for overcoming thermodynamic barriers
+    - Citric acid cycle oxidizes acetate stepwise into CO~2~. Breaking down elements in stepwise fashion uses less energy than breaking down elements directly into its most basic elements
+    - Use of enzyme in converting N~2~ to NH~4~^+^. Enzymes reduces energy required to overcome thermodynamic barriers
+    - Microbes work together in communities to overcome thermodynamic barriers. Uses products of other microbe population as substrates
+    
+
+* Using information provided in the text, describe how the nitrogen cycle partitions between different redox “niches” and microbial groups. Is there a relationship between the nitrogen cycle and climate change?
+    
+    
+    N Cycle
+    - N Fixation transforms N~2~ to NH~4~^+^ for use in synthesis of proteins and nucleic acids (Requires mechanism for protecting enzyme from oxygen by spatially or temporally segregating nitrogen fixation from aerobic environments)
+    - Oxidation of ammonia to hydroxylamine via ammonia monooxygenase
+    Relationship between N cycle and climate change:
+    - Syntheic N from fertilizers lead to excess N in N cycle
+    - Excess N may lead to algae blooms (Nutrient enrichment and warm waters)
+    - Excess N may affect denitrification process in freshwater (Influx of N > Efflux of N)
+
+
+* What is the relationship between microbial diversity and metabolic diversity and how does this relate to the discovery of new protein families from microbial community genomes?
+    
+    
+    Relationship between microbial diversity and metabolic diversity:
+    Higher microbial diversity leads to higher metabolic diversity since different microbes may have a better chance of survival under different conditions using a different resource for metabolism (High metabolic diversity)
+    Relation to discovery of new protein families from microbial community genomes:
+    Microbial communities with high diversity (In terms of species and metabolic diversity) will have a higher chance of finding new protein families due to mutations creating more efficient or functionally different proteins in microbes.
+
+
+* On what basis do the authors consider microbes the guardians of metabolism?
+    
+    
+    Microbes = Guardians of Metabolism
+    - Dispersal of core planetary gene set (VGT/HGT)
+    - Selective pressure leads to evolution of boutique genes that protect metabolic pathway (Enables retention of fundamental redox processes using microbes as vessels)
