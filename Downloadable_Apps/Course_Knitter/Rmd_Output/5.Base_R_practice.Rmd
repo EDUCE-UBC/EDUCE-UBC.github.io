@@ -1,0 +1,23 @@
+---
+title: "Basic R practice"
+author: "Dr. Kim Dill-McFarland, U. of British Columbia"
+subtitle: "Experiential Data science for Undergraduate Cross-disciplinary Education"
+output:
+  pdf_document: default
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+---
+# Basic R practice
+## Learning objectives
+
+* 
+* 
+
+##
+```{r}
+library(learnr)
+```
+
+
+***

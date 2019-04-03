@@ -18,83 +18,103 @@ library(shinythemes)
 library(shinyWidgets)
 
 # Extract list of files AND Extract course titles ----
-files <- Sys.glob("Rmd_Input/*.Rmd")
-courses <- gsub("^Rmd_Input/", "", files)
-courses <- gsub("\\.Rmd", "", courses)
-courses <- gsub("_", " ", courses)
-names(files) <- courses
+    ### List course dir
+    courses <- Sys.glob("Rmd_Input/*/")
+    ### Create blank list to hold file names
+    files <- list()
+    ### List all files from course dirs, grouped by course and named by file name
+    for(c in 1:length(courses)){
+      path <- paste(courses[c], "*.Rmd", sep="")
+      files[c] <- list(Sys.glob(path))
+      names(files[[c]]) <- gsub("_", " ",
+                           gsub("\\.Rmd", "",
+                           gsub("^Rmd_Input/.*/", "", files[[c]])))
+      }
+    ### Name lists by course
+    names(files) <- gsub("_", " ", gsub("/", "", gsub("^Rmd_Input/", "", courses)))
+
 
 # Define UI for data download app ----
-ui <- fluidPage("", id = "navibar", theme = shinytheme("darkly"), useShinyjs(), useShinyalert(), 
-                # Sidebar layout with input and output definitions ----
-                sidebarLayout(
-                  # Sidebar panel for inputs ----
-                  sidebarPanel(
-                    # Return to EDUCE Button ----
-                    actionButton("return", label = "Return to EDUCE", icon = icon("home"), onclick ="location.href='https://educe-ubc.github.io/';"),
+ui <- fluidPage(titlePanel("EDUCE Course compiler"),
+                id = "navibar",
+                theme = shinytheme("lumen"),
+                useShinyjs(), useShinyalert(),
+                
+      # Sidebar on left ----
+      sidebarLayout(position="left",
+          
+          # Sidebar content
+          sidebarPanel(width=4,
+          # Logo
+          HTML('<center><img src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/EDUCE_Globe.png",
+              height = 280, width = 280></center>'),
+          br(),
+          tags$b("Experiential Data science for Undergraduate Cross-disciplinary Education"),
+          br(),
+          br(),
+          "Course Compiler allows you to access all of EDUCE's data science modules for teaching or self-learning purposes. Simply select the content that fits your interests and have the Course Compiler create all the materials that you will need including:",
+          br(),br(),
+          tags$b("Documents "), "such as introductions, instructions, and cheatsheets,",
+          br(),
+          tags$b("Tutorials "), "with coding examples and explanations,",
+          br(),
+          tags$b("Practice "), "with interactive problems to test your knowledge.",
+          br(),br(),
+          "PDF and HTML formats provide ready to use documents; ZIP provides the R source code.",
+          br(),br(),
+          # Return to EDUCE Button
+          actionButton("return", label = "Return to EDUCE", icon = icon("home"), onclick ="location.href='https://educe-ubc.github.io/';")
+                      ),
+          
+          # Main conent
+          mainPanel(width=8,
+          # Input: Choose courses ----
+          selectInput("courses", tags$b("Select course content:"), 
+                      multiple = TRUE, choices = files),
+          # Select All Button ----
+          actionButton("all", label = "Select all"),
+          # Deselect All Button ----
+          actionButton("none", label = "Deselect all"),
+          
+          # Horizontal Line ----
+          tags$hr(),
                     
-                    # Horizontal Line ----
-                    tags$hr(),
-                    
-                    # Input: Choose courses ----
-                    selectInput("courses", "Select your courses:", multiple = TRUE, choices = files),
-                    
-                    # Select All Courses Button ----
-                    actionButton("all", label = "Select All Courses"),
-                    
-                    # Deselect All Courses Button ----
-                    actionButton("none", label = "Deselect All Courses"),
-                    
-                    # Horizontal Line ----
-                    tags$hr(),
-                    
-                    # Download Button with file types ----
-                    radioButtons('format', 'Document format', 
-                                 c('PDF', 'HTML', 'ZIP'),
-                                 inline = TRUE),
-                    downloadButton('downloadReport')
-                  ),
-                  
-                  # Main panel for displaying outputs ----
-                  mainPanel(
-                    setBackgroundImage(src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/EDUCE_Globe.png")
-                  )
-                )
-)
+          # Download Button with file types ----
+          radioButtons('format', tags$b("Select download format:"), 
+                       c('PDF', 'HTML', 'ZIP'),
+                       inline = TRUE),
+          downloadButton('downloadReport')
+                    )))
 
 # Define server logic to display and download selected file ----
 server <- function(input, output, session) {
-  # Pop-up for Select All Courses Button ----
+  # Pop-up for Select All Button ----
   observeEvent(input$all, {
     updateSelectInput(session, "courses",
-                      label = "Select your courses:",
+                      label = "Select course content:",
                       choices = files,
-                      selected = files
-    )
-    
-    shinyalert(title = "All Courses Selected!", animation = FALSE)
-  })
+                      selected = unlist(files))
+    })
   
-  # Pop-up for Deselect All Courses Button ----
+  # Pop-up for Deselect All Button ----
   observeEvent(input$none, {
     reset("courses")
-    actionButton("all", label = "Select All Courses")
-    actionButton("none", label = "Deselect All Courses")
-    shinyalert(title = "All Courses Deselected!", animation = FALSE)
-  })
+    actionButton("all", label = "Select all")
+    actionButton("none", label = "Deselect all")
+    })
   
   # Download handler for course knitter ----
   output$downloadReport <- downloadHandler(
     # File output name ----
     filename = function() {
-      paste('EDUCE_Courses', sep = '.', switch(input$format, PDF = 'pdf', HTML = 'html', ZIP = 'zip'))
+      paste('EDUCE_data_science_curriculum', sep = '.', switch(input$format, PDF = 'pdf', HTML = 'html', ZIP = 'zip'))
     },
     
     # Function for outputting file ----
     content = function(file) {
       # Clear out folders ----
       do.call(file.remove, list(list.files("Rmd_Output", full.names = TRUE)))
-      unlink("Download_Files", recursive = TRUE)
+      unlink("EDUCE_data_science_curriculum", recursive = TRUE)
       
       # Create Rmd_Output folder if it doesn't exist ----
       if (!dir.exists("./Rmd_Output")) {
@@ -103,12 +123,13 @@ server <- function(input, output, session) {
       
       # Input courses based on user ----
       input_list = list()
+      course_list <- unlist(files)
       input_list <- append(input$courses, input_list)
       
       if (length(input_list) == 0) {
-        shinyalert(title = "Please select a course.", animation = FALSE)
+        shinyalert(title = "Please select content to compile.", animation = FALSE)
       }
-      
+
       # Copy all files in Rmd_Input to Rmd_Output ----
       if (input$format == 'ZIP') {
         for (i in input_list) {
@@ -117,9 +138,22 @@ server <- function(input, output, session) {
       }
       
       # Create title of Rmd ----
-      title <- paste0("---\n", "title: 'Course Files'\n", "output:\n", "  html_document:\n", "    toc: true\n", 
-                      "    toc_depth: 4\n", "    toc_float:\n", "      collapsed: false\n", "      smooth_scroll: true\n", 
-                      "  pdf_document:\n", "    toc: yes\n", "    toc_depth: 4\n", "    number_sections: yes\n", "    df_print: kable\n", "---\n")
+      title <- paste0("---\n",
+                      "title: 'EDUCE course files'\n",
+                      "output:\n",
+                      "  html_document:\n",
+                      "    toc: yes\n", 
+                      "    toc_depth: 4\n",
+                      "    toc_float:\n",
+                      "      collapsed: false\n",
+                      "      smooth_scroll: true\n", 
+                      "  pdf_document:\n",
+                      "    toc: yes\n",
+                      "    toc_depth: 4\n",
+                      "    number_sections: yes\n",
+                      "    df_print: kable\n", "---\n",
+                      "```{r child = 'Rmd_Input/Introduction_to_EDUCE.Rmd'}\n",
+                      "```\n")
       
       # Set list of Rmd file inputs ----
       rmd <- input_list
@@ -143,19 +177,20 @@ server <- function(input, output, session) {
       ))
       
       if (input$format == 'ZIP') {
-        dir.create("Download_Files")
+        dir.create("EDUCE_data_science_curriculum")
         
-        file.copy("Rmd_Master_File.Rmd", "Download_Files")
+        file.copy("Rmd_Master_File.Rmd", "EDUCE_data_science_curriculum")
         
-        file.copy("Rmd_Output", "Download_Files", recursive = TRUE)
+        file.copy("Rmd_Output", "EDUCE_data_science_curriculum", recursive = TRUE)
         
-        file.rename("Download_Files/Rmd_Output", "Download_Files/Rmd_Input")
+        file.rename("EDUCE_data_science_curriculum/Rmd_Output",
+                    "EDUCE_data_science_curriculum/Rmd_Input")
         
-        OutputZip <- dir("Download_Files", full.names = TRUE)
+        OutputZip <- dir("EDUCE_data_science_curriculum", full.names = TRUE)
         
-        zip(zipfile = 'EDUCE_Courses', files = OutputZip)
+        zip(zipfile = 'EDUCE_data_science_curriculum', files = OutputZip)
         
-        out <- c("EDUCE_Courses.zip")
+        out <- c("EDUCE_data_science_curriculum.zip")
       }
       
       # Rename file ----

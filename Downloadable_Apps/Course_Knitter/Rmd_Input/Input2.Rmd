@@ -1,6 +1,0 @@
----
-title: "Input 2"
-output: html_document
----
-
-# 2

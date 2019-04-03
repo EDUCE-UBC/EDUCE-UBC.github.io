@@ -1,0 +1,142 @@
+---
+title: "RStudio tutorial"
+author: "Dr. Kim Dill-McFarland, U. of British Columbia"
+subtitle: "Experiential Data science for Undergraduate Cross-disciplinary Education"
+output:
+  pdf_document: default
+  html_document: default
+---
+# RStudio tutorial
+## Learning objectives
+
+* Navigate the RStudio software including:
+    * Projects
+    * Packages
+    * Help
+
+## 
+
+
+
+
+***
+
+# A Tour of RStudio
+
+When you start RStudio, you will see something like the following window appear:
+
+![](images/rstudio.png)
+
+Notice that the window is divided into three "panes":
+
+- Console (the entire left side): this is your view into the R engine. You can type in R commands here and see the output printed by R. (To make it easier to tell them apart, your input is printed in blue, while the output is black.) There are several editing conveniences available: use up and down arrow keys to go back to previously entered commands, which can then be edited and re-run; TAB for completing the name before the cursor; see more in [online docs](http://www.rstudio.com/ide/docs/using/keyboard_shortcuts).
+
+- Environment/History (tabbed in upper right): view current user-defined objects and previously-entered commands, respectively.
+
+- Files/Plots/Packages/Help (tabbed in lower right): as their names suggest, these are used to view the contents of the current directory, graphics created by the user, install packages, and view the built-in help pages.
+
+To change the look of RStudio, you can go to Tools -> Global Options -> Appearance and select colors, font size, etc. If you plan to be working for longer periods, we suggest choosing a dark background color scheme to save your computer battery and your eyes.
+
+## RStudio Projects
+
+Projects are a great feature of RStudio. When you create a project, RStudio creates an `.Rproj` file that links all of your files and outputs to the project directory. When you import data, R automatically looks for the file in the project directory instead of you having to specify a full file path on your computer like `/Users/username/Desktop/`. R also automatically saves any output to the project directory. Finally, projects allow you to save your R environment in `.RData` so that when you close RStudio and then re-open it, you can start right where you left off without re-importing any data or re-calculating any intermediate steps.
+
+RStudio has a simple interface to create and switch between projects, accessed from the button in the top-right corner of the RStudio window. (Labelled "Project: (None)", initially.)
+
+Let's create an `IntroR` project to work in. Start by click the "Project" button in the upper right or going to the "File" menu. Select "New Project" and the following will appear.
+
+![](images/new.project1.png){width=50%} 
+
+You can either create a project in an existing directory or make a new directory on your computer - just be sure you know where it is.
+
+After your project is created, navigate to its directory using your Finder/File explorer or the integrated Terminal in RStudio. You will see the `.RProj` file has been created. Next, move the data file [`Saanich_Data.csv`](https://github.com/EDUCE-UBC/workshop_data) into the project directory.
+
+To access this project in the future, simply double-click the `RProj` and RStudio will open the project or choose File > Open Project from within an already open RStudio window.
+
+## R Scripts
+
+R script files are the primary way in which R facilitates reproducible research. They contain the code that loads your raw data, cleans it, performs the analyses, and creates and saves visualizations. R scripts maintain a record of everything that is done to the raw data to reach the final result. That way, it is very easy to write up and communicate your methods because you have a document listing the precise steps you used to conduct your analyses. This is one of R's primary advantages compared to traditional tools like Excel, where it may be unclear how to reproduce the results. 
+
+Generally, if you are testing an operation (*e.g.* what would my data look like if I applied a log-transformation to it?), you should do it in the console (left pane of RStudio). If you are committing a step to your analysis (*e.g.* I want to apply a log-transformation to my data and then conduct the rest of my analyses on the log-transformed data), you should add it to your R script so that it is saved for future use. 
+
+Additionally, you should annotate your R scripts with comments. In each line of code, any text preceded by the `#` symbol will not execute. Comments can be useful to remind yourself and to tell other readers what a specific chunk of code does. 
+
+Let's create an R script (File > New File > R Script) and save it as `tidyverse.R` in your main project directory. If you again look to the project directory on your computer, you will see `tidyverse.R` is now saved there.
+
+We will work to populate the `tidyverse.R` script in later class sessions.
+
+## R packages
+R packages are units of shareable code, containing functions that facilitate and enhance analyses. 
+
+### Install from CRAN
+Packages are typically installed from [CRAN](https://www.r-project.org/) (The Comprehensive R Archive Network), which is a database containing R itself as well as many R packages. Any package can be installed from CRAN using the `install.packages` function with default parameters. Here, we will install the [tidyverse](https://www.tidyverse.org/) (which is actually a suite of packages) and [cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+
+You can input this into your console (as opposed to `tidyverse.R`) since once a package is installed on your computer, you won't need to re-install it again. If prompted, update all dependencies but **do not** install from sources that need compilation.
+
+**For R v3.4 or newer**
+```{r eval=FALSE}
+install.packages("tidyverse")
+```
+
+**For R v3.3 or older**  
+Unfortunately, tidyverse does not work on older versions of R. Instead, you will need to individually install each package within the tidyverse.
+```{r eval=FALSE}
+install.packages("tibble")
+install.packages("readr")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("ggplot2")
+install.packages("stringr")
+install.packages("purrr")
+install.packages("forcats")
+```
+
+### Install from Bioconductor
+A number of other packages are stored on [Bioconductor](https://www.bioconductor.org/) and need to be installed differently than CRAN packages. You will see some of these later in this course. 
+
+### Load packages
+After installing a package, and *everytime* you open a new RStudio session, the packages you want to use need to be loaded into the R work-space with the `library` function. This tells R to access the package's functions and prevents RStudio from lags that would occur if it automatically loaded every downloaded package every time you opened it.
+
+Since this is something you would need to repeat in the future, it should go in your `tidyverse.R` script. Also, we will only be working with a subset of the packages that you've installed thus far.
+
+**For R v3.4 or newer**
+```{r eval=FALSE, message=FALSE}
+library(tidyverse)
+```
+
+**For R v3.3 or older**  
+Again, you will need to work with individual packages within the tidyverse, of which we will only use 1 today.
+```{r message=FALSE}
+library(readr)
+```
+
+# Help function
+You can read up about the different arguments of a specific function by typing `?Function` or `help(Function)` in your R console.
+
+```{r}
+?library
+```
+
+# Exercise
+To prepare for your future R endeavors, please verify that all of the necessary packages downloaded correctly by loading them into R. If you encounter any errors, please see a TA or instructor.
+
+**For R v3.4 or newer**
+```{r eval=FALSE}
+library(tidyverse)
+
+library(cowplot)
+```
+
+**For R v3.3 or older**  
+```{r eval=FALSE}
+library(tibble)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(purrr)
+library(forcats)
+
+library(cowplot)
+```
