@@ -13,11 +13,6 @@ editor_options:
   chunk_output_type: console
 urlcolor: blue
 ---
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
 # Version control with Git tutorial
 ## Learning objectives
 
@@ -75,63 +70,89 @@ Git will not implement version control on your files until you tell it to do so.
 
 First, create a directory on your desktop named `TestRepo`. Then, open your terminal and navigate to the `TestRepo` directory.
 
-```{bash results=FALSE}
+```{bash eval=FALSE}
 mkdir Desktop/TestRepo
 cd Desktop/TestRepo
 ```
 
-```{r echo=FALSE}
-#Reset wd to repo
-knitr::opts_knit$set(root.dir = '/Users/kim/Desktop/TestRepo')
-```
-
 Initialize the TestRepo directory with 
 
-```{bash}
+```{bash eval=FALSE}
 git init
+```
+```
+Initialized empty Git repository in /Users/kim/Desktop/TestRepo/.git/
 ```
 
 If you now list all the files in the `TestRepo` directory with `ls -a`, you will see a `.git` file that designates that this directory is a Git repo. Nothing about the directory itself has changed; Git just now knows to track it for version control.
 
-```{bash}
+```{bash eval=FALSE}
 ls -a
+```
+```
+.       ..      .git
 ```
 
 ### Add files (`git add`)
 Create a `README.md` using a text editor of your choice and type some text into the file. In this example, I will use the command line to create this file but feel free to use another program if you wish.
 
-```{bash}
+```{bash eval=FALSE}
 echo 'Hello!' > README.md
 ```
 
 We see the new file in the TestRepo
 
-```{bash}
+```{bash eval=FALSE}
 ls -a
+```
+```
+.               ..              .git            README.md
 ```
 
 Now that we've added a file, we can query if there are any differences between our local `TestRepo` directory and the version controlled repo with 
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 We see that `README.md` simply being in a repo does not automatically tell Git to track this file; it remains "untracked". So, we must add the file to Git tracking. We can either add just this file specifically with
 
-```{bash}
+```{bash eval=FALSE}
 git add README.md
 ```
 
 Or if we had more than 1 file to add at once, we could add all with
 
-```{bash}
+```{bash eval=FALSE}
 git add .
 ```
 
 Now we see that our README is tracked but not committed.
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   README.md
 ```
 
 ### Git staging area (index)
@@ -146,18 +167,39 @@ This is useful because sometimes you may want to:
 ### Commit changes (`git commit`)
 Once you have a version you want to save for all time, you need to `commit` it from the index to the repo. It is best practices to include a message with each commit using `git commit -m "Your message here"`. You wouldn't believe the number of commits with a message simply of "typo"! We will use the following to commit our first version of `TestRepo` with the README.
 
-```{bash}
+```{bash eval=FALSE}
 git commit -m "Initialize README"
+```
+```
+[master (root-commit) 1515b4a] Initialize README
+ Committer: Kim Dill-McFarland <kim@email.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
 ```
 
 You receive a summary of how many files were changed and what those changes where (though exact ID numbers will be specific to your repo).
 
-*Also, note the message that your name and email were automatically set based on your computer's information. In the GitHub tutorial, we will go over how to setup your computer to link to your GitHub account instead.*
+*Also, note the message that your name and email were automatically set based on your computer's information. We will remove this message from subsequent commits in this tutorial for brevity. In the GitHub tutorial, you can see how to setup your computer to link to your GitHub account instead.*
 
 Now, we see that our local directory, index, and repo are all identical.
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch master
+nothing to commit, working tree clean
 ```
 
 ## Compare versions (`git status` and `diff`)
@@ -170,14 +212,14 @@ Your `git status` should be up-to-date after the previous section. Now, let's cr
 
 Add your birthday to `README.md` and `git add .` this change *but do not commit*. 
 
-```{bash}
+```{bash eval=FALSE}
 echo 'My birthday is November 29.' >> README.md
 git add . 
 ```
 
 Then add your favorite color and *do not add or commit* this change. 
 
-```{bash}
+```{bash eval=FALSE}
 echo 'My favorite color is purple.' >> README.md
 ```
 
@@ -191,20 +233,49 @@ We can determine what version is where with various parameters in `git diff`. Ad
 
 To compare the local and index
 
-```{bash}
+```{bash eval=FALSE}
 git diff
+```
+```
+diff --git a/README.md b/README.md
+index 016b9ef..049fca5 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,3 @@
+ Hello!
+ My birthday is November 29.
++My favorite color is purple.
 ```
 
 To compare the index and repo
 
-```{bash}
+```{bash eval=FALSE}
 git diff --cached HEAD
+```
+```
+diff --git a/README.md b/README.md
+index 10ddd6d..016b9ef 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ Hello!
++My birthday is November 29.
 ```
 
 To compare the local and repo
 
-```{bash}
+```{bash eval=FALSE}
 git diff HEAD
+```
+```
+diff --git a/README.md b/README.md
+index 10ddd6d..049fca5 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+ Hello!
++My birthday is November 29.
++My favorite color is purple.
 ```
 
 And so if you are unsure which version you are using (local) or which one you want to revert to, `diff` can show you.
@@ -214,21 +285,54 @@ You'll notice in the `diff` commands that reference the repo, it is referred to 
 
 Let's `add and commit` our current changes so that we have multiple commits to look at. Since we never committed the version with only the birthday added, this version is lost with a new `git add`.
 
-```{bash}
+```{bash eval=FALSE}
 git add .
 git commit -m "Add birthday and color"
+```
+```
+[master f1b97c7] Add birthday and color
+ Committer: Kim Dill-McFarland <kim@email.com>
+ 1 file changed, 2 insertions(+)
 ```
 
 We can see all past commits in this repo with
 
-```{bash}
+```{bash eval=FALSE}
 git log
+```
+```
+commit f1b97c7b50090383b9c40af0335a25d4b3df7982 (HEAD -> master)
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:03:51 2019 -0700
+
+    Add birthday and color
+
+commit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README
 ```
 
 Or view a specific past version using `HEAD~##`. For example, we can view our first commit which is `HEAD~1`
 
-```{bash}
+```{bash eval=FALSE}
 git show HEAD~1
+```
+```
+ommit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..10ddd6d
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++Hello!
 ```
 
 ## Branches (`git checkout -b`)
@@ -249,45 +353,76 @@ Branches are particularly useful to:
 
 To start a new branch, first make sure that everything is up-to-date with `git status`. Then, `checkout` (*i.e.* create) and move into a new branch using the branch `-b` parameter.
 
-```{bash}
+```{bash eval=FALSE}
 git status
 ```
+```
+On branch master
+nothing to commit, working tree clean
+```
 
-```{bash}
+```{bash eval=FALSE}
 git checkout -b new_branch master
+```
+```
+Switched to a new branch 'new_branch'
 ```
 
 We see that we are in the new branch.
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch new_branch
+nothing to commit, working tree clean
 ```
 
 Now, we can make changes in this branch without impacting the master branch. Go ahead and edit `README.md` by adding another piece of information. Then `add and commit` this change in your new_branch.
 
-```{bash}
+```{bash eval=FALSE}
 echo 'I like cats.' >> README.md
 
 git add .
 git commit -m 'Add cats'
 ```
+```
+new_branch d566b29] Add cats
+ Committer: Kim Dill-McFarland <kim@email.com>
+ 1 file changed, 1 insertion(+)
+```
 
 The two branches no longer match so we must merge them and decide which version(s) to keep. To do so, we must first move back into the master branch
 
-```{bash}
+```{bash eval=FALSE}
 git checkout master
+```
+```
+Switched to branch 'master'
 ```
 
 Then merge the branches, which overwrites the older master branch with our new changes in the new_branch
 
-```{bash}
+```{bash eval=FALSE}
 git merge new_branch
+```
+```
+Updating f1b97c7..d566b29
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
 ```
 
 So, the README file now contains all the changes that were made in new_branch.
 
-```{bash}
+```{bash eval=FALSE}
 head README.md
+```
+```
+Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.
 ```
 
 ## Merge conflicts (`git merge`)
@@ -297,32 +432,55 @@ You resolve a conflicts by merging, opening the file(s) with conflict(s), editin
 
 For example, we can make a new_branch2
 
-```{bash}
+```{bash eval=FALSE}
 git checkout -b new_branch2 master
+```
+```
+Switched to a new branch 'new_branch2'
 ```
 
 Modify the README; add and commit those changes to **this branch**
 
-```{bash}
+```{bash eval=FALSE}
 echo 'I like dogs too!' >> README.md
 git add .
 git commit -m "Add dogs"
 ```
+```
+[new_branch2 27c250f] Add dogs
+ Committer: Kim Dill-McFarland <kim@email.com>
+ 1 file changed, 1 insertion(+)
+```
 
 Also modify the README in our master branch.
 
-```{bash}
+```{bash eval=FALSE}
 git checkout master
+```
+```
+Switched to branch 'master'
+```
 
+```{bash eval=FALSE}
 echo 'I do not like dogs.' >> README.md
 git add .
 git commit -m "Add dogs again"
 ```
+```
+[master c427c53] Add dogs again
+ Committer: Kim Dill-McFarland <kim@email.com>
+ 1 file changed, 1 insertion(+)
+```
 
 And now the version in the master has non-mergable changes compared to the new_branch2 version *e.g.* I can't both like and not like dogs. Thus, when we try to merge these branches, there is a conflict.
 
-```{bash error=TRUE}
+```{bash eval=FALSE}
 git merge new_branch2
+```
+```
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 If we open the README, Git has marked the conflict(s) like so
@@ -335,31 +493,91 @@ branch version
 >>>>>> name_of_branch
 ```
 
-```{bash}
+```{bash eval=FALSE}
 head README.md
+```
+```
+Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.
+<<<<<<< HEAD
+I do not like dogs.
+=======
+I like dogs too!
+>>>>>>> new_branch2
 ```
 
 To resolve this, we must open the README and correct the conflict, being sure to remove the `>`, `=`, and `<` markers. Once we have the corrected version like so
 
-```{bash echo=FALSE}
+```{bash remake without conflicts, echo=FALSE, eval=FALSE}
 echo -e 'Hello!\nMy birthday is November 29.\nMy favorite color is purple.\nI like cats.\nI like dogs too!' > README.md
 ```
 
-```{bash}
+```{bash eval=FALSE}
 head README.md
+```
+```
+Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.
+I like dogs too!
 ```
 
 we can try adding and committing again. If we've fully resolved the conflict, there will be no errors!
 
-```{bash}
+```{bash eval=FALSE}
 git add .
 git commit -m "Resolve dog conflict"
+```
+```
+[master 9641b08] Resolve dog conflict
+ Committer: Kim Dill-McFarland <kim@email.com>
 ```
 
 And we can see our entire history, including the branches, in the log.
 
-```{bash}
+```{bash eval=FALSE}
 git log
+```
+```
+commit 9641b0806f28b00cce1a07af524b4a321eb957b0 (HEAD -> master)
+Merge: c427c53 27c250f
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:08:38 2019 -0700
+
+    Resolve dog conflict
+
+commit c427c537301300286986718f371b33b8b9c41b13
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:06:48 2019 -0700
+
+    Add dogs again
+
+commit 27c250f2f2b5bc9a53d6a8b8a7840778fababd20 (new_branch2)
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:06:15 2019 -0700
+
+    Add dogs
+
+commit d566b2957525f28d8d999150da10ef60aac53157 (new_branch)
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:05:17 2019 -0700
+
+    Add cats
+
+commit f1b97c7b50090383b9c40af0335a25d4b3df7982
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:03:51 2019 -0700
+
+    Add birthday and color
+    
+commit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland <kim@email.com>
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README
 ```
 
 ## Summary of Git
@@ -387,15 +605,5 @@ Thus far, we have covered the main Git terms and functions that you will need to
 * `merge`: combine changes from a branch into the master repo (may result in conflicts)
 
 To checkout more functionalities in Git, see a [list of all Git commands](https://git-scm.com/docs).
-
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
-```{bash echo=FALSE}
-#Remove repo
-rm -rf Desktop/TestRepo
-```
 
 ***

@@ -73,9 +73,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -106,8 +104,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -272,6 +268,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -289,8 +295,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">BLAST tutorial</h1>
-<h3 class="subtitle"><em>Experiential Data science for Undergraduate Cross-disciplinary Education</em></h3>
-<h4 class="author"><em>Dr. Kim Dill-McFarland, U. of British Columbia</em></h4>
+<h3 class="subtitle">Experiential Data science for Undergraduate Cross-disciplinary Education</h3>
+<h4 class="author">Dr. Kim Dill-McFarland, U. of British Columbia</h4>
 
 </div>
 
@@ -341,22 +347,31 @@ div.tocify {
 <ul>
 <li>We will use both <code>Saanich_OTU_rep.fasta</code> and <code>Saanich_OTU_rep_subset.fasta</code></li>
 <li>For ease, you should place the database and sequence files in a single directory on your Desktop like below</li>
+<li>You can accomplish all of this in your Terminal with the following code</li>
 </ul></li>
 </ol>
+<pre class="bash"><code>#Organize
+cd ~
+mkdir Desktop/BLAST_data
+cd Desktop/BLAST_data
+
+#Download sequences
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_OTU_rep_subset.fasta
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_OTU_rep.fasta
+
+#Download database
+curl -O ftp://ftp.ncbi.nlm.nih.gov/blast/db/16SMicrobial.tar.gz
+#Unzip
+tar xf 16SMicrobial.tar.gz
+
+#Return to home
+cd ~</code></pre>
 <pre class="bash"><code>ls Desktop/BLAST_data</code></pre>
-<pre><code>## 16SMicrobial.nhr
-## 16SMicrobial.nin
-## 16SMicrobial.nnd
-## 16SMicrobial.nni
-## 16SMicrobial.nog
-## 16SMicrobial.nsd
-## 16SMicrobial.nsi
-## 16SMicrobial.nsq
-## 16SMicrobial.tar.gz
-## Saanich_OTU_rep.fasta
-## Saanich_OTU_rep_subset.fasta
-## taxdb.btd
-## taxdb.bti</code></pre>
+<pre><code>16SMicrobial.nhr                16SMicrobial.nsd                Saanich_OTU_rep_subset.fasta
+16SMicrobial.nin                16SMicrobial.nsi                taxdb.btd
+16SMicrobial.nnd                16SMicrobial.nsq                taxdb.bti
+16SMicrobial.nni                16SMicrobial.tar.gz
+16SMicrobial.nog                Saanich_OTU_rep.fasta</code></pre>
 <div id="data-format" class="section level4">
 <h4>Data format</h4>
 <p>These data are in the standard <code>.fasta</code> format of</p>
@@ -365,17 +380,17 @@ div.tocify {
 Sequence of ATCG</p>
 </blockquote>
 <pre class="bash"><code>head Desktop/BLAST_data/Saanich_OTU_rep.fasta</code></pre>
-<pre><code>## &gt;Otu0001
-## CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGTGCGTAGGTGGTTTGTTAAGTTAGATGTGAAAGCCCTGGGCTCAACCTAGGAACTGCATTTAAAACTGGCAAACTAGAGTATAGGAGAGGAAAGTGGAATTTCAGGTGTAGCGGTGAAATGCGTAGATATCTGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACTAATACTGACACTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGAAACCCCGGTAGTCCAGA
-## &gt;Otu0002
-## CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGCGCAAGCGTTACTCGGAATCACTGGGCGTAAAGAGCGTGTAGGCGGGTATTTAAGTTGGAAGTGAAATCCTATGGCTCAACCATAGAACTGCTTCCAAAACTGAATACCTAGAATATGGGAGAGGTAGATGGAATTTCTGGTGTAGGGGTAAAATCCGTAGAGATCAGAAGGAATACCGATTGCGAAGGCGATCTACTGGAACATTATTGACGCTGAGACGCGAAAGCGTGGGGAGCAAACAGGATTAGATACCCCGGTAGTCCAAG
-## &gt;Otu0003
-## CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGTGCGTAGGCGGTTTATTAAGTCAGATGTGAAAGCCCCGGGCTTAACCTGGGAACTGCATTTGAAACTGGTCAACTAGAGTATGGTAGAGGAAAGTGGAATTTCTGGTGTAGCGGTGAAATGCGTAGATATCAGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACCAATACTGACGCTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGATACCCCGGTAGTCCAGA
-## &gt;Otu0004
-## TGAGGGGTGCCAGCCGCCGCGGTAATACTGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGCGCGTAGGTGGTTAGATCAGTTGGATGTGAAAGCCCCGAGCTTAACTTGGGAACTGCATTCAATACTGTCTAGCTAGAGTATAGTAGAGGGAAGTGGAATTCTGCATGTAGCGGTGAAATGCGTAGAGATGCAGAGGAACATCAGTGGCGAAGGCGACTTCCTGGACTAATACTGACACTGAGGTGCGAAAGCGTGGGGAGCAAACAGGATTAGATACCCCGGTAGTCCAGA
-## &gt;Otu0005
-## CTGGGGGGTGCCAGCCGCCGCGGTAATACGTAGGGTGCGAGCGTTGTTCGGAATTACTGGGCGTAAAGGGCGCGCAGGCGGAATAGCAAGTCGGAGGTGAAAGCCCGGGGCTCAACCCCGGAGGGTCTTTCGAAACTGCTAATCTAGAGAGGGTCAGGGGCCAGCAGAATTCTTGGTGTAGAGGTGAAATTCGTAGATATCAAGAGGAATACCGGTGGCGAAAGCGGCTGGCTGGGGCCACTCTGACGCTGAGGCGCGAAAGCGTGGGGAGCAAACAGGATTAGAAACCCCGGTAGTCCAGA</code></pre>
-<p><em>The output in your terminal may look like more than 2 lines, because it wraps the sequence text (ATCG) around to fill multiple lines. If you zoom way out in your terminal, you can see the true ‘2 line per OTU’ fasta format.</em></p>
+<pre><code>&gt;Otu0001
+CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGTGCGTAGGTGGTTTGTTAAGTTAGATGTGAAAGCCCTGGGCTCAACCTAGGAACTGCATTTAAAACTGGCAAACTAGAGTATAGGAGAGGAAAGTGGAATTTCAGGTGTAGCGGTGAAATGCGTAGATATCTGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACTAATACTGACACTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGAAACCCCGGTAGTCCAGA
+&gt;Otu0002
+CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGCGCAAGCGTTACTCGGAATCACTGGGCGTAAAGAGCGTGTAGGCGGGTATTTAAGTTGGAAGTGAAATCCTATGGCTCAACCATAGAACTGCTTCCAAAACTGAATACCTAGAATATGGGAGAGGTAGATGGAATTTCTGGTGTAGGGGTAAAATCCGTAGAGATCAGAAGGAATACCGATTGCGAAGGCGATCTACTGGAACATTATTGACGCTGAGACGCGAAAGCGTGGGGAGCAAACAGGATTAGATACCCCGGTAGTCCAAG
+&gt;Otu0003
+CTGGGGGGTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGTGCGTAGGCGGTTTATTAAGTCAGATGTGAAAGCCCCGGGCTTAACCTGGGAACTGCATTTGAAACTGGTCAACTAGAGTATGGTAGAGGAAAGTGGAATTTCTGGTGTAGCGGTGAAATGCGTAGATATCAGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACCAATACTGACGCTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGATACCCCGGTAGTCCAGA
+&gt;Otu0004
+TGAGGGGTGCCAGCCGCCGCGGTAATACTGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAAGCGCGCGTAGGTGGTTAGATCAGTTGGATGTGAAAGCCCCGAGCTTAACTTGGGAACTGCATTCAATACTGTCTAGCTAGAGTATAGTAGAGGGAAGTGGAATTCTGCATGTAGCGGTGAAATGCGTAGAGATGCAGAGGAACATCAGTGGCGAAGGCGACTTCCTGGACTAATACTGACACTGAGGTGCGAAAGCGTGGGGAGCAAACAGGATTAGATACCCCGGTAGTCCAGA
+&gt;Otu0005
+CTGGGGGGTGCCAGCCGCCGCGGTAATACGTAGGGTGCGAGCGTTGTTCGGAATTACTGGGCGTAAAGGGCGCGCAGGCGGAATAGCAAGTCGGAGGTGAAAGCCCGGGGCTCAACCCCGGAGGGTCTTTCGAAACTGCTAATCTAGAGAGGGTCAGGGGCCAGCAGAATTCTTGGTGTAGAGGTGAAATTCGTAGATATCAAGAGGAATACCGGTGGCGAAAGCGGCTGGCTGGGGCCACTCTGACGCTGAGGCGCGAAAGCGTGGGGAGCAAACAGGATTAGAAACCCCGGTAGTCCAGA</code></pre>
+<p><em>The output in your terminal may look like more than 2 lines per sequence, because it wraps the sequence text (ATCG) around to fill multiple lines. If you zoom way out in your terminal, you can see the true ‘2 line per OTU’ fasta format.</em></p>
 </div>
 </div>
 </div>
@@ -406,56 +421,56 @@ Sequence of ATCG</p>
 <h3>BLAST results</h3>
 <p>We can look at the first 50 lines of the output file with <code>head -50</code>.</p>
 <pre class="bash"><code>head -50 Desktop/BLAST_data/blast_results.txt</code></pre>
-<pre><code>## BLASTN 2.7.1+
-## 
-## 
-## Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
-## Miller (2000), &quot;A greedy algorithm for aligning DNA sequences&quot;, J
-## Comput Biol 2000; 7(1-2):203-14.
-## 
-## 
-## 
-## Database: 16S Microbial Sequences
-##            20,767 sequences; 30,197,079 total letters
-## 
-## 
-## 
-## Query= Otu0001
-## 
-## Length=302
-##                                                                       Score     E
-## Sequences producing significant alignments:                          (Bits)  Value
-## 
-## NR_025016.1  Methylobacter psychrophilus strain Z-0021 16S riboso...  414     1e-115
-## NR_126264.1  Bacterioplanes sanyensis strain GYP-2 16S ribosomal ...  409     5e-114
-## NR_112914.1  Arenicella xantha strain KMM 3895 16S ribosomal RNA,...  409     5e-114
-## 
-## 
-## &gt;NR_025016.1 Methylobacter psychrophilus strain Z-0021 16S ribosomal RNA, 
-## partial sequence
-## Length=1527
-## 
-##  Score = 414 bits (224),  Expect = 1e-115
-##  Identities = 270/293 (92%), Gaps = 0/293 (0%)
-##  Strand=Plus/Plus
-## 
-## Query  8    GTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAA  67
-##             |||||||| |||||||||||||||||||||| ||||||||||||||||||||||||||||
-## Sbjct  499  GTGCCAGCAGCCGCGGTAATACGGAGGGTGCGAGCGTTAATCGGAATTACTGGGCGTAAA  558
-## 
-## Query  68   GCGTGCGTAGGTGGTTTGTTAAGTTAGATGTGAAAGCCCTGGGCTCAACCTAGGAACTGC  127
-##             |||||||||||||||| ||||||| |||||||||||||||||||||||||| ||||||||
-## Sbjct  559  GCGTGCGTAGGTGGTTCGTTAAGTCAGATGTGAAAGCCCTGGGCTCAACCTGGGAACTGC  618
-## 
-## Query  128  ATTTAAAACTGGCAAACTAGAGTATAGGAGAGGAAAGTGGAATTTCAGGTGTAGCGGTGA  187
-##             |||| ||||||||  |||||||| ||| |||||  |||||||||||||||||||||||||
-## Sbjct  619  ATTTGAAACTGGCGGACTAGAGTTTAGTAGAGGGGAGTGGAATTTCAGGTGTAGCGGTGA  678
-## 
-## Query  188  AATGCGTAGATATCTGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACTAATACTGAC  247
-##             ||||||||||||||| |||||||| || ||||||||||  ||  ||||||||| ||||||
-## Sbjct  679  AATGCGTAGATATCTAAAGGAACACCAGTGGCGAAGGCGACTCCCTGGACTAAAACTGAC  738
-## 
-## Query  248  ACTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGAAACCCCGGTAGTCCA  300</code></pre>
+<pre><code>BLASTN 2.7.1+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), &quot;A greedy algorithm for aligning DNA sequences&quot;, J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: 16S Microbial Sequences
+           20,767 sequences; 30,197,079 total letters
+
+
+
+Query= Otu0001
+
+Length=302
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+NR_025016.1  Methylobacter psychrophilus strain Z-0021 16S riboso...  414     1e-115
+NR_126264.1  Bacterioplanes sanyensis strain GYP-2 16S ribosomal ...  409     5e-114
+NR_112914.1  Arenicella xantha strain KMM 3895 16S ribosomal RNA,...  409     5e-114
+
+
+&gt;NR_025016.1 Methylobacter psychrophilus strain Z-0021 16S ribosomal RNA,
+partial sequence
+Length=1527
+
+ Score = 414 bits (224),  Expect = 1e-115
+ Identities = 270/293 (92%), Gaps = 0/293 (0%)
+ Strand=Plus/Plus
+
+Query  8    GTGCCAGCCGCCGCGGTAATACGGAGGGTGCAAGCGTTAATCGGAATTACTGGGCGTAAA  67
+            |||||||| |||||||||||||||||||||| ||||||||||||||||||||||||||||
+Sbjct  499  GTGCCAGCAGCCGCGGTAATACGGAGGGTGCGAGCGTTAATCGGAATTACTGGGCGTAAA  558
+
+Query  68   GCGTGCGTAGGTGGTTTGTTAAGTTAGATGTGAAAGCCCTGGGCTCAACCTAGGAACTGC  127
+            |||||||||||||||| ||||||| |||||||||||||||||||||||||| ||||||||
+Sbjct  559  GCGTGCGTAGGTGGTTCGTTAAGTCAGATGTGAAAGCCCTGGGCTCAACCTGGGAACTGC  618
+
+Query  128  ATTTAAAACTGGCAAACTAGAGTATAGGAGAGGAAAGTGGAATTTCAGGTGTAGCGGTGA  187
+            |||| ||||||||  |||||||| ||| |||||  |||||||||||||||||||||||||
+Sbjct  619  ATTTGAAACTGGCGGACTAGAGTTTAGTAGAGGGGAGTGGAATTTCAGGTGTAGCGGTGA  678
+
+Query  188  AATGCGTAGATATCTGAAGGAACATCAATGGCGAAGGCAGCTTTCTGGACTAATACTGAC  247
+            ||||||||||||||| |||||||| || ||||||||||  ||  ||||||||| ||||||
+Sbjct  679  AATGCGTAGATATCTAAAGGAACACCAGTGGCGAAGGCGACTCCCTGGACTAAAACTGAC  738
+
+Query  248  ACTGAGGTACGAAAGCGTGGGTAGCAAACAGGATTAGAAACCCCGGTAGTCCA  300</code></pre>
 <p>These first lines show you just the top BLAST hits for OTU1. Let’s go through the parts.</p>
 <ol style="list-style-type: decimal">
 <li>BLASTN version and citation.</li>
@@ -470,6 +485,7 @@ Sequence of ATCG</p>
 </ul></li>
 <li>The alignment showing the direct base pair comparison of the query and database sequence.</li>
 </ol>
+<p>Now you can explore the BLAST hits for the other OTUs in our subset file or continue on to the practice problems where you will compare BLASTing the entire <code>.fasta</code> file online vs. in command line.</p>
 <hr />
 </div>
 </div>

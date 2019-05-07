@@ -60,31 +60,37 @@ ui <- fluidPage(titlePanel("EDUCE Course compiler"),
           br(),
           tags$b("Practice "), "with exercises to test your knowledge.",
           br(),br(),
-          "PDF and HTML formats provide ready to use documents; ZIP provides the Rmarkdown source code.",
-          br(),br(),
           # Return to EDUCE Button
           actionButton("return", label = "Return to EDUCE", icon = icon("home"), onclick ="location.href='https://educe-ubc.github.io/';")
                       ),
-          
-          # Main conent
+
+      # Main content ----
           mainPanel(width=8,
-          # Input: Choose courses ----
+          # Input: Choose courses
           selectInput("courses", tags$b("Select course content:"), 
                       multiple = TRUE, choices = files),
-          # Select All Button ----
+          # Select All Button
           actionButton("all", label = "Select all"),
-          # Deselect All Button ----
+          # Deselect All Button
           actionButton("none", label = "Deselect all"),
           
-          # Horizontal Line ----
+          # Horizontal Line
           tags$hr(),
                     
-          # Download Button with file types ----
+          # Download Button with file types
           radioButtons('format', tags$b("Select download format:"), 
-                       c('PDF', 'HTML', 'ZIP'),
+                       c('PDF', 'HTML'),
                        inline = TRUE),
-          downloadButton('downloadReport')
-                    )))
+          downloadButton('downloadReport'),
+          
+          # Horizontal Line
+          tags$hr(),
+          
+          # Link to GitHub for Rmds
+          tags$i("Raw Rmarkdowns are available on our ",
+          tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps", "GitHub"))
+                 
+                 )))
 
 # Define server logic to display and download selected file ----
 server <- function(input, output, session) {
@@ -107,14 +113,13 @@ server <- function(input, output, session) {
   output$downloadReport <- downloadHandler(
     # File output name ----
     filename = function() {
-      paste('EDUCE_data_science_curriculum', sep = '.', switch(input$format, PDF = 'pdf', HTML = 'html', ZIP = 'zip'))
+      paste('EDUCE_data_science_curriculum', sep = '.', switch(input$format, PDF = 'pdf', HTML = 'html'))
     },
     
     # Function for outputting file ----
     content = function(file) {
       # Clear out folders ----
-      do.call(file.remove, list(list.files("Rmd_Output", full.names = TRUE)))
-      unlink("EDUCE_data_science_curriculum", recursive = TRUE)
+      unlink("./Rmd_Output", recursive = TRUE)
       
       # Create Rmd_Output folder if it doesn't exist ----
       if (!dir.exists("./Rmd_Output")) {
@@ -131,12 +136,6 @@ server <- function(input, output, session) {
       }
 
       # Copy all files in Rmd_Input to Rmd_Output ----
-      if (input$format == 'ZIP') {
-        for (i in input_list) {
-          file.copy(i, "Rmd_Output")
-        }
-      }
-      
       # Create YAML header of Rmd ----
       title <- paste0(
 "---\n",
@@ -178,26 +177,9 @@ server <- function(input, output, session) {
       # Display file to user for download ----
       out <- render("Rmd_Master_File.Rmd", switch(
         input$format,
-        PDF = pdf_document(), HTML = html_document(), ZIP = html_document()
+        PDF = pdf_document(), HTML = html_document()
       ))
-      
-      if (input$format == 'ZIP') {
-        dir.create("EDUCE_data_science_curriculum")
-        
-        file.copy("Rmd_Master_File.Rmd", "EDUCE_data_science_curriculum")
-        
-        file.copy("Rmd_Output", "EDUCE_data_science_curriculum", recursive = TRUE)
-        
-        file.rename("EDUCE_data_science_curriculum/Rmd_Output",
-                    "EDUCE_data_science_curriculum/Rmd_Input")
-        
-        OutputZip <- dir("EDUCE_data_science_curriculum", full.names = TRUE)
-        
-        zip(zipfile = 'EDUCE_data_science_curriculum', files = OutputZip)
-        
-        out <- c("EDUCE_data_science_curriculum.zip")
-      }
-      
+
       # Rename file ----
       file.rename(out, file)
     }

@@ -13,11 +13,6 @@ editor_options:
   chunk_output_type: console
 urlcolor: blue
 ---
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
 # Unix navigation tutorial
 ## Learning objectives
 
@@ -68,8 +63,11 @@ All of these pieces of information help you to know what computer you're working
 ### pwd
 When you open a new terminal, you will automatically be in your `home` directory. To find out where this is, use `pwd` which stands for **print working directory**. This tells you where your terminal is currently pointing.
 
-```{bash}
+```{bash eval=FALSE}
 pwd
+```
+```
+/Users/kim
 ```
 
 You can see here than I am in my home user directory `kim`.
@@ -77,8 +75,15 @@ You can see here than I am in my home user directory `kim`.
 ### ls
 To view all the files and sub-directories in the current directory, use `ls` for **list**.
 
-```{bash}
+```{bash eval=FALSE}
 ls
+```
+```
+Applications    GitHub          Pictures        example
+Desktop         Google Drive    Public          test.txt
+Documents       Library         README.md
+Documents_large Movies          Video
+Downloads       Music           VirtualBox VMs
 ```
 
 You can see that my home directory has a number of things that all Macs will have (*e.g.* Applications, Desktop, etc.) as well as a number of things which are unique to my file system (*e.g.* Documents_large, GitHub, etc.) Your list will be unique to your computer.
@@ -94,8 +99,15 @@ Git Bash colors files by type as well as includes indicators at the end of some 
 ### ls options
 You can ask for these indicators in the Mac terminal by adding modifiers to the `ls` command. You do this with `-` after the command. For example, if you want to show all of the file type indicators, you would use `ls -F`.
 
-```{bash}
+```{bash eval=FALSE}
 ls -F
+```
+```
+Applications/    GitHub/          Pictures/        example
+Desktop/         Google Drive/    Public/          test.txt
+Documents/       Library/         README.md
+Documents_large/ Movies/          Video/
+Downloads/       Music/           VirtualBox VMs/
 ```
 
 Now you will see that everything in my home directory are themselves directories ending in `/`.
@@ -106,10 +118,56 @@ Most commands can be modified with text following a - as in `ls -F`. You can lea
 ```{bash eval=FALSE}
 man pwd
 ```
+```
+PWD(1)                    BSD General Commands Manual                   PWD(1)
 
-```{bash echo=FALSE}
-# Reformat for rmd
-man pwd | col -b
+NAME
+     pwd -- return working directory name
+
+SYNOPSIS
+     pwd [-L | -P]
+
+DESCRIPTION
+     The pwd utility writes the absolute pathname of the current working
+     directory to the standard output.
+
+     Some shells may provide a builtin pwd command which is similar or identi-
+     cal to this utility.  Consult the builtin(1) manual page.
+
+     The options are as follows:
+
+     -L      Display the logical current working directory.
+
+     -P      Display the physical current working directory (all symbolic
+             links resolved).
+
+     If no options are specified, the -L option is assumed.
+
+ENVIRONMENT
+     Environment variables used by pwd:
+
+     PWD  Logical current working directory.
+
+EXIT STATUS
+     The pwd utility exits 0 on success, and >0 if an error occurs.
+
+SEE ALSO
+     builtin(1), cd(1), csh(1), sh(1), getcwd(3)
+
+STANDARDS
+     The pwd utility conforms to IEEE Std 1003.1-2001 (``POSIX.1'').
+
+BUGS
+     In csh(1) the command dirs is always faster because it is built into that
+     shell.  However, it can give a different answer in the rare case that the
+     current directory or a containing directory was moved after the shell
+     descended into it.
+
+     The -L option does not work unless the PWD environment variable is
+     exported by the shell.
+
+BSD                             April 12, 2003                             BSD
+(END)
 ```
 
 This is a text documents with information on every possible modifier of the `pwd` function. You can **exit the manual** back to the regular terminal with `q` for 'quit'.
@@ -123,16 +181,16 @@ Similarly, you can look up the **manual** in a Git Bash terminal with `--help`. 
 ### cd
 So now that you've seen what directories exist in your home directory, you can move into another directory with `cd` for **change directory**. Let's move into the Desktop since everyone will have this directory. Note that the command line is *case sensitive* so Desktop =/= desktop.
 
-```{bash}
+```{bash eval=FALSE}
 cd Desktop
-pwd
 ```
 
 You can confirm that you've actually moved by using `pwd` again.
-
-```{r echo=FALSE}
-#change wd to Desktop
-knitr::opts_knit$set(root.dir = '/Users/kim/Desktop')
+```{bash eval=FALSE}
+pwd
+```
+```
+/Users/kim/Desktop
 ```
 
 ### Shortcuts
@@ -140,42 +198,65 @@ You now have a couple of options for getting back out of the Desktop.
 
 1. You can go **up one directory** using `cd ..` 
     - In this case, you would go back to your home directory since this is one up from the Desktop directory.
-    - You can repeat this as many times as you want and continue to go up one directory at a time as shown.
+    - You can repeat this as many times as you want and continue to go up one directory at a time as shown below.
 
-```{bash}
+```{bash eval=FALSE}
 pwd
+```
+```
+/Users/kim/Desktop
+```
 
+```{bash eval=FALSE}
 cd ..
 pwd
+```
+```
+/Users/kim
+```
 
+```{bash eval=FALSE}
 cd ..
 pwd
+```
+```
+/Users
 ```
 
 2. You can go straight to the home directory from anywhere on your computer using `cd ~`.
     - The `~` is shorthand for your **home directory**.
 
-```{bash}
+```{bash eval=FALSE}
 pwd
+```
+```
+/Users
+```
 
+```{bash eval=FALSE}
 cd ~
 pwd
 ```
+```
+/Users/kim
+```
 
 No matter how many directories up or down you currently are, `~` will take you to your home directory.
-
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
 
 ### Tab completion
 As file names or paths get longer, it becomes cumbersome to type them out. To make your life easier and prevent typos, you can use tab completion instead. This will fill in the rest of a directory or file name *if it is unique*.
 
 For example, let's look at my home directory again.
 
-```{bash}
+```{bash eval=FALSE}
 ls
+```
+```
+Applications    GitHub          Pictures        example
+Desktop         Google Drive    Public          test.txt
+Documents       Library         README.md
+Documents_large Movies          Video
+Downloads       Music           VirtualBox VMs
 ```
 
 If I were to type `Desk` and then use the [tab], the terminal would automatically complete `Desktop/` because that is the only directory in the current folder that starts with `Desk`.
@@ -189,8 +270,16 @@ This concludes the main commands used to navigate a computer. Now you *could* en
 
 It is best to officially exit the session with `exit`. This will save your history and safely disconnect you. Git Bash will then automatically close while the Mac or R terminal will remain open but disconnected.
 
-```{bash}
+```{bash eval=FALSE}
 exit
 ```
+```
+logout
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
 
+[Process completed]
+```
 ***

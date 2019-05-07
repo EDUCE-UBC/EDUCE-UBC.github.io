@@ -73,9 +73,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -106,8 +104,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -272,6 +268,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -289,8 +295,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Version control with Git tutorial</h1>
-<h3 class="subtitle"><em>Experiential Data science for Undergraduate Cross-disciplinary Education</em></h3>
-<h4 class="author"><em>Dr. Kim Dill-McFarland, U. of British Columbia</em></h4>
+<h3 class="subtitle">Experiential Data science for Undergraduate Cross-disciplinary Education</h3>
+<h4 class="author">Dr. Kim Dill-McFarland, U. of British Columbia</h4>
 
 </div>
 
@@ -361,12 +367,10 @@ div.tocify {
 cd Desktop/TestRepo</code></pre>
 <p>Initialize the TestRepo directory with</p>
 <pre class="bash"><code>git init</code></pre>
-<pre><code>## Initialized empty Git repository in /Users/kim/Desktop/TestRepo/.git/</code></pre>
+<pre><code>Initialized empty Git repository in /Users/kim/Desktop/TestRepo/.git/</code></pre>
 <p>If you now list all the files in the <code>TestRepo</code> directory with <code>ls -a</code>, you will see a <code>.git</code> file that designates that this directory is a Git repo. Nothing about the directory itself has changed; Git just now knows to track it for version control.</p>
 <pre class="bash"><code>ls -a</code></pre>
-<pre><code>## .
-## ..
-## .git</code></pre>
+<pre><code>.       ..      .git</code></pre>
 </div>
 <div id="add-files-git-add" class="section level3">
 <h3>Add files (<code>git add</code>)</h3>
@@ -374,36 +378,33 @@ cd Desktop/TestRepo</code></pre>
 <pre class="bash"><code>echo 'Hello!' &gt; README.md</code></pre>
 <p>We see the new file in the TestRepo</p>
 <pre class="bash"><code>ls -a</code></pre>
-<pre><code>## .
-## ..
-## .git
-## README.md</code></pre>
+<pre><code>.               ..              .git            README.md</code></pre>
 <p>Now that we’ve added a file, we can query if there are any differences between our local <code>TestRepo</code> directory and the version controlled repo with</p>
 <pre class="bash"><code>git status</code></pre>
-<pre><code>## On branch master
-## 
-## No commits yet
-## 
-## Untracked files:
-##   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-## 
-##  README.md
-## 
-## nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<pre><code>On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        README.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>We see that <code>README.md</code> simply being in a repo does not automatically tell Git to track this file; it remains “untracked”. So, we must add the file to Git tracking. We can either add just this file specifically with</p>
 <pre class="bash"><code>git add README.md</code></pre>
 <p>Or if we had more than 1 file to add at once, we could add all with</p>
 <pre class="bash"><code>git add .</code></pre>
 <p>Now we see that our README is tracked but not committed.</p>
 <pre class="bash"><code>git status</code></pre>
-<pre><code>## On branch master
-## 
-## No commits yet
-## 
-## Changes to be committed:
-##   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-## 
-##  new file:   README.md</code></pre>
+<pre><code>On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+        new file:   README.md</code></pre>
 </div>
 <div id="git-staging-area-index" class="section level3">
 <h3>Git staging area (index)</h3>
@@ -419,15 +420,27 @@ cd Desktop/TestRepo</code></pre>
 <h3>Commit changes (<code>git commit</code>)</h3>
 <p>Once you have a version you want to save for all time, you need to <code>commit</code> it from the index to the repo. It is best practices to include a message with each commit using <code>git commit -m &quot;Your message here&quot;</code>. You wouldn’t believe the number of commits with a message simply of “typo”! We will use the following to commit our first version of <code>TestRepo</code> with the README.</p>
 <pre class="bash"><code>git commit -m &quot;Initialize README&quot;</code></pre>
-<pre><code>## [master (root-commit) d599fb1] Initialize README
-##  1 file changed, 1 insertion(+)
-##  create mode 100644 README.md</code></pre>
+<pre><code>[master (root-commit) 1515b4a] Initialize README
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name &quot;Your Name&quot;
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md</code></pre>
 <p>You receive a summary of how many files were changed and what those changes where (though exact ID numbers will be specific to your repo).</p>
-<p><em>Also, note the message that your name and email were automatically set based on your computer’s information. In the GitHub tutorial, we will go over how to setup your computer to link to your GitHub account instead.</em></p>
+<p><em>Also, note the message that your name and email were automatically set based on your computer’s information. We will remove this message from subsequent commits in this tutorial for brevity. In the GitHub tutorial, you can see how to setup your computer to link to your GitHub account instead.</em></p>
 <p>Now, we see that our local directory, index, and repo are all identical.</p>
 <pre class="bash"><code>git status</code></pre>
-<pre><code>## On branch master
-## nothing to commit, working tree clean</code></pre>
+<pre><code>On branch master
+nothing to commit, working tree clean</code></pre>
 </div>
 </div>
 <div id="compare-versions-git-status-and-diff" class="section level2">
@@ -449,33 +462,33 @@ git add . </code></pre>
 <p>We can determine what version is where with various parameters in <code>git diff</code>. Added lines are indicated by +, deleted lines by -, and changed lines by showing both versions inline.</p>
 <p>To compare the local and index</p>
 <pre class="bash"><code>git diff</code></pre>
-<pre><code>## diff --git a/README.md b/README.md
-## index 016b9ef..049fca5 100644
-## --- a/README.md
-## +++ b/README.md
-## @@ -1,2 +1,3 @@
-##  Hello!
-##  My birthday is November 29.
-## +My favorite color is purple.</code></pre>
+<pre><code>diff --git a/README.md b/README.md
+index 016b9ef..049fca5 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,3 @@
+ Hello!
+ My birthday is November 29.
++My favorite color is purple.</code></pre>
 <p>To compare the index and repo</p>
 <pre class="bash"><code>git diff --cached HEAD</code></pre>
-<pre><code>## diff --git a/README.md b/README.md
-## index 10ddd6d..016b9ef 100644
-## --- a/README.md
-## +++ b/README.md
-## @@ -1 +1,2 @@
-##  Hello!
-## +My birthday is November 29.</code></pre>
+<pre><code>diff --git a/README.md b/README.md
+index 10ddd6d..016b9ef 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ Hello!
++My birthday is November 29.</code></pre>
 <p>To compare the local and repo</p>
 <pre class="bash"><code>git diff HEAD</code></pre>
-<pre><code>## diff --git a/README.md b/README.md
-## index 10ddd6d..049fca5 100644
-## --- a/README.md
-## +++ b/README.md
-## @@ -1 +1,3 @@
-##  Hello!
-## +My birthday is November 29.
-## +My favorite color is purple.</code></pre>
+<pre><code>diff --git a/README.md b/README.md
+index 10ddd6d..049fca5 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+ Hello!
++My birthday is November 29.
++My favorite color is purple.</code></pre>
 <p>And so if you are unsure which version you are using (local) or which one you want to revert to, <code>diff</code> can show you.</p>
 </div>
 <div id="past-commits-git-log-and-show" class="section level2">
@@ -484,36 +497,37 @@ git add . </code></pre>
 <p>Let’s <code>add and commit</code> our current changes so that we have multiple commits to look at. Since we never committed the version with only the birthday added, this version is lost with a new <code>git add</code>.</p>
 <pre class="bash"><code>git add .
 git commit -m &quot;Add birthday and color&quot;</code></pre>
-<pre><code>## [master a1349e8] Add birthday and color
-##  1 file changed, 2 insertions(+)</code></pre>
+<pre><code>[master f1b97c7] Add birthday and color
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;
+ 1 file changed, 2 insertions(+)</code></pre>
 <p>We can see all past commits in this repo with</p>
 <pre class="bash"><code>git log</code></pre>
-<pre><code>## commit a1349e8a9255567ac2d4ad78417990c31b8ecc2e
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Add birthday and color
-## 
-## commit d599fb1283264f7c1f13f11482485cd8d766cd23
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Initialize README</code></pre>
+<pre><code>commit f1b97c7b50090383b9c40af0335a25d4b3df7982 (HEAD -&gt; master)
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:03:51 2019 -0700
+
+    Add birthday and color
+
+commit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README</code></pre>
 <p>Or view a specific past version using <code>HEAD~##</code>. For example, we can view our first commit which is <code>HEAD~1</code></p>
 <pre class="bash"><code>git show HEAD~1</code></pre>
-<pre><code>## commit d599fb1283264f7c1f13f11482485cd8d766cd23
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Initialize README
-## 
-## diff --git a/README.md b/README.md
-## new file mode 100644
-## index 0000000..10ddd6d
-## --- /dev/null
-## +++ b/README.md
-## @@ -0,0 +1 @@
-## +Hello!</code></pre>
+<pre><code>ommit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..10ddd6d
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++Hello!</code></pre>
 </div>
 <div id="branches-git-checkout--b" class="section level2">
 <h2>Branches (<code>git checkout -b</code>)</h2>
@@ -529,36 +543,37 @@ git commit -m &quot;Add birthday and color&quot;</code></pre>
 </ul>
 <p>To start a new branch, first make sure that everything is up-to-date with <code>git status</code>. Then, <code>checkout</code> (<em>i.e.</em> create) and move into a new branch using the branch <code>-b</code> parameter.</p>
 <pre class="bash"><code>git status</code></pre>
-<pre><code>## On branch master
-## nothing to commit, working tree clean</code></pre>
+<pre><code>On branch master
+nothing to commit, working tree clean</code></pre>
 <pre class="bash"><code>git checkout -b new_branch master</code></pre>
-<pre><code>## Switched to a new branch 'new_branch'</code></pre>
+<pre><code>Switched to a new branch 'new_branch'</code></pre>
 <p>We see that we are in the new branch.</p>
 <pre class="bash"><code>git status</code></pre>
-<pre><code>## On branch new_branch
-## nothing to commit, working tree clean</code></pre>
+<pre><code>On branch new_branch
+nothing to commit, working tree clean</code></pre>
 <p>Now, we can make changes in this branch without impacting the master branch. Go ahead and edit <code>README.md</code> by adding another piece of information. Then <code>add and commit</code> this change in your new_branch.</p>
 <pre class="bash"><code>echo 'I like cats.' &gt;&gt; README.md
 
 git add .
 git commit -m 'Add cats'</code></pre>
-<pre><code>## [new_branch 3929ed5] Add cats
-##  1 file changed, 1 insertion(+)</code></pre>
+<pre><code>new_branch d566b29] Add cats
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;
+ 1 file changed, 1 insertion(+)</code></pre>
 <p>The two branches no longer match so we must merge them and decide which version(s) to keep. To do so, we must first move back into the master branch</p>
 <pre class="bash"><code>git checkout master</code></pre>
-<pre><code>## Switched to branch 'master'</code></pre>
+<pre><code>Switched to branch 'master'</code></pre>
 <p>Then merge the branches, which overwrites the older master branch with our new changes in the new_branch</p>
 <pre class="bash"><code>git merge new_branch</code></pre>
-<pre><code>## Updating a1349e8..3929ed5
-## Fast-forward
-##  README.md | 1 +
-##  1 file changed, 1 insertion(+)</code></pre>
+<pre><code>Updating f1b97c7..d566b29
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
 <p>So, the README file now contains all the changes that were made in new_branch.</p>
 <pre class="bash"><code>head README.md</code></pre>
-<pre><code>## Hello!
-## My birthday is November 29.
-## My favorite color is purple.
-## I like cats.</code></pre>
+<pre><code>Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.</code></pre>
 </div>
 <div id="merge-conflicts-git-merge" class="section level2">
 <h2>Merge conflicts (<code>git merge</code>)</h2>
@@ -566,27 +581,28 @@ git commit -m 'Add cats'</code></pre>
 <p>You resolve a conflicts by merging, opening the file(s) with conflict(s), editing until you have the version you want, and saving the new, correct merged version with <code>add and commit</code>.</p>
 <p>For example, we can make a new_branch2</p>
 <pre class="bash"><code>git checkout -b new_branch2 master</code></pre>
-<pre><code>## Switched to a new branch 'new_branch2'</code></pre>
+<pre><code>Switched to a new branch 'new_branch2'</code></pre>
 <p>Modify the README; add and commit those changes to <strong>this branch</strong></p>
 <pre class="bash"><code>echo 'I like dogs too!' &gt;&gt; README.md
 git add .
 git commit -m &quot;Add dogs&quot;</code></pre>
-<pre><code>## [new_branch2 ec1329f] Add dogs
-##  1 file changed, 1 insertion(+)</code></pre>
+<pre><code>[new_branch2 27c250f] Add dogs
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;
+ 1 file changed, 1 insertion(+)</code></pre>
 <p>Also modify the README in our master branch.</p>
-<pre class="bash"><code>git checkout master
-
-echo 'I do not like dogs.' &gt;&gt; README.md
+<pre class="bash"><code>git checkout master</code></pre>
+<pre><code>Switched to branch 'master'</code></pre>
+<pre class="bash"><code>echo 'I do not like dogs.' &gt;&gt; README.md
 git add .
 git commit -m &quot;Add dogs again&quot;</code></pre>
-<pre><code>## Switched to branch 'master'
-## [master c7f5cf6] Add dogs again
-##  1 file changed, 1 insertion(+)</code></pre>
+<pre><code>[master c427c53] Add dogs again
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;
+ 1 file changed, 1 insertion(+)</code></pre>
 <p>And now the version in the master has non-mergable changes compared to the new_branch2 version <em>e.g.</em> I can’t both like and not like dogs. Thus, when we try to merge these branches, there is a conflict.</p>
 <pre class="bash"><code>git merge new_branch2</code></pre>
-<pre><code>## Auto-merging README.md
-## CONFLICT (content): Merge conflict in README.md
-## Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<pre><code>Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 <p>If we open the README, Git has marked the conflict(s) like so</p>
 <pre><code>&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 master version
@@ -594,64 +610,65 @@ master version
 branch version
 &gt;&gt;&gt;&gt;&gt;&gt; name_of_branch</code></pre>
 <pre class="bash"><code>head README.md</code></pre>
-<pre><code>## Hello!
-## My birthday is November 29.
-## My favorite color is purple.
-## I like cats.
-## &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-## I do not like dogs.
-## =======
-## I like dogs too!
-## &gt;&gt;&gt;&gt;&gt;&gt;&gt; new_branch2</code></pre>
+<pre><code>Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+I do not like dogs.
+=======
+I like dogs too!
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; new_branch2</code></pre>
 <p>To resolve this, we must open the README and correct the conflict, being sure to remove the <code>&gt;</code>, <code>=</code>, and <code>&lt;</code> markers. Once we have the corrected version like so</p>
 <pre class="bash"><code>head README.md</code></pre>
-<pre><code>## Hello!
-## My birthday is November 29.
-## My favorite color is purple.
-## I like cats.
-## I like dogs too!</code></pre>
+<pre><code>Hello!
+My birthday is November 29.
+My favorite color is purple.
+I like cats.
+I like dogs too!</code></pre>
 <p>we can try adding and committing again. If we’ve fully resolved the conflict, there will be no errors!</p>
 <pre class="bash"><code>git add .
 git commit -m &quot;Resolve dog conflict&quot;</code></pre>
-<pre><code>## [master 7a12f4d] Resolve dog conflict</code></pre>
+<pre><code>[master 9641b08] Resolve dog conflict
+ Committer: Kim Dill-McFarland &lt;kim@email.com&gt;</code></pre>
 <p>And we can see our entire history, including the branches, in the log.</p>
 <pre class="bash"><code>git log</code></pre>
-<pre><code>## commit 7a12f4dc4932ffd22fc6731b7405a48750ee8de2
-## Merge: c7f5cf6 ec1329f
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Resolve dog conflict
-## 
-## commit c7f5cf6e4f640f46b5f597d030127893fde73cc5
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Add dogs again
-## 
-## commit ec1329f2cc27cbbb6f95cf4ba2188889aae63724
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Add dogs
-## 
-## commit 3929ed59db3a1f7e9da1d22236f50cdbfd071ca9
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Add cats
-## 
-## commit a1349e8a9255567ac2d4ad78417990c31b8ecc2e
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Add birthday and color
-## 
-## commit d599fb1283264f7c1f13f11482485cd8d766cd23
-## Author: Kim Dill-McFarland &lt;kdillmcfarland@gmail.com&gt;
-## Date:   Tue Apr 2 23:05:04 2019 -0700
-## 
-##     Initialize README</code></pre>
+<pre><code>commit 9641b0806f28b00cce1a07af524b4a321eb957b0 (HEAD -&gt; master)
+Merge: c427c53 27c250f
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:08:38 2019 -0700
+
+    Resolve dog conflict
+
+commit c427c537301300286986718f371b33b8b9c41b13
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:06:48 2019 -0700
+
+    Add dogs again
+
+commit 27c250f2f2b5bc9a53d6a8b8a7840778fababd20 (new_branch2)
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:06:15 2019 -0700
+
+    Add dogs
+
+commit d566b2957525f28d8d999150da10ef60aac53157 (new_branch)
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:05:17 2019 -0700
+
+    Add cats
+
+commit f1b97c7b50090383b9c40af0335a25d4b3df7982
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:03:51 2019 -0700
+
+    Add birthday and color
+    
+commit 1515b4ac3c4bf7185cf75eab28900a154798018c
+Author: Kim Dill-McFarland &lt;kim@email.com&gt;
+Date:   Mon May 6 17:01:38 2019 -0700
+
+    Initialize README</code></pre>
 </div>
 <div id="summary-of-git" class="section level2">
 <h2>Summary of Git</h2>

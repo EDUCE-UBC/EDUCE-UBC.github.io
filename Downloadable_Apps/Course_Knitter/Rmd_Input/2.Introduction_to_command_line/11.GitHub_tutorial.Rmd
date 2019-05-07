@@ -13,11 +13,6 @@ editor_options:
   chunk_output_type: console
 urlcolor: blue
 ---
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
 # Version control with GitHub tutorial
 ## Learning objectives
 
@@ -81,20 +76,15 @@ Name the repo `TestRepo` and create it. GitHub then gives you the URL for this r
 ### Link local and online repo (`git remote`)
 Finally, we will link our TestRepo to the online GitHub repo using the URL provided. If you completed the 'Version control with Git tutorial', you can use the TestRepo created there. Otherwise, please create and `init` a new directory on your computer where you would like this repo to be.
 
-```{bash echo=FALSE}
-#setup git tutorial repo
+```{bash echo=FALSE, eval=FALSE}
+#Repeat Git tutoral to setup repo
 mkdir Desktop/TestRepo
 cd Desktop/TestRepo
-```
 
-```{r echo=FALSE}
-#Reset wd to repo
-knitr::opts_knit$set(root.dir = '/Users/kim/Desktop/TestRepo')
-```
-
-```{bash echo=FALSE, results='hide'}
+# Create readme
 echo -e 'Hello!\nMy birthday is November 29.\nMy favorite color is purple.\nI like cats.\nI like dogs too!' > README.md
 
+# Initialize repo, add all files, commit changes
 git init
 git add .
 git commit -m "Init repo"
@@ -102,7 +92,7 @@ git commit -m "Init repo"
 
 In either case, you link the directory on your computer (local) to the repo on GitHub using *your specific repo URL* in the following command in your terminal. Make sure your terminal is still pointing at the correct directory!
 
-```{bash}
+```{bash eval=FALSE}
 git remote add origin https://github.com/kdillmcfarland/TestRepo.git
 ```
 
@@ -112,17 +102,16 @@ If no errors occur, you can now upload your local repo (with the README file) to
 ```{bash eval=FALSE}
 git push -u origin master
 ```
-
-```{}
-## Enumerating objects: 3, done.
-## Counting objects: 100% (3/3), done.
-## Delta compression using up to 4 threads.
-## Compressing objects: 100% (2/2), done.
-## Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
-## Total 3 (delta 0), reused 0 (delta 0)
-## To https://github.com/kdillmcfarland/TestRepo.git
-##  * [new branch]      master -> master
-## Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/kdillmcfarland/TestRepo.git
+* [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
 ```
 
 All subsequent push commands for this repo can simply be
@@ -150,8 +139,12 @@ Then add/commit the change using the online tool at the bottom of the page
 
 Despite this change on GitHub, if you go to your terminal on your computer, you see no changes.
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch master
+nothing to commit, working tree clean
 ```
 
 This is because you must go through a staging area (index) similar to the one in-between your local directory and repo before updating your local repo from GitHub. You can place GitHub content in this index with
@@ -159,15 +152,14 @@ This is because you must go through a staging area (index) similar to the one in
 ```{bash eval=FALSE}
 git fetch
 ```
-
-```{}
-## remote: Enumerating objects: 5, done.
-## remote: Counting objects: 100% (5/5), done.
-## remote: Compressing objects: 100% (2/2), done.
-## remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-## Unpacking objects: 100% (3/3), done.
-## From https://github.com/kdillmcfarland/TestRepo
-##    cdca881..b95f3a9  master     -> origin/master
+```
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/kdillmcfarland/TestRepo
+  cdca881..b95f3a9  master     -> origin/master
 ```
 
 Now, you can see that the branch on your computer is 1 commit behind the branch on GitHub.
@@ -175,13 +167,12 @@ Now, you can see that the branch on your computer is 1 commit behind the branch 
 ```{bash eval=FALSE}
 git status
 ```
+```
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+ (use "git pull" to update your local branch)
 
-```{}
-## On branch master
-## Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
-##   (use "git pull" to update your local branch)
-## 
-## nothing to commit, working tree clean
+nothing to commit, working tree clean
 ```
 
 Finally, if you decide you want to update your local version from GitHub, you reverse push with
@@ -189,18 +180,21 @@ Finally, if you decide you want to update your local version from GitHub, you re
 ```{bash eval=FALSE}
 git pull
 ```
-
-```{}
-## Updating cdca881..b95f3a9
-## Fast-forward
-##  README.md | 1 +
-##  1 file changed, 1 insertion(+)
+```
+Updating cdca881..b95f3a9
+Fast-forward
+README.md | 1 +
+1 file changed, 1 insertion(+)
 ```
 
 Everything is now up to date
 
-```{bash}
+```{bash eval=FALSE}
 git status
+```
+```
+On branch master
+nothing to commit, working tree clean
 ```
 
 And you can see both your local and GitHub histories associated with this one repo.
@@ -208,19 +202,18 @@ And you can see both your local and GitHub histories associated with this one re
 ```{bash eval=FALSE}
 git log
 ```
+```
+commit b95f3a95ffbc8dae2e15608d064b552483c810af (HEAD -> master, origin/master)
+Author: Kimberly Dill-McFarland <21342185+kdillmcfarland@users.noreply.github.com>
+Date:   Tue Apr 2 21:07:50 2019 -0700
 
-```{}
-## commit b95f3a95ffbc8dae2e15608d064b552483c810af (HEAD -> master, origin/master)
-## Author: Kimberly Dill-McFarland <21342185+kdillmcfarland@users.noreply.github.com>
-## Date:   Tue Apr 2 21:07:50 2019 -0700
-## 
-##     Make GitHub edit
-## 
-## commit cdca8814a5782e4f19a94be72d3969ef3bec7504
-## Author: Kim Dill-McFarland <kdillmcfarland@gmail.com>
-## Date:   Tue Apr 2 21:06:21 2019 -0700
-## 
-##     Init repo
+   Make GitHub edit
+
+commit cdca8814a5782e4f19a94be72d3969ef3bec7504
+Author: Kim Dill-McFarland <kdillmcfarland@gmail.com>
+Date:   Tue Apr 2 21:06:21 2019 -0700
+
+   Init repo
 ```
 
 ### Copy an online repo (`git clone`)
@@ -238,6 +231,14 @@ For example, you could clone all of the data files used in EDUCE using
 
 ```{bash eval=FALSE}
 git clone https://github.com/EDUCE-UBC/workshop_data
+```
+```
+Cloning into 'workshop_data'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 51 (delta 11), reused 20 (delta 4), pack-reused 19
+Unpacking objects: 100% (51/51), done.
 ```
 
 This, however, does not give you the ability to alter, or `push` to, this repo if you are not the owner on GitHub. This would require additional functions like forks and pull requests. To learn more about how to collaborate on GitHub, see [this GitHub help page](https://help.github.com/en/categories/collaborating-with-issues-and-pull-requests).
@@ -267,15 +268,5 @@ To see this feature, open RStudio and create an R Project in your TestRepo direc
 
 ![](images/RStudio_Git.png){width=75%}
 \ 
-
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
-```{bash echo=FALSE}
-#Remove repo
-rm -rf Desktop/TestRepo
-```
 
 ***

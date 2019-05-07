@@ -13,11 +13,6 @@ editor_options:
   chunk_output_type: console
 urlcolor: blue
 ---
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim')
-```
-
 # Unix manipulation tutorial
 ## Learning objectives
 
@@ -36,27 +31,32 @@ The `mkdir` command creates a new, empty directory at the specified path.
 
 First we'll orient ourselves on my computer. I'll move to the Desktop and list its current contents.
 
-```{bash}
+```{bash eval=FALSE}
 cd Desktop/
 ls -F
 ```
-
-```{r echo=FALSE}
-#Reset wd to home
-knitr::opts_knit$set(root.dir = '/Users/kim/Desktop')
 ```
+Notes.docx      To do.docx      temp/
+```
+You will see a list of files on your Desktop. The above files and directories are on mine.
 
 Then we can make a new directory like so.
 
-```{bash}
+```{bash eval=FALSE}
 mkdir example/
 ls -F
+```
+```
+Notes.docx      To do.docx      example/        temp/
 ```
 
 If we list in this directory, we can see that it is empty.
 
-```{bash}
-ls -F example/
+```{bash eval=FALSE}
+ls example/
+```
+```
+ 
 ```
 
 ## Movement
@@ -71,45 +71,65 @@ write.csv(
   "Saanich_Data.csv", row.names=FALSE)
 ```
 
-Now that we have the file
+Now that we have the file on our Desktop
 
-```{bash}
-pwd
+```{bash eval=FALSE}
 ls -F
 ```
+```
+Notes.docx              To do.docx              temp/
+Saanich_Data.csv        example/
+```
+*Note that the terminal will wrap a long list across multiple lines to fit the current window size.*
 
 We can copy it into our example directory using the basic syntax
 
 `cp [source] [target]`
 
-```{bash}
+```{bash eval=FALSE}
 cp Saanich_Data.csv example/
 ```
 
 And view it in both its original and new locations.
 
-```{bash}
-ls
+```{bash eval=FALSE}
+ls -F
 ```
-```{bash}
+```
+Notes.docx              To do.docx              temp/
+Saanich_Data.csv        example/
+```
+
+```{bash eval=FALSE}
 ls example/
+```
+```
+Saanich_Data.csv
 ```
 
 ### mv (file)
 In contrast to `cp`, the `mv` command moves files or directories, thus destroying the copy in the original location. However, their syntax and usage are the same.
 
-```{bash}
+```{bash eval=FALSE}
 mv Saanich_Data.csv example/
 ```
 
 And now we see that our csv file no longer exists on the Desktop.
 
-```{bash}
-ls
+```{bash eval=FALSE}
+ls -F
 ```
-```{bash}
+```
+Notes.docx      To do.docx      example/        temp/
+```
+
+```{bash eval=FALSE}
 ls example/
 ```
+```
+Saanich_Data.csv
+```
+*Note that there was no warning or error when the terminal overwrote the copy of `Saanich_Data.csv` in the `example/` folder with the one from the `Desktop/`. In this case, this is okay as the files are exact copies. However, be careful of this when dealing with your own files and versions.*
 
 ### cp and mv (directory)
 In order to, instead, copy or move an entire directory with all of its contents, you need to add the recursive `-R` option to `cp` or `mv`. We do not currently have an directories to copy/move, so here is a non-functional example.
@@ -127,8 +147,11 @@ Most of the above commands assume your terminal is pointing to your Desktop. Thi
 
 For example, reconsider `cp`. Since our terminal is on the Desktop,
 
-```{bash}
+```{bash eval=FALSE}
 pwd
+```
+```
+/Users/kim/Desktop
 ```
 
 our original command
@@ -161,29 +184,44 @@ In the end, it is up to you to decide how exact you want your file paths to be a
 
 Let's remove the data file first.
 
-```{bash}
+```{bash eval=FALSE}
 ls example/
 ```
-```{bash}
+```
+Saanich_Data.csv
+```
+
+```{bash eval=FALSE}
 rm ~/Desktop/example/Saanich_Data.csv
 ```
 
 And we see that it is gone.
 
-```{bash}
+```{bash eval=FALSE}
 ls example/
+```
+```
+ 
 ```
 
 We can also remove the entire example directory using the recursive `-R` function.
 
-```{bash}
-ls
+```{bash eval=FALSE}
+ls -F
 ```
-```{bash}
+```
+Notes.docx      To do.docx      example/        temp/
+```
+
+```{bash eval=FALSE}
 rm -R example/
 ```
-```{bash}
+
+```{bash eval=FALSE}
 ls
+```
+```
+Notes.docx      To do.docx      temp/
 ```
 
 ## Naming conventions

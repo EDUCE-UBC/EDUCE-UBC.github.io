@@ -73,9 +73,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -106,8 +104,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -272,6 +268,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -289,8 +295,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Unix navigation tutorial</h1>
-<h3 class="subtitle"><em>Experiential Data science for Undergraduate Cross-disciplinary Education</em></h3>
-<h4 class="author"><em>Dr. Kim Dill-McFarland, U. of British Columbia</em></h4>
+<h3 class="subtitle">Experiential Data science for Undergraduate Cross-disciplinary Education</h3>
+<h4 class="author">Dr. Kim Dill-McFarland, U. of British Columbia</h4>
 
 </div>
 
@@ -342,28 +348,18 @@ div.tocify {
 <h3>pwd</h3>
 <p>When you open a new terminal, you will automatically be in your <code>home</code> directory. To find out where this is, use <code>pwd</code> which stands for <strong>print working directory</strong>. This tells you where your terminal is currently pointing.</p>
 <pre class="bash"><code>pwd</code></pre>
-<pre><code>## /Users/kim</code></pre>
+<pre><code>/Users/kim</code></pre>
 <p>You can see here than I am in my home user directory <code>kim</code>.</p>
 </div>
 <div id="ls" class="section level3">
 <h3>ls</h3>
 <p>To view all the files and sub-directories in the current directory, use <code>ls</code> for <strong>list</strong>.</p>
 <pre class="bash"><code>ls</code></pre>
-<pre><code>## Applications
-## Desktop
-## Documents
-## Documents_large
-## Downloads
-## GitHub
-## Google Drive
-## Library
-## Movies
-## Music
-## Pictures
-## Public
-## Video
-## VirtualBox VMs
-## test.txt</code></pre>
+<pre><code>Applications    GitHub          Pictures        example
+Desktop         Google Drive    Public          test.txt
+Documents       Library         README.md
+Documents_large Movies          Video
+Downloads       Music           VirtualBox VMs</code></pre>
 <p>You can see that my home directory has a number of things that all Macs will have (<em>e.g.</em> Applications, Desktop, etc.) as well as a number of things which are unique to my file system (<em>e.g.</em> Documents_large, GitHub, etc.) Your list will be unique to your computer.</p>
 </div>
 <div id="ls-git-bash" class="section level3">
@@ -376,76 +372,66 @@ div.tocify {
 <h3>ls options</h3>
 <p>You can ask for these indicators in the Mac terminal by adding modifiers to the <code>ls</code> command. You do this with <code>-</code> after the command. For example, if you want to show all of the file type indicators, you would use <code>ls -F</code>.</p>
 <pre class="bash"><code>ls -F</code></pre>
-<pre><code>## Applications/
-## Desktop/
-## Documents/
-## Documents_large/
-## Downloads/
-## GitHub/
-## Google Drive/
-## Library/
-## Movies/
-## Music/
-## Pictures/
-## Public/
-## Video/
-## VirtualBox VMs/
-## test.txt</code></pre>
+<pre><code>Applications/    GitHub/          Pictures/        example
+Desktop/         Google Drive/    Public/          test.txt
+Documents/       Library/         README.md
+Documents_large/ Movies/          Video/
+Downloads/       Music/           VirtualBox VMs/</code></pre>
 <p>Now you will see that everything in my home directory are themselves directories ending in <code>/</code>.</p>
 </div>
 <div id="man" class="section level3">
 <h3>man</h3>
 <p>Most commands can be modified with text following a - as in <code>ls -F</code>. You can learn more about these modifications by looking up the <strong>manual</strong> of any function with <code>man</code>. For example, in R or Mac, if you look-up pwd with <code>man pwd</code>, you will see the following.</p>
 <pre class="bash"><code>man pwd</code></pre>
-<pre><code>## 
-## PWD(1)             BSD General Commands Manual           PWD(1)
-## 
-## NAME
-##      pwd -- return working directory name
-## 
-## SYNOPSIS
-##      pwd [-L | -P]
-## 
-## DESCRIPTION
-##      The pwd utility writes the absolute pathname of the current working
-##      directory to the standard output.
-## 
-##      Some shells may provide a builtin pwd command which is similar or identi-
-##      cal to this utility.  Consult the builtin(1) manual page.
-## 
-##      The options are as follows:
-## 
-##      -L      Display the logical current working directory.
-## 
-##      -P      Display the physical current working directory (all symbolic
-##       links resolved).
-## 
-##      If no options are specified, the -L option is assumed.
-## 
-## ENVIRONMENT
-##      Environment variables used by pwd:
-## 
-##      PWD  Logical current working directory.
-## 
-## EXIT STATUS
-##      The pwd utility exits 0 on success, and &gt;0 if an error occurs.
-## 
-## SEE ALSO
-##      builtin(1), cd(1), csh(1), sh(1), getcwd(3)
-## 
-## STANDARDS
-##      The pwd utility conforms to IEEE Std 1003.1-2001 (``POSIX.1'').
-## 
-## BUGS
-##      In csh(1) the command dirs is always faster because it is built into that
-##      shell.  However, it can give a different answer in the rare case that the
-##      current directory or a containing directory was moved after the shell
-##      descended into it.
-## 
-##      The -L option does not work unless the PWD environment variable is
-##      exported by the shell.
-## 
-## BSD              April 12, 2003                 BSD</code></pre>
+<pre><code>PWD(1)                    BSD General Commands Manual                   PWD(1)
+
+NAME
+     pwd -- return working directory name
+
+SYNOPSIS
+     pwd [-L | -P]
+
+DESCRIPTION
+     The pwd utility writes the absolute pathname of the current working
+     directory to the standard output.
+
+     Some shells may provide a builtin pwd command which is similar or identi-
+     cal to this utility.  Consult the builtin(1) manual page.
+
+     The options are as follows:
+
+     -L      Display the logical current working directory.
+
+     -P      Display the physical current working directory (all symbolic
+             links resolved).
+
+     If no options are specified, the -L option is assumed.
+
+ENVIRONMENT
+     Environment variables used by pwd:
+
+     PWD  Logical current working directory.
+
+EXIT STATUS
+     The pwd utility exits 0 on success, and &gt;0 if an error occurs.
+
+SEE ALSO
+     builtin(1), cd(1), csh(1), sh(1), getcwd(3)
+
+STANDARDS
+     The pwd utility conforms to IEEE Std 1003.1-2001 (``POSIX.1'').
+
+BUGS
+     In csh(1) the command dirs is always faster because it is built into that
+     shell.  However, it can give a different answer in the rare case that the
+     current directory or a containing directory was moved after the shell
+     descended into it.
+
+     The -L option does not work unless the PWD environment variable is
+     exported by the shell.
+
+BSD                             April 12, 2003                             BSD
+(END)</code></pre>
 <p>This is a text documents with information on every possible modifier of the <code>pwd</code> function. You can <strong>exit the manual</strong> back to the regular terminal with <code>q</code> for ‘quit’.</p>
 </div>
 <div id="help-git-bash" class="section level3">
@@ -456,10 +442,10 @@ div.tocify {
 <div id="cd" class="section level3">
 <h3>cd</h3>
 <p>So now that you’ve seen what directories exist in your home directory, you can move into another directory with <code>cd</code> for <strong>change directory</strong>. Let’s move into the Desktop since everyone will have this directory. Note that the command line is <em>case sensitive</em> so Desktop =/= desktop.</p>
-<pre class="bash"><code>cd Desktop
-pwd</code></pre>
-<pre><code>## /Users/kim/Desktop</code></pre>
+<pre class="bash"><code>cd Desktop</code></pre>
 <p>You can confirm that you’ve actually moved by using <code>pwd</code> again.</p>
+<pre class="bash"><code>pwd</code></pre>
+<pre><code>/Users/kim/Desktop</code></pre>
 </div>
 <div id="shortcuts" class="section level3">
 <h3>Shortcuts</h3>
@@ -468,31 +454,28 @@ pwd</code></pre>
 <li>You can go <strong>up one directory</strong> using <code>cd ..</code>
 <ul>
 <li>In this case, you would go back to your home directory since this is one up from the Desktop directory.</li>
-<li>You can repeat this as many times as you want and continue to go up one directory at a time as shown.</li>
+<li>You can repeat this as many times as you want and continue to go up one directory at a time as shown below.</li>
 </ul></li>
 </ol>
-<pre class="bash"><code>pwd
-
-cd ..
-pwd
-
-cd ..
+<pre class="bash"><code>pwd</code></pre>
+<pre><code>/Users/kim/Desktop</code></pre>
+<pre class="bash"><code>cd ..
 pwd</code></pre>
-<pre><code>## /Users/kim/Desktop
-## /Users/kim
-## /Users</code></pre>
+<pre><code>/Users/kim</code></pre>
+<pre class="bash"><code>cd ..
+pwd</code></pre>
+<pre><code>/Users</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>You can go straight to the home directory from anywhere on your computer using <code>cd ~</code>.
 <ul>
 <li>The <code>~</code> is shorthand for your <strong>home directory</strong>.</li>
 </ul></li>
 </ol>
-<pre class="bash"><code>pwd
-
-cd ~
+<pre class="bash"><code>pwd</code></pre>
+<pre><code>/Users</code></pre>
+<pre class="bash"><code>cd ~
 pwd</code></pre>
-<pre><code>## /Users/kim/Desktop
-## /Users/kim</code></pre>
+<pre><code>/Users/kim</code></pre>
 <p>No matter how many directories up or down you currently are, <code>~</code> will take you to your home directory.</p>
 </div>
 <div id="tab-completion" class="section level3">
@@ -500,21 +483,11 @@ pwd</code></pre>
 <p>As file names or paths get longer, it becomes cumbersome to type them out. To make your life easier and prevent typos, you can use tab completion instead. This will fill in the rest of a directory or file name <em>if it is unique</em>.</p>
 <p>For example, let’s look at my home directory again.</p>
 <pre class="bash"><code>ls</code></pre>
-<pre><code>## Applications
-## Desktop
-## Documents
-## Documents_large
-## Downloads
-## GitHub
-## Google Drive
-## Library
-## Movies
-## Music
-## Pictures
-## Public
-## Video
-## VirtualBox VMs
-## test.txt</code></pre>
+<pre><code>Applications    GitHub          Pictures        example
+Desktop         Google Drive    Public          test.txt
+Documents       Library         README.md
+Documents_large Movies          Video
+Downloads       Music           VirtualBox VMs</code></pre>
 <p>If I were to type <code>Desk</code> and then use the [tab], the terminal would automatically complete <code>Desktop/</code> because that is the only directory in the current folder that starts with <code>Desk</code>.</p>
 <p>In contrast, if I tried <code>Doc</code> [tab], the terminal would not know if I meant <code>Documents</code> or <code>Documents_large</code>, which both exist in my home <code>kim</code> directory. So, depending on the terminal version you have, it would either fill in as much as it could (<em>e.g.</em> <code>Documents</code> since both directory names start with that) or fail to fill anything in.</p>
 <p><strong>Remember to give the terminal at least 3 letters/numbers before trying [tab] and to use file/directory names that exist on <em>your</em> computer.</strong></p>
@@ -524,6 +497,13 @@ pwd</code></pre>
 <p>This concludes the main commands used to navigate a computer. Now you <em>could</em> end your terminal session by closing the window with the [X]. However, this is not best practices and could cause issues if you are remotely logged into another machine.</p>
 <p>It is best to officially exit the session with <code>exit</code>. This will save your history and safely disconnect you. Git Bash will then automatically close while the Mac or R terminal will remain open but disconnected.</p>
 <pre class="bash"><code>exit</code></pre>
+<pre><code>logout
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+[Process completed]</code></pre>
 <hr />
 </div>
 </div>

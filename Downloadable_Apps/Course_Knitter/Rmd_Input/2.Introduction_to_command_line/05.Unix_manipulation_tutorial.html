@@ -73,9 +73,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -106,8 +104,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -272,6 +268,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -289,8 +295,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Unix manipulation tutorial</h1>
-<h3 class="subtitle"><em>Experiential Data science for Undergraduate Cross-disciplinary Education</em></h3>
-<h4 class="author"><em>Dr. Kim Dill-McFarland, U. of British Columbia</em></h4>
+<h3 class="subtitle">Experiential Data science for Undergraduate Cross-disciplinary Education</h3>
+<h4 class="author">Dr. Kim Dill-McFarland, U. of British Columbia</h4>
 
 </div>
 
@@ -318,24 +324,15 @@ div.tocify {
 <p>First we’ll orient ourselves on my computer. I’ll move to the Desktop and list its current contents.</p>
 <pre class="bash"><code>cd Desktop/
 ls -F</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds/
-## SaanichData/
-## To do.docx</code></pre>
+<pre><code>Notes.docx      To do.docx      temp/</code></pre>
+<p>You will see a list of files on your Desktop. The above files and directories are on mine.</p>
 <p>Then we can make a new directory like so.</p>
 <pre class="bash"><code>mkdir example/
 ls -F</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds/
-## SaanichData/
-## To do.docx
-## example/</code></pre>
+<pre><code>Notes.docx      To do.docx      example/        temp/</code></pre>
 <p>If we list in this directory, we can see that it is empty.</p>
-<pre class="bash"><code>ls -F example/</code></pre>
+<pre class="bash"><code>ls example/</code></pre>
+<pre><code> </code></pre>
 </div>
 </div>
 <div id="movement" class="section level2">
@@ -347,49 +344,31 @@ ls -F</code></pre>
 <pre class="r"><code>write.csv(
   read.csv(&quot;https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv&quot;),
   &quot;Saanich_Data.csv&quot;, row.names=FALSE)</code></pre>
-<p>Now that we have the file</p>
-<pre class="bash"><code>pwd
-ls -F</code></pre>
-<pre><code>## /Users/kim/Desktop
-## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds/
-## SaanichData/
-## Saanich_Data.csv
-## To do.docx
-## example/</code></pre>
+<p>Now that we have the file on our Desktop</p>
+<pre class="bash"><code>ls -F</code></pre>
+<pre><code>Notes.docx              To do.docx              temp/
+Saanich_Data.csv        example/</code></pre>
+<p><em>Note that the terminal will wrap a long list across multiple lines to fit the current window size.</em></p>
 <p>We can copy it into our example directory using the basic syntax</p>
 <p><code>cp [source] [target]</code></p>
 <pre class="bash"><code>cp Saanich_Data.csv example/</code></pre>
 <p>And view it in both its original and new locations.</p>
-<pre class="bash"><code>ls</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds
-## SaanichData
-## Saanich_Data.csv
-## To do.docx
-## example</code></pre>
+<pre class="bash"><code>ls -F</code></pre>
+<pre><code>Notes.docx              To do.docx              temp/
+Saanich_Data.csv        example/</code></pre>
 <pre class="bash"><code>ls example/</code></pre>
-<pre><code>## Saanich_Data.csv</code></pre>
+<pre><code>Saanich_Data.csv</code></pre>
 </div>
 <div id="mv-file" class="section level3">
 <h3>mv (file)</h3>
 <p>In contrast to <code>cp</code>, the <code>mv</code> command moves files or directories, thus destroying the copy in the original location. However, their syntax and usage are the same.</p>
 <pre class="bash"><code>mv Saanich_Data.csv example/</code></pre>
 <p>And now we see that our csv file no longer exists on the Desktop.</p>
-<pre class="bash"><code>ls</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds
-## SaanichData
-## To do.docx
-## example</code></pre>
+<pre class="bash"><code>ls -F</code></pre>
+<pre><code>Notes.docx      To do.docx      example/        temp/</code></pre>
 <pre class="bash"><code>ls example/</code></pre>
-<pre><code>## Saanich_Data.csv</code></pre>
+<pre><code>Saanich_Data.csv</code></pre>
+<p><em>Note that there was no warning or error when the terminal overwrote the copy of <code>Saanich_Data.csv</code> in the <code>example/</code> folder with the one from the <code>Desktop/</code>. In this case, this is okay as the files are exact copies. However, be careful of this when dealing with your own files and versions.</em></p>
 </div>
 <div id="cp-and-mv-directory" class="section level3">
 <h3>cp and mv (directory)</h3>
@@ -406,7 +385,7 @@ mv -R example/ new/target/directory/</code></pre>
 <p>Most of the above commands assume your terminal is pointing to your Desktop. This is why we can simply use <code>example/</code> to access that directory. However, you can provide full or partial file paths in any command. This improves clarity and prevents you from getting lost in the terminal.</p>
 <p>For example, reconsider <code>cp</code>. Since our terminal is on the Desktop,</p>
 <pre class="bash"><code>pwd</code></pre>
-<pre><code>## /Users/kim/Desktop</code></pre>
+<pre><code>/Users/kim/Desktop</code></pre>
 <p>our original command</p>
 <pre class="bash"><code>cp Saanich_Data.csv example/</code></pre>
 <p>is equivalent to</p>
@@ -424,27 +403,17 @@ mv -R example/ new/target/directory/</code></pre>
 <p><em>This is an example of when full file paths are best in order to avoid errors.</em></p>
 <p>Let’s remove the data file first.</p>
 <pre class="bash"><code>ls example/</code></pre>
-<pre><code>## Saanich_Data.csv</code></pre>
+<pre><code>Saanich_Data.csv</code></pre>
 <pre class="bash"><code>rm ~/Desktop/example/Saanich_Data.csv</code></pre>
 <p>And we see that it is gone.</p>
 <pre class="bash"><code>ls example/</code></pre>
+<pre><code> </code></pre>
 <p>We can also remove the entire example directory using the recursive <code>-R</code> function.</p>
-<pre class="bash"><code>ls</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds
-## SaanichData
-## To do.docx
-## example</code></pre>
+<pre class="bash"><code>ls -F</code></pre>
+<pre><code>Notes.docx      To do.docx      example/        temp/</code></pre>
 <pre class="bash"><code>rm -R example/</code></pre>
 <pre class="bash"><code>ls</code></pre>
-<pre><code>## EDUCE_data_science_curriculum.pdf
-## Microbiome_Phylo_Diversity_Workshop-master.zip
-## Notes.docx
-## Rmds
-## SaanichData
-## To do.docx</code></pre>
+<pre><code>Notes.docx      To do.docx      temp/</code></pre>
 </div>
 </div>
 <div id="naming-conventions" class="section level2">
