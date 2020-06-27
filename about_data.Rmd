@@ -14,7 +14,7 @@ The data used in EDUCE modules were collected as part of an on-going oceanograph
 
 <br>
 
-Saanich Inlet is a steep sided fjord characterized by a shallow glacial sill at its mouth (Figure 1). This sill restricts circulation in basin waters below 100 m. As a result during spring and summer months, elevated primary production (like photosynthesis) in surface waters results in progressive water column stratification and complete oxygen starvation (anoxia) in deep basin waters. In late summer, pulses of oxygenated, nutrient-rich ocean waters upwelling from the Haro Straight cascade over the sill, displacing oxygen starved bottom waters upward. The intensity of these renewal events varies from year to year with implications for microbial ecology and biogeochemical cycles (Figure 2). 
+Saanich Inlet is a steep-sided fjord characterized by a shallow glacial sill at its mouth (Figure 1) restricting circulation in basin waters below 100 m. During spring and summer months, elevated primary production (like photosynthesis) in surface waters combined with restricted circulation results in progressive water column stratification and complete oxygen starvation (anoxia) in deep basin waters. In late summer, pulses of oxygenated, nutrient-rich ocean waters upwelling from the Haro Straight cascade over the sill, displacing oxygen-starved bottom waters upward. The intensity of these renewal events varies from year to year, with implications for microbial ecology and biogeochemical cycles (Figure 2).
 
 <br>
 
