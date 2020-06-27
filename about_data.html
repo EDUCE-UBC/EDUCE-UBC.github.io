@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
 <title>About our example data</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -83,7 +84,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -232,6 +232,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -243,18 +244,6 @@ $(document).ready(function () {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -303,10 +292,10 @@ $(document).ready(function () {
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Videos</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="videos/setup_video.html">Setup</a>
+          <a href="setup_video.html">Setup</a>
         </li>
         <li>
-          <a href="videos/cmd_line_video.html">Intro to command line</a>
+          <a href="cmd_line_video.html">Intro to command line</a>
         </li>
       </ul>
     </li>
@@ -369,15 +358,12 @@ $(document).ready(function () {
 <h2>Saanich Inlet</h2>
 <p>The data used in EDUCE modules were collected as part of an on-going oceanographic time series in Saanich Inlet, a seasonally anoxic fjord of the East coast of Vancouver Island, British Columbia. Since 2006, samples have been collected approximately monthly for nine sampling sites throughout the inlet (Figure 1). EDUCE modules focus on the S3 site, where consistent geochemical and microbial data were collected from 2008 to 2014.</p>
 <p><br></p>
-<p><img src="Images/Saanich.png" width="384" /> <img src="Images/Inlet_structure.png" width="480" /></p>
+<p><img src="Images/Saanich.png" style="width:4in" /> <img src="Images/Inlet_structure.png" style="width:5in" /></p>
 <p><strong>Figure 1.</strong> Saanich Inlet (left) Map indicating conventional sample collection stations (S1-S9). (right) Structure at the mouth of the inlet where a glacial sill restricts water circulation into and out of the lower depths of the inlet basin.</p>
 <p><br></p>
 <p>Saanich Inlet is a steep sided fjord characterized by a shallow glacial sill at its mouth (Figure 1). This sill restricts circulation in basin waters below 100 m. As a result during spring and summer months, elevated primary production (like photosynthesis) in surface waters results in progressive water column stratification and complete oxygen starvation (anoxia) in deep basin waters. In late summer, pulses of oxygenated, nutrient-rich ocean waters upwelling from the Haro Straight cascade over the sill, displacing oxygen starved bottom waters upward. The intensity of these renewal events varies from year to year with implications for microbial ecology and biogeochemical cycles (Figure 2).</p>
 <p><br></p>
-<div class="figure">
-<img src="Images/oxygen_timeseries.png" />
-
-</div>
+<p><img src="Images/oxygen_timeseries.png" /></p>
 <p><strong>Figure 2.</strong> Contour plot of water column oxygen concentrations over multiple years in the time series. Warmer colors indicate high oxygen concentrations while cooler colors are low. Note the recurring pattern of oxygen decline below 100 m depth intervals followed by seasonal renewal events in late Summer into early Fall carrying more oxygenated waters into the Inlet.</p>
 <p><br></p>
 <p>The seasonal cycle of stratification and deep water renewal enables spatial and temporal profiling across a wide range of water column energy states and nutrients, thus making Saanich Inlet a model ecosystem for studying microbial community responses to ocean deoxygenation. Ocean deoxygenation is a widespread phenomenon currently increasing due to climate change.</p>
@@ -401,6 +387,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

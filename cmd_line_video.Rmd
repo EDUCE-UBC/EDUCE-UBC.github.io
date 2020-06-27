@@ -40,7 +40,7 @@ These data were collected as part of an on-going oceanographic time series progr
 
 <br>
 
-A) ![](../Images/Saanich.png){width=4in} B)  ![](../Images/Inlet_structure.png){width=4.75in}
+A) ![](Images/Saanich.png){width=4in} B)  ![](Images/Inlet_structure.png){width=4.75in}
 
 **Figure 1.** Saanich Inlet, BC, Canada. A) Map indicating conventional sample collection stations (S1-S9). Data used in these tutorials are sourced from S3. B) Structure showing the glacial sill, which restricts water circulation into and out of the lower depths of the inlet basin.
 
@@ -50,7 +50,7 @@ During spring and summer months, elevated primary production (like photosynthesi
 
 <br>
 
-![](../Images/oxygen_timeseries.png)
+![](Images/oxygen_timeseries.png)
 
 **Figure 2.** Contour plot of water column oxygen concentrations over multiple years in the time series. Warmer colors indicate high oxygen concentrations while cooler colors are low. Note the recurring pattern of oxygen decline below 100 m depth intervals followed by seasonal renewal events in late Summer into early Fall carrying more oxygenated waters into the Inlet. 
 

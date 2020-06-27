@@ -11,7 +11,7 @@
 
 
 
-<title>about.utf8</title>
+<title>Introduction to command line</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -349,19 +349,59 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Introduction to command line</h1>
 
 </div>
 
 
-<p><img src="Images/EDUCE_Globe.png" width="350" ALIGN="left" /> <font size="18"><span style="color:teal"><strong>E</strong></span>xperiential<br />
-<span style="color:teal"><strong>D</strong></span>ata science for<br />
-<span style="color:teal"><strong>U</strong></span>ndergraduate<br />
-<span style="color:teal"><strong>C</strong></span>ross-disciplinary<br />
-<span style="color:teal"><strong>E</strong></span>ducation</font></p>
+<p>The command line / terminal / shell allows you to access a computer using only a text-based window. It is a foundational tool in data science and is used throughout many EDUCE modules.</p>
+<p>Here, you will find guided video tutorials covering some basic command line functions and application of these functions using the Basic Local Alignment Search Tool (<a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a>).</p>
+<div id="moving-about-your-computer" class="section level2">
+<h2>Moving about your computer</h2>
+<p>Learn how to navigate your computer including</p>
+<ul>
+<li>an introduction to the command line program</li>
+<li>pwd, print working directory</li>
+<li>cd, change directory</li>
+<li>ls, list</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NZ7YmgGy0uk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<p><br> <br></p>
+</div>
+<div id="command-line-blast" class="section level2">
+<h2>Command line BLAST</h2>
+<p>Learn additional command line functions including</p>
+<ul>
+<li>unzip, unpack a .zip file</li>
+<li>head, see the first lines of a file</li>
+<li>tail, see the last lines of a file</li>
+<li>awk, subset a file (and other functionalities not covered here)</li>
+<li>blastn, nucleotide BLAST</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sU44ZtZlzo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<p><br> <br></p>
+<p><strong>Windows versions coming soon!</strong></p>
+</div>
+<div id="the-data" class="section level2">
+<h2>The data</h2>
+<p>These data were collected as part of an on-going oceanographic time series program in Saanich Inlet, a seasonally anoxic fjord on the East coast of Vancouver Island, British Columbia (Figure 1A). Saanich Inlet is a steep sided fjord characterized by a shallow glacial sill located at the mouth of the inlet, which restricts circulation in basin waters below 100 m (Figure 1B).</p>
 <p><br></p>
-<p>The world is increasingly inundated with data. This is especially acute in the life sciences where next-generation sequencing has created a tidal wave of multi-omic information. As a result, the major challenge in microbiology has shifted from data generation to processing and interpretation. This necessitates training in data science, an interdisciplinary field linking big data with statistics, mathematics, and computer science.</p>
-<p>Toward this goal, the Experiential Data science for Undergraduate Cross-disciplinary Education (EDUCE) initiative at the U. of British Columbia is creating a broadly deliverable and flexible program for data science education in microbiology. EDUCE delivers modules in 7 undergraduate <a href="http://ecoscope.ubc.ca/program-structure/educe/">microbiology courses</a> as well as open-access <a href="https://github.com/EDUCE-UBC/workshops_R">workshops</a> in collaboration with the <a href="https://asda.stat.ubc.ca/">Applied Statistics and Data Science Group</a>. These modules provide basic to intermediate training in data science applications including command line, R/RStudio, statistics, and next-generation sequence analysis.</p>
-<p>All of EDUCE’s materials are open-access (GNU General Public License) and accessible through the <a href="https://github.com/EDUCE-UBC/">EDUCE GitHub</a> and this site.</p>
+<ol style="list-style-type: upper-alpha">
+<li><img src="Images/Saanich.png" style="width:4in" /> B) <img src="Images/Inlet_structure.png" style="width:4.75in" /></li>
+</ol>
+<p><strong>Figure 1.</strong> Saanich Inlet, BC, Canada. A) Map indicating conventional sample collection stations (S1-S9). Data used in these tutorials are sourced from S3. B) Structure showing the glacial sill, which restricts water circulation into and out of the lower depths of the inlet basin.</p>
+<p><br></p>
+<p>During spring and summer months, elevated primary production (like photosynthesis) in surface waters combined with restricted circulation results in progressive water column stratification and complete oxygen starvation (anoxia) in deep basin waters. In late summer, pulses of oxygenated nutrient-rich ocean waters upwelling from the Haro Straight cascade over the sill, displacing oxygen starved bottom waters upward. The intensity of these renewal events varies from year to year with implications for microbial ecology and biogeochemical cycles (Figure 2).</p>
+<p><br></p>
+<p><img src="Images/oxygen_timeseries.png" /></p>
+<p><strong>Figure 2.</strong> Contour plot of water column oxygen concentrations over multiple years in the time series. Warmer colors indicate high oxygen concentrations while cooler colors are low. Note the recurring pattern of oxygen decline below 100 m depth intervals followed by seasonal renewal events in late Summer into early Fall carrying more oxygenated waters into the Inlet.</p>
+<p><br></p>
+<p>The seasonal cycle of stratification and deep water renewal enables spatial and temporal profiling across a wide range of water column energy states and nutrients, thus making Saanich Inlet a model ecosystem for studying microbial community responses to ocean deoxygenation. Ocean deoxygenation is a widespread phenomenon currently increasing due to climate change.</p>
+<p>In our tutorials, we use data from various geochemical measurements at many depths in Saanich Inlet over time (approximately monthly from 2006 to 2014) as well as microbial data from selected time frames and depths of interest.</p>
+<p>For a brief introduction to the data, see Hallam SJ <em>et al</em>. 2017. Monitoring microbial responses to ocean deoxygenation in a model oxygen minimum zone. Sci Data 4: 170158 <a href="https://www.nature.com/articles/sdata2017158">doi:10.1038/sdata.2017.158</a> More detailed information on the geochmeical data can be found in Torres-Beltrán M <em>et al</em>. 2017. A compendium of geochemical information from the Saanich Inlet water column. Sci Data 4: 170159. <a href="https://www.nature.com/articles/sdata2017159">doi:10.1038/sdata.2017.159</a> More detailed information on the mutli-omic microbial data can be found in Hawley AK <em>et al</em>. 2017. A compendium of multi-omic sequence information from the Saanich Inlet water column. Sci Data 4: 170160. <a href="https://www.nature.com/articles/sdata2017160">doi:10.1038/sdata.2017.160</a></p>
+</div>
 
 
 

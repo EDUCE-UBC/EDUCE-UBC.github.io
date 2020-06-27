@@ -14,9 +14,9 @@ navbar:
     - text: Videos
       menu:
       - text: Setup
-        href: videos/setup_video.html
+        href: setup_video.html
       - text: Intro to command line
-        href: videos/cmd_line_video.html
+        href: cmd_line_video.html
   - text: Course Compiler
     menu: 
     - text: About
