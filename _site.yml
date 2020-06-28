@@ -7,20 +7,18 @@ navbar:
     href: index.html
   - text: About
     href: about.html
-  - text: Courses
+  - text: Instructions
     menu:
-    - text: Outline
-      href: course_outline.html
-    - text: Videos
-      menu:
-      - text: Setup
-        href: setup_video.html
-      - text: Intro to command line
-        href: cmd_line_video.html
+    - text: Installation instructions
+      href: setup_video.html
+    - text: Introduction to command line
+      href: cmd_line_video.html
   - text: Course Compiler
     menu: 
     - text: About
       href: about_compiler.html
+    - text: Course outline
+      href: course_outline.html
     - text: Example data
       href: about_data.html
     - text: Shiny app

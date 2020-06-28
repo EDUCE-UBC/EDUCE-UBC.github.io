@@ -2,7 +2,7 @@
 title: "About Course Compiler"
 output: html_document
 ---
-Course Compiler allows you to access all of EDUCE's data science modules for teaching or self-learning purposes. Simply select the course(s) that fit your interests and have the Course Compiler Shiny App create all the materials that you will need including slides, notes, exercises, and source code.
+Course Compiler allows you to access all of EDUCE's [data science modules for teaching or self-learning purposes](course_outline.html). Simply select the course(s) that fit your interests and have the Course Compiler Shiny App create all the materials that you will need including slides, notes, exercises, and source code.
 
 ## Online
 For novice R users or those wishing to use our [example data set](about_data.html), deploy the Course Compiler from this site, select your courses, and download the resulting materials. The PDF and HTML formats provide you with all of the final files while the ZIP format also provides the source code in Rmarkdown.
