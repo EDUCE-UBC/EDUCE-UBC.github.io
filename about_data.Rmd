@@ -7,8 +7,8 @@ The data used in EDUCE modules were collected as part of an on-going oceanograph
 
 <br>
 
-![](Images/Saanich.png){width=4in}
-![](Images/Inlet_structure.png){width=5in}
+![](images/saanich.png){width=4in}
+![](images/inlet_structure.png){width=5in}
 
 **Figure 1.** Saanich Inlet (left) Map indicating conventional sample collection stations (S1-S9). (right) Structure at the mouth of the inlet where a glacial sill  restricts water circulation into and out of the lower depths of the inlet basin.
 
@@ -18,7 +18,7 @@ Saanich Inlet is a steep-sided fjord characterized by a shallow glacial sill at 
 
 <br>
 
-![](Images/oxygen_timeseries.png)
+![](images/oxygen_timeseries.png)
 
 **Figure 2.** Contour plot of water column oxygen concentrations over multiple years in the time series. Warmer colors indicate high oxygen concentrations while cooler colors are low. Note the recurring pattern of oxygen decline below 100 m depth intervals followed by seasonal renewal events in late Summer into early Fall carrying more oxygenated waters into the Inlet.
 

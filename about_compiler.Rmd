@@ -10,7 +10,7 @@ For novice R users or those wishing to use our [example data set](about_data.htm
 ## Locally
 More experienced R users can download the Course Compiler app and run it locally on their machine. To obtain the app:
 
-1) Go to the [Course Compiler](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps) app folder in our public Github repo.
+1) Go to the [Course Compiler](https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps) app folder in our public Github repo.
 2) Copy the link and paste it at [Gitzip](https://kinolien.github.io/gitzip/) (Top right corner beside the key icon) to download.
 3) Open the app.R file in [RStudio](https://www.rstudio.com/products/rstudio/download/).
 4) Click the "Run App" button or type "shiny::runApp()" in the console to launch the app.
@@ -19,9 +19,9 @@ More experienced R users can download the Course Compiler app and run it locally
 ## Customization
 Running the app locally will also allow you to customize the materials with your data or content. You can modify the existing Rmarkdown files or add your own by placing them in the "Rmd_Input" directory.
 
-Alternatively, if you would like to manually add courses or customize your Rmd, you can select the ZIP format in the app, add your own Rmd files to "Rmd_Input"", and edit the Rmd_Master_File.
+Alternatively, if you would like to manually add courses or customize your Rmd, you can select the ZIP format in the app, add your own Rmd files to the `Rmd_Input` folder, and edit the Rmd_Master_File.
 
-***
+---
 
 Original build: Jonah Lin  
 Updates: Kim Dill-McFarland  

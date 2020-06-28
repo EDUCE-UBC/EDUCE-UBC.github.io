@@ -19,7 +19,7 @@ library(shinyjs)
 library(shinyalert)
 library(shinythemes)
 library(tidyverse)
-source("App_Functions.R")
+source("app_functions.R")
 
 # UI -----------------------------------------------------------------------------------------------
 

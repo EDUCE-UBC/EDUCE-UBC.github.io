@@ -19,7 +19,7 @@ library(shinyWidgets)
 
 # Extract list of files AND Extract course titles ----
     ### List course dir
-    courses <- Sys.glob("Rmd_Input/*/")
+    courses <- Sys.glob("Rmd_input/*/")
     ### Create blank list to hold file names
     files <- list()
     ### List all files from course dirs, grouped by course and named by file name
@@ -28,10 +28,10 @@ library(shinyWidgets)
       files[c] <- list(Sys.glob(path))
       names(files[[c]]) <- gsub("_", " ",
                            gsub("\\.Rmd", "",
-                           gsub("^Rmd_Input/.*/", "", files[[c]])))
+                           gsub("^Rmd_input/.*/", "", files[[c]])))
       }
     ### Name lists by course
-    names(files) <- gsub("_", " ", gsub("/", "", gsub("^Rmd_Input/", "", courses)))
+    names(files) <- gsub("_", " ", gsub("/", "", gsub("^Rmd_input/", "", courses)))
 
 
 # Define UI for data download app ----
@@ -135,7 +135,7 @@ server <- function(input, output, session) {
         shinyalert(title = "Please select content to compile.", animation = FALSE)
       }
 
-      # Copy all files in Rmd_Input to Rmd_Output ----
+      # Copy all files in Rmd_input to Rmd_Output ----
       # Create YAML header of Rmd ----
       title <- paste0(
 "---\n",
@@ -155,7 +155,7 @@ server <- function(input, output, session) {
 "urlcolor: blue\n",
 "---\n",
 ## Add EDUCE info module
-"```{r child = 'Rmd_Input/Introduction_to_EDUCE.Rmd'}\n",
+"```{r child = 'Rmd_input/Introduction_to_EDUCE.Rmd'}\n",
 "```\n"
                     )
       
