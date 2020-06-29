@@ -46,8 +46,8 @@ ui <- fluidPage(titlePanel("EDUCE Course compiler"),
           # Sidebar content
           sidebarPanel(width=4,
           # Logo
-          HTML('<center><img src = "https://raw.githubusercontent.com/EDUCE-UBC/EDUCE-UBC.github.io/master/Images/EDUCE_Globe.png",
-              height = 280, width = 280></center>'),
+          HTML('<center><img src = "EDUCE_globe.png",
+               height = 280, width = 280></center>'),
           br(),
           tags$b("Experiential Data science for Undergraduate Cross-disciplinary Education"),
           br(),
@@ -88,7 +88,7 @@ ui <- fluidPage(titlePanel("EDUCE Course compiler"),
           
           # Link to GitHub for Rmds
           tags$i("Raw Rmarkdowns are available on our ",
-          tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/Downloadable_Apps", "GitHub"))
+          tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps", "GitHub"))
                  
                  )))
 
