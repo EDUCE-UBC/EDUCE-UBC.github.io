@@ -47,8 +47,9 @@ ui <- fluidPage(
           sidebarPanel(
             width=6,
             # Logo
-            HTML('<center><img src = "EDUCE_globe.png"
-                 height = 280 width = 280></center>'),
+            HTML("<center>"),
+            img(src = "EDUCE_globe.png", height = "250", width = "220"),
+            HTML("</center>"),
             br(),
             tags$b("Experiential Data science for Undergraduate Cross-disciplinary Education"),
             br(),
