@@ -1,5 +1,8 @@
 ---
-output: html_document
+title: "EDUCE"
+output:
+  html_document:
+    css: "hide_title.css"
 ---
 <style>
 .center-logo {
