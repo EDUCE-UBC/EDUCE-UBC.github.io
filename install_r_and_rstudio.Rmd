@@ -1,0 +1,104 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Set for_credits to TRUE if this assignment is worth points (e.g. in MICB301)
+for_credits <- FALSE
+#Set deadline for assignment
+deadline <- "Thu, Oct 10"
+# Relative path to repo root (do NOT use absolute path)
+source("root.R")
+# setup.R defines standard variables to update the md text.
+source(file.path(root, "setup", "setup_MICB421.R"))
+# The following variables are loaded from the script files file:
+# root
+# images_path, point to images with `r file.path(images_path, <filename>)`
+# css_path, point to css file with `r file.path(css_path, <filename>)`
+# academic_year
+# r_version
+# r_legacy_version
+# rstudio_version
+# rstudio_legacy_version
+# packages
+# packages_legacy
+# contact
+# contact_short
+# office_hours
+```
+
+---
+title: "Install R and RStudio"
+subtitle: "`r paste(academic_year, course)`"
+author: "Dr. Stephan Koenig"
+date: "version `r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
+urlcolor: blue
+---
+
+## Install software
+
+`r if(for_credits){"**For completion of this assignment and to receive credits, submit a screenshot of RStudio running on your computer. If you have problems with installing the software, get help from an instructor or TA during office hours (see below).**"}`
+
+Before the first EDUCE module, you will need to download and install the following software. You must have administrator privileges on your machine to complete these installs. Choose the version appropriate for your operating system. You can also watch a video for a [Mac](https://youtu.be/Oy9BPxt8gQ0?t=270), or a [Windows](https://youtu.be/7f9ADV2v7CI?t=336) install (you only need to install R and RStudio, and none of the other programs mentioned in the videos). Please also note that the versions of R and RStudio in the video are older. Instead, install or update to the latest version supported by your operating system.
+
+1. R https://cran.r-project.org/
+    - version `r r_version` (only for macOS Yosemite or older: legacy version `r r_legacy_version`)
+    - Choose among "Download and Install R" section (**not** "Source Code for all Platforms")
+    - You must have R installed before proceeding to step 2
+1. RStudio https://rstudio.com/products/rstudio/download/#download
+    - Version `r rstudio_version` (only for macOS El Capitan and older: legacy version `r rstudio_legacy_version`)
+    - Select FREE Desktop version
+    - Choose among "Installers for Supported Platforms" section (**not** "Zip/Tarballs") or follow the link to older versions of RStudio if you need a legacy version
+
+
+
+## Check that it worked
+After you open RStudio, it should look like the screenshot below with the left panel (the "console") listing the most current version of R for your operating system.
+
+![](`r file.path(images_path, "rstudio.png")`)
+
+
+    
+## Installing and updating packages in RStudio
+
+1. Installing packages:
+    - In RStudio, select the "Packages" tab and then click on "Install"
+    [](`r file.path(images_path, "rstudio_install_packages.png")`)
+    - Copy and paste the following text in the "Packages text field"
+        - for R version `r r_version`:<br />
+          `r packages`
+        - or if you have version `r r_legacy_version`:<br />
+          `r packages_legacy`
+    - Click on "Install"
+      ![](`r file.path(images_path, "rstudio_install_packages_window.png")`)
+
+2. Updating packages:
+    - Select the "Packages" tab and then click on "Update"
+      ![](`r file.path(images_path, "rstudio_update_packages.png")`)
+    - If any packages are listed, first click on "Select All" and then "Install Updates"
+      ![](`r file.path(images_path, "rstudio_update_packages_window.png")`)
+    - While updating your packages you might be asked<br />
+      `Do you want to install from sources the package which needs compilation? (Yes/no/cancel)`<br />
+      in the console. Type `no` (without quotes) and hit enter.
+
+## Troubleshooting
+### RStudio looks incorrect
+If you only see a single panel instead of 3 like in the example image, you likely opened base R instead of RStudio. Look for the RStudio symbol ![](`r file.path(images_path, "rstudio_logo.png")`){width=2%} to open the correct program.
+
+### My computer won't let me open the downloaded files to install them
+**Mac**: right-click and choose "Open With" &rarr; "Installer.app (default)" and choose "Open" when prompted if you are sure you want to open the file
+
+**Windows**: right-click and choose "Run as administrator"
+
+### Still doesn't work
+Please come to one of the office hours listed below to get help.
+
+### Office hours
+`r office_hours`
+
+If you cannot attend any of these options, contact `r contact` `r if(for_credits){paste0("**by ", deadline, "**")}` to schedule an alternate time. 
+
+`r if(for_credits){"## Marking\nFor completion of this assignment and to receive credit, you must demonstrate a running RStudio installation on your computer by providing a screenshot (via screen capture or a photo taken with your phone). If you cannot get RStudio to run, then we can help during office hours to troubleshoot your installation."}`
+
+## Computing resources
+
+If you do not have access to a computer for use in class, please plan to check one out from http://services.library.ubc.ca/computers-technology/technology-borrowing/ or contact `r contact_short` to make alternate arrangements.
