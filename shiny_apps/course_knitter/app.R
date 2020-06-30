@@ -87,8 +87,8 @@ ui <- fluidPage(
             tags$hr(),
             
             # Link to GitHub for Rmds
-            tags$i("Raw Rmarkdowns are available on our ",
-            tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps", "GitHub"))
+            tags$i("Raw R Markdowns are available on our ",
+            tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps/course_knitter/Rmd_input", "GitHub"))
           )
       )
   )
