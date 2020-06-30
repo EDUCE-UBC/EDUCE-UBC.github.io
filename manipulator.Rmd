@@ -1,0 +1,8 @@
+---
+title: "Data manipulator"
+output:
+  html_document:
+    css: "hide_title.css"
+---
+
+<iframe src="https://ubc-educe.shinyapps.io/data_manipulator/" width="100%" height="920px" frameBorder="0"></iframe>

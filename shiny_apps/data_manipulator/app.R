@@ -24,136 +24,143 @@ source("app_functions.R")
 # UI -----------------------------------------------------------------------------------------------
 
 # Define UI for data upload app ----
-ui <- navbarPage("Data Manipulator", theme = shinytheme("cyborg"), 
-                 tabPanel("Data Plotter", useShinyjs(), useShinyalert(),
-                          # Sidebar layout with input and output definitions ----
-                          sidebarLayout(
-                            # Sidebar panel for inputs ----
-                            sidebarPanel(
-                              # Return to EDUCE Button ----
-                              actionButton("return", label = "Return to EDUCE", icon = icon("home"), 
-                                           onclick ="location.href='https://educe-ubc.github.io/';"),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
-                              # Input: Select a file ----
-                              fileInput("plotData", "Choose Metadata File",
-                                        multiple = TRUE,
-                                        accept = c("text/csv",
-                                                   "text/comma-separated-values,text/plain",
-                                                   ".csv")),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              tags$h5("Data Table Options"),
-                              
-                              # Input: Select columns ----
-                              selectizeInput("col", "Select Data Columns (Optional)", multiple = TRUE, choices = NULL),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              tags$h5("Data Plot Options"),
-                              
-                              fluidRow(
-                                # Input: X Axis ----
-                                column(6, selectizeInput("x", "Input X Axis Name (Required)", choices = NULL)),
-                                # Input: Y Axis ----
-                                column(6, selectizeInput("y", "Input Y Axis Name (Required)", choices = NULL))
-                              ),
-                              
-                              selectizeInput("types", "Select Graph Types (Required)", multiple = TRUE, 
-                                             choices = c("Line", "Point", "Smooth", "Barplot", "Area"))
-                            ),
-                            mainPanel(
-                              tabsetPanel(
-                                tabPanel("Data Table", tableOutput("table"), icon = icon("table")),
-                                tabPanel("Data Plot", plotOutput("plot", height = "auto"), icon = icon("line-chart")),
-                                tabPanel("Data Summary", verbatimTextOutput("summary"), icon = icon("info"))
-                              )
-                            )
-                          )
-                 ),
-                 tabPanel("Data Normalization", useShinyjs(), useShinyalert(),
-                          # Sidebar layout with input and output definitions ----
-                          sidebarLayout(
-                            # Sidebar panel for inputs ----
-                            sidebarPanel(
-                              # Return to EDUCE Button ----
-                              actionButton("return", label = "Return to EDUCE", icon = icon("home"), 
-                                           onclick ="location.href='https://educe-ubc.github.io/';"),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
-                              # Input: Select a file ----
-                              fileInput("normData", "Choose OTU/ASV File",
-                                        multiple = TRUE,
-                                        accept = c("text/csv",
-                                                   "text/comma-separated-values,text/plain",
-                                                   ".csv")),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
-                              # Input: Select file type ----
-                              selectInput("type", "Select File Type",
-                                          choices = c("OTU TXT" = "OTUTxt",
-                                                      "ASV TXT" = "ASVTxt"),
-                                          selected = "OTUTxt"),
-                              
-                              fluidRow(
-                                # Input: Checkbox for file header ----
-                                column(2, checkboxInput("header", "Header", TRUE)),
-                                # Input: Select separator ----
-                                column(3, radioButtons("sep", "Separator",
-                                                       choices = c(Tab = "\t",
-                                                                   Comma = ","),
-                                                       selected = "\t")),
-                                # Input: Select quotes ----
-                                column(3, radioButtons("quote", "Quote",
-                                                       choices = c(None = "",
-                                                                   "Double Quote" = '"',
-                                                                   "Single Quote" = "'"),
-                                                       selected = '"'))
-                              ),
-                              
-                              # Horizontal Line ----
-                              tags$hr(),
-                              
-                              # Axes Legend ----
-                              "Barplot Information: X-Axis = OTU/ASV, Y-Axis = Abundance",
-                              
-                              # Input: Enter number of OTU/ASV to display
-                              numericInput("bins", "Number of OTU/ASV to Display (Max 5000)", 
-                                           20, min = 1, max = 5000),
-                              
-                              # Input: Enter number of columns in data
-                              numericInput("dataNum", "Number of Columns of Data (Max 100)", 
-                                           1, min = 1, max = 100),
-                              
-                              # Use random generator for Random Subsampling? ----
-                              numericInput("rng", "Random Generator Seed (Set to 0 for no fixed seed)", 123),
-                              
-                              # Download normalized table ----
-                              selectizeInput("downloadType", "Type of Normalization", choices = c("Percent Relative Abundance" = "PRA", "Random Subsampling" = "RS")),
-                              downloadButton('downloadReport')
-                            ),
-                            
-                            # Main panel for displaying outputs ----
-                            mainPanel(
-                              # Output: Data file ----
-                              tabsetPanel(
-                                # TabPanel for data tables ----
-                                tabPanel("PRA Table", tableOutput("dt"), icon = icon("table")),
-                                tabPanel("RS Table", tableOutput("rst"), icon = icon("table")),
-                                # TabPanels for normalized data graphs ----
-                                tabPanel("Percentage Relative Abundance", plotOutput("pra", height = "auto"), icon = icon("bar-chart")),
-                                tabPanel("Random Subsampling", plotOutput("rs", height = "auto"), icon = icon("bar-chart"))
-                              )
-                            )
-                          )
-                 )
+ui <- navbarPage(
+  "Data Manipulator", theme = shinytheme("lumen"), 
+  tabPanel(
+    "Data Plotter", useShinyjs(), useShinyalert(),
+    # Sidebar layout with input and output definitions ----
+    sidebarLayout(
+      # Sidebar panel for inputs ----
+      sidebarPanel(
+        width = 4,
+
+        # Input: Select a file ----
+        fileInput("plotData", "Choose Metadata File",
+                  multiple = TRUE,
+                  accept = c("text/csv",
+                             "text/comma-separated-values,text/plain",
+                             ".csv")),
+        
+        # Horizontal Line ----
+        tags$hr(),
+        tags$h5("Data Table Options"),
+        
+        # Input: Select columns ----
+        selectizeInput("col",
+                       "Select Data Columns (Optional)",
+                       multiple = TRUE,
+                       choices = NULL),
+        
+        # Horizontal Line ----
+        tags$hr(),
+        tags$h5("Data Plot Options"),
+        
+        fluidRow(
+          # Input: X Axis ----
+          column(
+            6,
+            selectizeInput("x", "Input X Axis Name (Required)",choices = NULL)),
+          # Input: Y Axis ----
+          column(
+            6,
+            selectizeInput("y", "Input Y Axis Name (Required)", choices = NULL))
+        ),
+        
+        selectizeInput("types",
+                       "Select Graph Types (Required)",
+                       multiple = TRUE, 
+                       choices = c("Line", "Point", "Smooth",
+                                   "Barplot", "Area"))
+      ),
+      mainPanel(
+        width = 8,
+        tabsetPanel(
+          tabPanel("Data Table",
+                   tableOutput("table"),
+                   icon = icon("table")),
+          tabPanel("Data Plot",
+                   plotOutput("plot", height = "auto"),
+                   icon = icon("line-chart")),
+          tabPanel("Data Summary",
+                   verbatimTextOutput("summary"),
+                   icon = icon("info"))
+        )
+      )
+    )
+  ),
+  tabPanel(
+    "Data Normalization", useShinyjs(), useShinyalert(),
+    # Sidebar layout with input and output definitions ----
+    sidebarLayout(
+      # Sidebar panel for inputs ----
+      sidebarPanel(
+        width = 4,
+        # Input: Select a file ----
+        fileInput("normData", "Choose OTU/ASV File",
+                  multiple = TRUE,
+                  accept = c("text/csv",
+                             "text/comma-separated-values,text/plain",
+                             ".csv")),
+        
+        # Horizontal Line ----
+        tags$hr(),
+        
+        # Input: Select file type ----
+        selectInput("type", "Select File Type",
+                    choices = c("OTU TXT" = "OTUTxt",
+                                "ASV TXT" = "ASVTxt"),
+                    selected = "OTUTxt"),
+        
+        fluidRow(
+          # Input: Checkbox for file header ----
+          column(4, checkboxInput("header", "Header", TRUE)),
+          # Input: Select separator ----
+          column(4, radioButtons("sep", "Separator",
+                                 choices = c(Tab = "\t",
+                                             Comma = ","),
+                                 selected = "\t")),
+          # Input: Select quotes ----
+          column(4, radioButtons("quote", "Quote",
+                                 choices = c(None = "",
+                                             "Double Quote" = '"',
+                                             "Single Quote" = "'"),
+                                 selected = '"'))
+        ),
+        
+        # Horizontal Line ----
+        tags$hr(),
+        
+        # Input: Enter number of OTU/ASV to display
+        numericInput("bins", "Number of OTU/ASV to Display (Max 5000)", 
+                     20, min = 1, max = 5000),
+        
+        # Input: Enter number of columns in data
+        numericInput("dataNum", "Number of Columns of Data (Max 100)", 
+                     1, min = 1, max = 100),
+        
+        # Use random generator for Random Subsampling? ----
+        numericInput("rng", "Random Generator Seed (Set to 0 for no fixed seed)", 123),
+        
+        # Download normalized table ----
+        selectizeInput("downloadType", "Type of Normalization", choices = c("Percent Relative Abundance" = "PRA", "Random Subsampling" = "RS")),
+        downloadButton('downloadReport')
+      ),
+      
+      # Main panel for displaying outputs ----
+      mainPanel(
+        width = 8,
+        # Output: Data file ----
+        tabsetPanel(
+          # TabPanel for data tables ----
+          tabPanel("PRA Table", tableOutput("dt"), icon = icon("table")),
+          tabPanel("RS Table", tableOutput("rst"), icon = icon("table")),
+          # TabPanels for normalized data graphs ----
+          tabPanel("Rel. Abundance [%]", plotOutput("pra", height = "auto"), icon = icon("bar-chart")),
+          tabPanel("Random Subsampling", plotOutput("rs", height = "auto"), icon = icon("bar-chart"))
+        )
+      )
+    )
+  )
 )
 
 

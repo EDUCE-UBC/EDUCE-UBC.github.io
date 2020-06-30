@@ -5,4 +5,4 @@ output:
     css: "hide_title.css"
 ---
     
-<div width="1200px"><iframe src="https://ubc-educe.shinyapps.io/course_knitter/" width="100%" height="600px" frameBorder="0"></iframe></div>
+<iframe src="https://ubc-educe.shinyapps.io/course_knitter/" width="100%" height="550px" frameBorder="0"></iframe>

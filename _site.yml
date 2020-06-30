@@ -30,7 +30,7 @@ navbar:
     - text: Normalization methods
       href: about_normalization.html
     - text: Shiny app
-      href: https://ubc-educe.shinyapps.io/data_manipulator/
+      href: manipulator.html
 output:
   html_document:
     lib_dir: site_libs
