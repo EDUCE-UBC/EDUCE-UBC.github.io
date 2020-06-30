@@ -13,4 +13,4 @@ RnwWeave: Sweave
 LaTeX: XeLaTeX
 
 BuildType: Website
-WebsitePath: ~/GitHub/EDUCE-UBC.github.io
+WebsitePath: ~/Documents/GitHub/EDUCE-UBC.github.io

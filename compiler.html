@@ -11,7 +11,7 @@
 
 
 
-<title>About Data Manipulator</title>
+<title>EDUCE Course compiler</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -344,52 +344,14 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About Data Manipulator</h1>
+<h1 class="title toc-ignore">EDUCE Course compiler</h1>
 
 </div>
 
 
-<p>Data Manipulator allows you to explore complex data sets without the need to install software or write code. While their are many possible functionalities, the main motivation for our Data Manipulator is to allow you to explore microbiome data that you wish to incorporate into your own customized EDUCE module(s).</p>
-<p>Working backwards from the OTU/ASV count files used as inputs for our modules, the Data Manipulator explores common:</p>
-<ul>
-<li><a href="about_normalization.html">data normalization methods</a>
-<ul>
-<li>Percent relative abundance</li>
-<li>Random subsampling</li>
-<li>Multiple imputation</li>
-<li>Variance stabilizing transformation</li>
-</ul></li>
-<li>sample selection (under development)</li>
-<li>quality cutoffs (under development)</li>
-</ul>
-<p>Once you have finalized the methods you would like to use, the tool allows you to download a copy of the cleaned data that you can then input directly in our <a href="about_compiler.html">Course Compiler</a>.</p>
-<p>Due to server constraints, multiple imputation and variance stabilizing transformation are currently unavailable in the app. To run them on your own, checkout the R packages <a href="https://cran.r-project.org/web/packages/mice/index.html"><code>mice</code></a> or <a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html"><code>DESeq2</code></a>, respectively.</p>
-<div id="online" class="section level2">
-<h2>Online</h2>
-<p>To use the Data Manipulator online, simply deploy the Shiny app from this site, upload your data file, and begin exploring your data! We have some <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/sample_files">practice data sets</a> obtained from the EDUCE <a href="about_data.html">example data</a>.</p>
-<p>If you wish to use your own data, the file must be in <strong>.txt format</strong> with samples as rows and OTU/ASV counts as columns.</p>
-</div>
-<div id="locally" class="section level2">
-<h2>Locally</h2>
-<p>More experienced R users can download the Data Manipulator app and run it locally on their machine. To obtain the app:</p>
-<ol style="list-style-type: decimal">
-<li>Go to the <a href="https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps">Data Manipulator</a> app folder in our public Github repo.</li>
-<li>Copy the link and paste it at <a href="https://kinolien.github.io/gitzip/">Gitzip</a> (Top right corner beside the key icon) to download.</li>
-<li>Open the app.R file in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</li>
-<li>Click the “Run App” button or type “shiny::runApp()” in the console to launch the app.
-<ul>
-<li>You may need to install the <code>shiny</code> package.</li>
-</ul></li>
-</ol>
-</div>
-<div id="validate-data" class="section level2">
-<h2>Validate Data</h2>
-<p>Users can help us test the Data Manipulator App by providing their own data files for integration testing. Please upload your file in the tool and press the “Validate Data” button. This will save a copy of your file on our server so that we may use it in future tests.</p>
-<p><em>Please do not upload any proprietary or confidential data.</em></p>
-<hr />
-<p>Original build: Jonah Lin<br />
-Updates: Kim Dill-McFarland<br />
-Contact: <a href="mailto:info.educe@ubc.ca" class="email">info.educe@ubc.ca</a></p>
+<div>
+<iframe src="https://ubc-educe.shinyapps.io/course_knitter/" width="100%" height="600px" frameBorder="0">
+</iframe>
 </div>
 
 

@@ -35,62 +35,63 @@ library(shinyWidgets)
 
 
 # Define UI for data download app ----
-ui <- fluidPage(titlePanel("EDUCE Course compiler"),
-                id = "navibar",
-                theme = shinytheme("lumen"),
-                useShinyjs(), useShinyalert(),
+ui <- fluidPage(
+  id = "navibar",
+  theme = shinytheme("lumen"),
+  useShinyjs(), useShinyalert(),
                 
       # Sidebar on left ----
       sidebarLayout(position="left",
           
           # Sidebar content
-          sidebarPanel(width=4,
-          # Logo
-          HTML('<center><img src = "EDUCE_globe.png",
-               height = 280, width = 280></center>'),
-          br(),
-          tags$b("Experiential Data science for Undergraduate Cross-disciplinary Education"),
-          br(),
-          br(),
-          "Course Compiler allows you to access all of EDUCE's data science modules for teaching or self-learning purposes. Simply select the content that fits your interests and have the Course Compiler create all the materials that you will need including:",
-          br(),br(),
-          tags$b("Documents "), "such as introductions, instructions, and cheatsheets,",
-          br(),
-          tags$b("Tutorials "), "with coding examples and explanations,",
-          br(),
-          tags$b("Practice "), "with exercises to test your knowledge.",
-          br(),br(),
-          # Return to EDUCE Button
-          actionButton("return", label = "Return to EDUCE", icon = icon("home"), onclick ="location.href='https://educe-ubc.github.io/';")
-                      ),
+          sidebarPanel(
+            width=6,
+            # Logo
+            HTML('<center><img src = "EDUCE_globe.png"
+                 height = 280 width = 280></center>'),
+            br(),
+            tags$b("Experiential Data science for Undergraduate Cross-disciplinary Education"),
+            br(),
+            br(),
+            "Course Compiler allows you to access all of EDUCE's data science modules for teaching or self-learning purposes. Simply select the content that fits your interests and have the Course Compiler create all the materials that you will need including:",
+            br(),br(),
+            tags$b("Documents "), "such as introductions, instructions, and cheatsheets,",
+            br(),
+            tags$b("Tutorials "), "with coding examples and explanations,",
+            br(),
+            tags$b("Practice "), "with exercises to test your knowledge.",
+            br(),br(),
+          ),
 
       # Main content ----
-          mainPanel(width=8,
-          # Input: Choose courses
-          selectInput("courses", tags$b("Select course content:"), 
-                      multiple = TRUE, choices = files),
-          # Select All Button
-          actionButton("all", label = "Select all"),
-          # Deselect All Button
-          actionButton("none", label = "Deselect all"),
-          
-          # Horizontal Line
-          tags$hr(),
-                    
-          # Download Button with file types
-          radioButtons('format', tags$b("Select download format:"), 
-                       c('PDF', 'HTML'),
-                       inline = TRUE),
-          downloadButton('downloadReport'),
-          
-          # Horizontal Line
-          tags$hr(),
-          
-          # Link to GitHub for Rmds
-          tags$i("Raw Rmarkdowns are available on our ",
-          tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps", "GitHub"))
-                 
-                 )))
+          mainPanel(
+            width=6,
+            # Input: Choose courses
+            selectInput("courses", tags$b("Select course content:"), 
+                        multiple = TRUE, choices = files),
+            # Select All Button
+            actionButton("all", label = "Select all"),
+            # Deselect All Button
+            actionButton("none", label = "Deselect all"),
+            
+            # Horizontal Line
+            tags$hr(),
+                      
+            # Download Button with file types
+            radioButtons('format', tags$b("Select download format:"), 
+                         c('PDF', 'HTML'),
+                         inline = TRUE),
+            downloadButton('downloadReport'),
+            
+            # Horizontal Line
+            tags$hr(),
+            
+            # Link to GitHub for Rmds
+            tags$i("Raw Rmarkdowns are available on our ",
+            tags$a(href = "https://github.com/EDUCE-UBC/EDUCE-UBC.github.io/tree/master/shiny_apps", "GitHub"))
+          )
+      )
+  )
 
 # Define server logic to display and download selected file ----
 server <- function(input, output, session) {

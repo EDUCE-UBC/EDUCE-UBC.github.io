@@ -22,7 +22,7 @@ navbar:
     - text: Example data
       href: about_data.html
     - text: Shiny app
-      href: https://ubc-educe.shinyapps.io/course_knitter/
+      href: compiler.html
   - text: Data Manipulator
     menu: 
     - text: About
