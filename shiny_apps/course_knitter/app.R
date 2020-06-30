@@ -59,8 +59,7 @@ ui <- fluidPage(
             br(),
             tags$b("Tutorials "), "with coding examples and explanations,",
             br(),
-            tags$b("Practice "), "with exercises to test your knowledge.",
-            br(),br(),
+            tags$b("Practice "), "with exercises to test your knowledge."
           ),
 
       # Main content ----
