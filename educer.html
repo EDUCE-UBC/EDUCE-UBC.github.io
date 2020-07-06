@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Installing “educer” and other packages</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -69,7 +69,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="hide_title.css" type="text/css" />
 
 
 
@@ -357,20 +356,30 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Installing “educer” and other packages</h1>
 
 </div>
 
 
-<p><img src="images/EDUCE_globe.png" width="350" ALIGN="left" /> <font size="18"><span style="color:teal"><strong>E</strong></span>xperiential<br />
-<span style="color:teal"><strong>D</strong></span>ata science for<br />
-<span style="color:teal"><strong>U</strong></span>ndergraduate<br />
-<span style="color:teal"><strong>C</strong></span>ross-disciplinary<br />
-<span style="color:teal"><strong>E</strong></span>ducation</font></p>
-<p><br></p>
-<p>The world is increasingly inundated with data. This is especially acute in the life sciences where next-generation sequencing has created a tidal wave of multi-omic information. As a result, the major challenge in microbiology has shifted from data generation to processing and interpretation. This necessitates training in data science, an interdisciplinary field linking big data with statistics, mathematics, and computer science.</p>
-<p>Toward this goal, the Experiential Data science for Undergraduate Cross-disciplinary Education (EDUCE) initiative at the U. of British Columbia is creating a broadly deliverable and flexible program for data science education in microbiology. EDUCE delivers modules in 7 undergraduate <a href="http://ecoscope.ubc.ca/program-structure/educe/">microbiology courses</a> as well as open-access <a href="https://github.com/EDUCE-UBC/workshops_R">workshops</a> in collaboration with the <a href="https://asda.stat.ubc.ca/">Applied Statistics and Data Science Group</a>. These modules provide basic to intermediate training in data science applications including command line, R/RStudio, statistics, and next-generation sequence analysis.</p>
-<p>All of EDUCE’s materials are open-access (GNU General Public License) and accessible through the <a href="https://github.com/EDUCE-UBC/">EDUCE GitHub</a> and this site.</p>
+<div id="installing-and-updating-packages-in-rstudio" class="section level2">
+<h2>Installing and updating packages in RStudio</h2>
+<ol style="list-style-type: decimal">
+<li>Installing the educer package:
+<ul>
+<li>Copy the following the code into the left panel (the “console”) of RStudio:</li>
+</ul></li>
+</ol>
+<pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;EDUCE-UBC/educer&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Updating packages:
+<ul>
+<li>Select the “Packages” tab and then click on “Update”. <img src="images/update_packages.png" /></li>
+<li>If any packages are listed, first click on “Select All” and then “Install Updates” <img src="images/update_packages_window.png" /></li>
+<li>While updating your packages you might be asked<br /> <code>Do you want to install from sources the package which needs compilation? (Yes/no/cancel)</code><br /> in the console. Type <code>no</code> and hit enter.</li>
+</ul></li>
+</ol>
+</div>
 
 
 

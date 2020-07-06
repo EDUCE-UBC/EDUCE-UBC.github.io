@@ -3,11 +3,15 @@ output_dir: '.'
 navbar:
   title: EDUCE
   left:
-  - text: Home
-    href: index.html
   - text: About
     href: about.html
-  - text: Instructions
+  - text: Installation instructions
+    menu:
+    - text: R and RStudio
+      href: r_and_rstudio.html
+    - text: "\"educer\" package"
+      href: educer.html
+  - text: Videos
     menu:
     - text: Installation instructions
       href: setup_video.html

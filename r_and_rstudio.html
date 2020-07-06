@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Installing R and RStudio</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -69,7 +69,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="hide_title.css" type="text/css" />
 
 
 
@@ -357,20 +356,50 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Installing R and RStudio</h1>
 
 </div>
 
 
-<p><img src="images/EDUCE_globe.png" width="350" ALIGN="left" /> <font size="18"><span style="color:teal"><strong>E</strong></span>xperiential<br />
-<span style="color:teal"><strong>D</strong></span>ata science for<br />
-<span style="color:teal"><strong>U</strong></span>ndergraduate<br />
-<span style="color:teal"><strong>C</strong></span>ross-disciplinary<br />
-<span style="color:teal"><strong>E</strong></span>ducation</font></p>
-<p><br></p>
-<p>The world is increasingly inundated with data. This is especially acute in the life sciences where next-generation sequencing has created a tidal wave of multi-omic information. As a result, the major challenge in microbiology has shifted from data generation to processing and interpretation. This necessitates training in data science, an interdisciplinary field linking big data with statistics, mathematics, and computer science.</p>
-<p>Toward this goal, the Experiential Data science for Undergraduate Cross-disciplinary Education (EDUCE) initiative at the U. of British Columbia is creating a broadly deliverable and flexible program for data science education in microbiology. EDUCE delivers modules in 7 undergraduate <a href="http://ecoscope.ubc.ca/program-structure/educe/">microbiology courses</a> as well as open-access <a href="https://github.com/EDUCE-UBC/workshops_R">workshops</a> in collaboration with the <a href="https://asda.stat.ubc.ca/">Applied Statistics and Data Science Group</a>. These modules provide basic to intermediate training in data science applications including command line, R/RStudio, statistics, and next-generation sequence analysis.</p>
-<p>All of EDUCE’s materials are open-access (GNU General Public License) and accessible through the <a href="https://github.com/EDUCE-UBC/">EDUCE GitHub</a> and this site.</p>
+<div id="install-software" class="section level2">
+<h2>Install software</h2>
+<p>To complete these installs, you must have administrator privileges on your machine. Choose the version appropriate for your operating system. You can also watch a video for a <a href="https://youtu.be/Oy9BPxt8gQ0?t=270">Mac</a>, or a <a href="https://youtu.be/7f9ADV2v7CI?t=336">Windows</a> install (you only need to install R and RStudio, and none of the other programs mentioned in the videos). Please also note that the versions of R and RStudio in the video are older. Instead, install or update to the latest version supported by your operating system.</p>
+<ol style="list-style-type: decimal">
+<li>R <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>
+<ul>
+<li>version 4.0.2 (only for macOS Yosemite or older: legacy version 3.3.3)</li>
+<li>Choose among “Download and Install R” section (<strong>not</strong> “Source Code for all Platforms”).</li>
+<li>You <strong>must</strong> have R installed before proceeding to step 2.</li>
+</ul></li>
+<li>RStudio <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>
+<ul>
+<li>Version 1.3.959 (only for macOS El Capitan and older: legacy version 1.1.463)</li>
+<li>Select FREE Desktop version.</li>
+<li>Choose among “Installers for Supported Platforms” section (<strong>not</strong> “Zip/Tarballs”) or follow the link to older versions of RStudio if you need a legacy version.</li>
+</ul></li>
+</ol>
+</div>
+<div id="check-that-it-worked" class="section level2">
+<h2>Check that it worked</h2>
+<p>After you open RStudio, it should look like the screenshot below with the left panel (the “console”) listing the most current version of R for your operating system.</p>
+<p><img src="images/rstudio.png" /></p>
+</div>
+<div id="troubleshooting" class="section level2">
+<h2>Troubleshooting</h2>
+<div id="rstudio-looks-incorrect" class="section level3">
+<h3>RStudio looks incorrect</h3>
+<p>If you only see a single panel instead of 3 like in the example image, you likely opened base R instead of RStudio. Look for the RStudio symbol <img src="images/rstudio_logo.png" style="width:2.0%" /> to open the correct program.</p>
+</div>
+<div id="my-computer-wont-let-me-open-the-downloaded-files-to-install-them" class="section level3">
+<h3>My computer won’t let me open the downloaded files to install them</h3>
+<p><strong>Mac</strong>: right-click and choose “Open With” → “Installer.app (default)” and choose “Open” when prompted if you are sure you want to open the file</p>
+<p><strong>Windows</strong>: right-click and choose “Run as administrator”</p>
+</div>
+<div id="still-doesnt-work" class="section level3">
+<h3>Still doesn’t work</h3>
+<p>Please come to one of the office hours for your course to get help.</p>
+</div>
+</div>
 
 
 

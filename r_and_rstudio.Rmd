@@ -1,0 +1,45 @@
+---
+title: "Installing R and RStudio"
+output: html_document
+params:
+  r_version: 4.0.2
+  r_legacy_version: 3.3.3
+  rstudio_version: 1.3.959
+  rstudio_legacy_version: 1.1.463
+---
+
+## Install software
+
+To complete these installs, you must have administrator privileges on your machine. Choose the version appropriate for your operating system. You can also watch a video for a [Mac](https://youtu.be/Oy9BPxt8gQ0?t=270), or a [Windows](https://youtu.be/7f9ADV2v7CI?t=336) install (you only need to install R and RStudio, and none of the other programs mentioned in the videos). Please also note that the versions of R and RStudio in the video are older. Instead, install or update to the latest version supported by your operating system.
+
+1. R https://cran.r-project.org/
+    - version `r params$r_version` (only for macOS Yosemite or older: legacy version `r params$r_legacy_version`)
+    - Choose among "Download and Install R" section (**not** "Source Code for all Platforms").
+    - You **must** have R installed before proceeding to step 2.
+1. RStudio https://rstudio.com/products/rstudio/download/#download
+    - Version `r params$rstudio_version` (only for macOS El Capitan and older: legacy version `r params$rstudio_legacy_version`)
+    - Select FREE Desktop version.
+    - Choose among "Installers for Supported Platforms" section (**not** "Zip/Tarballs") or follow the link to older versions of RStudio if you need a legacy version.
+
+
+
+## Check that it worked
+After you open RStudio, it should look like the screenshot below with the left panel (the "console") listing the most current version of R for your operating system.
+
+![](images/rstudio.png)
+
+
+
+## Troubleshooting
+
+### RStudio looks incorrect
+If you only see a single panel instead of 3 like in the example image, you likely opened base R instead of RStudio. Look for the RStudio symbol ![](images/rstudio_logo.png){width=2%} to open the correct program.
+
+### My computer won't let me open the downloaded files to install them
+
+**Mac**: right-click and choose "Open With" &rarr; "Installer.app (default)" and choose "Open" when prompted if you are sure you want to open the file
+
+**Windows**: right-click and choose "Run as administrator"
+
+### Still doesn't work
+Please come to one of the office hours for your course to get help.
