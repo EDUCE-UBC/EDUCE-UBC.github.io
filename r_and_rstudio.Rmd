@@ -43,3 +43,13 @@ If you only see a single panel instead of 3 like in the example image, you likel
 
 ### Still doesn't work
 Please come to one of the office hours for your course to get help.
+
+
+
+## Further resources
+
+- [How to Install R](http://cran.stat.sfu.ca/doc/FAQ/R-FAQ.html#How-can-R-be-installed_003f)
+- [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html)
+- [R Installation and Administration Manual](http://cran.r-project.org/doc/manuals/R-admin.html)
+- [How to Use RStudio](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio)
+- [RStudio Public Discussion & Troubleshooting Guide](https://support.rstudio.com/hc/en-us/sections/203994097-RStudio-IDE)
