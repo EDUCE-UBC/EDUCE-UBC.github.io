@@ -9,8 +9,10 @@ navbar:
     menu:
     - text: R and RStudio
       href: r_and_rstudio.html
-    - text: "\"educer\" package"
+    - text: educer package
       href: educer.html
+    - text: Windows Subsystem for Linux
+      href: wsl.html
   - text: Videos
     menu:
     - text: Installation instructions
