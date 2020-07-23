@@ -17,6 +17,6 @@ When the tutorial is running, click on the "Show in new window" button ![](image
 
 ## Interactive code exercises
 
-You will encounter a number of coding exercises. Follow the instructions to complete the code in the code exercise window ![](images/one.png){width=3%} and then click on the the "Run code" button to see the results ![](images/two.png){width=3%}. You can reset the exercise if you get stuck ![](images/three.png){width=3%}, or can get hints or the solution ![](images/four.png){width=3%}.
+You will encounter a number of coding exercises. Follow the instructions to complete the code in the code exercise window ![](images/one.png){width=3%} and then click on the "Run Code" button to see the results ![](images/two.png){width=3%}. You can reset the exercise if you get stuck ![](images/three.png){width=3%}, or can get hints or the solution ![](images/four.png){width=3%}.
 
 ![](images/code_exercise.png){width=73.3%}

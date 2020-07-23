@@ -35,9 +35,11 @@ After you open RStudio, it should look like the screenshot below with the left p
 ### RStudio looks incorrect
 If you only see a single panel instead of 3 like in the example image, you likely opened base R instead of RStudio. Look for the RStudio symbol ![](images/rstudio_logo.png){width=2%} to open the correct program.
 
+If you confirmed RStudio is open, but don't see the same panels as depicted above then in RStudio menu bar select View > Panes > Show all panes.
+
 ### My computer won't let me open the downloaded files to install them
 
-**Mac**: right-click and choose "Open With" &rarr; "Installer.app (default)" and choose "Open" when prompted if you are sure you want to open the file
+**Mac**: right-click and choose "Open With" > "Installer.app (default)" and choose "Open" when prompted if you are sure you want to open the file
 
 **Windows**: right-click and choose "Run as administrator"
 
