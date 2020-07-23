@@ -29,46 +29,58 @@ To install WSL, you must first update to the latest version of Windows 10: versi
 (Major Windows releases use  their release date as their version number following the format YYMM, i.e. the latest version `r params$windows_version` was released in `r params$windows_version_release_date`.)
 
 - Check your current Windows version: Select the Windows Start button > Settings > System > About > scroll to bottom of page
-![](images/windows_version.png){width=75%}
+
+  ![](images/windows_version.png){width=75%}
+
 - If you do not have the latest version installed: Select the Windows Start button > Settings > Update & Security > Windows Update
-![](images/windows_update.png){width=75%}
 
+  ![](images/windows_update.png){width=75%}
 
+- If Windows Update does not offer the latest version, then manually update by going to [Windows 10 Downloads](https://www.microsoft.com/software-download/windows10) and choosing the latest version.
 
 ## Installing Ubuntu
 You will have to restart your computer as part of the installation, so make sure to save any changes before you continue with the installation.
 
 - Go to [Microsoft Store Terminal website](https://aka.ms/terminal) > click the "Get" button to install it
-- Select the Windows Start button > type `terminal` > choose "Run as admininstrator" > choose "Yes" > enter your administrator password
-![](images/windows_terminal_as_admin.png){width=75%}
+- Select the Windows Start button > type `terminal` > choose "Run as admininstrator" > choose "Yes" in the prompt that opens > enter your administrator password
+
+  ![](images/windows_terminal_as_admin.png){width=75%}
+
 - In the Terminal app, enter the following commands to enable virtual machines and WSL on your system:
 
-```
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
+  ```
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  ```
 
 - Restart your computer.
 - After your restart and in the Terminal app, enter the following command to use the latest version of WSL:
 
-```
-wsl --set-default-version 2
-```
+  ```
+  wsl --set-default-version 2
+  ```
 
 - Go to [Microsoft Store `r params$linux_version` website](`r params$linux_version_link`) > click "Get" button to install it
 - After the installation has concluded and back in the Terminal, enter the following command to make Ubuntu your default for WSL:
 
-```
-wslconfig /setdefault `r params$linux_version_cli`
-```
+  ```
+  wslconfig /setdefault `r params$linux_version_cli`
+  ```
 
-- Time to start Ubuntu for the first time! In the Terminal enter:
+- Time to start Ubuntu for the first time! Every time you want to use Ubuntu, you need to first enter in the Terminal:
 
-```
-wsl
-```
+  ```
+  wsl
+  ```
 
-- The first time you start your new installation of Linux, a prompt will ask you to create a username (use only lowercase letters and `_` instead of spaces) and a password. You will need this password whenever you install something in Linux, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password.
+- The first time you start your new installation of Linux, a prompt will ask you to create a username (use only lowercase letters and `_` instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password.
+
+- As the final step, we are going to update all installed programs and install an additional program that allows us to download files using the command line on Ubuntu. In Ubuntu, enter the following commands:
+
+  ```
+  sudo apt update && sudo apt upgrade
+  sudo apt install curl
+  ```
 
 
 
