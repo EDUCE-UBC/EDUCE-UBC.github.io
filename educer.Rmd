@@ -1,22 +1,20 @@
 ---
-title: "Installing \"educer\" and other packages"
+title: "Installing the educer package and others"
 output: html_document
 ---
 
 ## Installing and updating packages in RStudio
 
-1. Installing the educer package:
-    - Copy the following the code into the left panel (the "console") of RStudio:
+- Install the educer package by copying the following code into the left panel (the "console") of RStudio ![](images/one.png){width=3%}:
     
 ```{r install-educer, eval = FALSE}
 if (!require(devtools)) install.packages("devtools")
 devtools::install_github("EDUCE-UBC/educer")
 ```
 
-2. Updating packages:
-    - Select the "Packages" tab and then click on "Update".
-      ![](images/update_packages.png)
-    - If any packages are listed, first click on "Select All" and then "Install Updates"
+- Update packages by selecting the "Packages" tab of the bottom right panel ![](images/two.png){width=3%} and then click on "Update" ![](images/three.png){width=3%}.
+![](images/update_packages.png)
+- If any packages are listed, first click on "Select All" ![](images/one.png){width=3%} and then "Install Updates" ![](images/two.png){width=3%}.
       ![](images/update_packages_window.png)
     - While updating your packages you might be asked<br />
       `Do you want to install from sources the package which needs compilation? (Yes/no/cancel)`<br />

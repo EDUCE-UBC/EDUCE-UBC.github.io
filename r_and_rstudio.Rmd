@@ -24,9 +24,9 @@ To complete these installs, you must have administrator privileges on your machi
 
 
 ## Check that it worked
-After you open RStudio, it should look like the screenshot below with the left panel (the "console") listing the most current version of R for your operating system.
+After you open RStudio, it should look like the screenshot below with the left panel (the "console") listing the most current version of R for your operating system ![](images/one.png){width=3%}.
 
-![](images/rstudio.png)
+![](images/version.png)
 
 
 

@@ -5,6 +5,10 @@ navbar:
   left:
   - text: About
     href: about.html
+  - text: educer package
+    menu:
+    - text: Tutorials
+      href: tutorials.html
   - text: Installation instructions
     menu:
     - text: R and RStudio

@@ -1,0 +1,22 @@
+---
+title: "Tutorials in the educer package"
+output: html_document
+---
+
+The educer package comes with a number of interactive tutorials. First, make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html) as well as the [educer package](educer.html).
+
+## Starting tutorials
+
+Choose the "Tutorial" tab of the top right panel ![](images/one.png){width=3%}. You will see a scrollable list of all tutorials provided by different packages. Tutorials included in the educer package list "educer" as part of the subheading ![](images/two.png){width=3%}. Start the tutorial with the title ![](images/three.png){width=3%} you are looking for by clicking on the corresponding "Start Tutorial" button ![](images/four.png){width=3%}.
+
+![](images/tutorials.png)
+
+When the tutorial is running, click on the "Show in new window" button ![](images/one.png){width=3%} to enlarge the window.
+
+![](images/running_tutorial.png)
+
+## Interactive code exercises
+
+You will encounter a number of coding exercises. Follow the instructions to complete the code in the code exercise window ![](images/one.png){width=3%} and then click on the the "Run code" button to see the results ![](images/two.png){width=3%}. You can reset the exercise if you get stuck ![](images/three.png){width=3%}, or can get hints or the solution ![](images/four.png){width=3%}.
+
+![](images/code_exercise.png){width=73.3%}
