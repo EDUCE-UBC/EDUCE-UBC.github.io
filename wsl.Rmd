@@ -28,7 +28,7 @@ Many biocomputing tools are only accessible and executed from a Unix-like Comman
 To install WSL, you must first update to the latest version of Windows 10: version `r params$windows_version`  
 (Major Windows releases use  their release date as their version number following the format YYMM, i.e. the latest version `r params$windows_version` was released in `r params$windows_version_release_date`.)
 
-- Check your current Windows version: Select the Windows Start button > Settings > System > About > scroll to bottom of page
+- Check your current Windows version ![](images/one.png){width=3%}: Select the Windows Start button > Settings > System > About > scroll to bottom of page
 
   ![](images/windows_version.png){width=75%}
 
@@ -41,12 +41,13 @@ To install WSL, you must first update to the latest version of Windows 10: versi
 ## Installing Ubuntu
 You will have to restart your computer as part of the installation, so make sure to save any changes before you continue with the installation.
 
-- Go to [Microsoft Store Terminal website](https://aka.ms/terminal) > click the "Get" button to install it
-- Select the Windows Start button > type `terminal` > choose "Run as admininstrator" > choose "Yes" in the prompt that opens > enter your administrator password
+- Go to [Microsoft Store Terminal website](https://aka.ms/terminal) > click the "Get" button to install it.
+
+- Select the Windows Start button > type `terminal` ![](images/one.png){width=3%} > choose "Run as administrator" ![](images/two.png){width=3%} > choose "Yes" in the prompt that opens > enter your administrator password
 
   ![](images/windows_terminal_as_admin.png){width=75%}
 
-- In the Terminal app, enter the following commands to enable virtual machines and WSL on your system:
+- In the Terminal app, enter the following commands to enable virtual machines in general and WSL specifically on your system:
 
   ```
   dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -54,26 +55,35 @@ You will have to restart your computer as part of the installation, so make sure
   ```
 
 - Restart your computer.
-- After your restart and in the Terminal app, enter the following command to use the latest version of WSL:
+
+- After your restart, download the [latest WSL kernel](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and install it by double-clicking on the file.
+
+- In the Terminal app, enter the following command to use the latest version of WSL:
 
   ```
   wsl --set-default-version 2
   ```
 
 - Go to [Microsoft Store `r params$linux_version` website](`r params$linux_version_link`) > click "Get" button to install it
-- After the installation has concluded and back in the Terminal, enter the following command to make Ubuntu your default for WSL:
+
+- Time to start Ubuntu for the first time! Select the Windows Start button > type `Ubuntu` and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. `_`, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:
+
+  ```
+  exit
+  ```
+
+- Back in the Terminal, enter the following command to make Ubuntu your default for WSL:
 
   ```
   wslconfig /setdefault `r params$linux_version_cli`
   ```
 
-- Time to start Ubuntu for the first time! Every time you want to use Ubuntu, you need to first enter in the Terminal:
+- Now you can start Ubuntu from the Terminal by entering:
 
   ```
   wsl
   ```
 
-- The first time you start your new installation of Linux, a prompt will ask you to create a username (use only lowercase letters and `_` instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password.
 
 - As the final step, we are going to update all installed programs and install an additional program that allows us to download files using the command line on Ubuntu. In Ubuntu, enter the following commands:
 
@@ -89,5 +99,6 @@ You will have to restart your computer as part of the installation, so make sure
 - [Which version of Windows operating system am I running?](https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running)
 - [Update Windows 10](https://support.microsoft.com/en-ca/help/4027667/windows-10-update)
 - [Windows Subsystem for Linux Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
+- [Updating the WSL 2 Linux kernel](https://aka.ms/wsl2kernel)
 - [Create a user account and password for your new Linux distribution](https://docs.microsoft.com/en-us/windows/wsl/user-support)
 

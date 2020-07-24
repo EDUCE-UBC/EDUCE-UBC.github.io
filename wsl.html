@@ -393,7 +393,7 @@ This program allows you to run Linux within your Windows environment (when an op
 <p>To install WSL, you must first update to the latest version of Windows 10: version 2004<br />
 (Major Windows releases use their release date as their version number following the format YYMM, i.e. the latest version 2004 was released in April 2020.)</p>
 <ul>
-<li><p>Check your current Windows version: Select the Windows Start button &gt; Settings &gt; System &gt; About &gt; scroll to bottom of page</p>
+<li><p>Check your current Windows version <img src="images/one.png" style="width:3.0%" />: Select the Windows Start button &gt; Settings &gt; System &gt; About &gt; scroll to bottom of page</p>
 <p><img src="images/windows_version.png" style="width:75.0%" /></p></li>
 <li><p>If you do not have the latest version installed: Select the Windows Start button &gt; Settings &gt; Update &amp; Security &gt; Windows Update</p>
 <p><img src="images/windows_update.png" style="width:75.0%" /></p></li>
@@ -404,21 +404,23 @@ This program allows you to run Linux within your Windows environment (when an op
 <h2>Installing Ubuntu</h2>
 <p>You will have to restart your computer as part of the installation, so make sure to save any changes before you continue with the installation.</p>
 <ul>
-<li><p>Go to <a href="https://aka.ms/terminal">Microsoft Store Terminal website</a> &gt; click the “Get” button to install it</p></li>
-<li><p>Select the Windows Start button &gt; type <code>terminal</code> &gt; choose “Run as admininstrator” &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password</p>
+<li><p>Go to <a href="https://aka.ms/terminal">Microsoft Store Terminal website</a> &gt; click the “Get” button to install it.</p></li>
+<li><p>Select the Windows Start button &gt; type <code>terminal</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password</p>
 <p><img src="images/windows_terminal_as_admin.png" style="width:75.0%" /></p></li>
-<li><p>In the Terminal app, enter the following commands to enable virtual machines and WSL on your system:</p>
+<li><p>In the Terminal app, enter the following commands to enable virtual machines in general and WSL specifically on your system:</p>
 <pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></pre></li>
 <li><p>Restart your computer.</p></li>
-<li><p>After your restart and in the Terminal app, enter the following command to use the latest version of WSL:</p>
+<li><p>After your restart, download the <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">latest WSL kernel</a> and install it by double-clicking on the file.</p></li>
+<li><p>In the Terminal app, enter the following command to use the latest version of WSL:</p>
 <pre><code>wsl --set-default-version 2</code></pre></li>
 <li><p>Go to <a href="https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">Microsoft Store Ubuntu 18.04 LTS website</a> &gt; click “Get” button to install it</p></li>
-<li><p>After the installation has concluded and back in the Terminal, enter the following command to make Ubuntu your default for WSL:</p>
+<li><p>Time to start Ubuntu for the first time! Select the Windows Start button &gt; type <code>Ubuntu</code> and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. <code>_</code>, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:</p>
+<pre><code>exit</code></pre></li>
+<li><p>Back in the Terminal, enter the following command to make Ubuntu your default for WSL:</p>
 <pre><code>wslconfig /setdefault Ubuntu-18.04</code></pre></li>
-<li><p>Time to start Ubuntu for the first time! Every time you want to use Ubuntu, you need to first enter in the Terminal:</p>
+<li><p>Now you can start Ubuntu from the Terminal by entering:</p>
 <pre><code>wsl</code></pre></li>
-<li><p>The first time you start your new installation of Linux, a prompt will ask you to create a username (use only lowercase letters and <code>_</code> instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password.</p></li>
 <li><p>As the final step, we are going to update all installed programs and install an additional program that allows us to download files using the command line on Ubuntu. In Ubuntu, enter the following commands:</p>
 <pre><code>sudo apt update &amp;&amp; sudo apt upgrade
 sudo apt install curl</code></pre></li>
@@ -430,6 +432,7 @@ sudo apt install curl</code></pre></li>
 <li><a href="https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running">Which version of Windows operating system am I running?</a></li>
 <li><a href="https://support.microsoft.com/en-ca/help/4027667/windows-10-update">Update Windows 10</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></li>
+<li><a href="https://aka.ms/wsl2kernel">Updating the WSL 2 Linux kernel</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/wsl/user-support">Create a user account and password for your new Linux distribution</a></li>
 </ul>
 </div>
