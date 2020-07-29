@@ -379,16 +379,15 @@ $(document).ready(function () {
 <div id="installing-and-updating-packages-in-rstudio" class="section level2">
 <h2>Installing and updating packages in RStudio</h2>
 <ul>
-<li>Install the educer package by copying the following code into the left panel (the “console”) of RStudio <img src="images/one.png" style="width:3.0%" />:</li>
-</ul>
-<pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;EDUCE-UBC/educer&quot;)</code></pre>
-<ul>
-<li>Update packages by selecting the “Packages” tab of the bottom right panel <img src="images/two.png" style="width:3.0%" /> and then click on “Update” <img src="images/three.png" style="width:3.0%" />. <img src="images/update_packages.png" /></li>
-<li>If any packages are listed, first click on “Select All” <img src="images/one.png" style="width:3.0%" /> and then “Install Updates” <img src="images/two.png" style="width:3.0%" />. <img src="images/update_packages_window.png" />
-<ul>
-<li>While updating your packages you might be asked<br /> <code>Do you want to install from sources the package which needs compilation? (Yes/no/cancel)</code><br /> in the console. Type <code>no</code> and hit enter.</li>
-</ul></li>
+<li><p>Install the devtools packages by copying the following code into the left panel (the “console”) of RStudio <img src="images/one.png" style="width:3.0%" /> (the code will determine if it is not yet installed):</p>
+<pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)</code></pre></li>
+<li><p>Install the educer package by entering the following code into the console <img src="images/one.png" style="width:3.0%" />:</p>
+<pre class="r"><code>devtools::install_github(&quot;EDUCE-UBC/educer&quot;)</code></pre></li>
+<li><p>Update packages by selecting the “Packages” tab of the bottom right panel <img src="images/two.png" style="width:3.0%" /> and then click on “Update” <img src="images/three.png" style="width:3.0%" />. <img src="images/update_packages.png" /></p></li>
+<li><p>If any packages are listed, first click on “Select All” <img src="images/one.png" style="width:3.0%" /> and then “Install Updates” <img src="images/two.png" style="width:3.0%" />. <img src="images/update_packages_window.png" /></p></li>
+<li><p>While updating your packages you might be asked</p>
+<pre><code>Do you want to install from sources the package which needs compilation? (Yes/no/cancel)</code></pre>
+<p>in the console. Type <code>no</code> and hit enter.</p></li>
 </ul>
 </div>
 

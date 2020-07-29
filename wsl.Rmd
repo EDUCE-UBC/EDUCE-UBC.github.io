@@ -47,10 +47,15 @@ You will have to restart your computer as part of the installation, so make sure
 
   ![](images/windows_terminal_as_admin.png){width=75%}
 
-- In the Terminal app, enter the following commands to enable virtual machines in general and WSL specifically on your system:
+- In the Terminal app, enter the following commands to enable WSL
 
   ```
   dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  ```
+
+  and virtual machines on your system:
+  
+  ```
   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
   ```
 
