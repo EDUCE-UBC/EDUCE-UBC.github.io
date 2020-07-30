@@ -2,6 +2,7 @@
 title: "About our example data"
 output: html_document
 ---
+
 ## Saanich Inlet
 The data used in EDUCE modules were collected as part of an on-going oceanographic time series in Saanich Inlet, a seasonally anoxic fjord of the East coast of Vancouver Island, British Columbia. Since 2006, samples have been collected approximately monthly for nine sampling sites throughout the inlet (Figure 1). EDUCE modules focus on the S3 site, where consistent geochemical and microbial data were collected from 2008 to 2014. 
 

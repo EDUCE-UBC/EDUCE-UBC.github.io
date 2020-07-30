@@ -1,0 +1,26 @@
+---
+title: "Linux command-line setup"
+output: html_document
+---
+
+All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular version called "bash" and download files using a program called "cURL".
+
+- Switch to the bash command-line interface (all distributions):
+
+  ```{bash eval = FALSE}
+  chsh -s /bin/bash
+  ```
+
+- Install cURL
+
+  For Debian-based distributions (e.g. Ubuntu, Linux Mint):
+
+  ```{bash eval = FALSE}
+  sudo apt update && sudo apt install curl
+  ```
+
+  For RPM-based distributions (e.g. Fedora, CentOS):
+
+  ```{bash eval = FALSE}
+  sudo yum update && sudo yum install curl
+  ```

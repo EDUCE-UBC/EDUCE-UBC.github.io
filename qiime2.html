@@ -11,7 +11,7 @@
 
 
 
-<title>EDUCE</title>
+<title>Installing QIIME 2</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -69,7 +69,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="hide_title.css" type="text/css" />
 
 
 
@@ -389,90 +388,39 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">EDUCE</h1>
+<h1 class="title toc-ignore">Installing QIIME 2</h1>
 
 </div>
 
 
-<style>
-.center-logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-.center-title {
-    font-size: 75px;
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-
-.center-subtitle {
-    font-size: 25px;
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-
-.center-txt {
-    text-align: center;
-    margin: auto;
-    width: 100%;
-}
-
-.box {
-    text-align: center;
-}
-
-.contact-title {
-    font-size: 20px;
-    height:25px;
-}
-
-.column {
-    float: left;
-    width: 50%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-</style>
-<div class="center-title" style="color:teal">
-<p>
-<b>Welcome to EDUCE</b>
-</p>
-</div>
-<p style="text-align:center;">
-<img src="images/EDUCE_globe.png" width="500">
-</p>
-<div class="center-subtitle">
-<p>
-<b>Experiential Data science for Undergraduate Cross-disciplinary Education</b>
-</p>
-</div>
-<div class="box">
-<div class="contact-title">
-<b>
-<p>
-For more information:
-</p>
-</b>
-<p>
-<a href="http://ecoscope.ubc.ca/program-structure/educe/">EDUCE</a> and <a href="http://ecoscope.ubc.ca/">ECOSCOPE</a>
-</p>
-<p>
-<a href="https://github.com/EDUCE-UBC">EDUCE GitHub</a>
-</p>
-<p>
-<a href="mailto:info.educe@ubc.ca" class="email">info.educe@ubc.ca</a>
-</p>
-</div>
+<p>QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence data. The installation instructions below assume that you have already installed <a href="condta.html">Miniconda</a>.</p>
+<ul>
+<li><p>In your Terminal (on Windows, switch to WSL), download the configuration file for a Conda environment that also contains QIIME 2</p>
+<p>for Linux/WSL:</p>
+<pre class="bash"><code>curl -sL \
+  &quot;https://data.qiime2.org/distro/core/qiime2-2020.6-py36-linux-conda.yml&quot; &gt; \
+  &quot;qiime2.yml&quot;</code></pre>
+<p>for macOS:</p>
+<pre class="bash"><code>curl -sL \
+  &quot;https://data.qiime2.org/distro/core/qiime2-2020.6-py36-osx-conda.yml&quot; &gt; \
+  &quot;qiime2.yml&quot;</code></pre></li>
+<li><p>Create a new Conda environment (this also installs QIIME 2):</p>
+<pre class="bash"><code>conda env create -n qiime2 --file qiime2.yml</code></pre></li>
+<li><p>Delete the environment configuration file:</p>
+<pre class="bash"><code>rm qiime2.yml</code></pre></li>
+<li><p>Activate the new Conda environment we have created:</p>
+<pre class="bash"><code>conda activate qiime2</code></pre>
+<p>Your command prompt should now list “qiime2” as your Conda environment <img src="images/one.png" style="width:3.0%" />.</p>
+<p><img src="images/conda_qiime2.png" style="width:50.0%" /></p></li>
+<li><p>Test that QIIME 2 is installed:</p>
+<pre class="bash"><code>qiime info</code></pre></li>
+</ul>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://docs.qiime2.org/2020.6/">QIIME2 documentation</a></li>
+<li><a href="https://docs.qiime2.org/2020.6/install/native/">QIIME2 native installation instructions</a></li>
+</ul>
 </div>
 
 

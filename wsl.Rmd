@@ -89,11 +89,15 @@ You will have to restart your computer as part of the installation, so make sure
   wsl
   ```
 
+- We are going to update all installed programs. In Ubuntu, enter the following commands:
 
-- As the final step, we are going to update all installed programs and install an additional program that allows us to download files using the command line on Ubuntu. In Ubuntu, enter the following commands:
-
-  ```
+  ```{bash eval = FALSE}
   sudo apt update && sudo apt upgrade
+  ```
+  
+- As a final step, we install the program "cURL" that allows us to download files using the command line on Ubuntu.
+
+  ```{bash eval = FALSE}
   sudo apt install curl
   ```
 

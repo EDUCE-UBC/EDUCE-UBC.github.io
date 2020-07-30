@@ -15,8 +15,18 @@ navbar:
       href: r_and_rstudio.html
     - text: educer package
       href: educer.html
-    - text: Windows Subsystem for Linux
-      href: wsl.html
+    - text: Command-line interface
+      menu:
+      - text: Windows Subsystem for Linux
+        href: wsl.html
+      - text: Linux setup
+        href: linux.html
+      - text: macOS setup
+        href: macos.html
+    - text: Miniconda
+      href: conda.html
+    - text: QIIME 2
+      href: qiime2.html
   - text: Videos
     menu:
     - text: Installation instructions
