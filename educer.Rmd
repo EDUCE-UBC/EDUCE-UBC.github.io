@@ -3,15 +3,15 @@ title: "Installing the educer package and others"
 output: html_document
 ---
 
-## Installing and updating packages in RStudio
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html).
 
-- Install the devtools packages by copying the following code into the left panel (the "console") of RStudio ![](images/one.png){width=3%} (the code will determine if it is not yet installed):
+- Install the devtools packages by selecting the "Console" tab of the left panel ![](images/one.png){width=3%} and copying the following code after the prompt `>` ![](images/two.png){width=3%}:
 
   ```{r install-devtools, eval = FALSE}
   if (!require(devtools)) install.packages("devtools")
   ```
 
-- Install the educer package by entering the following code into the console ![](images/one.png){width=3%}:
+- Install the educer package by entering the following code into the console ![](images/two.png){width=3%}:
     
   ```{r install-educer, eval = FALSE}
   devtools::install_github("EDUCE-UBC/educer")
