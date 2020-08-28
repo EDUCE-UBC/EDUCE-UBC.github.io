@@ -11,7 +11,7 @@ QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence dat
   
   ```{bash eval = FALSE}
   curl -sL \
-    "https://data.qiime2.org/distro/core/qiime2-2020.6-py36-linux-conda.yml" > \
+    "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-linux-conda.yml" > \
     "qiime2.yml"
   ```
   
@@ -19,7 +19,7 @@ QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence dat
   
   ```{bash eval = FALSE}
   curl -sL \
-    "https://data.qiime2.org/distro/core/qiime2-2020.6-py36-osx-conda.yml" > \
+    "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-osx-conda.yml" > \
     "qiime2.yml"
   ```
 
@@ -41,7 +41,7 @@ QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence dat
   conda activate qiime2
   ```
   
-  Your command prompt should now list "qiime2" as your Conda environment ![](images/one.png){width=3%}.
+  Your command prompt should now list `(qiime2)` as your Conda environment ![](images/one.png){width=3%}.
   
   ![](images/conda_qiime2.png){width=50%}
   
