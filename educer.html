@@ -394,17 +394,26 @@ $(document).ready(function () {
 
 
 <ul>
-<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</p></li>
-<li><p>Install the devtools packages by selecting the “Console” tab of the left panel <img src="images/one.png" style="width:3.0%" /> and copying the following code after the prompt <code>&gt;</code> <img src="images/two.png" style="width:3.0%" />:</p>
+<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>. In RStudio, select the “Console” tab of the left panel <img src="images/one.png" style="width:3.0%" /> .</p></li>
+<li><p><strong>On Windows 10 only</strong>: Download and install <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40-x86_64.exe">Rtools</a>. In RStudio, copy the following code after the prompt <code>&gt;</code> <img src="images/two.png" style="width:3.0%" />:</p>
+<pre class="r"><code>writeLines(&#39;PATH=&quot;${RTOOLS40_HOME}\\usr\\bin;${PATH}&quot;&#39;, con = &quot;~/.Renviron&quot;)</code></pre></li>
+<li><p>In RStudio, install the devtools packages by copying the following code after the prompt <code>&gt;</code> <img src="images/two.png" style="width:3.0%" />:</p>
 <pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)</code></pre></li>
 <li><p>Install the educer package by entering the following code into the console <img src="images/two.png" style="width:3.0%" />:</p>
 <pre class="r"><code>devtools::install_github(&quot;EDUCE-UBC/educer&quot;)</code></pre></li>
-<li><p>Update packages by selecting the “Packages” tab of the bottom right panel <img src="images/two.png" style="width:3.0%" /> and then click on “Update” <img src="images/three.png" style="width:3.0%" />. <img src="images/update_packages.png" /></p></li>
+<li><p>Update packages by selecting the “Packages” tab of the bottom right panel <img src="images/three.png" style="width:3.0%" /> and then click on “Update” <img src="images/four.png" style="width:3.0%" />. <img src="images/update_packages.png" /></p></li>
 <li><p>If any packages are listed, first click on “Select All” <img src="images/one.png" style="width:3.0%" /> and then “Install Updates” <img src="images/two.png" style="width:3.0%" />. <img src="images/update_packages_window.png" /></p></li>
 <li><p>While updating your packages you might be asked</p>
 <pre><code>Do you want to install from sources the package which needs compilation? (Yes/no/cancel)</code></pre>
 <p>in the console. Type <code>no</code> and hit enter.</p></li>
 </ul>
+<div id="further-resources" class="section level2">
+<h2>Further resources</h2>
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/Rtools/">Using Rtools40 on Windows</a></li>
+<li><a href="https://mac.r-project.org/tools/">Development Tools on macOS</a></li>
+</ul>
+</div>
 
 
 
