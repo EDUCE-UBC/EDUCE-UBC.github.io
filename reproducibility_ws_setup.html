@@ -22,6 +22,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -406,6 +407,23 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#instructions-for-all-users">Instructions for all users</a></li>
+<li><a href="#instructions-for-windows-users">Instructions for Windows users</a><ul>
+<li><a href="#terminal">Terminal</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#github">GitHub</a></li>
+<li><a href="#make">Make</a></li>
+</ul></li>
+<li><a href="#instructions-for-mac-users">Instructions for Mac users</a><ul>
+<li><a href="#terminal-1">Terminal</a></li>
+<li><a href="#git-1">Git</a></li>
+<li><a href="#github-1">GitHub</a></li>
+<li><a href="#make-1">Make</a></li>
+</ul></li>
+</ul>
+</div>
 
 <div id="instructions-for-all-users" class="section level2">
 <h2>Instructions for all users</h2>
@@ -415,14 +433,18 @@ $(document).ready(function () {
 </ol>
 <pre class="r"><code>if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
 if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.</li>
+</ol>
+<a href="data:text/csv;base64,U2Vhc29uLERlcHRoX20sTzJfdU0sQWRkX2RhdGEKRmFsbCwxMCwyMDMuNTMzLFRSVUUKRmFsbCwyMCwxODMuNzg3LEZBTFNFCkZhbGwsNDAsMTMwLjU3OSxGQUxTRQpGYWxsLDYwLDkxLjExNSxUUlVFCkZhbGwsNzUsNjkuODI4LEZBTFNFCkZhbGwsODUsMjYuOTcyLEZBTFNFCkZhbGwsOTAsMTEuMDY2LFRSVUUKRmFsbCw5Nyw4Ljk5NyxGQUxTRQpGYWxsLDEwMCw2LjYwNSxGQUxTRQpGYWxsLDExMCw1LjkzMyxGQUxTRQpGYWxsLDEyMCwyLjg5MSxUUlVFCkZhbGwsMTM1LDIuNzY2LEZBTFNFCkZhbGwsMTUwLDE0LjQ2NSxGQUxTRQpGYWxsLDE2NSwyNC4yMzksRkFMU0UKRmFsbCwxODUsMjguODg1LEZBTFNFCkZhbGwsMjAwLDI2Ljc2NixUUlVFClN1bW1lciwxMCwyMTYuNjY3LFRSVUUKU3VtbWVyLDIwLDE1OS42NzIsRkFMU0UKU3VtbWVyLDQwLDE0MS43NzgsRkFMU0UKU3VtbWVyLDYwLDk3Ljg5NCxUUlVFClN1bW1lciw3NSw0NC45NzgsRkFMU0UKU3VtbWVyLDg1LDI1LjgwNyxGQUxTRQpTdW1tZXIsOTAsMjcuMDExLFRSVUUKU3VtbWVyLDk3LDM0LjQzNixGQUxTRQpTdW1tZXIsMTAwLDM4LjAxMixGQUxTRQpTdW1tZXIsMTEwLDI3LjU1NyxGQUxTRQpTdW1tZXIsMTIwLDMyLjM1NCxUUlVFClN1bW1lciwxMzUsMjAuNDQ2LEZBTFNFClN1bW1lciwxNTAsMCxGQUxTRQpTdW1tZXIsMTY1LDAsRkFMU0UKU3VtbWVyLDE4NSwwLEZBTFNFClN1bW1lciwyMDAsMCxUUlVFCg==" download="data.csv">
+<button class="btn btn-default hvr-sweep-to-left" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
 </div>
 <div id="instructions-for-windows-users" class="section level2">
 <h2>Instructions for Windows users</h2>
 <div id="terminal" class="section level3">
 <h3>Terminal</h3>
-<ol style="list-style-type: decimal">
-<li>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.</li>
-</ol>
+<p>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.</p>
 </div>
 <div id="git" class="section level3">
 <h3>Git</h3>
@@ -432,16 +454,19 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 </ol>
 <pre><code>git version 2.20.1.windows.1</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Once you’ve installed Git, you’ll need to activate it on RStudio:</li>
+<li>Once you’ve installed Git, you’ll need to activate it in RStudio:</li>
 </ol>
 <ul>
-<li>Open RStudio and go to <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em></li>
-<li>Click <em>Enable version control interface for RStudio projects</em></li>
+<li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
+<li>Click “Enable version control interface for RStudio projects”</li>
 <li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
 <li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
 </ul>
 <p><img src="images/setup_git_windows.png" /></p>
-<ol start="3" style="list-style-type: decimal">
+</div>
+<div id="github" class="section level3">
+<h3>GitHub</h3>
+<ol style="list-style-type: decimal">
 <li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
 <li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:</li>
 </ol>
@@ -476,6 +501,51 @@ There is NO WARRANTY, to the extent permitted by law.</code></pre>
 </div>
 <div id="instructions-for-mac-users" class="section level2">
 <h2>Instructions for Mac users</h2>
+<div id="terminal-1" class="section level3">
+<h3>Terminal</h3>
+<p>The native Terminal in the Mac OS is Linux-based and therefore, can be used in this workshop. You can access it under Applications &gt; Utilities &gt; Terminal.app</p>
+</div>
+<div id="git-1" class="section level3">
+<h3>Git</h3>
+<ol style="list-style-type: decimal">
+<li>Download and <a href="https://git-scm.com/downloads">install Git</a>.</li>
+<li>Test that Git is properly installed by opening your Terminal and typing <code>git --version</code> [Enter]. This should populate the window with information on your version of Git such as</li>
+</ol>
+<pre><code>git version 2.18.0</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Once you’ve installed Git, you’ll need to activate it in RStudio:</li>
+</ol>
+<ul>
+<li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
+<li>Click “Enable version control interface for RStudio projects”</li>
+<li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
+<li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
+</ul>
+<p><img src="images/setup_git_mac.png" /></p>
+</div>
+<div id="github-1" class="section level3">
+<h3>GitHub</h3>
+<ol style="list-style-type: decimal">
+<li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
+<li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open the Terminal and type:</li>
+</ol>
+<pre><code>git config --global user.name &#39;yourGitHubUsername&#39;
+git config --global user.email &#39;name@provider.com&#39;</code></pre>
+</div>
+<div id="make-1" class="section level3">
+<h3>Make</h3>
+<ol style="list-style-type: decimal">
+<li>Download and install the Mac command line developer tools (including Make) by opening your Terminal and typing: <code>xcode-select --install</code> [Enter]. Click “Install” to allow the installation of the full developer’s packet.</li>
+<li>Check that Make is installed by typing <code>make --version</code> [Enter] in your Terminal. This should populate the window with information on your version of Make such as</li>
+</ol>
+<pre><code>GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for i386-apple-darwin11.3.0</code></pre>
+</div>
 </div>
 
 
