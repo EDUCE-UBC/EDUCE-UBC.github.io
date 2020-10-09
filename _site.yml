@@ -11,6 +11,13 @@ navbar:
       href: tutorials.html
   - text: Installation instructions
     menu:
+    - text: Workshop setup
+      menu:
+      - text: Introduction to R and RStudio
+        href: r_and_rstudio_ws_setup.html
+      - text: Introduction to the R tidyverse
+        href: tidyverse_ws_setup.html
+      - text: Reproducible research
     - text: R and RStudio
       href: r_and_rstudio.html
     - text: educer package

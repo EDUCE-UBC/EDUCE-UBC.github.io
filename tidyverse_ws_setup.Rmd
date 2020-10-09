@@ -1,0 +1,36 @@
+---
+title: "Workshop setup instructions"
+subtitle: "Workshop: Introduction to the R tidyverse"
+output: html_document
+params:
+  r_version: 4.0.2
+  r_legacy_version: 3.3.3
+  rstudio_version: 1.3.1073
+  rstudio_legacy_version: 1.1.463
+---
+
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+- Install the tidyverse package by copying the following code into the Console, after the prompt `>`
+
+  ```{r install-tidyverse, eval = FALSE}
+  if (!require(tidyverse)) install.packages("tidyverse")
+  ```
+  
+- Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
+  
+```{r echo = FALSE}
+data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv")
+
+downloadthis::download_this(data_file,
+    output_name = "data",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "default",
+    has_icon = TRUE,
+    icon = "fa fa-save",
+    class = "hvr-sweep-to-left",
+    csv2 = FALSE
+  )
+```
+
+  
