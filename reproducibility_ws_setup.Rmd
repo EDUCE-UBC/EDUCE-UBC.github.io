@@ -1,0 +1,71 @@
+---
+title: "Workshop setup instructions"
+subtitle: "Workshop: Reproducible research"
+output: html_document
+params:
+  r_version: 4.0.2
+  r_legacy_version: 3.3.3
+  rstudio_version: 1.3.1073
+  rstudio_legacy_version: 1.1.463
+---
+
+## Instructions for all users
+
+1. Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+2. Install the tidyverse and the renv packages by copying the following code into the Console, after the prompt `>`
+
+  ```{r install-tidyverse, eval = FALSE}
+  if (!require(tidyverse)) install.packages("tidyverse")
+  if (!require(renv)) install.packages("renv")
+  ```
+  
+## Instructions for Windows users
+
+### Terminal
+
+1. Install [GitBash](https://gitforwindows.org/), which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.
+
+### Git
+
+1. Basic Git was installed automatically with your GitBash Terminal.
+2. Test that Git is properly installed by opening GitBash and typing `git --version` [Enter]. This should populate the window with information on your version of Git such as
+
+```
+git version 2.20.1.windows.1
+```
+
+3. Once you've installed Git, you'll need to activate it on RStudio:
+  - Open RStudio and go to *Tools* > *Global Options* > *Git/SVN*
+  - Click *Enable version control interface for RStudio projects*
+  - If necessary, enter the path for your Git executable where provided (see picture below).
+  - Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.
+
+![](images/setup_git_windows.png)
+
+3. If you do not already have one, sign up for an account on [GitHub](https://github.com/).
+4. Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:
+
+```
+git config --global user.name 'yourGitHubUsername'
+git config --global user.email 'name@provider.com'
+```
+
+### Make
+
+1. Download the [latest version of Make](https://sourceforge.net/projects/ezwinports/files/) *without guile*.
+  - The file name looks like `make-4.1-2-without-guile-w32-bin.zip`, though the most recent version number may be different.
+2. Unzip the folder.
+3. Copy all of its contents to `c/Program Files/Git/mingw64/`
+  - Merge all of the contents of the folders but do NOT overwrite/replace any existing files.
+4. Check that Make is installed by typing `make --version` [Enter] in GitBash. This should populate the window with information on your version of Make such as
+
+```
+GNU Make 4.2.1
+Built for Windows32
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL verison 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+```
+
+## Instructions for Mac users

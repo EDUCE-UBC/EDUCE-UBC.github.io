@@ -11,7 +11,7 @@
 
 
 
-<title>Installing the educer package and others</title>
+<title>Workshop setup instructions</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -401,31 +401,81 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Installing the educer package and others</h1>
+<h1 class="title toc-ignore">Workshop setup instructions</h1>
+<h3 class="subtitle">Workshop: Reproducible research</h3>
 
 </div>
 
 
+<div id="instructions-for-all-users" class="section level2">
+<h2>Instructions for all users</h2>
+<ol style="list-style-type: decimal">
+<li>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</li>
+<li>Install the tidyverse and the renv packages by copying the following code into the Console, after the prompt <code>&gt;</code></li>
+</ol>
+<pre class="r"><code>if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
+if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
+</div>
+<div id="instructions-for-windows-users" class="section level2">
+<h2>Instructions for Windows users</h2>
+<div id="terminal" class="section level3">
+<h3>Terminal</h3>
+<ol style="list-style-type: decimal">
+<li>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.</li>
+</ol>
+</div>
+<div id="git" class="section level3">
+<h3>Git</h3>
+<ol style="list-style-type: decimal">
+<li>Basic Git was installed automatically with your GitBash Terminal.</li>
+<li>Test that Git is properly installed by opening GitBash and typing <code>git --version</code> [Enter]. This should populate the window with information on your version of Git such as</li>
+</ol>
+<pre><code>git version 2.20.1.windows.1</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Once you’ve installed Git, you’ll need to activate it on RStudio:</li>
+</ol>
 <ul>
-<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>. In RStudio, select the “Console” tab of the left panel <img src="images/one.png" style="width:3.0%" /> .</p></li>
-<li><p><strong>On Windows 10 only</strong>: Download and install <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40-x86_64.exe">Rtools</a>. In RStudio, copy the following code after the prompt <code>&gt;</code> <img src="images/two.png" style="width:3.0%" />:</p>
-<pre class="r"><code>writeLines(&#39;PATH=&quot;${RTOOLS40_HOME}\\usr\\bin;${PATH}&quot;&#39;, con = &quot;~/.Renviron&quot;)</code></pre></li>
-<li><p>In RStudio, install the devtools packages by copying the following code after the prompt <code>&gt;</code> <img src="images/two.png" style="width:3.0%" />:</p>
-<pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)</code></pre></li>
-<li><p>Install the educer package by entering the following code into the console <img src="images/two.png" style="width:3.0%" />:</p>
-<pre class="r"><code>devtools::install_github(&quot;EDUCE-UBC/educer&quot;)</code></pre></li>
-<li><p>Update packages by selecting the “Packages” tab of the bottom right panel <img src="images/three.png" style="width:3.0%" /> and then click on “Update” <img src="images/four.png" style="width:3.0%" />. <img src="images/update_packages.png" /></p></li>
-<li><p>If any packages are listed, first click on “Select All” <img src="images/one.png" style="width:3.0%" /> and then “Install Updates” <img src="images/two.png" style="width:3.0%" />. <img src="images/update_packages_window.png" /></p></li>
-<li><p>While updating your packages you might be asked</p>
-<pre><code>Do you want to install from sources the package which needs compilation? (Yes/no/cancel)</code></pre>
-<p>in the console. Type <code>no</code> and hit enter.</p></li>
+<li>Open RStudio and go to <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em></li>
+<li>Click <em>Enable version control interface for RStudio projects</em></li>
+<li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
+<li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
 </ul>
-<div id="further-resources" class="section level2">
-<h2>Further resources</h2>
+<p><img src="images/setup_git_windows.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
+<li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:</li>
+</ol>
+<pre><code>git config --global user.name &#39;yourGitHubUsername&#39;
+git config --global user.email &#39;name@provider.com&#39;</code></pre>
+</div>
+<div id="make" class="section level3">
+<h3>Make</h3>
+<ol style="list-style-type: decimal">
+<li>Download the <a href="https://sourceforge.net/projects/ezwinports/files/">latest version of Make</a> <em>without guile</em>.</li>
+</ol>
 <ul>
-<li><a href="https://cran.r-project.org/bin/windows/Rtools/">Using Rtools40 on Windows</a></li>
-<li><a href="https://mac.r-project.org/tools/">Development Tools on macOS</a></li>
+<li>The file name looks like <code>make-4.1-2-without-guile-w32-bin.zip</code>, though the most recent version number may be different.</li>
 </ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Unzip the folder.</li>
+<li>Copy all of its contents to <code>c/Program Files/Git/mingw64/</code></li>
+</ol>
+<ul>
+<li>Merge all of the contents of the folders but do NOT overwrite/replace any existing files.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Check that Make is installed by typing <code>make --version</code> [Enter] in GitBash. This should populate the window with information on your version of Make such as</li>
+</ol>
+<pre><code>GNU Make 4.2.1
+Built for Windows32
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL verison 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.</code></pre>
+</div>
+</div>
+<div id="instructions-for-mac-users" class="section level2">
+<h2>Instructions for Mac users</h2>
 </div>
 
 

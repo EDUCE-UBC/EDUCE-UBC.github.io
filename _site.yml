@@ -18,6 +18,7 @@ navbar:
       - text: Introduction to the R tidyverse
         href: tidyverse_ws_setup.html
       - text: Reproducible research
+        href: reproducibility_ws_setup.html
     - text: R and RStudio
       href: r_and_rstudio.html
     - text: educer package
