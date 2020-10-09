@@ -54,10 +54,13 @@ git version 2.20.1.windows.1
 ```
 
 3. Once you've installed Git, you'll need to activate it in RStudio:
-  * Open RStudio and go to Tools > Global Options > Git/SVN
-  * Click "Enable version control interface for RStudio projects"
-  * If necessary, enter the path for your Git executable where provided (see picture below).
-  * Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.
+    - Open RStudio and go to Tools > Global Options > Git/SVN
+    - Click "Enable version control interface for RStudio projects"
+    - If necessary, enter the path for your Git executable where provided.
+        - The path should look approximately like `C:/Program Files/Git/bin/git.exe`
+        - Warning: do **not** use `C:/Program Files/Git/cmd/git.exe`. The path should include `bin`, **not** `cmd`.
+        - Warning: the path should end in `git.exe`, **not** in `git-bash.exe`
+    - Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.
 
 ![](images/setup_git_windows.png)
 
