@@ -11,14 +11,6 @@ navbar:
       href: tutorials.html
   - text: Installation instructions
     menu:
-    - text: Workshop setup
-      menu:
-      - text: Introduction to R and RStudio
-        href: r_and_rstudio_ws_setup.html
-      - text: Introduction to the R tidyverse
-        href: tidyverse_ws_setup.html
-      - text: Reproducible research
-        href: reproducibility_ws_setup.html
     - text: R and RStudio
       href: r_and_rstudio.html
     - text: educer package
@@ -35,6 +27,14 @@ navbar:
       href: conda.html
     - text: QIIME 2
       href: qiime2.html
+    - text: Workshop setup
+      menu:
+      - text: Introduction to R and RStudio
+        href: r_and_rstudio_ws_setup.html
+      - text: Introduction to the R tidyverse
+        href: tidyverse_ws_setup.html
+      - text: Reproducible research
+        href: reproducibility_ws_setup.html  
   - text: Videos
     menu:
     - text: Installation instructions
