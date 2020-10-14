@@ -73,14 +73,14 @@ git config --global user.email '<name@provider.com>'
 
 ### Make
 
-1. Download the [Make *without guile* (version `r params$make_version)`](https://sourceforge.net/projects/ezwinports/files/), file name `` `r paste0("make-", params$make-version, "-without-guile-w32-bin.zip")` ``.
+1. Download the [Make *without guile* (version `r params$make_version`)](https://sourceforge.net/projects/ezwinports/files/), file name `` `r paste0("make-", params$make_version, "-without-guile-w32-bin.zip")` ``.
 2. Unzip the folder.
 3. Copy all of its contents to `C:\Program Files\Git\mingw64\`.
   - Merge all of the contents of the folders but do NOT overwrite/replace any existing files.
 4. Check that Make is installed by typing `make --version` [Enter] in GitBash. This should populate the window with information on your version of Make such as
 
 ```
-GNU Make 4.3
+GNU Make `r params$make_version`.
 Built for Windows32
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL verison 3 or later <http://gnu.org/licenses/gpl.html>
@@ -127,7 +127,7 @@ git config --global user.email '<name@provider.com>'
 2. Check that Make is installed by typing `make --version` [Enter] in your Terminal. This should populate the window with information on your version of Make such as
 
 ```
-GNU Make 3.81
+GNU Make `r params$make_version`.
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
 There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A

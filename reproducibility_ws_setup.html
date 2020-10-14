@@ -444,7 +444,7 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 <h2>Instructions for Windows users</h2>
 <div id="terminal" class="section level3">
 <h3>Terminal</h3>
-<p>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.</p>
+<p>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (a Unix shell) in Windows. All command-line instructions should be completed in GitBash and not the native Windows Command Prompt.</p>
 </div>
 <div id="git" class="section level3">
 <h3>Git</h3>
@@ -454,14 +454,19 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 </ol>
 <pre><code>git version 2.20.1.windows.1</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Once you’ve installed Git, you’ll need to activate it in RStudio:</li>
-</ol>
+<li>Once you’ve installed Git, you’ll need to activate it in RStudio:
 <ul>
 <li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
 <li>Click “Enable version control interface for RStudio projects”</li>
-<li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
+<li>If necessary, enter the path for your Git executable where provided.
+<ul>
+<li>The path should look approximately like <code>C:/Program Files/Git/bin/git.exe</code></li>
+<li>Warning: do <strong>not</strong> use <code>C:/Program Files/Git/cmd/git.exe</code>. The path should include <code>bin</code>, <strong>not</strong> <code>cmd</code>.</li>
+<li>Warning: the path should end in <code>git.exe</code>, <strong>not</strong> in <code>git-bash.exe</code></li>
+</ul></li>
 <li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
-</ul>
+</ul></li>
+</ol>
 <p><img src="images/setup_git_windows.png" /></p>
 </div>
 <div id="github" class="section level3">
@@ -470,20 +475,15 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 <li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
 <li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:</li>
 </ol>
-<pre><code>git config --global user.name &#39;yourGitHubUsername&#39;
-git config --global user.email &#39;name@provider.com&#39;</code></pre>
+<pre><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
+git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre>
 </div>
 <div id="make" class="section level3">
 <h3>Make</h3>
 <ol style="list-style-type: decimal">
-<li>Download the <a href="https://sourceforge.net/projects/ezwinports/files/">latest version of Make</a> <em>without guile</em>.</li>
-</ol>
-<ul>
-<li>The file name looks like <code>make-4.1-2-without-guile-w32-bin.zip</code>, though the most recent version number may be different.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
+<li>Download the <a href="https://sourceforge.net/projects/ezwinports/files/">Make <em>without guile</em> (version 4.3)</a>, file name <code>make-4.3-without-guile-w32-bin.zip</code>.</li>
 <li>Unzip the folder.</li>
-<li>Copy all of its contents to <code>c/Program Files/Git/mingw64/</code></li>
+<li>Copy all of its contents to <code>C:\Program Files\Git\mingw64\</code>.</li>
 </ol>
 <ul>
 <li>Merge all of the contents of the folders but do NOT overwrite/replace any existing files.</li>
@@ -491,7 +491,7 @@ git config --global user.email &#39;name@provider.com&#39;</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Check that Make is installed by typing <code>make --version</code> [Enter] in GitBash. This should populate the window with information on your version of Make such as</li>
 </ol>
-<pre><code>GNU Make 4.2.1
+<pre><code>GNU Make 4.3.
 Built for Windows32
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL verison 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
@@ -503,7 +503,7 @@ There is NO WARRANTY, to the extent permitted by law.</code></pre>
 <h2>Instructions for Mac users</h2>
 <div id="terminal-1" class="section level3">
 <h3>Terminal</h3>
-<p>The native Terminal in the Mac OS is Linux-based and therefore, can be used in this workshop. You can access it under Applications &gt; Utilities &gt; Terminal.app</p>
+<p>The native Terminal on macOS is Unix-based and, therefore, can be used in this workshop. You can access it under Applications &gt; Utilities &gt; Terminal.app</p>
 </div>
 <div id="git-1" class="section level3">
 <h3>Git</h3>
@@ -529,16 +529,16 @@ There is NO WARRANTY, to the extent permitted by law.</code></pre>
 <li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
 <li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open the Terminal and type:</li>
 </ol>
-<pre><code>git config --global user.name &#39;yourGitHubUsername&#39;
-git config --global user.email &#39;name@provider.com&#39;</code></pre>
+<pre><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
+git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre>
 </div>
 <div id="make-1" class="section level3">
 <h3>Make</h3>
 <ol style="list-style-type: decimal">
-<li>Download and install the Mac command line developer tools (including Make) by opening your Terminal and typing: <code>xcode-select --install</code> [Enter]. Click “Install” to allow the installation of the full developer’s packet.</li>
+<li>Download and install the Mac command line developer tools (including Make) by opening your Terminal and typing: <code>xcode-select --install</code> [Enter]. In the window that opens, click “Install” to allow the installation of the full developer’s packet.</li>
 <li>Check that Make is installed by typing <code>make --version</code> [Enter] in your Terminal. This should populate the window with information on your version of Make such as</li>
 </ol>
-<pre><code>GNU Make 3.81
+<pre><code>GNU Make 4.3.
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
 There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
