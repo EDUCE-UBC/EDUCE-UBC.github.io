@@ -5,12 +5,7 @@ output: html_document
 ---
 
 - Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
-- Install the tidyverse package by copying the following code into the Console, after the prompt `>`
-
-  ```{r install-tidyverse, eval = FALSE}
-  if (!require(tidyverse)) install.packages("tidyverse")
-  ```
-  
+- In RStudio, install the [educer package](https://educe-ubc.github.io/educer.html). This will install all of the tidyverse packages and other resources.
 - Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
   
 ```{r echo = FALSE}

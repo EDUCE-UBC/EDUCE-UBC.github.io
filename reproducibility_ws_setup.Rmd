@@ -76,7 +76,7 @@ git config --global user.email '<name@provider.com>'
 1. Download the [Make *without guile* (version `r params$make_version)`](https://sourceforge.net/projects/ezwinports/files/), file name `` `r paste0("make-", params$make-version, "-without-guile-w32-bin.zip")` ``.
 2. Unzip the folder.
 3. Copy all of its contents to `C:\Program Files\Git\mingw64\`.
-  * Merge all of the contents of the folders but do NOT overwrite/replace any existing files.
+  - Merge all of the contents of the folders but do NOT overwrite/replace any existing files.
 4. Check that Make is installed by typing `make --version` [Enter] in GitBash. This should populate the window with information on your version of Make such as
 
 ```
@@ -104,10 +104,10 @@ git version 2.18.0
 ```
 
 3. Once you've installed Git, you'll need to activate it in RStudio:
-  * Open RStudio and go to Tools > Global Options > Git/SVN
-  * Click "Enable version control interface for RStudio projects"
-  * If necessary, enter the path for your Git executable where provided (see picture below).
-  * Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.
+  - Open RStudio and go to Tools > Global Options > Git/SVN
+  - Click "Enable version control interface for RStudio projects"
+  - If necessary, enter the path for your Git executable where provided (see picture below).
+  - Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.
 
 ![](images/setup_git_mac.png)
 
