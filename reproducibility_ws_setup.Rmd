@@ -39,7 +39,7 @@ downloadthis::download_this(data_file,
 
 ### Terminal
 
-Install [GitBash](https://gitforwindows.org/), which emulates Bash (the Unix shell) in Windows. All command line instructions should be completed in GitBash and not the native Windows Command Prompt.
+Install [GitBash](https://gitforwindows.org/), which emulates Bash (a Unix shell) in Windows. All command-line instructions should be completed in GitBash and not the native Windows Command Prompt.
 
 ### Git
 
@@ -67,15 +67,15 @@ git version 2.20.1.windows.1
 2. Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:
 
 ```
-git config --global user.name 'yourGitHubUsername'
-git config --global user.email 'name@provider.com'
+git config --global user.name '<your GitHub username>'
+git config --global user.email '<name@provider.com>'
 ```
 
 ### Make
 
 1. Download the [Make *without guile* (version `r params$make_version)`](https://sourceforge.net/projects/ezwinports/files/), file name `` `r paste0("make-", params$make-version, "-without-guile-w32-bin.zip")` ``.
 2. Unzip the folder.
-3. Copy all of its contents to `c/Program Files/Git/mingw64/`
+3. Copy all of its contents to `C:\Program Files\Git\mingw64\`.
   * Merge all of the contents of the folders but do NOT overwrite/replace any existing files.
 4. Check that Make is installed by typing `make --version` [Enter] in GitBash. This should populate the window with information on your version of Make such as
 
@@ -92,7 +92,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
 ### Terminal
 
-The native Terminal in the Mac OS is Linux-based and therefore, can be used in this workshop. You can access it under Applications > Utilities > Terminal.app
+The native Terminal on macOS is Unix-based and, therefore, can be used in this workshop. You can access it under Applications > Utilities > Terminal.app
 
 ### Git
 
@@ -117,8 +117,8 @@ git version 2.18.0
 2. Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open the Terminal and type:
 
 ```
-git config --global user.name 'yourGitHubUsername'
-git config --global user.email 'name@provider.com'
+git config --global user.name '<your GitHub username>'
+git config --global user.email '<name@provider.com>'
 ```
 
 ### Make
