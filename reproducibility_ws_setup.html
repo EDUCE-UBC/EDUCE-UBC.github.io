@@ -344,6 +344,9 @@ $(document).ready(function () {
         <li>
           <a href="reproducibility_ws_setup.html">Reproducible research</a>
         </li>
+        <li>
+          <a href="intermediate_R_ws_setup.html">Intermediate R programming</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -478,10 +481,21 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 <li>Warning: do <strong>not</strong> use <code>C:/Program Files/Git/cmd/git.exe</code>. The path should include <code>bin</code>, <strong>not</strong> <code>cmd</code>.</li>
 <li>Warning: the path should end in <code>git.exe</code>, <strong>not</strong> in <code>git-bash.exe</code></li>
 </ul></li>
-<li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
+<li>Restart RStudio.</li>
 </ul></li>
 </ol>
 <p><img src="images/setup_git_windows.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Finally, you need to change your environment variables to ensure you can run R scripts from GitBash:
+<ul>
+<li>Open the Control Panel &gt; System Properties &gt; Advanced. In Windows 10 you can find this by searching for “environment”.</li>
+<li>Click on the “Environment Variables…” button to open the settings for the environment variables.</li>
+<li>In the window that pops up select the <code>PATH</code> variable and click the “Edit” button below it.</li>
+<li>In the next window that pops up click the “Browse” button and navigate to the folder that contains the <code>Rscript.exe</code> file. The path should look approximately like <code>C:/Program Files/R/R-4.0.3/bin/Rscript.exe</code>.</li>
+<li>Test that everything worked by restarting GitBash and typing <code>Rscript --version</code> [Enter]. This should populate the window with information information on your version of R such as</li>
+</ul></li>
+</ol>
+<pre><code>R scripting front-end version 4.0.3 (2020-10-10)</code></pre>
 </div>
 <div id="github" class="section level3">
 <h3>GitHub</h3>
@@ -533,7 +547,7 @@ There is NO WARRANTY, to the extent permitted by law.</code></pre>
 <li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
 <li>Click “Enable version control interface for RStudio projects”</li>
 <li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
-<li>Restart RStudio, if it worked out you will find the Git icon on the top toolbar, as shown below.</li>
+<li>Restart RStudio.</li>
 </ul>
 <p><img src="images/setup_git_mac.png" /></p>
 </div>

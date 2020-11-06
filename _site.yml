@@ -34,7 +34,9 @@ navbar:
       - text: Introduction to the R tidyverse
         href: tidyverse_ws_setup.html
       - text: Reproducible research
-        href: reproducibility_ws_setup.html  
+        href: reproducibility_ws_setup.html
+      - text: Intermediate R programming
+        href: intermediate_R_ws_setup.html
   - text: Videos
     menu:
     - text: Installation instructions

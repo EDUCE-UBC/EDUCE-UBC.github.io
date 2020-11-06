@@ -1,0 +1,33 @@
+---
+title: "Workshop setup instructions"
+subtitle: "Workshop: Intermediate R Programming"
+output: html_document
+---
+
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+- In RStudio, install the [devtools and educer packages](https://educe-ubc.github.io/educer.html). This will install all of the tidyverse packages and other resources.
+- Install the lmerTest and roxygen2 packages by entering the following code into the console:
+    
+  ```{r install-lmer-roxygen, eval = FALSE}
+  if (!require(lmerTest)) install.packages("lmerTest")
+  if (!require(roxygen2)) install.packages("roxygen2")
+  ```
+
+- Click on the button below to download the data file we will use during the workshop and save it on your Desktop or another convenient location.
+  
+```{r echo = FALSE}
+data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
+
+downloadthis::download_this(data_file,
+    output_name = "data_intermediate_R",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "default",
+    has_icon = TRUE,
+    icon = "fa fa-save",
+    class = "hvr-sweep-to-left",
+    csv2 = FALSE
+  )
+```
+
+  
