@@ -13,7 +13,7 @@ output: html_document
   if (!require(roxygen2)) install.packages("roxygen2")
   ```
 
-- Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
+- Click on the button below to download the data file we will use during the workshop and save it on your Desktop or another convenient location.
   
 ```{r echo = FALSE}
 data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
