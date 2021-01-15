@@ -2,8 +2,8 @@
 title: "Installing Windows Subsystem for Linux"
 output: html_document
 params:
-  windows_version: 2004
-  windows_version_release_date: "April 2020"
+  windows_version: 20H2
+  windows_version_release_date: "the second half---October---of 2020"
   linux_version: "Ubuntu 18.04 LTS"
   linux_version_link: "https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab"
   linux_version_cli: "Ubuntu-18.04"
@@ -26,7 +26,7 @@ Many biocomputing tools are only accessible and executed from a Unix-like Comman
 ## Updating Windows 10
 
 To install WSL, you must first update to the latest version of Windows 10: version `r params$windows_version`  
-(Major Windows releases use  their release date as their version number following the format YYMM, i.e. the latest version `r params$windows_version` was released in `r params$windows_version_release_date`.)
+(Major Windows versions indicate in which half of the year they were released, i.e. the latest version `r params$windows_version` in `r params$windows_version_release_date`.)
 
 - Check your current Windows version ![](images/one.png){width=3%}: Select the Windows Start button > Settings > System > About > scroll to bottom of page
 
