@@ -59,7 +59,7 @@ Load the pre-cleaned data from our GitHub.
 
 ```{r}
 dat <- read_csv(
-  "https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
+  "https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intermediate_ws.csv")
 ```
 
 If you would like to learn more about Saanich Inlet and these data, checkout [our description](https://educe-ubc.github.io/about_data.html).

@@ -31,7 +31,7 @@ These problems are designed to help you practice concepts and functions covered 
 
 2. Resolve a merge conflict
     - Create another text file in your repo from #1. Add some text to the file and add/commit it. Then, create a new branch, change the text in the file, and add/commit to the branch.
-    - Will you be able to merge this branch with the master repo? If so, how? If not, why not?
+    - Will you be able to merge this branch with the main repo? If so, how? If not, why not?
     - Try it and see! If there is a merge conflict, resolve it and add/commit your final file version. Check the log to see all the steps you've completed!
 
 ***

@@ -26,7 +26,7 @@ If you would like to follow along, open a new RStudio session and create a Proje
 
 ```{r}
 dat <- read.csv(
-  "https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
+  "https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intermediate_ws.csv")
 ```
 
 Not sure what a Project is? Be sure to include the "RStudio tutorial" in your materials!

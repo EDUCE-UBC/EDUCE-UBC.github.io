@@ -57,8 +57,8 @@ mkdir Desktop/BLAST_data
 cd Desktop/BLAST_data
 
 #Download sequences
-curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_OTU_rep_subset.fasta
-curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_OTU_rep.fasta
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/main/Saanich_OTU_rep_subset.fasta
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/main/Saanich_OTU_rep.fasta
 
 #Download database
 curl -O ftp://ftp.ncbi.nlm.nih.gov/blast/db/16SMicrobial.tar.gz

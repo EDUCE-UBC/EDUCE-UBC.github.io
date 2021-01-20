@@ -115,7 +115,7 @@ Now that we've added a file, we can query if there are any differences between o
 git status
 ```
 ```
-On branch master
+On branch main
 
 No commits yet
 
@@ -145,7 +145,7 @@ Now we see that our README is tracked but not committed.
 git status
 ```
 ```
-On branch master
+On branch main
 
 No commits yet
 
@@ -171,7 +171,7 @@ Once you have a version you want to save for all time, you need to `commit` it f
 git commit -m "Initialize README"
 ```
 ```
-[master (root-commit) 1515b4a] Initialize README
+[main (root-commit) 1515b4a] Initialize README
  Committer: Kim Dill-McFarland <kim@email.com>
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
@@ -198,7 +198,7 @@ Now, we see that our local directory, index, and repo are all identical.
 git status
 ```
 ```
-On branch master
+On branch main
 nothing to commit, working tree clean
 ```
 
@@ -290,7 +290,7 @@ git add .
 git commit -m "Add birthday and color"
 ```
 ```
-[master f1b97c7] Add birthday and color
+[main f1b97c7] Add birthday and color
  Committer: Kim Dill-McFarland <kim@email.com>
  1 file changed, 2 insertions(+)
 ```
@@ -301,7 +301,7 @@ We can see all past commits in this repo with
 git log
 ```
 ```
-commit f1b97c7b50090383b9c40af0335a25d4b3df7982 (HEAD -> master)
+commit f1b97c7b50090383b9c40af0335a25d4b3df7982 (HEAD -> main)
 Author: Kim Dill-McFarland <kim@email.com>
 Date:   Mon May 6 17:03:51 2019 -0700
 
@@ -340,9 +340,9 @@ index 0000000..10ddd6d
 ![](images/Git_branch.png)
 \ 
 
-One of the best ways to avoid the need to undo anything in Git is to use branches. These are copies of your repo that you can work on independently of the "master" without impacting the master but still version control changes as you go. You can then choose to merge the branch with the master if you want to keep those changes or abandon the branch and go back the to the master if you do not want to keep those changes.
+One of the best ways to avoid the need to undo anything in Git is to use branches. These are copies of your repo that you can work on independently of the "main" without impacting the main but still version control changes as you go. You can then choose to merge the branch with the main if you want to keep those changes or abandon the branch and go back the to the main if you do not want to keep those changes.
 
-You may have noticed that many of our previous Git outputs start with `On branch master`. This is because by default, we were working on the master branch of the project (the only branch up to this point).
+You may have noticed that many of our previous Git outputs start with `On branch main`. This is because by default, we were working on the main branch of the project (the only branch up to this point).
 
 Branches are particularly useful to:
 
@@ -357,12 +357,12 @@ To start a new branch, first make sure that everything is up-to-date with `git s
 git status
 ```
 ```
-On branch master
+On branch main
 nothing to commit, working tree clean
 ```
 
 ```{bash eval=FALSE}
-git checkout -b new_branch master
+git checkout -b new_branch main
 ```
 ```
 Switched to a new branch 'new_branch'
@@ -378,7 +378,7 @@ On branch new_branch
 nothing to commit, working tree clean
 ```
 
-Now, we can make changes in this branch without impacting the master branch. Go ahead and edit `README.md` by adding another piece of information. Then `add and commit` this change in your new_branch.
+Now, we can make changes in this branch without impacting the main branch. Go ahead and edit `README.md` by adding another piece of information. Then `add and commit` this change in your new_branch.
 
 ```{bash eval=FALSE}
 echo 'I like cats.' >> README.md
@@ -392,16 +392,16 @@ new_branch d566b29] Add cats
  1 file changed, 1 insertion(+)
 ```
 
-The two branches no longer match so we must merge them and decide which version(s) to keep. To do so, we must first move back into the master branch
+The two branches no longer match so we must merge them and decide which version(s) to keep. To do so, we must first move back into the main branch
 
 ```{bash eval=FALSE}
-git checkout master
+git checkout main
 ```
 ```
-Switched to branch 'master'
+Switched to branch 'main'
 ```
 
-Then merge the branches, which overwrites the older master branch with our new changes in the new_branch
+Then merge the branches, which overwrites the older main branch with our new changes in the new_branch
 
 ```{bash eval=FALSE}
 git merge new_branch
@@ -433,7 +433,7 @@ You resolve a conflicts by merging, opening the file(s) with conflict(s), editin
 For example, we can make a new_branch2
 
 ```{bash eval=FALSE}
-git checkout -b new_branch2 master
+git checkout -b new_branch2 main
 ```
 ```
 Switched to a new branch 'new_branch2'
@@ -452,13 +452,13 @@ git commit -m "Add dogs"
  1 file changed, 1 insertion(+)
 ```
 
-Also modify the README in our master branch.
+Also modify the README in our main branch.
 
 ```{bash eval=FALSE}
-git checkout master
+git checkout main
 ```
 ```
-Switched to branch 'master'
+Switched to branch 'main'
 ```
 
 ```{bash eval=FALSE}
@@ -467,12 +467,12 @@ git add .
 git commit -m "Add dogs again"
 ```
 ```
-[master c427c53] Add dogs again
+[main c427c53] Add dogs again
  Committer: Kim Dill-McFarland <kim@email.com>
  1 file changed, 1 insertion(+)
 ```
 
-And now the version in the master has non-mergable changes compared to the new_branch2 version *e.g.* I can't both like and not like dogs. Thus, when we try to merge these branches, there is a conflict.
+And now the version in the main has non-mergable changes compared to the new_branch2 version *e.g.* I can't both like and not like dogs. Thus, when we try to merge these branches, there is a conflict.
 
 ```{bash eval=FALSE}
 git merge new_branch2
@@ -487,7 +487,7 @@ If we open the README, Git has marked the conflict(s) like so
 
 ```
 <<<<<< HEAD
-master version
+main version
 =======
 branch version
 >>>>>> name_of_branch
@@ -532,7 +532,7 @@ git add .
 git commit -m "Resolve dog conflict"
 ```
 ```
-[master 9641b08] Resolve dog conflict
+[main 9641b08] Resolve dog conflict
  Committer: Kim Dill-McFarland <kim@email.com>
 ```
 
@@ -542,7 +542,7 @@ And we can see our entire history, including the branches, in the log.
 git log
 ```
 ```
-commit 9641b0806f28b00cce1a07af524b4a321eb957b0 (HEAD -> master)
+commit 9641b0806f28b00cce1a07af524b4a321eb957b0 (HEAD -> main)
 Merge: c427c53 27c250f
 Author: Kim Dill-McFarland <kim@email.com>
 Date:   Mon May 6 17:08:38 2019 -0700
@@ -588,7 +588,7 @@ Thus far, we have covered the main Git terms and functions that you will need to
 - **Repository**: the contents (directory/folder) of a project including all history and versions for all files in that project
 - **Commit**: a snapshot of the state of the repository at a given point in time including the author, time, and a comment
 - **Staging/Index**: files marked for inclusion in the next commit as whatever version that they were *at the time they were staged*, not necessarily the most up-to-date version on your computer
-- **Branch**: a named sequence of commits kept separate from the original "master" sequence
+- **Branch**: a named sequence of commits kept separate from the original "main" sequence
 - **Merge**: including changes from one branch into another
 - **Conflict**: parallel changes to the same section(s) of a file that can't be automatically merged
 
@@ -602,7 +602,7 @@ Thus far, we have covered the main Git terms and functions that you will need to
 * `show`: show a detail account of a previous commit
 * `checkout`: create and move between branches or the local, index, and repo
     - Not shown here but `checkout HEAD` can be used to move to a past commit and re-instate file versions from that commit
-* `merge`: combine changes from a branch into the master repo (may result in conflicts)
+* `merge`: combine changes from a branch into the main repo (may result in conflicts)
 
 To checkout more functionalities in Git, see a [list of all Git commands](https://git-scm.com/docs).
 

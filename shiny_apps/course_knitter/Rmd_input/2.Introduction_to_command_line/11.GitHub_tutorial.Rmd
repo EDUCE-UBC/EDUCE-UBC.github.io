@@ -97,10 +97,10 @@ git remote add origin https://github.com/kdillmcfarland/TestRepo.git
 ```
 
 ### Update an online repo from local (`git push`)
-If no errors occur, you can now upload your local repo (with the README file) to GitHub with `push`. The first time you push, you need to specify to GitHub that you are pushing to the master branch of the repo.
+If no errors occur, you can now upload your local repo (with the README file) to GitHub with `push`. The first time you push, you need to specify to GitHub that you are pushing to the main branch of the repo.
 
 ```{bash eval=FALSE}
-git push -u origin master
+git push -u origin main
 ```
 ```
 Enumerating objects: 3, done.
@@ -110,8 +110,8 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 303 bytes | 303.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/kdillmcfarland/TestRepo.git
-* [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
+* [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
 All subsequent push commands for this repo can simply be
@@ -143,7 +143,7 @@ Despite this change on GitHub, if you go to your terminal on your computer, you 
 git status
 ```
 ```
-On branch master
+On branch main
 nothing to commit, working tree clean
 ```
 
@@ -159,7 +159,7 @@ remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From https://github.com/kdillmcfarland/TestRepo
-  cdca881..b95f3a9  master     -> origin/master
+  cdca881..b95f3a9  main     -> origin/main
 ```
 
 Now, you can see that the branch on your computer is 1 commit behind the branch on GitHub.
@@ -168,8 +168,8 @@ Now, you can see that the branch on your computer is 1 commit behind the branch 
 git status
 ```
 ```
-On branch master
-Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
  (use "git pull" to update your local branch)
 
 nothing to commit, working tree clean
@@ -193,7 +193,7 @@ Everything is now up to date
 git status
 ```
 ```
-On branch master
+On branch main
 nothing to commit, working tree clean
 ```
 
@@ -203,7 +203,7 @@ And you can see both your local and GitHub histories associated with this one re
 git log
 ```
 ```
-commit b95f3a95ffbc8dae2e15608d064b552483c810af (HEAD -> master, origin/master)
+commit b95f3a95ffbc8dae2e15608d064b552483c810af (HEAD -> main, origin/main)
 Author: Kimberly Dill-McFarland <21342185+kdillmcfarland@users.noreply.github.com>
 Date:   Tue Apr 2 21:07:50 2019 -0700
 

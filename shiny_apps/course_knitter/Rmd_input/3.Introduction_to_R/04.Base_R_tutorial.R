@@ -4,7 +4,7 @@
 ###############################################
 ### Download data
 write.csv(
-  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/data.csv"),
+  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intro_ws.csv"),
   "data.csv", row.names=FALSE)
 
 ###############################################

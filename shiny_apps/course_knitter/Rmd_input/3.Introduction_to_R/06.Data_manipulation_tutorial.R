@@ -5,7 +5,7 @@
 ###############################################
 ### Download data
 write.csv(
-  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv"),
+  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv"),
   "Saanich_Data.csv", row.names=FALSE)
 
 ###############################################
@@ -95,7 +95,7 @@ dat <-
   mutate(Depth_m=Depth*1000)
 
 dat <- 
-  read_csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv") %>%
+  read_csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv") %>%
   filter(!is.na(WS_O2)) %>% 
   select(Cruise, Date, Depth, WS_O2, WS_NO3, WS_H2S) %>% 
   rename(O2_uM=WS_O2, NO3_uM=WS_NO3, H2S_uM=WS_H2S) %>% 
