@@ -45,7 +45,7 @@ For more information on the databases available for BLAST, see their [download p
 ### Download data
 The sequence data that we will use in this tutorial are 16S amplicon profiles of microbial communities in Saanich Inlet in August 2012. More information on this system can be found [here](https://educe-ubc.github.io/about_data.html). Specifically, 16S amplicon sequences were processed using [mothur](https://www.mothur.org/wiki/Main_Page) to yield representative sequences of each 97% (approximately species-level) operational taxonomic unit (OTU). Details on the data preparation can be found [here](https://github.com/EDUCE-UBC/workshops_other/blob/master/compute_canada_R/data/mothur_pipeline.Rmd).
 
-1. Download the [representative data sequences](https://github.com/EDUCE-UBC/workshop_data/archive/master.zip) and unzip.
+1. Download the representative data sequences:
     - We will use both `Saanich_OTU_rep.fasta` and `Saanich_OTU_rep_subset.fasta`
     - For ease, you should place the database and sequence files in a single directory on your Desktop like below
     - You can accomplish all of this in your Terminal with the following code
@@ -57,8 +57,8 @@ mkdir Desktop/BLAST_data
 cd Desktop/BLAST_data
 
 #Download sequences
-curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/main/Saanich_OTU_rep_subset.fasta
-curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/main/Saanich_OTU_rep.fasta
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshops_access/main/data/Saanich_OTU_rep_subset.fasta
+curl -O https://raw.githubusercontent.com/EDUCE-UBC/workshops_access/main/data/Saanich_OTU_rep.fasta
 
 #Download database
 curl -O ftp://ftp.ncbi.nlm.nih.gov/blast/db/16SMicrobial.tar.gz

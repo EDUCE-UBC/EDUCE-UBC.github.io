@@ -230,10 +230,10 @@ git clone URL.of.the.repo
 For example, you could clone all of the data files used in EDUCE using
 
 ```{bash eval=FALSE}
-git clone https://github.com/EDUCE-UBC/workshop_data
+git clone https://github.com/EDUCE-UBC/workshops_access/
 ```
 ```
-Cloning into 'workshop_data'...
+Cloning into 'workshops_access'...
 remote: Enumerating objects: 32, done.
 remote: Counting objects: 100% (32/32), done.
 remote: Compressing objects: 100% (28/28), done.
