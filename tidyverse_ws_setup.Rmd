@@ -9,7 +9,7 @@ output: html_document
 - Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
   
 ```{r echo = FALSE}
-data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv")
+data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv")
 
 downloadthis::download_this(data_file,
     output_name = "data",

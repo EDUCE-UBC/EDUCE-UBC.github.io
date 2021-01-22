@@ -5,7 +5,7 @@
 ###############################################
 ### Load data
 dat <- read.csv(
-  "https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
+  "https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intermediate_ws.csv")
 
 ### Load packages
 ### R v3.4 or newer

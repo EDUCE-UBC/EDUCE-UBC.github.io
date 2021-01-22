@@ -67,7 +67,7 @@ You can practice with any file on your computer. Here, we will download the data
 
 ```{r}
 write.csv(
-  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data.csv"),
+  read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv"),
   "Saanich_Data.csv", row.names=FALSE)
 ```
 

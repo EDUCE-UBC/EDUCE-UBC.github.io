@@ -16,7 +16,7 @@ output: html_document
 - Click on the button below to download the data file we will use during the workshop and save it on your Desktop or another convenient location.
   
 ```{r echo = FALSE}
-data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/workshop_data/master/Saanich_Data_clean.csv")
+data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intermediate_ws.csv")
 
 downloadthis::download_this(data_file,
     output_name = "data_intermediate_R",
