@@ -1,1 +1,0 @@
-These materials are free; you can redistribute, modify, or use them under the terms of the GNU General Public License, version 3, as published by the Free Software Foundation. They are provided "as is", without any warranty (express or implied). For details, please see the GNU General Public License, version 3, available at https://www.r-project.org/Licenses/GPL-3
