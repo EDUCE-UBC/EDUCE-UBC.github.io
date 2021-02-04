@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction to command line</title>
+<title>Workshop setup instructions</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -419,41 +419,35 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Introduction to command line</h1>
+<h1 class="title toc-ignore">Workshop setup instructions</h1>
+<h3 class="subtitle">Workshop: Statistical models in R</h3>
 
 </div>
 
 
-<p>The command line / terminal / shell allows you to access a computer using only a text-based window. It is a foundational tool in data science and is used throughout many EDUCE modules.</p>
-<p>Here, you will find guided video tutorials covering some basic command line functions and application of these functions using the Basic Local Alignment Search Tool (<a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a>).</p>
-<div id="moving-about-your-computer" class="section level2">
-<h2>Moving about your computer</h2>
-<p>Learn how to navigate your computer including</p>
 <ul>
-<li>an introduction to the command line program</li>
-<li>pwd, print working directory</li>
-<li>cd, change directory</li>
-<li>ls, list</li>
+<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</p></li>
+<li><p>In RStudio, install the <a href="https://educe-ubc.github.io/educer.html">educer package</a>. This will install all of the tidyverse packages and other resources.</p></li>
+<li><p>Install all other packages we will use during the workshop by copying the following code into the Console, after the prompt <code>&gt;</code></p>
+<pre class="r"><code># Data manipulation and visualization
+if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
+
+# Data sets
+if (!require(faraway)) install.packages(&quot;faraway&quot;)
+if (!require(gapminder)) install.packages(&quot;gapminder&quot;)
+if (!require(datasets)) install.packages(&quot;datasets&quot;)
+if (!require(HSAUR3)) install.packages(&quot;HSAUR3&quot;)
+
+# Mixed-effects and generalized linear models
+if (!require(MASS)) install.packages(&quot;MASS&quot;)
+if (!require(lme4)) install.packages(&quot;lme4&quot;)
+
+# ANOVA for model objects
+if (!require(car)) install.packages(&quot;car&quot;)
+
+# Compare predicted values across groups
+if (!require(lsmeans)) install.packages(&quot;lsmeans&quot;)</code></pre></li>
 </ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NZ7YmgGy0uk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-<p><br> <br></p>
-</div>
-<div id="command-line-blast" class="section level2">
-<h2>Command line BLAST</h2>
-<p>Learn additional command line functions including</p>
-<ul>
-<li>unzip, unpack a .zip file</li>
-<li>head, see the first lines of a file</li>
-<li>tail, see the last lines of a file</li>
-<li>awk, subset a file (and other functionalities not covered here)</li>
-<li>blastn, nucleotide BLAST</li>
-</ul>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sU44ZtZlzo4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-<p><br> <br></p>
-<p><strong>Windows versions coming soon!</strong></p>
-</div>
 
 
 

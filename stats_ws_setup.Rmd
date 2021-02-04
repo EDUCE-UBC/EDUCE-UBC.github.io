@@ -1,0 +1,30 @@
+---
+title: "Workshop setup instructions"
+subtitle: "Workshop: Statistical models in R"
+output: html_document
+---
+
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+- In RStudio, install the [educer package](https://educe-ubc.github.io/educer.html). This will install all of the tidyverse packages and other resources.
+- Install all other packages we will use during the workshop by copying the following code into the Console, after the prompt `>`
+
+  ```{r install-packages, eval = FALSE}
+  # Data manipulation and visualization
+  if (!require(tidyverse)) install.packages("tidyverse")
+  
+  # Data sets
+  if (!require(faraway)) install.packages("faraway")
+  if (!require(gapminder)) install.packages("gapminder")
+  if (!require(datasets)) install.packages("datasets")
+  if (!require(HSAUR3)) install.packages("HSAUR3")
+  
+  # Mixed-effects and generalized linear models
+  if (!require(MASS)) install.packages("MASS")
+  if (!require(lme4)) install.packages("lme4")
+  
+  # ANOVA for model objects
+  if (!require(car)) install.packages("car")
+  
+  # Compare predicted values across groups
+  if (!require(lsmeans)) install.packages("lsmeans")
+  ```
