@@ -16,7 +16,7 @@ output: html_document
   if (!require(faraway)) install.packages("faraway")
   if (!require(gapminder)) install.packages("gapminder")
   if (!require(datasets)) install.packages("datasets")
-  if (!require(HSAUR)) install.packages("HSAUR")
+  if (!require(HSAUR3)) install.packages("HSAUR3")
   
   # Mixed-effects and generalized linear models
   if (!require(MASS)) install.packages("MASS")
