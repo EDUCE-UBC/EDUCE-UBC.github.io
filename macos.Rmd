@@ -1,10 +1,12 @@
 ---
-title: "macOS command-line setup"
+title: "macOS bash setup"
 output: html_document
 ---
 
-All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular version called "bash". To switch, enter the following command into the Terminal:
+All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular shell called `bash`. To switch, open the Terminal app and enter the following command after the prompt `$`:
 
 ```{bash eval = FALSE}
 chsh -s /bin/bash
 ```
+
+After command finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.

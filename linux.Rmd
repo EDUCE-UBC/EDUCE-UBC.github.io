@@ -1,17 +1,18 @@
 ---
-title: "Linux command-line setup"
+title: "Linux bash setup"
 output: html_document
 ---
 
-All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular version called "bash" and download files using a program called "cURL".
+All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular version called `bash` and download files using a program called `curl`.
 
-- Switch to the bash command-line interface (all distributions):
+- To switch, open the Terminal app and enter the following command after the prompt `$` (all distributions):
 
   ```{bash eval = FALSE}
   chsh -s /bin/bash
   ```
-
-- Install cURL
+  
+  
+- Install `curl`
 
   For Debian-based distributions (e.g. Ubuntu, Linux Mint):
 

@@ -9,25 +9,25 @@ navbar:
     menu:
     - text: Tutorials
       href: tutorials.html
-  - text: Installation instructions
+  - text: Setup instructions
     menu:
     - text: R and RStudio
       href: r_and_rstudio.html
     - text: educer package
       href: educer.html
-    - text: Command-line interface
+    - text: bash
       menu:
       - text: Windows Subsystem for Linux
         href: wsl.html
-      - text: Linux setup
+      - text: Linux
         href: linux.html
-      - text: macOS setup
+      - text: macOS
         href: macos.html
     - text: Miniconda
       href: conda.html
     - text: QIIME 2
       href: qiime2.html
-    - text: Workshop setup
+    - text: Workshops
       menu:
       - text: Introduction to R and RStudio
         href: r_and_rstudio_ws_setup.html
