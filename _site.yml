@@ -11,6 +11,8 @@ navbar:
       href: tutorials.html
   - text: Setup instructions
     menu:
+    - text: Updating your operating system
+      href: os.html
     - text: R and RStudio
       href: r_and_rstudio.html
     - text: educer package

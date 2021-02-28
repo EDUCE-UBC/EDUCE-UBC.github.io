@@ -1,0 +1,15 @@
+---
+title: "Updating and upgrading your operating system"
+output: html_document
+---
+
+## Disclaimer
+
+**If you update or upgrade your operating system (OS) you do so on your own risk!**
+
+In general, there are many good reasons to update your OS. Some of the software tools or their functionality used in our tutorials will only work on more recent OS versions. Updating your OS will also ensure that you have the latest security updates installed and help prevent unauthorized access to your computer.
+
+There a two main reasons that would prevent you from updating your OS:
+
+1) Your hardware would not support the updated OS.
+2) Some of your software you depend on might not work on a newer OS.
