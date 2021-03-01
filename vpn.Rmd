@@ -1,0 +1,8 @@
+---
+title: "Installing VPN service"
+output: html_document
+---
+
+If you are a student, staff or faculty at UBC you will need to install and connect to a VPN service to gain access to some UBC resources.
+
+Please follow the UBC IT [myVPN setup instructions](https://it.ubc.ca/services/email-voice-internet/myvpn/setup-documents) and after installation **make sure that you can connect to myVPN**.

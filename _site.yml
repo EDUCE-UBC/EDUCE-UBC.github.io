@@ -31,6 +31,8 @@ navbar:
       href: conda.html
     - text: QIIME 2
       href: qiime2.html
+    - text: VPN
+      href: vpn.html
     - text: Workshops
       menu:
       - text: Introduction to R and RStudio
