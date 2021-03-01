@@ -17,6 +17,8 @@ navbar:
       href: r_and_rstudio.html
     - text: educer package
       href: educer.html
+    - text: Working on a server
+      href: server.html
     - text: bash
       menu:
       - text: Windows Subsystem for Linux
