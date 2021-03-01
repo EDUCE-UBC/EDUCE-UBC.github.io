@@ -5,6 +5,7 @@ params:
   windows_version: 20H2
   windows_version_release_date: "the second half---October---of 2020"
   macos_version: Big Sur
+  macos_version_link: https://support.apple.com/en-us/HT201475
 ---
 
 ## Disclaimer
@@ -33,7 +34,19 @@ Please update to the latest version of Windows 10: version `r params$windows_ver
 
 - If Windows Update does not offer the latest version, then manually update by going to [Windows 10 Downloads](https://www.microsoft.com/software-download/windows10) and choosing the latest version.
 
+## macOS
+
+Please upgrade to the latest version of macOS, `r params$macos_version`
+
+Check your [current version of macOS](https://support.apple.com/en-ca/HT201260). If you do not have the latest version, follow the upgrade instructions on the [Apple support page](`r params$macos_version_link`).
+
+If you cannot upgrade to the latest version, follow [these instructions](https://support.apple.com/en-us/HT211683) to find the system requirements and upgrade to latest versions available to you. If you need to maintain [32-bit compatibility](https://support.apple.com/en-us/HT208436) for any of your software, then upgrade to no higher than macOS 10.14 Mojave.
+
 ## Resources
 
 - [Which version of Windows operating system am I running?](https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running)
 - [Update Windows 10](https://support.microsoft.com/en-ca/help/4027667/windows-10-update)
+- [Find out which macOS your Mac is using](https://support.apple.com/en-ca/HT201260)
+- [How to upgrade to macOS Big Sur](https://support.apple.com/en-us/HT201475)
+- [How to get old versions of macOS](https://support.apple.com/en-us/HT211683)
+- [32-bit app compatibility with macOS High Sierra 10.13.4 and later](https://support.apple.com/en-us/HT208436)
