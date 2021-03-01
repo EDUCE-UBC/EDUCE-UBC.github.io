@@ -388,61 +388,42 @@ $(document).ready(function () {
 <p><strong>These instructions are for Windows 10 only!</strong></p>
 <div id="goal" class="section level2">
 <h2>Goal</h2>
-<p>Many biocomputing tools are only accessible and executed from a Unix-like Command Line Interface (CLI) that users typically access with an application called “Terminal”. Out-of-the-box, Windows 10 does not support Unix-like commands, but it is possible to add this functionality. In these instructions, you will:</p>
+<p>Many biocomputing tools are only accessible and executed from a Unix-like Command Line Interface (CLI). Out-of-the-box, Windows 10 does not support Unix-like commands, but it is possible to add this functionality. In these instructions, you will:</p>
 <ul>
-<li>Install a “Terminal” application from the Microsoft Store.</li>
 <li>Install the “Windows Subsystem for Linux” (WSL).<br />
 This program allows you to run Linux within your Windows environment (when an operating system is run on top of another operating system, it is called a virtual machine).</li>
 <li>Install the Linux distribution “Ubuntu 18.04 LTS” from the Microsoft Store.</li>
 <li>Start up “Ubuntu” and create a user account.</li>
 </ul>
 </div>
-<div id="updating-windows-10" class="section level2">
-<h2>Updating Windows 10</h2>
-<p>To install WSL, you must first update to the latest version of Windows 10: version 20H2<br />
-(Major Windows versions indicate in which half of the year they were released, i.e. the latest version 20H2 in the second half—October—of 2020.)</p>
-<ul>
-<li><p>Check your current Windows version <img src="images/one.png" style="width:3.0%" />: Select the Windows Start button &gt; Settings &gt; System &gt; About &gt; scroll to bottom of page</p>
-<p><img src="images/windows_version.png" style="width:75.0%" /></p></li>
-<li><p>If you do not have the latest version installed: Select the Windows Start button &gt; Settings &gt; Update &amp; Security &gt; Windows Update</p>
-<p><img src="images/windows_update.png" style="width:75.0%" /></p></li>
-<li><p>If Windows Update does not offer the latest version, then manually update by going to <a href="https://www.microsoft.com/software-download/windows10">Windows 10 Downloads</a> and choosing the latest version.</p></li>
-</ul>
-</div>
 <div id="installing-ubuntu" class="section level2">
 <h2>Installing Ubuntu</h2>
-<p>You will have to restart your computer as part of the installation, so make sure to save any changes before you continue with the installation.</p>
+<p>To install WSL, first <a href="os.html#windows">update to the latest version of Windows 10</a>.</p>
+<p>You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.</p>
 <ul>
-<li><p>Go to <a href="https://aka.ms/terminal">Microsoft Store Terminal website</a> &gt; click the “Get” button to install it.</p></li>
-<li><p>Select the Windows Start button &gt; type <code>terminal</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password</p>
+<li><p>Select the Windows Start button &gt; type <code>powershell</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password if prompted</p>
 <p><img src="images/windows_terminal_as_admin.png" style="width:75.0%" /></p></li>
-<li><p>In the Terminal app, enter the following commands to enable WSL</p>
+<li><p>In the PowerShell app, enter the following commands to enable WSL</p>
 <pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></pre>
 <p>and virtual machines on your system:</p>
 <pre><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></pre></li>
 <li><p>Restart your computer.</p></li>
 <li><p>After your restart, download the <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">latest WSL kernel</a> and install it by double-clicking on the file.</p></li>
-<li><p>In the Terminal app, enter the following command to use the latest version of WSL:</p>
+<li><p>In the PowerShell app, enter the following command to use the latest version of WSL:</p>
 <pre><code>wsl --set-default-version 2</code></pre></li>
 <li><p>Go to <a href="https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">Microsoft Store Ubuntu 18.04 LTS website</a> &gt; click “Get” button to install it</p></li>
 <li><p>Time to start Ubuntu for the first time! Select the Windows Start button &gt; type <code>Ubuntu</code> and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. <code>_</code>, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:</p>
 <pre><code>exit</code></pre></li>
-<li><p>Back in the Terminal, enter the following command to make Ubuntu your default for WSL:</p>
+<li><p>Back in the PowerShell, enter the following command to make Ubuntu your default for WSL:</p>
 <pre><code>wslconfig /setdefault Ubuntu-18.04</code></pre></li>
-<li><p>Now you can start Ubuntu from the Terminal by entering:</p>
+<li><p>Now you can start Ubuntu from the PowerShell by entering:</p>
 <pre><code>wsl</code></pre></li>
-<li><p>As a final step, we are going to update all installed programs. In Ubuntu, enter the following commands:</p>
-<pre class="bash"><code>sudo apt update &amp;&amp; sudo apt upgrade</code></pre></li>
-</ul>
-</div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<ul>
-<li><a href="https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running">Which version of Windows operating system am I running?</a></li>
-<li><a href="https://support.microsoft.com/en-ca/help/4027667/windows-10-update">Update Windows 10</a></li>
-<li><a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></li>
-<li><a href="https://aka.ms/wsl2kernel">Updating the WSL 2 Linux kernel</a></li>
-<li><a href="https://docs.microsoft.com/en-us/windows/wsl/user-support">Create a user account and password for your new Linux distribution</a></li>
+<li><p>As a final step, we are going to update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:</p>
+<pre class="bash"><code>sudo apt update &amp;&amp; sudo apt upgrade</code></pre>
+<h2 id="resources">Resources</h2></li>
+<li><p><a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></p></li>
+<li><p><a href="https://aka.ms/wsl2kernel">Updating the WSL 2 Linux kernel</a></p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/windows/wsl/user-support">Create a user account and password for your new Linux distribution</a></p></li>
 </ul>
 </div>
 

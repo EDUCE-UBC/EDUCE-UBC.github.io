@@ -1,6 +1,10 @@
 ---
-title: "Updating and upgrading your operating system"
+title: "Updating and upgrading your OS"
 output: html_document
+params:
+  windows_version: 20H2
+  windows_version_release_date: "the second half---October---of 2020"
+  macos_version: Big Sur
 ---
 
 ## Disclaimer
@@ -13,3 +17,23 @@ There a two main reasons that would prevent you from updating your OS:
 
 1) Your hardware would not support the updated OS.
 2) Some of your software you depend on might not work on a newer OS.
+
+## Windows 10 {#windows}
+
+Please update to the latest version of Windows 10: version `r params$windows_version`.
+(Major Windows versions indicate in which half of the year they were released, i.e. the latest version `r params$windows_version` in `r params$windows_version_release_date`.)
+
+- Check your current Windows version ![](images/one.png){width=3%}: Select the Windows Start button > Settings > System > About > scroll to bottom of page
+
+  ![](images/windows_version.png){width=75%}
+
+- If you do not have the latest version installed: Select the Windows Start button > Settings > Update & Security > Windows Update
+
+  ![](images/windows_update.png){width=75%}
+
+- If Windows Update does not offer the latest version, then manually update by going to [Windows 10 Downloads](https://www.microsoft.com/software-download/windows10) and choosing the latest version.
+
+## Resources
+
+- [Which version of Windows operating system am I running?](https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running)
+- [Update Windows 10](https://support.microsoft.com/en-ca/help/4027667/windows-10-update)
