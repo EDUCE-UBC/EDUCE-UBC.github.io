@@ -45,6 +45,8 @@ navbar:
         href: intermediate_R_ws_setup.html
       - text: Statistical models in R
         href: stats_ws_setup.html
+      - text: Creating web apps in R with Shiny
+        href: shiny_ws_setup.html
   - text: Videos
     menu:
     - text: Installation instructions

@@ -431,34 +431,18 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Workshop setup instructions</h1>
-<h3 class="subtitle">Workshop: Statistical models in R</h3>
+<h3 class="subtitle">Workshop: Creating web apps in R with Shiny</h3>
 
 </div>
 
 
 <ul>
-<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</p></li>
-<li><p>In RStudio, install the <a href="https://educe-ubc.github.io/educer.html">educer package</a>. This will install all of the tidyverse packages and other resources.</p></li>
-<li><p>Install all other packages we will use during the workshop by copying the following code into the Console, after the prompt <code>&gt;</code></p>
-<pre class="r"><code># Data manipulation and visualization
-if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
-
-# Data sets
-if (!require(faraway)) install.packages(&quot;faraway&quot;)
-if (!require(gapminder)) install.packages(&quot;gapminder&quot;)
-if (!require(datasets)) install.packages(&quot;datasets&quot;)
-if (!require(HSAUR3)) install.packages(&quot;HSAUR3&quot;)
-
-# Mixed-effects and generalized linear models
-if (!require(MASS)) install.packages(&quot;MASS&quot;)
-if (!require(lme4)) install.packages(&quot;lme4&quot;)
-
-# ANOVA for model objects
-if (!require(car)) install.packages(&quot;car&quot;)
-
-# Compare predicted values across groups
-if (!require(lsmeans)) install.packages(&quot;lsmeans&quot;)</code></pre></li>
+<li>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</li>
+<li>In RStudio, install the <a href="https://educe-ubc.github.io/educer.html">educer package</a>.</li>
+<li>Copy the following code into the Console, after the prompt <code>&gt;</code></li>
 </ul>
+<pre class="r"><code>  if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
+  if (!require(shiny)) install.packages(&quot;shiny&quot;)</code></pre>
 
 
 

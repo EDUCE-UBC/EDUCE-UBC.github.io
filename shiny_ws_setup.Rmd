@@ -1,0 +1,14 @@
+---
+title: "Workshop setup instructions"
+subtitle: "Workshop: Creating web apps in R with Shiny"
+output: html_document
+---
+
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+- In RStudio, install the [educer package](https://educe-ubc.github.io/educer.html). 
+- Copy the following code into the Console, after the prompt `>`
+
+```{r install-packages, eval = FALSE}
+  if (!require(tidyverse)) install.packages("tidyverse")
+  if (!require(shiny)) install.packages("shiny")
+```
