@@ -88,3 +88,30 @@ chsh -s /bin/bash
 ```
 
 After command finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.
+---
+title: "Linux bash setup"
+output: html_document
+---
+
+All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular version called `bash` and download files using a program called `curl`.
+
+- To switch, open the Terminal app and enter the following command after the prompt `$` (all distributions):
+
+  ```{bash eval = FALSE}
+  chsh -s /bin/bash
+  ```
+  
+  
+- Install `curl`
+
+  For Debian-based distributions (e.g. Ubuntu, Linux Mint):
+
+  ```{bash eval = FALSE}
+  sudo apt update && sudo apt install curl
+  ```
+
+  For RPM-based distributions (e.g. Fedora, CentOS):
+
+  ```{bash eval = FALSE}
+  sudo yum update && sudo yum install curl
+  ```
