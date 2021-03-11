@@ -7,30 +7,19 @@ params:
   linux_version_cli: "Ubuntu-18.04"
 ---
 
-All instructions in EDUCE materials related to the command-line interface (CLI) assume that you use a particular shell called `bash`. To switch, open the Terminal app and enter the following command after the prompt `$`:
+Many biocomputing tools are only accessible and executed from a Unix-like Command Line Interface (CLI). All instructions in EDUCE materials related to CLI assume that you use a particular shell called `bash`.
 
-```{bash eval = FALSE}
-chsh -s /bin/bash
-```
+## Select instructions for your operating system {.tabset .tabset-fade .tabset-pills}
 
-After command finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.
+### Windows 10
 
 **These instructions are for Windows 10 only!**
 
-## Goal
+Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing "Windows Subsystem for Linux" (WSL) which will allow you to run a Linux distribution (in our case "Ubuntu") on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.
 
-Many biocomputing tools are only accessible and executed from a Unix-like Command Line Interface (CLI). Out-of-the-box, Windows 10 does not support Unix-like commands, but it is possible to add this functionality. In these instructions, you will:
+#### Installation
 
-- Install the "Windows Subsystem for Linux" (WSL).  
-  This program allows you to run Linux within your Windows environment (when an operating system is run on top of another operating system, it is called a virtual machine).
-- Install the Linux distribution "`r params$linux_version`" from the Microsoft Store.
-- Start up "Ubuntu" and create a user account.
-
-## Installing Ubuntu
-
-To install WSL, first [update to the latest version of Windows 10](os.html#windows).
-
-You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.
+- First [update to the latest version of Windows 10](os.html#windows).
 
 - Select the Windows Start button > type `powershell` ![](images/one.png){width=3%} > choose "Run as administrator" ![](images/two.png){width=3%} > choose "Yes" in the prompt that opens > enter your administrator password if prompted
 
@@ -83,8 +72,19 @@ You will have to restart your computer as part of the installation, so make sure
   ```{bash eval = FALSE}
   sudo apt update && sudo apt upgrade
   ```
-## Resources
+  
+#### Resources
 
 - [Windows Subsystem for Linux Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
 - [Updating the WSL 2 Linux kernel](https://aka.ms/wsl2kernel)
 - [Create a user account and password for your new Linux distribution](https://docs.microsoft.com/en-us/windows/wsl/user-support)
+
+### macOS
+
+To ensure that you are using bash (and not the new macOS default zsh), open the Terminal app and enter the following command after the prompt `$`:
+
+```{bash eval = FALSE}
+chsh -s /bin/bash
+```
+
+After command finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.
