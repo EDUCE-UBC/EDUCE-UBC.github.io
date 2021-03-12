@@ -9,7 +9,7 @@ params:
 
 Many biocomputing tools are only accessible and executed from a Unix-like Command Line Interface (CLI). All instructions in EDUCE materials related to CLI assume that you use a particular shell called `bash`.
 
-## Select instructions for your operating system {.tabset .tabset-fade .tabset-pills}
+## {.tabset .tabset-fade .tabset-pills}
 
 ### Windows 10
 
@@ -81,7 +81,7 @@ Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it 
 
 ### macOS
 
-To ensure that you are using bash (and not the new macOS default zsh), open the Terminal app and enter the following command after the prompt `$`:
+To ensure that you are using `bash` (and not the new macOS default `zsh`), open the Terminal app and enter the following command after the prompt `$`:
 
 ```{bash eval = FALSE}
 chsh -s /bin/bash
@@ -91,7 +91,7 @@ After command finished (i.e. you see the prompt `$` and your cursor again), quit
 
 ### Linux
 
-We are going to ensure that you are using bash and have a program called `curl` installed to download files.
+We are going to ensure that you are using `bash` and have a program called `curl` installed to download files.
 
 - To switch, open the Terminal app and enter the following command after the prompt `$` (all distributions):
 

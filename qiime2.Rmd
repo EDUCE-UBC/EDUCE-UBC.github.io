@@ -3,25 +3,30 @@ title: "Installing QIIME 2"
 output: html_document
 ---
 
-QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence data. The installation instructions below assume that you have already installed [Miniconda](condta.html).
+QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence data. The installation instructions below assume that you have already installed [Miniconda](conda.html).
+
+## {.tabset .tabset-fade .tabset-pills}
+
+### Linux/WSL
 
 - In your Terminal (on Windows, switch to WSL), download the configuration file for a Conda environment that also contains QIIME 2
 
-  for Linux/WSL:
-  
   ```{bash eval = FALSE}
   curl -sL \
     "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-linux-conda.yml" > \
     "qiime2.yml"
   ```
-  
-  for macOS:
-  
+### macOS
+
+- In your Terminal, download the configuration file for a Conda environment that also contains QIIME 2
+
   ```{bash eval = FALSE}
   curl -sL \
     "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-osx-conda.yml" > \
     "qiime2.yml"
   ```
+
+##
 
 - Create a new Conda environment (this also installs QIIME 2):
 
