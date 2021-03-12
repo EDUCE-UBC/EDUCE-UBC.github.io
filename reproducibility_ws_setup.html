@@ -13,13 +13,22 @@
 
 <title>Workshop setup instructions</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -35,11 +44,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -52,32 +56,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -88,10 +66,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -108,40 +82,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -169,7 +116,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -181,7 +128,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -192,10 +139,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -207,7 +167,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -317,19 +276,8 @@ $(document).ready(function () {
     <li>
       <a href="server.html">Working on a server</a>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">bash</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="wsl.html">Windows Subsystem for Linux</a>
-        </li>
-        <li>
-          <a href="linux.html">Linux</a>
-        </li>
-        <li>
-          <a href="macos.html">macOS</a>
-        </li>
-      </ul>
+    <li>
+      <a href="bash.html">bash</a>
     </li>
     <li>
       <a href="conda.html">Miniconda</a>
@@ -427,7 +375,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -436,56 +384,32 @@ $(document).ready(function () {
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#instructions-for-all-users">Instructions for all users</a></li>
-<li><a href="#instructions-for-windows-users">Instructions for Windows users</a>
-<ul>
-<li><a href="#terminal">Terminal</a></li>
-<li><a href="#git">Git</a></li>
-<li><a href="#github">GitHub</a></li>
-<li><a href="#make">Make</a></li>
-</ul></li>
-<li><a href="#instructions-for-mac-users">Instructions for Mac users</a>
-<ul>
-<li><a href="#terminal-1">Terminal</a></li>
-<li><a href="#git-1">Git</a></li>
-<li><a href="#github-1">GitHub</a></li>
-<li><a href="#make-1">Make</a></li>
-</ul></li>
-</ul>
-</div>
 
-<div id="instructions-for-all-users" class="section level2">
-<h2>Instructions for all users</h2>
 <ol style="list-style-type: decimal">
-<li>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</li>
-<li>Install the tidyverse and the renv packages by copying the following code into the Console, after the prompt <code>&gt;</code></li>
-</ol>
+<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</p></li>
+<li><p>Install the tidyverse and the renv packages by copying the following code into the Console, after the prompt <code>&gt;</code></p>
 <pre class="r"><code>if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
-if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.</li>
-</ol>
+if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre></li>
+<li><p>Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.</p>
 <a href="data:text/csv;base64,U2Vhc29uLERlcHRoX20sTzJfdU0sQWRkX2RhdGEKRmFsbCwxMCwyMDMuNTMzLFRSVUUKRmFsbCwyMCwxODMuNzg3LEZBTFNFCkZhbGwsNDAsMTMwLjU3OSxGQUxTRQpGYWxsLDYwLDkxLjExNSxUUlVFCkZhbGwsNzUsNjkuODI4LEZBTFNFCkZhbGwsODUsMjYuOTcyLEZBTFNFCkZhbGwsOTAsMTEuMDY2LFRSVUUKRmFsbCw5Nyw4Ljk5NyxGQUxTRQpGYWxsLDEwMCw2LjYwNSxGQUxTRQpGYWxsLDExMCw1LjkzMyxGQUxTRQpGYWxsLDEyMCwyLjg5MSxUUlVFCkZhbGwsMTM1LDIuNzY2LEZBTFNFCkZhbGwsMTUwLDE0LjQ2NSxGQUxTRQpGYWxsLDE2NSwyNC4yMzksRkFMU0UKRmFsbCwxODUsMjguODg1LEZBTFNFCkZhbGwsMjAwLDI2Ljc2NixUUlVFClN1bW1lciwxMCwyMTYuNjY3LFRSVUUKU3VtbWVyLDIwLDE1OS42NzIsRkFMU0UKU3VtbWVyLDQwLDE0MS43NzgsRkFMU0UKU3VtbWVyLDYwLDk3Ljg5NCxUUlVFClN1bW1lciw3NSw0NC45NzgsRkFMU0UKU3VtbWVyLDg1LDI1LjgwNyxGQUxTRQpTdW1tZXIsOTAsMjcuMDExLFRSVUUKU3VtbWVyLDk3LDM0LjQzNixGQUxTRQpTdW1tZXIsMTAwLDM4LjAxMixGQUxTRQpTdW1tZXIsMTEwLDI3LjU1NyxGQUxTRQpTdW1tZXIsMTIwLDMyLjM1NCxUUlVFClN1bW1lciwxMzUsMjAuNDQ2LEZBTFNFClN1bW1lciwxNTAsMCxGQUxTRQpTdW1tZXIsMTY1LDAsRkFMU0UKU3VtbWVyLDE4NSwwLEZBTFNFClN1bW1lciwyMDAsMCxUUlVFCg==" download="data.csv">
 <button class="btn btn-default hvr-sweep-to-left" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
-</a>
-</div>
-<div id="instructions-for-windows-users" class="section level2">
-<h2>Instructions for Windows users</h2>
-<div id="terminal" class="section level3">
-<h3>Terminal</h3>
+</a></li>
+</ol>
+<div id="section" class="section level2 tabset tabset-fade tabset-pills">
+<h2 class="tabset tabset-fade tabset-pills"></h2>
+<div id="windows-10" class="section level3">
+<h3>Windows 10</h3>
+<div id="terminal" class="section level4">
+<h4>Terminal</h4>
 <p>Install <a href="https://gitforwindows.org/">GitBash</a>, which emulates Bash (a Unix shell) in Windows. All command-line instructions should be completed in GitBash and not the native Windows Command Prompt.</p>
 </div>
-<div id="git" class="section level3">
-<h3>Git</h3>
+<div id="git" class="section level4">
+<h4>Git</h4>
 <ol style="list-style-type: decimal">
-<li>Basic Git was installed automatically with your GitBash Terminal.</li>
-<li>Test that Git is properly installed by opening GitBash and typing <code>git --version</code> [Enter]. This should populate the window with information on your version of Git such as</li>
-</ol>
-<pre><code>git version 2.20.1.windows.1</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Once you’ve installed Git, you’ll need to activate it in RStudio:
+<li><p>Basic Git was installed automatically with your GitBash Terminal.</p></li>
+<li><p>Test that Git is properly installed by opening GitBash and typing <code>git --version</code> <kbd>enter</kbd>. This should populate the window with information on your version of Git such as</p>
+<pre><code>git version 2.20.1.windows.1</code></pre></li>
+<li><p>Once you’ve installed Git, you’ll need to activate it in RStudio:</p>
 <ul>
 <li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
 <li>Click “Enable version control interface for RStudio projects”</li>
@@ -496,97 +420,90 @@ if (!require(renv)) install.packages(&quot;renv&quot;)</code></pre>
 <li>Warning: the path should end in <code>git.exe</code>, <strong>not</strong> in <code>git-bash.exe</code></li>
 </ul></li>
 <li>Restart RStudio.</li>
-</ul></li>
-</ol>
-<p><img src="images/setup_git_windows.png" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Finally, you need to change your environment variables to ensure you can run R scripts from GitBash:
+</ul>
+<p><img src="images/setup_git_windows.png" /></p></li>
+<li><p>Finally, you need to change your environment variables to ensure you can run R scripts from GitBash:</p>
 <ul>
 <li>Open the Control Panel &gt; System Properties &gt; Advanced. In Windows 10 you can find this by searching for “environment”.</li>
 <li>Click on the “Environment Variables…” button to open the settings for the environment variables.</li>
 <li>In the window that pops up select the <code>PATH</code> variable and click the “Edit” button below it.</li>
 <li>In the next window that pops up click the “Browse” button and navigate to the folder that contains the <code>Rscript.exe</code> file. The path should look approximately like <code>C:/Program Files/R/R-4.0.3/bin/Rscript.exe</code>.</li>
-<li>Test that everything worked by restarting GitBash and typing <code>Rscript --version</code> [Enter]. This should populate the window with information information on your version of R such as</li>
-</ul></li>
-</ol>
-<pre><code>R scripting front-end version 4.0.3 (2020-10-10)</code></pre>
-</div>
-<div id="github" class="section level3">
-<h3>GitHub</h3>
-<ol style="list-style-type: decimal">
-<li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
-<li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:</li>
-</ol>
-<pre><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
-git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre>
-</div>
-<div id="make" class="section level3">
-<h3>Make</h3>
-<ol style="list-style-type: decimal">
-<li>Download the <a href="https://sourceforge.net/projects/ezwinports/files/">Make <em>without guile</em> (version 4.3)</a>, file name <code>make-4.3-without-guile-w32-bin.zip</code>.</li>
-<li>Unzip the folder.</li>
-<li>Copy all of its contents to <code>C:\Program Files\Git\mingw64\</code>.</li>
-</ol>
-<ul>
-<li>Merge all of the contents of the folders but do NOT overwrite/replace any existing files.</li>
+<li>Test that everything worked by restarting GitBash and typing <code>Rscript --version</code> <kbd>enter</kbd>. This should populate the window with information information on your version of R such as</li>
 </ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Check that Make is installed by typing <code>make --version</code> [Enter] in GitBash. This should populate the window with information on your version of Make such as</li>
+<pre><code>R scripting front-end version 4.0.3 (2020-10-10)</code></pre></li>
 </ol>
+</div>
+<div id="github" class="section level4">
+<h4>GitHub</h4>
+<ol style="list-style-type: decimal">
+<li><p>If you do not already have one, sign up for a <a href="https://github.com/">GitHub account</a>.</p></li>
+<li><p>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open GitBash and type:</p>
+<pre class="bash"><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
+git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre></li>
+</ol>
+</div>
+<div id="make" class="section level4">
+<h4>Make</h4>
+<ol style="list-style-type: decimal">
+<li><p>Download the <a href="https://sourceforge.net/projects/ezwinports/files/">Make <em>without guile</em> (version 4.3)</a>, file name <code>make-4.3-without-guile-w32-bin.zip</code>.</p></li>
+<li><p>Unzip the folder.</p></li>
+<li><p>Copy all of its contents to <code>C:\Program Files\Git\mingw64\</code>.</p>
+<p>Merge all of the contents of the folders but do NOT overwrite/replace any existing files.</p></li>
+<li><p>Check that Make is installed by typing <code>make --version</code> <kbd>enter</kbd> in GitBash. This should populate the window with information on your version of Make such as</p>
 <pre><code>GNU Make 4.3.
 Built for Windows32
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL verison 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.</code></pre>
+There is NO WARRANTY, to the extent permitted by law.</code></pre></li>
+</ol>
 </div>
 </div>
-<div id="instructions-for-mac-users" class="section level2">
-<h2>Instructions for Mac users</h2>
-<div id="terminal-1" class="section level3">
-<h3>Terminal</h3>
+<div id="macos" class="section level3">
+<h3>macOS</h3>
+<div id="terminal-1" class="section level4">
+<h4>Terminal</h4>
 <p>The native Terminal on macOS is Unix-based and, therefore, can be used in this workshop. You can access it under Applications &gt; Utilities &gt; Terminal.app</p>
 </div>
-<div id="git-1" class="section level3">
-<h3>Git</h3>
+<div id="git-1" class="section level4">
+<h4>Git</h4>
 <ol style="list-style-type: decimal">
-<li>Download and <a href="https://git-scm.com/downloads">install Git</a>.</li>
-<li>Test that Git is properly installed by opening your Terminal and typing <code>git --version</code> [Enter]. This should populate the window with information on your version of Git such as</li>
-</ol>
-<pre><code>git version 2.18.0</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Once you’ve installed Git, you’ll need to activate it in RStudio:</li>
+<li><p>Download and <a href="https://git-scm.com/downloads">install Git</a>.</p></li>
+<li><p>Test that Git is properly installed by opening your Terminal and typing <code>git --version</code> <kbd>enter</kbd>. This should populate the window with information on your version of Git such as</p>
+<pre><code>git version 2.18.0</code></pre></li>
+<li><p>Once you’ve installed Git, you’ll need to activate it in RStudio:</p></li>
 </ol>
 <ul>
-<li>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</li>
-<li>Click “Enable version control interface for RStudio projects”</li>
-<li>If necessary, enter the path for your Git executable where provided (see picture below).</li>
-<li>Restart RStudio.</li>
+<li><p>Open RStudio and go to Tools &gt; Global Options &gt; Git/SVN</p></li>
+<li><p>Click “Enable version control interface for RStudio projects”</p></li>
+<li><p>If necessary, enter the path for your Git executable where provided (see picture below).</p></li>
+<li><p>Restart RStudio.</p>
+<p><img src="images/setup_git_mac.png" /></p></li>
 </ul>
-<p><img src="images/setup_git_mac.png" /></p>
 </div>
-<div id="github-1" class="section level3">
-<h3>GitHub</h3>
+<div id="github-1" class="section level4">
+<h4>GitHub</h4>
 <ol style="list-style-type: decimal">
-<li>If you do not already have one, sign up for an account on <a href="https://github.com/">GitHub</a>.</li>
-<li>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open the Terminal and type:</li>
+<li><p>If you do not already have one, sign up for a <a href="https://github.com/">GitHub account</a>.</p></li>
+<li><p>Configure your GitHub user name and email (the email address you used to register on GitHub). To do this, open the Terminal and type:</p>
+<pre class="bash"><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
+git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre></li>
 </ol>
-<pre><code>git config --global user.name &#39;&lt;your GitHub username&gt;&#39;
-git config --global user.email &#39;&lt;name@provider.com&gt;&#39;</code></pre>
 </div>
-<div id="make-1" class="section level3">
-<h3>Make</h3>
+<div id="make-1" class="section level4">
+<h4>Make</h4>
 <ol style="list-style-type: decimal">
-<li>Download and install the Mac command line developer tools (including Make) by opening your Terminal and typing: <code>xcode-select --install</code> [Enter]. In the window that opens, click “Install” to allow the installation of the full developer’s packet.</li>
-<li>Check that Make is installed by typing <code>make --version</code> [Enter] in your Terminal. This should populate the window with information on your version of Make such as</li>
-</ol>
+<li><p>Download and install the Mac command line developer tools (including Make) by opening your Terminal and typing: <code>xcode-select --install</code> <kbd>enter</kbd>. In the window that opens, click “Install” to allow the installation of the full developer’s packet.</p></li>
+<li><p>Check that Make is installed by typing <code>make --version</code> <kbd>enter</kbd> in your Terminal. This should populate the window with information on your version of Make such as</p>
 <pre><code>GNU Make 4.3.
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
 There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.
 
-This program built for i386-apple-darwin11.3.0</code></pre>
+This program built for i386-apple-darwin11.3.0</code></pre></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -617,7 +534,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

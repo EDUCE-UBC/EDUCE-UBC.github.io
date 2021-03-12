@@ -20,13 +20,7 @@ navbar:
     - text: Working on a server
       href: server.html
     - text: bash
-      menu:
-      - text: Windows Subsystem for Linux
-        href: wsl.html
-      - text: Linux
-        href: linux.html
-      - text: macOS
-        href: macos.html
+      href: bash.html
     - text: Miniconda
       href: conda.html
     - text: QIIME 2

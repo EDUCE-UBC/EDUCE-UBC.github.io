@@ -8,7 +8,7 @@ output: html_document
 - In RStudio, install the [educer package](https://educe-ubc.github.io/educer.html). 
 - Copy the following code into the Console, after the prompt `>`
 
-```{r install-packages, eval = FALSE}
-  if (!require(tidyverse)) install.packages("tidyverse")
-  if (!require(shiny)) install.packages("shiny")
-```
+    ```{r install-packages, eval = FALSE}
+    if (!require(tidyverse)) install.packages("tidyverse")
+    if (!require(shiny)) install.packages("shiny")
+    ```

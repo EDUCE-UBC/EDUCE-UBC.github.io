@@ -7,17 +7,17 @@ output: html_document
 - Prior to the workshop, please [install R and RStudio](r_and_rstudio.html) and make sure it is working.
 - Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
   
-```{r echo = FALSE}
-data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intro_ws.csv")
-
-downloadthis::download_this(data_file,
-    output_name = "data",
-    output_extension = ".csv",
-    button_label = "Download data",
-    button_type = "default",
-    has_icon = TRUE,
-    icon = "fa fa-save",
-    class = "hvr-sweep-to-left",
-    csv2 = FALSE
-  )
-```
+    ```{r echo = FALSE}
+    data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_intro_ws.csv")
+    
+    downloadthis::download_this(data_file,
+        output_name = "data",
+        output_extension = ".csv",
+        button_label = "Download data",
+        button_type = "default",
+        has_icon = TRUE,
+        icon = "fa fa-save",
+        class = "hvr-sweep-to-left",
+        csv2 = FALSE
+      )
+    ```

@@ -8,26 +8,26 @@ output: html_document
 - In RStudio, install the [educer package](https://educe-ubc.github.io/educer.html). This will install all of the tidyverse packages and other resources.
 - If you encountered any unexpected errors while installing the educer package, copy the following code into the Console, after the prompt `>`
 
-```{r install-packages, eval = FALSE}
-  if (!require(tidyverse)) install.packages("tidyverse")
-  if (!require(cowplot)) install.packages("cowplot")
-```
+    ```{r install-packages, eval = FALSE}
+    if (!require(tidyverse)) install.packages("tidyverse")
+    if (!require(cowplot)) install.packages("cowplot")
+    ```
 
 - Download the data file we will use during the workshop by clicking on the following button and save it in your Desktop or another convenient location.
   
-```{r echo = FALSE}
-data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv")
-
-downloadthis::download_this(data_file,
-    output_name = "data",
-    output_extension = ".csv",
-    button_label = "Download data",
-    button_type = "default",
-    has_icon = TRUE,
-    icon = "fa fa-save",
-    class = "hvr-sweep-to-left",
-    csv2 = FALSE
-  )
-```
+    ```{r echo = FALSE}
+    data_file <- read.csv("https://raw.githubusercontent.com/EDUCE-UBC/educer/main/data-raw/data_tidyverse_ws.csv")
+    
+    downloadthis::download_this(data_file,
+        output_name = "data",
+        output_extension = ".csv",
+        button_label = "Download data",
+        button_type = "default",
+        has_icon = TRUE,
+        icon = "fa fa-save",
+        class = "hvr-sweep-to-left",
+        csv2 = FALSE
+      )
+    ```
 
   

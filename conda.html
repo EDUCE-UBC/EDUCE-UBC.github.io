@@ -13,13 +13,22 @@
 
 <title>Installing Miniconda</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -34,11 +43,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -51,32 +55,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -87,10 +65,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -107,40 +81,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -168,7 +115,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -180,7 +127,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -191,10 +138,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -206,7 +166,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -316,19 +275,8 @@ $(document).ready(function () {
     <li>
       <a href="server.html">Working on a server</a>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">bash</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="wsl.html">Windows Subsystem for Linux</a>
-        </li>
-        <li>
-          <a href="linux.html">Linux</a>
-        </li>
-        <li>
-          <a href="macos.html">macOS</a>
-        </li>
-      </ul>
+    <li>
+      <a href="bash.html">bash</a>
     </li>
     <li>
       <a href="conda.html">Miniconda</a>
@@ -426,7 +374,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -440,19 +388,31 @@ $(document).ready(function () {
 <li><p>Conda is a package manager, i.e. think of it as an App Store where you can get apps for your command-line interface (CLI). These apps are downloaded as so-called packages.</p></li>
 <li><p>Conda acts as an environment manager. One of the difficulties when working with software tools is that these often have dependencies, i.e. need other programs to properly function (which might themselves need other programs and so on). Unfortunately, some programs might, at the same time, conflict with other programs or only work with specific version numbers. It is often difficult to have one universal install in which all of your tools will work predictably at the same time. Instead, an environment manager enables you to configure independent environments, i.e. a set of programs (each also with a defined version) in which one tool or combination of tools works.</p></li>
 </ol>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
-<p>The installation instructions below assume that you have already set up your <a href="linux.html">Linux</a> or <a href="bash.html">macOS</a> system or, if you are on a Windows machine, installed the <a href="wsl.html">Windows Subsystem for Linux (WSL)</a>.</p>
+<p>The installation instructions below assume that you have already set up <a href="bash.html"><code>bash</code></a> on macOS or Linux systems or, if you are on a Windows machine, installed the Windows Subsystem for Linux (WSL).</p>
+<div id="section" class="section level2 tabset tabset-fade tabset-pills">
+<h2 class="tabset tabset-fade tabset-pills"></h2>
+<div id="linuxwsl" class="section level3">
+<h3>Linux/WSL</h3>
 <ul>
 <li><p>In your Terminal (on Windows, switch to WSL), download the Miniconda installer</p>
-<p>for Linux/WSL:</p>
 <pre class="bash"><code>curl -sL \
   &quot;https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh&quot; &gt; \
-  &quot;Miniconda3.sh&quot;</code></pre>
-<p>for macOS:</p>
+  &quot;Miniconda3.sh&quot;</code></pre></li>
+</ul>
+</div>
+<div id="macos" class="section level3">
+<h3>macOS</h3>
+<ul>
+<li><p>In your Terminal download the Miniconda installer</p>
 <pre class="bash"><code>curl -sL \
   &quot;https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh&quot; &gt; \
   &quot;Miniconda3.sh&quot;</code></pre></li>
+</ul>
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2></h2>
+<ul>
 <li><p>Install Miniconda by entering:</p>
 <pre class="bash"><code>bash Miniconda3.sh</code></pre>
 <p>and follow the prompts, accepting all defaults.</p></li>
@@ -462,7 +422,7 @@ $(document).ready(function () {
 <pre class="bash"><code>conda update conda</code></pre></li>
 <li><p>After installation, delete the installer:</p>
 <pre class="bash"><code>rm Miniconda3.sh</code></pre></li>
-<li><p>Finally, install the program “wget” using Conda to download any files using CLI:</p>
+<li><p>Finally, install the program <code>wget</code> using Conda to download any files using CLI:</p>
 <pre class="bash"><code>conda install wget</code></pre></li>
 </ul>
 </div>
@@ -501,7 +461,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
