@@ -1,5 +1,5 @@
 name: EDUCE
-output_dir: '.'
+output_dir: '_site'
 navbar:
   title: EDUCE
   left:
