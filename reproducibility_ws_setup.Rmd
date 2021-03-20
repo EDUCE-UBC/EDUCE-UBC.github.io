@@ -4,7 +4,7 @@ subtitle: "Workshop: Reproducible research"
 output: html_document
 params:
   make_version: 4.3
-  r_version: 4.0.3 (2020-10-10)
+  r_version: 4.0.4 (2020-10-10)
 ---
 
 1. Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
@@ -65,7 +65,7 @@ Install [GitBash](https://gitforwindows.org/), which emulates Bash (a Unix shell
     - Open the Control Panel > System Properties > Advanced. In Windows 10 you can find this by searching for "environment".
     - Click on the "Environment Variables..." button to open the settings for the environment variables.
     - In the window that pops up select the `PATH` variable and click the "Edit" button below it.
-    - In the next window that pops up click the "Browse" button and navigate to the folder that contains the `Rscript.exe` file. The path should look approximately like `C:/Program Files/R/R-4.0.3/bin/Rscript.exe`.
+    - In the next window that pops up click the "Browse" button and navigate to the folder that contains the `Rscript.exe` file. The path should look approximately like `C:/Program Files/R/R-4.0.4/bin/Rscript.exe`.
     - Test that everything worked by restarting GitBash and typing `Rscript --version` <kbd>enter</kbd>. This should populate the window with information information on your version of R such as
 
     ```
