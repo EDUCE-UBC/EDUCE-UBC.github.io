@@ -393,22 +393,23 @@ $(document).ready(function () {
 <h4>Installation</h4>
 <ul>
 <li><p>First <a href="os.html#windows">update to the latest version of Windows 10</a>.</p></li>
-<li><p>Select the Windows Start button &gt; type <code>powershell</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password if prompted</p>
+<li><p>Go to <a href="https://aka.ms/terminal">Microsoft Store Windows Terminal website</a> &gt; click the “Get” button to install the app.</p></li>
+<li><p>Select the Windows Start button &gt; type <code>terminal</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password if prompted</p>
 <p><img src="images/windows_terminal_as_admin.png" style="width:75.0%" /></p></li>
-<li><p>In the PowerShell app, enter the following commands to enable WSL</p>
+<li><p>In the Terminal app, enter the following commands to enable WSL</p>
 <pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></pre>
 <p>and virtual machines on your system:</p>
 <pre><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></pre></li>
 <li><p>Restart your computer.</p></li>
 <li><p>After your restart, download the <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">latest WSL kernel</a> and install it by double-clicking on the file.</p></li>
-<li><p>In the PowerShell app, enter the following command to use the latest version of WSL:</p>
+<li><p>In the Terminal app, enter the following command to use the latest version of WSL:</p>
 <pre><code>wsl --set-default-version 2</code></pre></li>
 <li><p>Go to <a href="https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">Microsoft Store Ubuntu 18.04 LTS website</a> &gt; click “Get” button to install it</p></li>
 <li><p>Time to start Ubuntu for the first time! Select the Windows Start button &gt; type <code>Ubuntu</code> and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. <code>_</code>, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:</p>
 <pre><code>exit</code></pre></li>
-<li><p>Back in the PowerShell, enter the following command to make Ubuntu your default for WSL:</p>
+<li><p>Back in the Terminal, enter the following command to make Ubuntu your default for WSL:</p>
 <pre><code>wslconfig /setdefault Ubuntu-18.04</code></pre></li>
-<li><p>Now you can start Ubuntu from the PowerShell by entering:</p>
+<li><p>Now you can start Ubuntu from the Terminal by entering:</p>
 <pre><code>wsl</code></pre></li>
 <li><p>As a final step, we are going to update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:</p>
 <pre class="bash"><code>sudo apt update &amp;&amp; sudo apt upgrade</code></pre></li>
