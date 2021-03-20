@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Updating and upgrading your OS</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">EDUCE</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    educer package
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="tutorials.html">Tutorials</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Setup instructions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="os.html">Updating your operating system</a>
+    </li>
+    <li>
+      <a href="r_and_rstudio.html">R and RStudio</a>
+    </li>
+    <li>
+      <a href="educer.html">educer package</a>
+    </li>
+    <li>
+      <a href="server.html">Working on a server</a>
+    </li>
+    <li>
+      <a href="bash.html">bash</a>
+    </li>
+    <li>
+      <a href="conda.html">Miniconda</a>
+    </li>
+    <li>
+      <a href="qiime2.html">QIIME 2</a>
+    </li>
+    <li>
+      <a href="vpn.html">VPN</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Workshops</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="r_and_rstudio_ws_setup.html">Introduction to R and RStudio</a>
+        </li>
+        <li>
+          <a href="tidyverse_ws_setup.html">Introduction to the R tidyverse</a>
+        </li>
+        <li>
+          <a href="reproducibility_ws_setup.html">Reproducible research</a>
+        </li>
+        <li>
+          <a href="intermediate_R_ws_setup.html">Intermediate R programming</a>
+        </li>
+        <li>
+          <a href="stats_ws_setup.html">Statistical models in R</a>
+        </li>
+        <li>
+          <a href="shiny_ws_setup.html">Creating web apps in R with Shiny</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Videos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="setup_video.html">Installation instructions</a>
+    </li>
+    <li>
+      <a href="cmd_line_video.html">Introduction to command line</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Course Compiler
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about_compiler.html">About</a>
+    </li>
+    <li>
+      <a href="course_outline.html">Course outline</a>
+    </li>
+    <li>
+      <a href="about_data.html">Example data</a>
+    </li>
+    <li>
+      <a href="compiler.html">Shiny app</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Manipulator
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about_manipulator.html">About</a>
+    </li>
+    <li>
+      <a href="about_normalization.html">Normalization methods</a>
+    </li>
+    <li>
+      <a href="manipulator.html">Shiny app</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Updating and upgrading your OS</h1>
+
+</div>
+
+
+<div id="disclaimer" class="section level2">
+<h2>Disclaimer</h2>
+<p><strong>If you update or upgrade your operating system (OS) you do so on your own risk!</strong></p>
+<p>In general, there are many good reasons to update your OS. Some of the software tools or their functionality used in our tutorials will only work on more recent OS versions. Updating your OS will also ensure that you have the latest security updates installed and help prevent unauthorized access to your computer.</p>
+<p>There a two main reasons that would prevent you from updating your OS:</p>
+<ol style="list-style-type: decimal">
+<li>Your hardware would not support the updated OS.</li>
+<li>Some of your software you depend on might not work on a newer OS.</li>
+</ol>
+</div>
+<div id="section" class="section level2 tabset tabset-fade tabset-pills">
+<h2></h2>
+<div id="windows" class="section level3">
+<h3>Windows 10</h3>
+<p>Please update to the latest version of Windows 10: version 20H2. (Major Windows versions indicate in which half of the year they were released, i.e. the latest version 20H2 in the second half—October—of 2020.)</p>
+<ul>
+<li><p>Check your current Windows version <img src="images/one.png" style="width:3.0%" />: Select the Windows Start button &gt; Settings &gt; System &gt; About &gt; scroll to bottom of page</p>
+<p><img src="images/windows_version.png" style="width:75.0%" /></p></li>
+<li><p>If you do not have the latest version installed: Select the Windows Start button &gt; Settings &gt; Update &amp; Security &gt; Windows Update</p>
+<p><img src="images/windows_update.png" style="width:75.0%" /></p></li>
+<li><p>If Windows Update does not offer the latest version, then manually update by going to <a href="https://www.microsoft.com/software-download/windows10">Windows 10 Downloads</a> and choosing the latest version.</p></li>
+</ul>
+<div id="resources" class="section level4">
+<h4>Resources</h4>
+<ul>
+<li><a href="https://support.microsoft.com/en-ca/help/13443/windows-which-version-am-i-running">Which version of Windows operating system am I running?</a></li>
+<li><a href="https://support.microsoft.com/en-ca/help/4027667/windows-10-update">Update Windows 10</a></li>
+</ul>
+</div>
+</div>
+<div id="macos" class="section level3">
+<h3>macOS</h3>
+<p>Please upgrade to the latest version of macOS, Big Sur.</p>
+<p>Check your <a href="https://support.apple.com/en-ca/HT201260">current version of macOS</a>. If you do not have the latest version, follow the upgrade instructions on the <a href="https://support.apple.com/en-us/HT201475">Apple support page</a>.</p>
+<p>If you cannot upgrade to the latest version, follow <a href="https://support.apple.com/en-us/HT211683">these instructions</a> to find the system requirements and upgrade to latest versions available to you. If you need to maintain <a href="https://support.apple.com/en-us/HT208436">32-bit compatibility</a> for any of your software, then upgrade to no higher than macOS 10.14 Mojave.</p>
+<div id="resources-1" class="section level4">
+<h4>Resources</h4>
+<ul>
+<li><a href="https://support.apple.com/en-ca/HT201260">Find out which macOS your Mac is using</a></li>
+<li><a href="https://support.apple.com/en-us/HT201475">How to upgrade to macOS Big Sur</a></li>
+<li><a href="https://support.apple.com/en-us/HT211683">How to get old versions of macOS</a></li>
+<li><a href="https://support.apple.com/en-us/HT208436">32-bit app compatibility with macOS High Sierra 10.13.4 and later</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
