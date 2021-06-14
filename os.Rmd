@@ -2,8 +2,8 @@
 title: "Updating and upgrading your OS"
 output: html_document
 params:
-  windows_version: 20H2
-  windows_version_release_date: "the second half---October---of 2020"
+  windows_version: 21H1
+  windows_version_release_date: "the first half---May---of 2021"
   macos_version: Big Sur
   macos_version_link: https://support.apple.com/en-us/HT201475
 ---
