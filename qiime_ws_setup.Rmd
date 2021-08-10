@@ -1,0 +1,18 @@
+---
+title: "Amplicon sequence analysis"
+subtitle: "Workshop setup instructions"
+output: html_document
+---
+
+- If working off UBC campus, ensure that [myVPN is set up on your computer](vpn.html).
+- Prepare your computer for [working on a server](server.html)
+- Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
+- In RStudio, select the "Console" tab in the lower left pane and copy the following code after the prompt `>`
+ 
+    ```{r install-packages, eval = FALSE}
+    if (!require(tidyverse)) install.packages("tidyverse")
+    if (!require(vegan)) install.packages("vegan")
+    if (!require(BiocManager)) install.packages("BiocManager")
+    if (!require(phyloseq)) BiocManager::install("phyloseq")
+    if (!require(DESeq2)) BiocManager::install("DESeq2")
+    ```

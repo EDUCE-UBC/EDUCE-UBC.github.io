@@ -41,6 +41,8 @@ navbar:
         href: stats_ws_setup.html
       - text: Creating web apps in R with Shiny
         href: shiny_ws_setup.html
+      - text: Amplicon sequence analysis
+        href: qiime_ws_setup.html
   - text: Videos
     menu:
     - text: Installation instructions

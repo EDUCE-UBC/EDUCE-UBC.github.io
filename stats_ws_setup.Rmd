@@ -1,6 +1,6 @@
 ---
-title: "Workshop setup instructions"
-subtitle: "Workshop: Statistical models in R"
+title: "Statistical models in R"
+subtitle: "Workshop setup instructions"
 output: html_document
 ---
 

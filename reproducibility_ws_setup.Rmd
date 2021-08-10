@@ -1,10 +1,10 @@
 ---
-title: "Workshop setup instructions"
-subtitle: "Workshop: Reproducible research"
+title: "Reproducible research"
+subtitle: "Workshop setup instructions"
 output: html_document
 params:
   make_version: 4.3
-  r_version: 4.0.4 (2020-10-10)
+  r_version: 4.1.0 (2021-05-18)
 ---
 
 1. Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 
@@ -31,7 +31,6 @@ params:
         csv2 = FALSE
       )
     ```
-
 
 ## {.tabset .tabset-fade .tabset-pills}
 

@@ -1,6 +1,6 @@
 ---
-title: "Workshop setup instructions"
-subtitle: "Workshop: Introduction to the R tidyverse"
+title: "Introduction to the R tidyverse"
+subtitle: "Workshop setup instructions"
 output: html_document
 ---
 
@@ -29,5 +29,3 @@ output: html_document
         csv2 = FALSE
       )
     ```
-
-  

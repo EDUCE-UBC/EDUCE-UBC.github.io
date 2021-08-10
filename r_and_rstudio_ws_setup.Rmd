@@ -1,6 +1,6 @@
 ---
-title: "Workshop setup instructions"
-subtitle: "Workshop: Introduction to R and RStudio"
+title: "Introduction to R and RStudio"
+subtitle: "Workshop setup instructions"
 output: html_document
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Workshop setup instructions"
-subtitle: "Workshop: Creating web apps in R with Shiny"
+title: "Creating web apps in R with Shiny"
+subtitle: "Workshop setup instructions"
 output: html_document
 ---
 
