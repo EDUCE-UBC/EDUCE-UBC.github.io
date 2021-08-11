@@ -1,6 +1,5 @@
 ---
 title: "Installing QIIME 2"
-output: html_document
 ---
 
 QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence data. The installation instructions below assume that you have already installed [Miniconda](conda.html).

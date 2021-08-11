@@ -1,6 +1,5 @@
 ---
 title: "Set up for bash"
-output: html_document
 params:
   linux_version: "Ubuntu 18.04 LTS"
   linux_version_link: "https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab"

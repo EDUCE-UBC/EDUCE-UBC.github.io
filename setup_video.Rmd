@@ -1,6 +1,5 @@
 ---
 title: "Installation instructions"
-output: html_document
 ---
 EDUCE data science modules use a variety of computational tools. Most of these tools need to be downloaded and installed in order to follow along with our tutorials and complete practice assignments.
 

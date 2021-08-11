@@ -1,7 +1,6 @@
 ---
 title: "Amplicon sequence analysis"
 subtitle: "Workshop setup instructions"
-output: html_document
 ---
 
 - If working off UBC campus, ensure that [myVPN is set up on your computer](vpn.html).

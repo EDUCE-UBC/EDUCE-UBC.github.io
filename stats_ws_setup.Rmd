@@ -1,7 +1,6 @@
 ---
 title: "Statistical models in R"
 subtitle: "Workshop setup instructions"
-output: html_document
 ---
 
 - Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html). 

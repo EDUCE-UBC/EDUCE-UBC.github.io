@@ -1,6 +1,5 @@
 ---
 title: "About Course Compiler"
-output: html_document
 ---
 
 Course Compiler allows you to access all of EDUCE's [data science modules for teaching or self-learning purposes](course_outline.html). Simply select the course(s) that fit your interests and have the Course Compiler Shiny App create all the materials that you will need including slides, notes, exercises, and source code.

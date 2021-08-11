@@ -1,6 +1,5 @@
 ---
 title: "About our example data"
-output: html_document
 ---
 
 ## Saanich Inlet

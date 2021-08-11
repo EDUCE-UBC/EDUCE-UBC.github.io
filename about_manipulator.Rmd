@@ -1,6 +1,5 @@
 ---
 title: "About Data Manipulator"
-output: html_document
 ---
 
 Data Manipulator allows you to explore complex data sets without the need to install software or write code. While their are many possible functionalities, the main motivation for our Data Manipulator is to allow you to explore microbiome data that you wish to incorporate into your own customized EDUCE module(s).

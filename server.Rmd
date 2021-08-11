@@ -1,6 +1,5 @@
 ---
 title: "Working on a server with OpenSSH"
-output: html_document
 ---
 
 These instructions will ensure that your local computer can connect to a Linux server and copy files between them using a suite of software tools called OpenSSH. 

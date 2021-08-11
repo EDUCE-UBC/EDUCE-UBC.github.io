@@ -1,6 +1,5 @@
 ---
 title: "Installing VPN service"
-output: html_document
 ---
 
 If you are a student, staff or faculty at UBC you will need to install and connect to a VPN service to gain access to some UBC resources.

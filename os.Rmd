@@ -1,6 +1,5 @@
 ---
 title: "Updating and upgrading your OS"
-output: html_document
 params:
   windows_version: 21H1
   windows_version_release_date: "the first half---May---of 2021"

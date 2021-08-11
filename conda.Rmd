@@ -1,6 +1,5 @@
 ---
 title: "Installing Miniconda"
-output: html_document
 ---
 
 Miniconda is a minimal installer for Conda, Python, their dependencies and a small collection of packages. Conda itself fulfills two functions:

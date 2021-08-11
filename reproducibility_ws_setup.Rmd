@@ -1,7 +1,6 @@
 ---
 title: "Reproducible research"
 subtitle: "Workshop setup instructions"
-output: html_document
 params:
   make_version: 4.3
   r_version: 4.1.0 (2021-05-18)

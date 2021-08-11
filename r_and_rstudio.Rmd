@@ -1,6 +1,5 @@
 ---
 title: "Installing R and RStudio"
-output: html_document
 params:
   r_version: 4.1.0
   r_legacy_version: 3.3.3

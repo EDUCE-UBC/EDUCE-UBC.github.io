@@ -1,6 +1,5 @@
 ---
 title: "Tutorials in the educer package"
-output: html_document
 ---
 
 The educer package comes with a number of interactive tutorials. First, make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html) as well as the [educer package](educer.html).

@@ -1,6 +1,5 @@
 ---
 title: "Introduction to command line"
-output: html_document
 ---
 The command line / terminal / shell allows you to access a computer using only a text-based window. It is a foundational tool in data science and is used throughout many EDUCE modules.
 

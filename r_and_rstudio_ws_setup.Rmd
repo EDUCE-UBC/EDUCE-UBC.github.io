@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R and RStudio"
 subtitle: "Workshop setup instructions"
-output: html_document
 ---
 
 - Prior to the workshop, please [install R and RStudio](r_and_rstudio.html) and make sure it is working.
