@@ -12,8 +12,6 @@ Many biocomputing tools are only accessible and executed from a Unix-like Comman
 
 ### Windows 10
 
-**These instructions are for Windows 10 only!**
-
 Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing "Windows Subsystem for Linux" (WSL) which will allow you to run a Linux distribution (in our case "Ubuntu") on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.
 
 #### Installation
