@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Amplicon sequence analysis</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,7 +56,6 @@ if (window.hljs) {
 
 
 
-<link rel="stylesheet" href="hide_title.css" type="text/css" />
 
 
 
@@ -381,20 +380,23 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Amplicon sequence analysis</h1>
+<h3 class="subtitle">Workshop setup instructions</h3>
 
 </div>
 
 
-<p><img src="images/EDUCE_globe.png" width="350" ALIGN="left" /> <font size="18"><span style="color:teal"><strong>E</strong></span>xperiential<br />
-<span style="color:teal"><strong>D</strong></span>ata science for<br />
-<span style="color:teal"><strong>U</strong></span>ndergraduate<br />
-<span style="color:teal"><strong>C</strong></span>ross-disciplinary<br />
-<span style="color:teal"><strong>E</strong></span>ducation</font></p>
-<p><br></p>
-<p>The world is increasingly inundated with data. This is especially acute in the life sciences where next-generation sequencing has created a tidal wave of multi-omic information. As a result, the major challenge in microbiology has shifted from data generation to processing and interpretation. This necessitates training in data science, an interdisciplinary field linking big data with statistics, mathematics, and computer science.</p>
-<p>Toward this goal, the Experiential Data science for Undergraduate Cross-disciplinary Education (EDUCE) initiative at the U. of British Columbia is creating a broadly deliverable and flexible program for data science education in microbiology. EDUCE delivers modules in 7 undergraduate <a href="http://ecoscope.ubc.ca/program-structure/educe/">microbiology courses</a> as well as open-access <a href="https://github.com/EDUCE-UBC/workshops_access">workshops</a> in collaboration with the <a href="https://asda.stat.ubc.ca/">Applied Statistics and Data Science Group</a>. These modules provide basic to intermediate training in data science applications including command line, R/RStudio, statistics, and next-generation sequence analysis.</p>
-<p>All of EDUCE’s materials are open-access (GNU General Public License) and accessible through the <a href="https://github.com/EDUCE-UBC/">EDUCE GitHub</a> and this site.</p>
+<ul>
+<li><p>If working off UBC campus, ensure that <a href="vpn.html">myVPN is set up on your computer</a>.</p></li>
+<li><p>Prepare your computer for <a href="server.html">working on a server</a></p></li>
+<li><p>Make sure that you have installed the <a href="r_and_rstudio.html">latest versions of R and RStudio</a>.</p></li>
+<li><p>In RStudio, select the “Console” tab in the lower left pane and copy the following code after the prompt <code>&gt;</code></p>
+<pre class="r"><code>if (!require(tidyverse)) install.packages(&quot;tidyverse&quot;)
+if (!require(vegan)) install.packages(&quot;vegan&quot;)
+if (!require(BiocManager)) install.packages(&quot;BiocManager&quot;)
+if (!require(phyloseq)) BiocManager::install(&quot;phyloseq&quot;)
+if (!require(DESeq2)) BiocManager::install(&quot;DESeq2&quot;)</code></pre></li>
+</ul>
 
 
 
