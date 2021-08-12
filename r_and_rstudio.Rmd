@@ -1,7 +1,6 @@
 ---
 title: "Installing R and RStudio"
 params:
-  r_version: 4.1.0
   r_legacy_version: 3.3.3
   rstudio_version: 1.4.1717
   rstudio_legacy_version: 1.1.463
@@ -12,7 +11,7 @@ params:
 To complete these installs, you must have administrator privileges on your machine. Choose the version appropriate for your operating system. You can also watch a video for a [Mac](https://youtu.be/Oy9BPxt8gQ0?t=270), or a [Windows](https://youtu.be/7f9ADV2v7CI?t=336) install (you only need to install R and RStudio, and none of the other programs mentioned in the videos). Please also note that the versions of R and RStudio in the video are older. Instead, install or update to the latest version supported by your operating system.
 
 1. R https://cran.r-project.org/
-    - version `r params$r_version` (only for macOS Yosemite or older: legacy version `r params$r_legacy_version`)
+    - version `r getRversion()` (only for macOS Yosemite or older: legacy version `r params$r_legacy_version`)
     - Choose among "Download and Install R" section (**not** "Source Code for all Platforms").
     - You **must** have R installed before proceeding to step 2.
 1. RStudio https://rstudio.com/products/rstudio/download/#download
