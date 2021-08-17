@@ -15,6 +15,7 @@ QIIME 2 is a microbiome bioinformatics platform to analyze amplicon sequence dat
     "https://data.qiime2.org/distro/core/qiime2-2020.8-py36-linux-conda.yml" > \
     "qiime2.yml"
   ```
+  
 ### macOS
 
 - In your Terminal, download the configuration file for a Conda environment that also contains QIIME 2
