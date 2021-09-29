@@ -1,0 +1,13 @@
+R packages are units of shareable code, containing functions that facilitate and enhance analyses. In simpler terms, think of R packages as iPhone Applications. Each App has specific capabilities that can be accessed when we install and then open the application. The same holds true for R packages. To use the functions contained in a specific R package, we first need to install the package, then each time we want to use the package we need to "open" the package by loading it.
+
+While installing packages you might be prompted:
+
+```
+  There is a binary version available but the source version is later:
+
+<table of package names>
+
+Do you want to install from sources the package which needs compilation? (Yes/no/cancel)
+```
+
+Always enter `no` followed by <kbd>enter</kbd>.

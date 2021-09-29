@@ -27,6 +27,10 @@ navbar:
       href: qiime2.html
     - text: VPN
       href: vpn.html
+    - text: Courses
+      menu:
+        - text: MICB 322
+          href: MICB322.html
     - text: Workshops
       menu:
       - text: Introduction to R and RStudio

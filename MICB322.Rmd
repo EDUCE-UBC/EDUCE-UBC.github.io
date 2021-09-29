@@ -1,0 +1,35 @@
+---
+title: "Plotting growth curves in R"
+subtitle: "MICB 322 setup instructions"
+---
+
+## R and RStudio
+
+Make sure that you have installed the [latest versions of R and RStudio](r_and_rstudio.html).
+
+## R packages
+
+```{r child = "child_Rmds/packages.Rmd"}
+```
+
+Install the following packages by copying the code below into the Console (usually the left or bottom-left pane in RStudio) after the prompt `>`.
+
+```{r install-packages, eval = FALSE}
+if (!require(tidyverse)) install.packages("tidyverse")
+```
+
+## Data
+
+Download the data files we will use during the class by clicking on the buttons below and save it on your Desktop or another convenient location.
+  
+```{r echo = FALSE}
+downloadthis::download_file(
+  path         = "data/growth_data.csv",
+  button_label = "Download growth data"
+)
+
+downloadthis::download_file(
+  path         = "data/well_information.csv",
+  button_label = "Download well information"
+)
+```
