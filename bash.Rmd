@@ -12,61 +12,33 @@ Many biocomputing tools are only accessible and executed from a Unix-like Comman
 
 ### Windows 10
 
-Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing "Windows Subsystem for Linux" (WSL) which will allow you to run a Linux distribution (in our case "Ubuntu") on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.
+Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing "Windows Subsystem for Linux" (WSL), which will allow you to run a Linux distribution (in our case, "Ubuntu") on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.
 
 #### Installation
 
 - First [update to the latest version of Windows 10](os.html#windows).
 
--   Go to [Microsoft Store Windows Terminal website](https://aka.ms/terminal) > click the "Get" button to install the app.
+- Go to [Microsoft Store Windows Terminal website](https://aka.ms/terminal) > click the "Get" button to install the app.
 
 - Select the Windows Start button > type `terminal` ![](images/one.png){width=3%} > choose "Run as administrator" ![](images/two.png){width=3%} > choose "Yes" in the prompt that opens > enter your administrator password if prompted
 
   ![](images/windows_terminal_as_admin.png){width=75%}
 
-- In the Terminal app, enter the following commands to enable WSL
+- In the Terminal app, enter the following commands to install WSL and the default Linux Ubuntu distribution
 
   ```
-  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  wsl --install
   ```
 
-  and virtual machines on your system:
-  
-  ```
-  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-  ```
-
-- Restart your computer.
-
-- After your restart, download the [latest WSL kernel](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and install it by double-clicking on the file.
-
-- In the Terminal app, enter the following command to use the latest version of WSL:
-
-  ```
-  wsl --set-default-version 2
-  ```
-
-- Go to [Microsoft Store `r params$linux_version` website](`r params$linux_version_link`) > click "Get" button to install it
-
-- Time to start Ubuntu for the first time! Select the Windows Start button > type `Ubuntu` and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. `_`, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:
-
-  ```
-  exit
-  ```
-
-- Back in the Terminal, enter the following command to make Ubuntu your default for WSL:
-
-  ```
-  wslconfig /setdefault `r params$linux_version_cli`
-  ```
-
-- Now you can start Ubuntu from the Terminal by entering:
+    and restart your computer. If you encounter any problems, please see the [WSL installation troubleshooting guide](https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues). If you do not run the latest version of Windows, you will have to [install WSL manually](https://docs.microsoft.com/en-us/windows/wsl/install-manual).
+    
+- Now, you can start Ubuntu from the Terminal by entering:
 
   ```
   wsl
   ```
 
-- As a final step, we are going to update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:
+- As a final step, we will update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:
 
   ```{bash eval = FALSE}
   sudo apt update && sudo apt upgrade
@@ -75,7 +47,8 @@ Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it 
 #### Resources
 
 - [Windows Subsystem for Linux Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
-- [Updating the WSL 2 Linux kernel](https://aka.ms/wsl2kernel)
+- [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
+- [Manual Installation of WSL](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
 - [Create a user account and password for your new Linux distribution](https://docs.microsoft.com/en-us/windows/wsl/user-support)
 
 ### macOS
@@ -86,11 +59,11 @@ To ensure that you are using `bash` (and not the new macOS default `zsh`), open 
 chsh -s /bin/bash
 ```
 
-After command finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.
+After the command is finished (i.e. you see the prompt `$` and your cursor again), quit and restart the Terminal app.
 
 ### Linux
 
-We are going to ensure that you are using `bash` and have a program called `curl` installed to download files.
+We will ensure that you are using `bash` and have a program called `curl` installed to download files.
 
 - To switch, open the Terminal app and enter the following command after the prompt `$` (all distributions):
 
