@@ -398,7 +398,7 @@ $(document).ready(function () {
 <h2></h2>
 <div id="windows-10" class="section level3">
 <h3>Windows 10</h3>
-<p>Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing “Windows Subsystem for Linux” (WSL) which will allow you to run a Linux distribution (in our case “Ubuntu”) on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.</p>
+<p>Out-of-the-box, Windows 10 does not support Unix-like commands. Fortunately, it is possible to add this functionality by installing “Windows Subsystem for Linux” (WSL), which will allow you to run a Linux distribution (in our case, “Ubuntu”) on top of Windows. You will have to restart your computer as part of the installation, so make sure to save any changes before you continue.</p>
 <div id="installation" class="section level4">
 <h4>Installation</h4>
 <ul>
@@ -406,22 +406,12 @@ $(document).ready(function () {
 <li><p>Go to <a href="https://aka.ms/terminal">Microsoft Store Windows Terminal website</a> &gt; click the “Get” button to install the app.</p></li>
 <li><p>Select the Windows Start button &gt; type <code>terminal</code> <img src="images/one.png" style="width:3.0%" /> &gt; choose “Run as administrator” <img src="images/two.png" style="width:3.0%" /> &gt; choose “Yes” in the prompt that opens &gt; enter your administrator password if prompted</p>
 <p><img src="images/windows_terminal_as_admin.png" style="width:75.0%" /></p></li>
-<li><p>In the Terminal app, enter the following commands to enable WSL</p>
-<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></pre>
-<p>and virtual machines on your system:</p>
-<pre><code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code></pre></li>
-<li><p>Restart your computer.</p></li>
-<li><p>After your restart, download the <a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">latest WSL kernel</a> and install it by double-clicking on the file.</p></li>
-<li><p>In the Terminal app, enter the following command to use the latest version of WSL:</p>
-<pre><code>wsl --set-default-version 2</code></pre></li>
-<li><p>Go to <a href="https://www.microsoft.com/en-ca/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">Microsoft Store Ubuntu 18.04 LTS website</a> &gt; click “Get” button to install it</p></li>
-<li><p>Time to start Ubuntu for the first time! Select the Windows Start button &gt; type <code>Ubuntu</code> and start it. In a new window, a prompt will ask you to create a username (use only lowercase letters and underscores, i.e. <code>_</code>, instead of spaces) and a password. You will need this password whenever you install something on Ubuntu, so retain the information somewhere secure. This combination of username and password is specific to the Linux operating system and independent of your Windows username and password. You can exit Ubuntu by entering:</p>
-<pre><code>exit</code></pre></li>
-<li><p>Back in the Terminal, enter the following command to make Ubuntu your default for WSL:</p>
-<pre><code>wslconfig /setdefault Ubuntu-18.04</code></pre></li>
-<li><p>Now you can start Ubuntu from the Terminal by entering:</p>
+<li><p>In the Terminal app, enter the following commands to install WSL and the default Linux Ubuntu distribution</p>
+<pre><code>wsl --install</code></pre>
+<p>and restart your computer. If you encounter any problems, please see the <a href="https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues">WSL installation troubleshooting guide</a>. If you do not run the latest version of Windows, you will have to <a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">install WSL manually</a>.</p></li>
+<li><p>Now, you can start Ubuntu from the Terminal by entering:</p>
 <pre><code>wsl</code></pre></li>
-<li><p>As a final step, we are going to update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:</p>
+<li><p>As a final step, we will update all installed programs of your new Ubuntu installation. In Ubuntu, enter the following commands:</p>
 <pre class="bash"><code>sudo apt update &amp;&amp; sudo apt upgrade</code></pre></li>
 </ul>
 </div>
@@ -429,7 +419,8 @@ $(document).ready(function () {
 <h4>Resources</h4>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></li>
-<li><a href="https://aka.ms/wsl2kernel">Updating the WSL 2 Linux kernel</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install">Install WSL</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">Manual Installation of WSL</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/wsl/user-support">Create a user account and password for your new Linux distribution</a></li>
 </ul>
 </div>
@@ -438,11 +429,11 @@ $(document).ready(function () {
 <h3>macOS</h3>
 <p>To ensure that you are using <code>bash</code> (and not the new macOS default <code>zsh</code>), open the Terminal app and enter the following command after the prompt <code>$</code>:</p>
 <pre class="bash"><code>chsh -s /bin/bash</code></pre>
-<p>After command finished (i.e. you see the prompt <code>$</code> and your cursor again), quit and restart the Terminal app.</p>
+<p>After the command is finished (i.e. you see the prompt <code>$</code> and your cursor again), quit and restart the Terminal app.</p>
 </div>
 <div id="linux" class="section level3">
 <h3>Linux</h3>
-<p>We are going to ensure that you are using <code>bash</code> and have a program called <code>curl</code> installed to download files.</p>
+<p>We will ensure that you are using <code>bash</code> and have a program called <code>curl</code> installed to download files.</p>
 <ul>
 <li><p>To switch, open the Terminal app and enter the following command after the prompt <code>$</code> (all distributions):</p>
 <pre class="bash"><code>chsh -s /bin/bash</code></pre></li>
