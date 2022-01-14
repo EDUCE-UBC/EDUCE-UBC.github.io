@@ -62,7 +62,7 @@ The installation instructions below assume that you have already set up [`bash`]
 
   ```{bash eval = FALSE}
   conda install wget
-  ````
+  ```
   
 ## Resources
 
